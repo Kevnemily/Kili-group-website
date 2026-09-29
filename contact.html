@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us · Kilimanjaro Group</title>
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+      colors: {
+        brand: {
+          dark: '#0B131F',
+          cardBg: '#121C2B',
+          lightBg: '#F8FAFC',
+          lime: '#B8EC34',
+          limeHover: '#a3d928',
+          accent: '#10B981',
+          muted: '#94A3B8'
+        }
+      },
+      boxShadow: {
+        'glow': '0 0 25px rgba(184, 236, 52, 0.25)',
+        'card-glow': '0 10px 30px -10px rgba(0, 0, 0, 0.3)',
+        'glow-lg': '0 0 60px rgba(184, 236, 52, 0.15)'
+      }
+    }
+  }
+}
+</script>
+
+<style>
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0B131F; color: #F8FAFC; }
+
+  .glass-pill { background: rgba(255,255,255,.08); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.12); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: #0B131F; }
+  ::-webkit-scrollbar-thumb { background: #24303f; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #B8EC34; }
+
+  /* Form input focus */
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: #B8EC34;
+    box-shadow: 0 0 0 3px rgba(184,236,52,0.15);
+  }
+
+  /* Native select dropdown styling for dark theme */
+  .form-select option { background: #121C2B; color: #fff; }
+
+  /* FAB */
+  #fab-actions { transform-origin: bottom right; }
+</style>
+</head>
+
+<body class="overflow-x-hidden antialiased selection:bg-brand-lime selection:text-brand-dark">
+
+<!-- ================= HEADER / NAVBAR ================= -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group" class="h-14 w-auto group-hover:scale-105 transition-transform" />
+      </a>
+
+      <nav class="hidden lg:flex items-center space-x-1 bg-white/5 px-6 py-2 rounded-full border border-white/10">
+        <a href="index.html#overview" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">About</a>
+        <a href="products.html" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Products</a>
+        <a href="index.html#services" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Services</a>
+        <a href="index.html#divisions" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Divisions</a>
+        <a href="index.html#partners" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Partners</a>
+        <a href="#contact" class="px-4 py-2 text-sm font-semibold text-brand-lime transition-colors">Contact</a>
+      </nav>
+
+      <div class="hidden sm:flex items-center gap-6">
+        <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">
+          Staff Login
+        </a>
+        <a href="#contact-form" class="px-6 py-3 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all duration-300 flex items-center gap-2 shadow-glow">
+          Get in Touch <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white text-2xl focus:outline-none" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden bg-brand-cardBg border-b border-white/10 px-6 py-6">
+    <nav class="flex flex-col gap-4">
+      <a href="index.html#overview" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">About</a>
+      <a href="products.html" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Products</a>
+      <a href="index.html#services" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Services</a>
+      <a href="index.html#divisions" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Divisions</a>
+      <a href="index.html#partners" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Partners</a>
+      <a href="#contact" class="text-brand-lime font-medium text-lg mobile-link">Contact</a>
+
+      <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="mt-2 w-full text-center py-3 text-brand-lime font-bold rounded-xl border border-brand-lime/30 flex items-center justify-center mobile-link">
+        Staff Login
+      </a>
+      <a href="#contact-form" class="mt-2 w-full text-center py-3 bg-brand-lime text-brand-dark font-bold rounded-xl shadow-glow mobile-link">
+        Get in Touch
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= PAGE HERO ================= -->
+<section class="relative pt-40 pb-32 lg:pt-52 lg:pb-40 bg-brand-dark overflow-hidden">
+
+  <!-- Background subtle glow -->
+  <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Grid pattern overlay -->
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(circle, #B8EC34 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+
+    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-pill border border-white/15 text-xs font-semibold text-gray-300 mb-6">
+      <a href="index.html" class="hover:text-brand-lime transition-colors">Home</a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-gray-500"></i>
+      <span class="text-brand-lime">Contact Us</span>
+    </div>
+
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.05]">
+      Get in
+      <span class="text-brand-lime">Touch</span>
+    </h1>
+
+    <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mt-6">
+      Have a question or need assistance? Reach out to us and we'll respond within 24 hours.
+    </p>
+
+  </div>
+</section>
+
+<!-- ================= CONTACT SECTION ================= -->
+<section id="contact" class="relative z-20 -mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+  <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+
+    <!-- ========== CONTACT INFO ========== -->
+    <div class="space-y-8">
+
+      <div class="space-y-5">
+        <div class="inline-flex items-center gap-3 text-xs font-extrabold uppercase tracking-widest text-brand-lime">
+          <span class="w-2 h-2 rounded-full bg-brand-lime"></span>
+          Contact Us
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          We'd love to
+          <span class="text-brand-lime">hear from you</span>
+        </h2>
+
+        <p class="text-gray-300 text-sm sm:text-base leading-relaxed max-w-xl">
+          Whether you have a question about our services, need a quote, or want to discuss a partnership — we're here to help.
+        </p>
+      </div>
+
+      <!-- Contact details grid -->
+      <div class="grid sm:grid-cols-2 gap-4">
+
+        <!-- Phone -->
+        <div class="group rounded-2xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-5 transition-all duration-300">
+          <div class="w-11 h-11 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-base mb-3 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <h4 class="text-sm font-extrabold text-white mb-2">Phone</h4>
+          <a href="tel:+255679746702" class="block text-xs text-gray-300 hover:text-brand-lime transition-colors">+255 679 746 702</a>
+          <a href="tel:+27768968767" class="block text-xs text-gray-300 hover:text-brand-lime transition-colors mt-0.5">+27 76 896 8767</a>
+        </div>
+
+        <!-- Email -->
+        <div class="group rounded-2xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-5 transition-all duration-300">
+          <div class="w-11 h-11 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-base mb-3 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <h4 class="text-sm font-extrabold text-white mb-2">Email</h4>
+          <a href="mailto:info@kilimanjaroexplosives.co.tz" class="block text-xs text-gray-300 hover:text-brand-lime transition-colors break-all">
+            info@kilimanjaroexplosives.co.tz
+          </a>
+        </div>
+
+        <!-- Office -->
+        <div class="group rounded-2xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-5 transition-all duration-300">
+          <div class="w-11 h-11 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-base mb-3 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <h4 class="text-sm font-extrabold text-white mb-2">Head Office</h4>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            P.O. Box 533, Mhongoro Street,<br/>Mbulu Msalabani, Kahama, Mwanza
+          </p>
+        </div>
+
+        <!-- Hours -->
+        <div class="group rounded-2xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-5 transition-all duration-300">
+          <div class="w-11 h-11 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-base mb-3 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <h4 class="text-sm font-extrabold text-white mb-2">Working Hours</h4>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Mon – Fri: 8:00 AM – 6:00 PM<br/>Saturday: 9:00 AM – 2:00 PM
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Socials -->
+      <div class="space-y-3">
+        <p class="text-xs font-extrabold uppercase tracking-widest text-gray-500">Follow Us</p>
+        <div class="flex gap-3">
+          <a href="#" aria-label="Facebook" class="w-11 h-11 rounded-2xl bg-brand-cardBg border border-white/10 hover:bg-brand-lime hover:text-brand-dark hover:border-brand-lime text-gray-300 flex items-center justify-center transition-all">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" aria-label="Twitter" class="w-11 h-11 rounded-2xl bg-brand-cardBg border border-white/10 hover:bg-brand-lime hover:text-brand-dark hover:border-brand-lime text-gray-300 flex items-center justify-center transition-all">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="w-11 h-11 rounded-2xl bg-brand-cardBg border border-white/10 hover:bg-brand-lime hover:text-brand-dark hover:border-brand-lime text-gray-300 flex items-center justify-center transition-all">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="#" aria-label="Instagram" class="w-11 h-11 rounded-2xl bg-brand-cardBg border border-white/10 hover:bg-brand-lime hover:text-brand-dark hover:border-brand-lime text-gray-300 flex items-center justify-center transition-all">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========== CONTACT FORM ========== -->
+    <div id="contact-form" class="relative">
+      <div class="rounded-3xl bg-brand-cardBg border border-white/10 shadow-card-glow p-8 sm:p-10 relative overflow-hidden">
+
+        <!-- Decorative glow -->
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-lime/10 border border-brand-lime/20 text-[10px] font-extrabold uppercase tracking-widest text-brand-lime mb-4">
+            <i class="fa-solid fa-envelope-open-text text-[9px]"></i> Send Message
+          </div>
+          <h3 class="text-2xl font-extrabold text-white mb-2">Send us a message</h3>
+          <p class="text-sm text-gray-400 mb-8">Fill in the form and we'll get back to you as soon as possible.</p>
+
+          <form id="contactForm" onsubmit="handleSubmit(event)" class="space-y-5">
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="fullName" class="block text-[11px] font-extrabold uppercase tracking-widest text-gray-400 mb-2">
+                  Full Name <span class="text-brand-lime">*</span>
+                </label>
+                <input
+                  type="text" id="fullName" placeholder="Enter your full name" required
+                  class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder-gray-500 outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-[11px] font-extrabold uppercase tracking-widest text-gray-400 mb-2">
+                  Email Address <span class="text-brand-lime">*</span>
+                </label>
+                <input
+                  type="email" id="email" placeholder="Enter your email" required
+                  class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder-gray-500 outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="phone" class="block text-[11px] font-extrabold uppercase tracking-widest text-gray-400 mb-2">
+                Phone Number
+              </label>
+              <input
+                type="tel" id="phone" placeholder="Enter your phone number"
+                class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder-gray-500 outline-none transition-all"
+              />
+            </div>
+
+            <div>
+              <label for="subject" class="block text-[11px] font-extrabold uppercase tracking-widest text-gray-400 mb-2">
+                Subject <span class="text-brand-lime">*</span>
+              </label>
+              <select
+                id="subject" required
+                class="form-select w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white outline-none transition-all appearance-none"
+                style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23B8EC34%22 stroke-width=%222.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22></polyline></svg>'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 14px;"
+              >
+                <option value="">Select a subject</option>
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Explosives Supply">Explosives Supply</option>
+                <option value="Blasting Consultancy">Blasting Consultancy</option>
+                <option value="Mining Chemicals">Mining Chemicals</option>
+                <option value="Equipment & Supplies">Equipment &amp; Supplies</option>
+                <option value="Logistics & Transport">Logistics &amp; Transport</option>
+                <option value="Partnership">Partnership</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-[11px] font-extrabold uppercase tracking-widest text-gray-400 mb-2">
+                Message <span class="text-brand-lime">*</span>
+              </label>
+              <textarea
+                id="message" placeholder="Tell us how we can help you..." required rows="5"
+                class="form-textarea w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder-gray-500 outline-none transition-all resize-vertical"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full py-4 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all duration-300 shadow-glow inline-flex items-center justify-center gap-3"
+            >
+              Send Message <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <p class="text-center text-[11px] text-gray-500 pt-1">
+              <i class="fa-solid fa-shield-halved text-brand-lime mr-1"></i>
+              Your information is safe and never shared.
+            </p>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= BRANCHES ================= -->
+<section class="py-24 bg-brand-dark border-t border-white/5 relative overflow-hidden">
+  <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-brand-lime/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="text-center max-w-2xl mx-auto mb-14 space-y-4">
+      <span class="px-4 py-1.5 rounded-full glass-pill text-brand-lime font-bold text-xs uppercase tracking-wider border border-brand-lime/20 inline-flex items-center gap-2">
+        Our Branches
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Find Us Across Tanzania</h2>
+      <p class="text-gray-400 text-sm">We're strategically located to serve you better.</p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+
+      <div class="group rounded-2xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-5 text-center transition-all duration-300 hover:-translate-y-1 shadow-xl">
+        <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-lg mx-auto mb-3 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <h4 class="text-sm font-extrabold text-white group-hover:text-brand-lime transition-colors">Geita</h4>
+        <p class="text-xs text-gray-400 mt-1">Geita Gold Market, Geita Town</p>
+      </div>
+
+      <div class="group rounded-2xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-5 text-center transition-all duration-300 hover:-translate-y-1 shadow-xl">
+        <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-lg mx-auto mb-3 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <h4 class="text-sm font-extrabold text-white group-hover:text-brand-lime transition-colors">Mwanza</h4>
+        <p class="text-xs text-gray-400 mt-1">Head Office, Kahama</p>
+      </div>
+
+      <div class="group rounded-2xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-5 text-center transition-all duration-300 hover:-translate-y-1 shadow-xl">
+        <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-lg mx-auto mb-3 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <h4 class="text-sm font-extrabold text-white group-hover:text-brand-lime transition-colors">Dar es Salaam</h4>
+        <p class="text-xs text-gray-400 mt-1">Regional Branch</p>
+      </div>
+
+      <div class="group rounded-2xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-5 text-center transition-all duration-300 hover:-translate-y-1 shadow-xl">
+        <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-lg mx-auto mb-3 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <h4 class="text-sm font-extrabold text-white group-hover:text-brand-lime transition-colors">Tanga</h4>
+        <p class="text-xs text-gray-400 mt-1">Regional Branch</p>
+      </div>
+
+      <div class="group rounded-2xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-5 text-center transition-all duration-300 hover:-translate-y-1 shadow-xl">
+        <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-lg mx-auto mb-3 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <h4 class="text-sm font-extrabold text-white group-hover:text-brand-lime transition-colors">Dodoma</h4>
+        <p class="text-xs text-gray-400 mt-1">Regional Branch</p>
+      </div>
+
+      <div class="group rounded-2xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-5 text-center transition-all duration-300 hover:-translate-y-1 shadow-xl">
+        <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-lg mx-auto mb-3 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <h4 class="text-sm font-extrabold text-white group-hover:text-brand-lime transition-colors">Nzega</h4>
+        <p class="text-xs text-gray-400 mt-1">Regional Branch</p>
+      </div>
+
+      <div class="group rounded-2xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-5 text-center transition-all duration-300 hover:-translate-y-1 shadow-xl">
+        <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-lg mx-auto mb-3 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <h4 class="text-sm font-extrabold text-white group-hover:text-brand-lime transition-colors">Musoma</h4>
+        <p class="text-xs text-gray-400 mt-1">MMG Mining Area</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="py-20 bg-slate-900 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-brand-cardBg via-brand-dark to-slate-900 border border-white/10 p-8 sm:p-14 text-center">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 space-y-4 max-w-2xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Ready To Start Your Project?</h2>
+        <p class="text-gray-400 text-sm leading-relaxed">Our team is ready to help you with any mining challenge — from explosives and chemicals to logistics and equipment.</p>
+
+        <div class="flex flex-wrap gap-3 justify-center pt-4">
+          <a href="#contact-form" class="px-7 py-3.5 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all duration-300 shadow-glow inline-flex items-center gap-3">
+            Send Message <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="products.html" class="px-7 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white font-bold text-sm transition-all inline-flex items-center gap-3">
+            <i class="fa-solid fa-th-large"></i> Browse Products
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-brand-dark text-gray-400 py-16 border-t border-white/5 text-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-12 gap-10">
+
+      <div class="md:col-span-4 space-y-4">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group" class="h-16 w-auto" />
+        <p class="text-gray-400 leading-relaxed">
+          Head Office: P.O. Box 533, Mhongoro Street, Mbulu Msalabani, Kahama, Mwanza.
+        </p>
+        <div class="flex gap-3 text-base">
+          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="md:col-span-2">
+        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Branches</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Geita</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Mwanza</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Musoma (MMG)</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Dar es Salaam</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Tanga · Dodoma · Nzega</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Services</h4>
+        <ul class="space-y-2">
+          <li><a href="products.html" class="hover:text-brand-lime transition-colors">Explosives</a></li>
+          <li><a href="index.html#services" class="hover:text-brand-lime transition-colors">Blasting Consultancy</a></li>
+          <li><a href="chemicals.html" class="hover:text-brand-lime transition-colors">Mining Chemicals</a></li>
+          <li><a href="supplies.html" class="hover:text-brand-lime transition-colors">Equipment &amp; Supplies</a></li>
+          <li><a href="logistics.html" class="hover:text-brand-lime transition-colors">Logistics &amp; Transport</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-4">
+        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Stay Connected</h4>
+        <p class="mb-4">Get updates on our solutions and news.</p>
+        <form class="flex gap-2 bg-white/5 border border-white/10 rounded-full p-1" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+          <input type="email" placeholder="Your email" required class="flex-1 bg-transparent px-4 py-2 text-xs text-white outline-none" />
+          <button type="submit" class="px-5 py-2 rounded-full bg-brand-lime text-brand-dark font-extrabold text-xs hover:bg-brand-limeHover transition-colors">Join</button>
+        </form>
+        <p class="mt-4 text-xs"><i class="fa-solid fa-phone text-brand-lime"></i> +255 679 746 702 · +27 76 896 8767</p>
+      </div>
+
+    </div>
+
+    <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+      <span>© 2026 Kilimanjaro Group. All rights reserved.</span>
+      <span class="flex gap-4">
+        <a href="#" class="hover:text-brand-lime transition-colors">Privacy</a>
+        <a href="#" class="hover:text-brand-lime transition-colors">Terms</a>
+        <a href="#" class="hover:text-brand-lime transition-colors">CSR</a>
+        <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="hover:text-brand-lime transition-colors">Staff Login</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Back button -->
+<a href="index.html" aria-label="Back to Home" class="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-glow hover:scale-110 transition-transform">
+  <i class="fa-solid fa-arrow-left text-lg"></i>
+</a>
+
+<!-- ================= FLOATING ACTION BUTTON (CALL / WHATSAPP) ================= -->
+<div id="fab-container" class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+
+  <!-- Action buttons (hidden by default) -->
+  <div id="fab-actions" class="flex flex-col items-end gap-3 opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/255677800002?text=Hello%20Kilimanjaro%20Group%2C%20I%27d%20like%20to%20get%20in%20touch."
+       target="_blank" rel="noopener"
+       class="group flex items-center gap-3">
+      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">
+        WhatsApp Us
+      </span>
+      <span class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+        <i class="fa-brands fa-whatsapp text-xl"></i>
+      </span>
+    </a>
+
+    <!-- Call -->
+    <a href="tel:+255677800002" class="group flex items-center gap-3">
+      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">
+        Call Us
+      </span>
+      <span class="w-12 h-12 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+        <i class="fa-solid fa-phone text-lg"></i>
+      </span>
+    </a>
+
+  </div>
+
+  <!-- Main FAB toggle -->
+  <button id="fab-toggle"
+          aria-label="Contact options"
+          aria-expanded="false"
+          class="w-14 h-14 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-glow hover:scale-110 transition-transform relative">
+    <i id="fab-icon" class="fa-solid fa-headset text-xl transition-transform duration-300"></i>
+  </button>
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ---------- Mobile Menu ---------- */
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+  mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  /* ---------- Floating Action Button (Call / WhatsApp) ---------- */
+  const fabToggle = document.getElementById('fab-toggle');
+  const fabActions = document.getElementById('fab-actions');
+  const fabIcon = document.getElementById('fab-icon');
+  const fabContainer = document.getElementById('fab-container');
+  let fabOpen = false;
+
+  function setFab(open) {
+    fabOpen = open;
+    fabToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      fabActions.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+      fabActions.classList.add('opacity-100', 'translate-y-0');
+      fabIcon.classList.add('rotate-45');
+    } else {
+      fabActions.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+      fabActions.classList.remove('opacity-100', 'translate-y-0');
+      fabIcon.classList.remove('rotate-45');
+    }
+  }
+
+  fabToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setFab(!fabOpen);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (fabOpen && !fabContainer.contains(e.target)) {
+      setFab(false);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && fabOpen) setFab(false);
+  });
+
+  /* ---------- Smooth scroll for #contact-form ---------- */
+  document.querySelectorAll('a[href="#contact-form"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+
+});
+
+/* ---------- Form Submit ---------- */
+function handleSubmit(event) {
+  event.preventDefault();
+
+  const fullName = document.getElementById('fullName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const subject = document.getElementById('subject').value;
+  const message = document.getElementById('message').value.trim();
+
+  if (!fullName || !email || !subject || !message) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  // Visual feedback
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  const originalHTML = submitBtn.innerHTML;
+  submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch animate-spin"></i> Sending...';
+  submitBtn.disabled = true;
+  submitBtn.classList.add('opacity-80', 'cursor-wait');
+
+  setTimeout(() => {
+    submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
+    submitBtn.classList.remove('bg-brand-lime', 'hover:bg-brand-limeHover');
+    submitBtn.classList.add('bg-emerald-500', 'text-white');
+
+    setTimeout(() => {
+      alert('Thank you for your message! We will get back to you within 24 hours.');
+      document.getElementById('contactForm').reset();
+      submitBtn.innerHTML = originalHTML;
+      submitBtn.classList.remove('bg-emerald-500', 'text-white', 'opacity-80', 'cursor-wait');
+      submitBtn.classList.add('bg-brand-lime', 'hover:bg-brand-limeHover');
+      submitBtn.disabled = false;
+    }, 500);
+  }, 1200);
+}
+</script>
+
+</body>
+</html>

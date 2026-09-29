@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Products · Kilimanjaro Group</title>
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+      colors: {
+        brand: {
+          dark: '#0B131F',
+          cardBg: '#121C2B',
+          lightBg: '#F8FAFC',
+          lime: '#B8EC34',
+          limeHover: '#a3d928',
+          accent: '#10B981',
+          muted: '#94A3B8'
+        }
+      },
+      boxShadow: {
+        'glow': '0 0 25px rgba(184, 236, 52, 0.25)',
+        'card-glow': '0 10px 30px -10px rgba(0, 0, 0, 0.3)',
+        'glow-lg': '0 0 60px rgba(184, 236, 52, 0.15)'
+      }
+    }
+  }
+}
+</script>
+
+<style>
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0B131F; color: #F8FAFC; }
+
+  .glass-pill { background: rgba(255,255,255,.08); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.12); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: #0B131F; }
+  ::-webkit-scrollbar-thumb { background: #24303f; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #B8EC34; }
+
+  /* Search input */
+  .search-input:focus { border-color: #B8EC34; box-shadow: 0 0 0 3px rgba(184,236,52,0.15); }
+
+  /* Product hidden state */
+  .product-item.hidden { display: none; }
+
+  /* FAB */
+  #fab-actions { transform-origin: bottom right; }
+</style>
+</head>
+
+<body class="overflow-x-hidden antialiased selection:bg-brand-lime selection:text-brand-dark">
+
+<!-- ================= HEADER / NAVBAR ================= -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group" class="h-14 w-auto group-hover:scale-105 transition-transform" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center space-x-1 bg-white/5 px-6 py-2 rounded-full border border-white/10">
+        <a href="index.html#overview" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">About</a>
+        <a href="products.html" class="px-4 py-2 text-sm font-semibold text-brand-lime transition-colors">Products</a>
+        <a href="index.html#services" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Services</a>
+        <a href="index.html#divisions" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Divisions</a>
+        <a href="index.html#partners" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Partners</a>
+        <a href="index.html#faq" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">FAQ</a>
+      </nav>
+
+      <!-- CTA + Staff Login -->
+      <div class="hidden sm:flex items-center gap-6">
+        <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">
+          Staff Login
+        </a>
+        <a href="contact.html" class="px-6 py-3 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all duration-300 flex items-center gap-2 shadow-glow">
+          Get in Touch <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white text-2xl focus:outline-none" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-brand-cardBg border-b border-white/10 px-6 py-6">
+    <nav class="flex flex-col gap-4">
+      <a href="index.html#overview" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">About</a>
+      <a href="products.html" class="text-brand-lime font-medium text-lg mobile-link">Products</a>
+      <a href="index.html#services" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Services</a>
+      <a href="index.html#divisions" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Divisions</a>
+      <a href="index.html#partners" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Partners</a>
+      <a href="index.html#faq" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">FAQ</a>
+
+      <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="mt-2 w-full text-center py-3 text-brand-lime font-bold rounded-xl border border-brand-lime/30 flex items-center justify-center mobile-link">
+        Staff Login
+      </a>
+      <a href="contact.html" class="mt-2 w-full text-center py-3 bg-brand-lime text-brand-dark font-bold rounded-xl shadow-glow mobile-link">
+        Get in Touch
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= PAGE BANNER ================= -->
+<section class="relative pt-40 pb-24 lg:pt-48 lg:pb-32 bg-brand-dark overflow-hidden">
+
+  <!-- Background image -->
+  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600" alt="Products" class="absolute inset-0 w-full h-full object-cover" />
+
+  <!-- Gradient fade -->
+  <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(
+    to bottom,
+    rgba(11, 19, 31, 0.55) 0%,
+    rgba(11, 19, 31, 0.80) 40%,
+    rgba(11, 19, 31, 0.95) 70%,
+    #0B131F 100%
+  );"></div>
+
+  <!-- Radial glow -->
+  <div class="absolute top-1/4 right-10 w-96 h-96 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Breadcrumb -->
+    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-pill border border-white/15 text-xs font-semibold text-gray-300 mb-6">
+      <a href="index.html" class="hover:text-brand-lime transition-colors">Home</a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-gray-500"></i>
+      <span class="text-brand-lime">Our Products</span>
+    </div>
+
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.05] max-w-4xl">
+      Quality Products For
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-gray-400">Mining</span>
+      <span class="text-brand-lime">Excellence</span>
+    </h1>
+
+    <p class="text-gray-300 text-base sm:text-lg max-w-2xl leading-relaxed mt-6">
+      Explore our comprehensive range of high-quality products trusted by mining operations across Tanzania and beyond.
+    </p>
+  </div>
+</section>
+
+<!-- ================= SEARCH + FILTER ================= -->
+<section class="relative z-20 -mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="bg-brand-cardBg rounded-3xl p-6 sm:p-8 border border-white/10 shadow-card-glow">
+
+    <!-- Search -->
+    <div class="relative max-w-2xl mx-auto mb-6">
+      <i class="fa-solid fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 text-sm pointer-events-none"></i>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search for a product, category, or feature..."
+        autocomplete="off"
+        class="search-input w-full pl-14 pr-14 py-4 rounded-full bg-white/5 border border-white/10 text-sm text-white placeholder-gray-500 outline-none transition-all"
+      />
+      <button id="clearSearch" aria-label="Clear search" class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark text-gray-400 flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-times text-xs"></i>
+      </button>
+    </div>
+
+    <!-- Filter buttons -->
+    <div class="flex flex-wrap gap-2 justify-center" id="filterBar">
+      <button class="filter-btn active px-5 py-3 rounded-full bg-brand-lime text-brand-dark font-extrabold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-glow" data-filter="all">
+        <i class="fa-solid fa-th-large"></i> All Products
+      </button>
+      <button class="filter-btn px-5 py-3 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:border-brand-lime/50 hover:text-brand-lime font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2" data-filter="explosives">
+        <i class="fa-solid fa-bomb"></i> Explosives
+      </button>
+      <button class="filter-btn px-5 py-3 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:border-brand-lime/50 hover:text-brand-lime font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2" data-filter="chemicals">
+        <i class="fa-solid fa-flask"></i> Chemicals
+      </button>
+      <button class="filter-btn px-5 py-3 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:border-brand-lime/50 hover:text-brand-lime font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2" data-filter="supplies">
+        <i class="fa-solid fa-tools"></i> General Supplies
+      </button>
+    </div>
+
+    <!-- Results count -->
+    <div class="text-center mt-6 text-xs font-semibold text-gray-400" id="resultsCount">
+      Showing <strong class="text-brand-lime font-extrabold">12</strong> products
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= PRODUCTS GRID ================= -->
+<section class="py-20 bg-brand-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="productsGrid">
+
+      <!-- ============ EXPLOSIVES ============ -->
+      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="explosives" data-search="bulk emulsions explosives blasting surface underground rock breaking">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Bulk Emulsions" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Explosives</span>
+        </div>
+        <div class="p-6">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-bomb"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Bulk Emulsions</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">High-performance bulk emulsion explosives designed for efficient rock breaking in surface and underground mining operations.</p>
+          <div class="flex flex-wrap gap-2 mb-4 product-features">
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Surface</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Underground</span>
+          </div>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="explosives" data-search="packaged explosives precise blasting sizes strengths detonation">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Packaged Explosives" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Explosives</span>
+        </div>
+        <div class="p-6">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-fire"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Packaged Explosives</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">Reliable packaged explosives for precise blasting applications, available in various sizes and strengths to suit every need.</p>
+          <div class="flex flex-wrap gap-2 mb-4 product-features">
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Various Sizes</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Precise</span>
+          </div>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="explosives" data-search="initiating systems electronic non-electric timing detonation blasting">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Initiating Systems" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Initiation</span>
+        </div>
+        <div class="p-6">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Initiating Systems</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">Advanced electronic and non-electric initiation systems for precise timing and reliable detonation in all conditions.</p>
+          <div class="flex flex-wrap gap-2 mb-4 product-features">
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Electronic</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Non-Electric</span>
+          </div>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="explosives" data-search="blasting accessories wires connectors detonators detonation">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Blasting Accessories" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Accessories</span>
+        </div>
+        <div class="p-6">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-plug"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Blasting Accessories</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">Comprehensive range of blasting accessories including wires, connectors, and detonators for reliable blasting.</p>
+          <div class="flex flex-wrap gap-2 mb-4 product-features">
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Wires</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Connectors</span>
+          </div>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- ============ CHEMICALS ============ -->
+      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="chemicals" data-search="flotation reagents collectors frothers depressants mineral processing">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" alt="Flotation Reagents" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Chemicals</span>
+        </div>
+        <div class="p-6">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-flask"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Flotation Reagents</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">High-quality flotation reagents including collectors, frothers, and depressants for efficient mineral processing.</p>
+          <div class="flex flex-wrap gap-2 mb-4 product-features">
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Collectors</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Frothers</span>
+          </div>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="chemicals" data-search="leaching agents gold copper extraction heap tank leaching">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" alt="Leaching Agents" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Chemicals</span>
+        </div>
+        <div class="p-6">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-vial"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Leaching Agents</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">Specialised leaching agents for efficient gold and copper extraction in heap and tank leaching operations.</p>
+          <div class="flex flex-wrap gap-2 mb-4 product-features">
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Gold</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Copper</span>
+          </div>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="chemicals" data-search="frothers depressants mineral separation recovery flotation circuits">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" alt="Frothers & Depressants" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Chemicals</span>
+        </div>
+        <div class="p-6">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-droplet"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Frothers &amp; Depressants</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">Premium frothers and depressants for optimal mineral separation and recovery in flotation circuits.</p>
+          <div class="flex flex-wrap gap-2 mb-4 product-features">
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">High Recovery</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Efficient</span>
+          </div>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="chemicals" data-search="activated carbon gold recovery carbon-in-pulp carbon-in-leach cip cil">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" alt="Activated Carbon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Chemicals</span>
+        </div>
+        <div class="p-6">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-cube"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Activated Carbon</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">High-grade activated carbon for efficient gold recovery in carbon-in-pulp and carbon-in-leach processes.</p>
+          <div class="flex flex-wrap gap-2 mb-4 product-features">
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">CIP</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">CIL</span>
+          </div>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- ============ GENERAL SUPPLIES ============ -->
+      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="supplies" data-search="drilling equipment blast hole drilling accessories heavy duty">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Drilling Equipment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Equipment</span>
+        </div>
+        <div class="p-6">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-tools"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Drilling Equipment</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">Professional drilling equipment and accessories for efficient blast hole drilling in all mining conditions.</p>
+          <div class="flex flex-wrap gap-2 mb-4 product-features">
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Heavy Duty</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Reliable</span>
+          </div>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="supplies" data-search="ppe safety gear helmets gloves boots high-visibility clothing protective equipment">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" alt="PPE & Safety Gear" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Safety</span>
+        </div>
+        <div class="p-6">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-helmet-safety"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">PPE &amp; Safety Gear</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">Complete range of personal protective equipment including helmets, gloves, boots, and high-visibility clothing.</p>
+          <div class="flex flex-wrap gap-2 mb-4 product-features">
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Certified</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Comfortable</span>
+          </div>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="supplies" data-search="mining tools accessories durable professional hand tools">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" alt="Mining Tools" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Tools</span>
+        </div>
+        <div class="p-6">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Mining Tools</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">Complete range of essential mining tools and accessories for efficient and safe mining operations.</p>
+          <div class="flex flex-wrap gap-2 mb-4 product-features">
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Durable</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Professional</span>
+          </div>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="supplies" data-search="safety equipment gas detectors harnesses emergency response gear">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" alt="Safety Equipment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Safety</span>
+        </div>
+        <div class="p-6">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Safety Equipment</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">Advanced safety equipment including gas detectors, harnesses, and emergency response gear for mining sites.</p>
+          <div class="flex flex-wrap gap-2 mb-4 product-features">
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Detectors</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Harnesses</span>
+          </div>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- No Results -->
+    <div class="hidden text-center py-20" id="noResults">
+      <div class="inline-flex w-20 h-20 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 items-center justify-center text-brand-lime text-3xl mb-6">
+        <i class="fa-solid fa-search"></i>
+      </div>
+      <h3 class="text-2xl font-extrabold text-white mb-2">No products found</h3>
+      <p class="text-sm text-gray-400 mb-6">We couldn't find any products matching your search. Try a different keyword or category.</p>
+      <button id="resetFilters" class="px-7 py-3.5 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-colors shadow-glow">
+        Reset Filters
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="py-20 bg-slate-900 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-brand-cardBg via-brand-dark to-slate-900 border border-white/10 p-8 sm:p-14 text-center">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 space-y-4 max-w-2xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Need a Custom Solution?</h2>
+        <p class="text-gray-400 text-sm leading-relaxed">Our team is ready to help you find the perfect products for your mining operation. Get in touch for a personalized quote.</p>
+
+        <div class="flex flex-wrap gap-3 justify-center pt-4">
+          <a href="contact.html" class="px-7 py-3.5 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all duration-300 shadow-glow inline-flex items-center gap-3">
+            Contact Us <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="index.html#services" class="px-7 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white font-bold text-sm transition-all inline-flex items-center gap-3">
+            <i class="fa-solid fa-cog"></i> View Our Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-brand-dark text-gray-400 py-16 border-t border-white/5 text-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-12 gap-10">
+
+      <div class="md:col-span-4 space-y-4">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group" class="h-16 w-auto" />
+        <p class="text-gray-400 leading-relaxed">
+          Head Office: P.O. Box 533, Mhongoro Street, Mbulu Msalabani, Kahama, Mwanza.
+        </p>
+        <div class="flex gap-3 text-base">
+          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="md:col-span-2">
+        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Branches</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Geita</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Mwanza</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Musoma (MMG)</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Dar es Salaam</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Tanga · Dodoma · Nzega</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-brand-lime transition-colors">Home</a></li>
+          <li><a href="products.html" class="hover:text-brand-lime transition-colors">Products</a></li>
+          <li><a href="index.html#services" class="hover:text-brand-lime transition-colors">Services</a></li>
+          <li><a href="index.html#divisions" class="hover:text-brand-lime transition-colors">Divisions</a></li>
+          <li><a href="contact.html" class="hover:text-brand-lime transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-4">
+        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Stay Connected</h4>
+        <p class="mb-4">Get updates on our solutions and news.</p>
+        <form class="flex gap-2 bg-white/5 border border-white/10 rounded-full p-1" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+          <input type="email" placeholder="Your email" required class="flex-1 bg-transparent px-4 py-2 text-xs text-white outline-none" />
+          <button type="submit" class="px-5 py-2 rounded-full bg-brand-lime text-brand-dark font-extrabold text-xs hover:bg-brand-limeHover transition-colors">Join</button>
+        </form>
+        <p class="mt-4 text-xs"><i class="fa-solid fa-phone text-brand-lime"></i> +255 679 746 702 · +27 76 896 8767</p>
+      </div>
+
+    </div>
+
+    <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+      <span>© 2026 Kilimanjaro Group. All rights reserved.</span>
+      <span class="flex gap-4">
+        <a href="#" class="hover:text-brand-lime transition-colors">Privacy</a>
+        <a href="#" class="hover:text-brand-lime transition-colors">Terms</a>
+        <a href="#" class="hover:text-brand-lime transition-colors">CSR</a>
+        <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="hover:text-brand-lime transition-colors">Staff Login</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= FLOATING ACTION BUTTON (CALL / WHATSAPP) ================= -->
+<div id="fab-container" class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+
+  <!-- Action buttons (hidden by default) -->
+  <div id="fab-actions" class="flex flex-col items-end gap-3 opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/255677800002?text=Hello%20Kilimanjaro%20Group%2C%20I%27d%20like%20to%20inquire%20about%20your%20products."
+       target="_blank" rel="noopener"
+       class="group flex items-center gap-3">
+      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">
+        WhatsApp Us
+      </span>
+      <span class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+        <i class="fa-brands fa-whatsapp text-xl"></i>
+      </span>
+    </a>
+
+    <!-- Call -->
+    <a href="tel:+255677800002" class="group flex items-center gap-3">
+      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">
+        Call Us
+      </span>
+      <span class="w-12 h-12 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+        <i class="fa-solid fa-phone text-lg"></i>
+      </span>
+    </a>
+
+  </div>
+
+  <!-- Main FAB toggle -->
+  <button id="fab-toggle"
+          aria-label="Contact options"
+          aria-expanded="false"
+          class="w-14 h-14 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-glow hover:scale-110 transition-transform relative">
+    <i id="fab-icon" class="fa-solid fa-headset text-xl transition-transform duration-300"></i>
+  </button>
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ---------- Mobile Menu ---------- */
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+  mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  /* ---------- Floating Action Button (Call / WhatsApp) ---------- */
+  const fabToggle = document.getElementById('fab-toggle');
+  const fabActions = document.getElementById('fab-actions');
+  const fabIcon = document.getElementById('fab-icon');
+  const fabContainer = document.getElementById('fab-container');
+  let fabOpen = false;
+
+  function setFab(open) {
+    fabOpen = open;
+    fabToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      fabActions.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+      fabActions.classList.add('opacity-100', 'translate-y-0');
+      fabIcon.classList.add('rotate-45');
+    } else {
+      fabActions.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+      fabActions.classList.remove('opacity-100', 'translate-y-0');
+      fabIcon.classList.remove('rotate-45');
+    }
+  }
+
+  fabToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setFab(!fabOpen);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (fabOpen && !fabContainer.contains(e.target)) {
+      setFab(false);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && fabOpen) setFab(false);
+  });
+
+  /* ---------- Search + Filter ---------- */
+  (function() {
+    const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearSearch');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const products = document.querySelectorAll('.product-item');
+    const noResults = document.getElementById('noResults');
+    const resultsCount = document.getElementById('resultsCount');
+    const resetBtn = document.getElementById('resetFilters');
+    const totalProducts = products.length;
+
+    let activeFilter = 'all';
+    let searchTerm = '';
+
+    const activeClasses = ['bg-brand-lime','text-brand-dark','shadow-glow'];
+    const inactiveClasses = ['bg-white/5','border','border-white/10','text-gray-300'];
+
+    function setFilterActive(btn, isActive) {
+      if (isActive) {
+        btn.classList.remove(...inactiveClasses);
+        btn.classList.add(...activeClasses);
+      } else {
+        btn.classList.remove(...activeClasses);
+        btn.classList.add(...inactiveClasses);
+      }
+    }
+
+    function applyFilters() {
+      let visibleCount = 0;
+      const term = searchTerm.toLowerCase().trim();
+
+      products.forEach(product => {
+        const category = product.getAttribute('data-category');
+        const searchData = product.getAttribute('data-search') || '';
+        const title = product.querySelector('h3').textContent.toLowerCase();
+        const description = product.querySelector('p').textContent.toLowerCase();
+        const categoryLabel = product.querySelector('.product-category')?.textContent.toLowerCase() || '';
+        const features = Array.from(product.querySelectorAll('.product-features span'))
+          .map(s => s.textContent.toLowerCase()).join(' ');
+
+        const searchableText = (searchData + ' ' + title + ' ' + description + ' ' + categoryLabel + ' ' + features).toLowerCase();
+
+        const matchesCategory = activeFilter === 'all' || category === activeFilter;
+        const matchesSearch = term === '' || searchableText.includes(term);
+
+        if (matchesCategory && matchesSearch) {
+          product.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          product.classList.add('hidden');
+        }
+      });
+
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+        resultsCount.innerHTML = 'Showing <strong class="text-brand-lime font-extrabold">0</strong> of ' + totalProducts + ' products';
+      } else {
+        noResults.classList.add('hidden');
+        resultsCount.innerHTML = 'Showing <strong class="text-brand-lime font-extrabold">' + visibleCount + '</strong> of ' + totalProducts + ' products';
+      }
+
+      if (searchTerm.length > 0) {
+        clearBtn.classList.remove('hidden');
+        clearBtn.classList.add('flex');
+      } else {
+        clearBtn.classList.add('hidden');
+        clearBtn.classList.remove('flex');
+      }
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(b => setFilterActive(b, false));
+        setFilterActive(this, true);
+        activeFilter = this.getAttribute('data-filter');
+        applyFilters();
+      });
+    });
+
+    let searchTimeout;
+    searchInput.addEventListener('input', function() {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        searchTerm = this.value;
+        applyFilters();
+      }, 200);
+    });
+
+    clearBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      searchTerm = '';
+      applyFilters();
+      searchInput.focus();
+    });
+
+    resetBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      searchTerm = '';
+      activeFilter = 'all';
+      filterBtns.forEach(b => setFilterActive(b, false));
+      setFilterActive(document.querySelector('.filter-btn[data-filter="all"]'), true);
+      applyFilters();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === '/' && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+      if (e.key === 'Escape' && document.activeElement === searchInput) {
+        searchInput.blur();
+      }
+    });
+
+    applyFilters();
+  })();
+
+});
+</script>
+
+</body>
+</html>

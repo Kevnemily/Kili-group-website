@@ -1,0 +1,3797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover, shrink-to-fit=no">
+    <meta name="theme-color" content="#F5F2EB">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>Luxury Safari Quotes | Discover Africa Safaris LLC</title>
+    <meta name="description" content="Discover and compare the best African safari tours. Curated luxury safari packages across Africa from top-rated operators.">
+    <link rel="canonical" href="https://discoverafricasafaris.com/">
+
+    <meta property="og:title" content="Luxury Safari Quotes | Discover Africa Safaris LLC">
+    <meta property="og:description" content="Discover and compare the best African safari tours. Curated luxury safari packages across Africa.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.pexels.com/photos/4132085/pexels-photo-4132085.jpeg?auto=compress&cs=tinysrgb&w=1200">
+    <meta property="og:url" content="https://discoverafricasafaris.com/">
+
+    <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653310/DiscoverAfrica_cqgsvh.svg">
+
+    <link rel="preload" as="image" href="https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653267/beast_rvuuug.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653485/maasaimara_esdq5y.jpg" fetchpriority="high">
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://gzszrejttefjmysqasbv.supabase.co">
+    <link rel="dns-prefetch" href="https://images.pexels.com">
+    <link rel="dns-prefetch" href="https://www.tripadvisor.com">
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+        /* ===== LUXURY FONT VARIABLES ===== */
+        :root {
+            --font-display: 'Playfair Display', 'Times New Roman', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-alt: 'Josefin Sans', 'Inter', sans-serif;
+            --gold: #C9A04E;
+            --gold-light: #DEBC72;
+            --gold-dark: #A9803A;
+            --ink: #1A1410;
+            --ink-soft: #4A3F35;
+            --ink-faint: #8C7E68;
+            --paper: #F5F2EB;
+            --paper-white: #FFFBFA;
+            --paper-shadow: #E4D6B8;
+            --hairline: #D2C09A;
+            --green: #059669;
+            --tripadvisor-green: #00aa6c;
+
+            --letter-spacing-heading: -0.02em;
+            --letter-spacing-uppercase: 0.12em;
+            --letter-spacing-subtitle: 0.08em;
+            --letter-spacing-body: 0.01em;
+            --font-weight-heading: 700;
+            --line-height-heading: 1.08;
+        }
+
+        /* ===== BASE ===== */
+        body {
+            background-color: var(--paper);
+            font-family: var(--font-body);
+            color: var(--ink);
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+            letter-spacing: var(--letter-spacing-body);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 1200px) { .container { padding: 0 16px; } }
+        @media (max-width: 900px) { .container { padding: 0 14px; } }
+        @media (max-width: 640px) { .container { padding: 0 12px; } }
+        @media (max-width: 480px) { .container { padding: 0 10px; } }
+
+        a { text-decoration: none; color: inherit; }
+        img, svg { max-width: 100%; height: auto; display: block; }
+
+        /* ===== LUXURY TYPOGRAPHY ===== */
+        h1, h2, h3, .section-title, .hero h1, .logo-text, .safari-card-title {
+            font-family: var(--font-display);
+            letter-spacing: var(--letter-spacing-heading);
+            font-weight: var(--font-weight-heading);
+            line-height: var(--line-height-heading);
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            color: var(--ink);
+        }
+        .section-title span { color: var(--gold); }
+        @media (max-width: 768px) { .section-title { font-size: 2.2rem; } }
+        @media (max-width: 480px) { .section-title { font-size: 1.8rem; } }
+
+        .section-sub {
+            font-family: var(--font-alt);
+            font-weight: 300;
+            color: var(--ink-soft);
+            font-size: 0.85rem;
+            letter-spacing: var(--letter-spacing-subtitle);
+            text-transform: uppercase;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 480px) {
+            .section-sub { font-size: 0.75rem; margin-bottom: 24px; }
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            display: inline-block;
+            background: var(--ink);
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 40px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: var(--ink);
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 1.5px solid var(--ink);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-outline:hover {
+            background: var(--ink);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* =========================================================
+           SLOW FADE-ZONE GRADIENT SYSTEM
+           Adopted from the Kilimanjaro page.
+           - 16 stops each
+           - Spread over 75vh mobile / 85vh desktop
+           - Denser near the edges for a silkier wash
+        ========================================================= */
+        .fade-zone-dark-to-light {
+            background: linear-gradient(
+                to bottom,
+                #1A1410 0%,
+                #1A1410 3%,
+                rgba(26, 20, 16, 0.98) 8%,
+                rgba(26, 20, 16, 0.95) 14%,
+                rgba(26, 20, 16, 0.90) 20%,
+                rgba(26, 20, 16, 0.83) 27%,
+                rgba(26, 20, 16, 0.74) 34%,
+                rgba(26, 20, 16, 0.63) 41%,
+                rgba(26, 20, 16, 0.51) 48%,
+                rgba(26, 20, 16, 0.39) 55%,
+                rgba(26, 20, 16, 0.28) 62%,
+                rgba(26, 20, 16, 0.18) 69%,
+                rgba(26, 20, 16, 0.10) 76%,
+                rgba(26, 20, 16, 0.05) 83%,
+                rgba(26, 20, 16, 0.02) 90%,
+                rgba(26, 20, 16, 0.00) 100%
+            );
+        }
+        .fade-zone-light-to-dark {
+            background: linear-gradient(
+                to bottom,
+                rgba(26, 20, 16, 0.00) 0%,
+                rgba(26, 20, 16, 0.02) 10%,
+                rgba(26, 20, 16, 0.05) 17%,
+                rgba(26, 20, 16, 0.10) 24%,
+                rgba(26, 20, 16, 0.18) 31%,
+                rgba(26, 20, 16, 0.28) 38%,
+                rgba(26, 20, 16, 0.39) 45%,
+                rgba(26, 20, 16, 0.51) 52%,
+                rgba(26, 20, 16, 0.63) 59%,
+                rgba(26, 20, 16, 0.74) 66%,
+                rgba(26, 20, 16, 0.83) 73%,
+                rgba(26, 20, 16, 0.90) 80%,
+                rgba(26, 20, 16, 0.95) 86%,
+                rgba(26, 20, 16, 0.98) 92%,
+                #1A1410 97%,
+                #1A1410 100%
+            );
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            background: rgba(255, 251, 250, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            position: relative;
+            z-index: 10;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 8px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            flex-shrink: 0;
+            color: var(--ink);
+        }
+        .logo img { height: 36px; width: auto; }
+        @media (max-width: 480px) {
+            .logo img { height: 28px; }
+            .logo { font-size: 1.1rem; }
+        }
+        .logo span { font-weight: 300; color: var(--ink-faint); }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            font-family: var(--font-alt);
+            font-weight: 400;
+            font-size: 0.75rem;
+            letter-spacing: var(--letter-spacing-uppercase);
+            text-transform: uppercase;
+        }
+        .nav-links a { color: var(--ink-soft); transition: color 0.2s ease; }
+        .nav-links a:hover { color: var(--gold-dark); }
+        .nav-links a.active {
+            color: var(--gold-dark);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 4px;
+        }
+        @media (max-width: 768px) { .nav-links { gap: 20px; font-size: 0.65rem; } }
+        @media (max-width: 600px) { .nav-links { display: none; } }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--ink);
+            padding: 4px;
+            flex-shrink: 0;
+        }
+        @media (max-width: 600px) { .mobile-menu-btn { display: block; } }
+        .header-cta { white-space: nowrap; }
+
+        /* ===== MOBILE SIDEBAR ===== */
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .mobile-nav-overlay.active { opacity: 1; pointer-events: auto; }
+        .mobile-nav-sidebar {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            max-width: 85vw;
+            height: 100%;
+            background: var(--paper-white);
+            z-index: 1000;
+            padding: 30px 24px;
+            transition: right 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            overflow-y: auto;
+            box-shadow: -8px 0 40px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+        }
+        .mobile-nav-sidebar.open { right: 0; }
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--hairline);
+        }
+        .mobile-nav-header .logo { font-size: 1.1rem; }
+        .mobile-nav-header .logo img { height: 28px; }
+        .mobile-nav-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--ink-soft);
+            padding: 4px;
+        }
+        .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+        .mobile-nav-links li a {
+            display: block;
+            padding: 12px 16px;
+            font-family: var(--font-alt);
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        .mobile-nav-links li a:hover,
+        .mobile-nav-links li a.active {
+            background: var(--paper);
+            color: var(--gold-dark);
+        }
+        .mobile-nav-footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--hairline);
+        }
+        .mobile-nav-footer .btn-primary { width: 100%; justify-content: center; text-align: center; }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            background: var(--ink);
+        }
+        @media (min-width: 768px) {
+            .hero { min-height: 85vh; max-height: 900px; }
+        }
+        @media (max-width: 768px) { .hero { min-height: 75vh; } }
+        @media (max-width: 480px) { .hero { min-height: 70vh; } }
+
+        .hero-slides {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(1.05);
+            transition: opacity 1.2s ease-in-out, transform 1.5s ease-in-out;
+            will-change: opacity, transform;
+        }
+        .hero-slide.active { opacity: 1; transform: scale(1); }
+        .hero-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 20, 16, 0.55);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            padding: 40px 0 20px;
+            color: #fff;
+        }
+        @media (max-width: 1024px) { .hero-content { padding: 30px 0 16px; } }
+        @media (max-width: 768px) { .hero-content { padding: 24px 0 12px; } }
+        @media (max-width: 480px) { .hero-content { padding: 16px 0 8px; } }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            max-width: 850px;
+            margin: 0 auto 8px;
+            padding: 0 16px;
+        }
+        .hero h1 span { color: var(--gold-light); font-style: italic; }
+        @media (max-width: 860px) { .hero h1 { font-size: 3.4rem; max-width: 100%; } }
+        @media (max-width: 640px) { .hero h1 { font-size: 2.4rem; margin-bottom: 6px; } }
+        @media (max-width: 480px) { .hero h1 { font-size: 2rem; } }
+
+        .hero p {
+            font-family: var(--font-alt);
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto 14px;
+            letter-spacing: 0.04em;
+            padding: 0 16px;
+        }
+        @media (max-width: 768px) { .hero p { font-size: 0.85rem; margin-bottom: 10px; } }
+        @media (max-width: 480px) { .hero p { font-size: 0.75rem; margin-bottom: 8px; } }
+
+        .hero .btn-group {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0 16px;
+            margin-top: 6px;
+        }
+        @media (max-width: 640px) {
+            .hero .btn-group {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            .hero .btn-group .btn-primary {
+                width: 100%;
+                max-width: 260px;
+                text-align: center;
+                padding: 10px 24px;
+                font-size: 0.7rem;
+            }
+        }
+
+        .hero .btn-primary { background: var(--gold); color: var(--ink); }
+        .hero .btn-primary:hover { background: var(--gold-light); }
+
+        .hero-nav {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+            width: auto;
+        }
+        @media (max-width: 480px) {
+            .hero-nav { bottom: 10px; gap: 6px; left: auto; right: 14px; transform: none; }
+        }
+        .hero-nav-btn {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+        .hero-nav-btn.active { background: var(--gold); border-color: var(--gold); transform: scale(1.3); }
+        .hero-nav-btn:hover { background: rgba(255, 255, 255, 0.1); }
+
+        /* ===== SEARCH SECTION ===== */
+        .search-section-below {
+            padding: 30px 0 10px;
+            background: transparent;
+        }
+        @media (max-width: 768px) {
+            .search-section-below { padding: 20px 0 8px; }
+        }
+
+        .search-bar-wrapper {
+            background: var(--paper-white);
+            border-radius: 16px;
+            padding: 16px 20px;
+            max-width: 920px;
+            margin: 0 auto;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            display: grid;
+            grid-template-columns: 1.8fr 1fr 1fr 1fr auto;
+            gap: 10px;
+            align-items: end;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04);
+        }
+        .search-bar-wrapper .search-field {
+            width: 100%;
+            text-align: left;
+            min-width: 0;
+        }
+        .search-bar-wrapper .search-field label {
+            display: block;
+            font-family: var(--font-alt);
+            font-size: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--ink-faint);
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .search-bar-wrapper .search-input {
+            width: 100%;
+            padding: 9px 14px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: var(--paper);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--ink);
+            transition: border 0.2s ease;
+            border-radius: 10px;
+            appearance: none;
+            -webkit-appearance: none;
+            min-height: 40px;
+        }
+        .search-bar-wrapper .search-input::placeholder {
+            color: var(--ink-faint);
+            font-size: 0.8rem;
+        }
+        .search-bar-wrapper .search-input option {
+            color: var(--ink);
+            background: #fff;
+        }
+        .search-bar-wrapper .search-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: #fff;
+        }
+        .search-bar-wrapper .btn-search {
+            padding: 9px 24px;
+            background: var(--gold);
+            color: var(--ink);
+            border: none;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 40px;
+            border-radius: 40px;
+            width: 100%;
+        }
+        .search-bar-wrapper .btn-search:hover {
+            background: var(--gold-light);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 820px) {
+            .search-bar-wrapper {
+                grid-template-columns: 1fr 1fr;
+                padding: 14px 16px;
+                gap: 10px;
+                border-radius: 14px;
+            }
+            .search-bar-wrapper .search-field:last-of-type {
+                grid-column: span 2;
+            }
+            .search-bar-wrapper .btn-search {
+                grid-column: span 2;
+                width: 100%;
+                min-height: 44px;
+                font-size: 0.75rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .search-bar-wrapper {
+                grid-template-columns: 1fr;
+                padding: 14px 16px;
+                border-radius: 12px;
+                gap: 8px;
+                margin: 0 4px;
+            }
+            .search-bar-wrapper .search-field:last-of-type {
+                grid-column: span 1;
+            }
+            .search-bar-wrapper .btn-search {
+                grid-column: span 1;
+                min-height: 42px;
+                font-size: 0.7rem;
+                padding: 8px 16px;
+            }
+            .search-bar-wrapper .search-input {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+                min-height: 38px;
+            }
+            .search-bar-wrapper .search-field label {
+                font-size: 0.45rem;
+            }
+            .search-bar-wrapper .search-input::placeholder {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats-section {
+            padding: 40px 0 30px;
+            background: transparent;
+        }
+        @media (max-width: 768px) { .stats-section { padding: 30px 0 20px; } }
+        @media (max-width: 480px) { .stats-section { padding: 20px 0 14px; } }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--paper-white);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+        }
+        .stat-item {
+            padding: 28px 20px;
+            text-align: center;
+            border-right: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+        .stat-label {
+            font-family: var(--font-alt);
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--ink-faint);
+            margin-top: 4px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: 1fr; border-radius: 12px; }
+            .stat-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+                padding: 18px 16px;
+            }
+            .stat-item:last-child { border-bottom: none; }
+            .stat-number { font-size: 2.2rem; }
+        }
+
+        /* ===== OVERVIEW - IMMERSIVE TIMELINE ===== */
+        .overview {
+            padding: 60px 0 80px;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .overview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(201, 160, 78, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .overview-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 0;
+            z-index: 1;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom,
+                transparent 0%,
+                rgba(201, 160, 78, 0.15) 10%,
+                var(--gold) 40%,
+                var(--gold) 60%,
+                rgba(201, 160, 78, 0.15) 90%,
+                transparent 100%
+            );
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(201, 160, 78, 0.05);
+        }
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: -10px;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 30px rgba(201, 160, 78, 0.15);
+            opacity: 0.5;
+        }
+        @media (max-width: 768px) {
+            .timeline-container::before { left: 28px; transform: none; }
+            .timeline-container::after { left: 28px; transform: none; }
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 70px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(60px) scale(0.95);
+            transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-item:nth-child(odd) { flex-direction: row; }
+        .timeline-item:nth-child(even) { flex-direction: row-reverse; }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                flex-direction: column !important;
+                padding-left: 70px;
+                margin-bottom: 50px;
+            }
+        }
+
+        .timeline-dot {
+            flex-shrink: 0;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--paper-white);
+            border: 3px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            position: relative;
+            z-index: 3;
+            margin: 0 35px;
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 0 0 0 rgba(201, 160, 78, 0);
+        }
+        .timeline-item.visible .timeline-dot {
+            background: var(--gold);
+            color: #fff;
+            box-shadow: 0 0 0 12px rgba(201, 160, 78, 0.12), 0 0 40px rgba(201, 160, 78, 0.05);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-dot {
+                width: 54px;
+                height: 54px;
+                font-size: 1.2rem;
+                margin: 0;
+                position: absolute;
+                left: 0;
+                top: 20px;
+            }
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: var(--paper-white);
+            padding: 36px 40px 32px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        .timeline-item.visible .timeline-content {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+            border-color: rgba(201, 160, 78, 0.1);
+            transform: translateY(-4px);
+        }
+        .timeline-item.visible .timeline-content::before { opacity: 1; }
+
+        .timeline-content .card-glow {
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(201, 160, 78, 0.04), transparent 70%);
+            pointer-events: none;
+        }
+
+        .timeline-content .step-number {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-alt);
+            font-size: 0.55rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gold-dark);
+            background: rgba(201, 160, 78, 0.08);
+            padding: 4px 16px 4px 14px;
+            border-radius: 40px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(201, 160, 78, 0.06);
+        }
+        .timeline-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 10px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        .timeline-content h3 .highlight { color: var(--gold-dark); }
+        .timeline-content p {
+            font-family: var(--font-body);
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 90%;
+            letter-spacing: 0.01em;
+        }
+        .timeline-content .card-icon {
+            position: absolute;
+            bottom: 20px;
+            right: 24px;
+            font-size: 2.8rem;
+            color: rgba(201, 160, 78, 0.04);
+        }
+        .timeline-item.visible .card-icon { color: rgba(201, 160, 78, 0.08); }
+
+        .timeline-content .pattern-dots {
+            position: absolute;
+            bottom: 12px;
+            right: 80px;
+            display: grid;
+            grid-template-columns: repeat(3, 6px);
+            gap: 6px;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        .timeline-item.visible .pattern-dots { opacity: 1; }
+        .timeline-content .pattern-dots span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(201, 160, 78, 0.08);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-content {
+                padding: 24px 24px 20px;
+                border-radius: 16px;
+            }
+            .timeline-content h3 { font-size: 1.3rem; }
+            .timeline-content p { font-size: 0.88rem; max-width: 100%; }
+            .timeline-content .card-icon { font-size: 2rem; bottom: 12px; right: 16px; }
+            .timeline-content .pattern-dots { display: none; }
+        }
+        @media (max-width: 480px) {
+            .timeline-content {
+                padding: 18px 16px 16px;
+                border-radius: 14px;
+            }
+            .timeline-content h3 { font-size: 1.1rem; }
+            .timeline-content p { font-size: 0.8rem; }
+            .timeline-item { padding-left: 56px; margin-bottom: 36px; }
+            .timeline-dot { width: 44px; height: 44px; font-size: 0.9rem; top: 14px; }
+        }
+
+        .timeline-item:nth-child(1) { transition-delay: 0.05s; }
+        .timeline-item:nth-child(2) { transition-delay: 0.15s; }
+        .timeline-item:nth-child(3) { transition-delay: 0.25s; }
+
+        /* ===== TRUST STRIP ===== */
+        .trust-strip {
+            background: var(--paper-white);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 8px;
+            padding: 20px 0;
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) { .trust-strip { border-radius: 6px; padding: 16px 0; margin: 16px 0; } }
+        @media (max-width: 480px) { .trust-strip { border-radius: 4px; padding: 12px 0; margin: 12px 0; } }
+
+        .trust-strip-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        @media (max-width: 768px) { .trust-strip-inner { gap: 20px; } }
+        @media (max-width: 480px) {
+            .trust-strip-inner { gap: 12px; flex-direction: column; align-items: center; }
+        }
+        .trust-item {
+            font-family: var(--font-alt);
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--ink-soft);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .trust-item i { color: var(--gold); font-size: 0.8rem; }
+        @media (max-width: 480px) { .trust-item { font-size: 0.6rem; } .trust-item i { font-size: 0.7rem; } }
+
+        /* ===== DESTINATION SHOWCASE ===== */
+        .destination-showcase {
+            padding: 60px 0 80px;
+            background: transparent;
+        }
+        @media (max-width: 768px) { .destination-showcase { padding: 40px 0 50px; } }
+        @media (max-width: 480px) { .destination-showcase { padding: 30px 0 40px; } }
+
+        .showcase-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 16 / 5.2;
+            min-height: 480px;
+            background: var(--ink);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            width: 100%;
+        }
+        .showcase-card {
+            aspect-ratio: 16 / 2.6;
+            min-height: 600px;
+        }
+        @media (max-width: 1200px) { .showcase-card { aspect-ratio: 16 / 3; min-height: 520px; } }
+        @media (max-width: 1024px) { .showcase-card { aspect-ratio: 16 / 3.5; min-height: 460px; } }
+        @media (max-width: 768px) { .showcase-card { aspect-ratio: 16 / 4; min-height: 380px; border-radius: 16px; } }
+        @media (max-width: 480px) { .showcase-card { aspect-ratio: 4 / 1.8; min-height: 280px; border-radius: 12px; } }
+
+        .showcase-slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+        .showcase-slide {
+            flex: 0 0 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .showcase-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(26, 20, 16, 0.65) 0%, rgba(26, 20, 16, 0.2) 60%, rgba(26, 20, 16, 0.05) 100%);
+        }
+
+        .showcase-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2.8rem 3.2rem 3rem;
+            z-index: 2;
+            color: #fff;
+            background: linear-gradient(0deg, rgba(26, 20, 16, 0.7) 0%, transparent 100%);
+        }
+        @media (max-width: 768px) { .showcase-content { padding: 2rem 2.2rem 2.2rem; } }
+        @media (max-width: 480px) { .showcase-content { padding: 1.4rem 1.4rem 1.8rem; } }
+
+        .showcase-content .country-tag {
+            display: inline-block;
+            font-family: var(--font-alt);
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold-light);
+            background: rgba(201, 160, 78, 0.15);
+            padding: 2px 16px;
+            border-radius: 40px;
+            margin-bottom: 8px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(201, 160, 78, 0.15);
+        }
+        .showcase-content h3 {
+            font-family: var(--font-display);
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.08;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .showcase-content p {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 600px;
+            margin-bottom: 14px;
+            letter-spacing: 0.01em;
+        }
+        .showcase-content .packages-count {
+            font-family: var(--font-alt);
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .showcase-content .btn-outline-light {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 10px 28px;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 40px;
+            color: #fff;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(4px);
+        }
+        .showcase-content .btn-outline-light:hover {
+            background: #fff;
+            color: var(--ink);
+            border-color: #fff;
+            transform: translateY(-2px);
+        }
+        @media (max-width: 768px) {
+            .showcase-content h3 { font-size: 2.4rem; }
+            .showcase-content p { font-size: 0.95rem; max-width: 100%; }
+        }
+        @media (max-width: 480px) {
+            .showcase-content h3 { font-size: 1.8rem; }
+            .showcase-content p { font-size: 0.8rem; }
+            .showcase-content .country-tag { font-size: 0.5rem; padding: 1px 10px; }
+            .showcase-content .btn-outline-light { font-size: 0.55rem; padding: 6px 16px; }
+        }
+
+        .showcase-nav {
+            position: absolute;
+            bottom: 2rem;
+            right: 2.8rem;
+            display: flex;
+            gap: 8px;
+            z-index: 5;
+        }
+        @media (max-width: 768px) { .showcase-nav { bottom: 1.4rem; right: 1.8rem; } }
+        @media (max-width: 480px) { .showcase-nav { bottom: 1.2rem; right: 1.2rem; gap: 6px; } }
+
+        .showcase-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+        .showcase-dot.active { background: var(--gold); border-color: var(--gold); transform: scale(1.25); }
+        .showcase-dot:hover { background: rgba(255, 255, 255, 0.1); }
+
+        /* ===== SAFARI LAYOUT ===== */
+        .search-section { display: none; }
+
+        .safari-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 30px;
+            align-items: start;
+            margin-top: 20px;
+            width: 100%;
+        }
+        @media (max-width: 1024px) { .safari-layout { grid-template-columns: 220px 1fr; gap: 24px; } }
+        @media (max-width: 900px) { .safari-layout { grid-template-columns: 1fr; gap: 24px; } }
+
+        .sidebar {
+            background: var(--paper-white);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            padding: 18px 16px;
+            position: sticky;
+            top: 20px;
+            width: 100%;
+        }
+        @media (max-width: 900px) { .sidebar { position: static; width: 100%; padding: 16px; } }
+        @media (max-width: 480px) { .sidebar { padding: 14px 12px; border-radius: 6px; } }
+
+        .sidebar-title {
+            font-family: var(--font-alt);
+            font-size: 0.55rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--ink-faint);
+            margin-bottom: 10px;
+        }
+        .sidebar-section {
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .sidebar-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .sidebar-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 3px 0;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--ink-soft);
+            letter-spacing: 0.01em;
+        }
+        .sidebar-option input[type="checkbox"] { accent-color: var(--gold); width: 14px; height: 14px; }
+        .sidebar-option .count { margin-left: auto; color: var(--ink-faint); font-size: 0.65rem; }
+        @media (max-width: 480px) { .sidebar-option { font-size: 0.7rem; padding: 2px 0; } }
+
+        .results-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .results-count {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            color: var(--ink-soft);
+            letter-spacing: 0.02em;
+        }
+        .results-count strong { color: var(--ink); font-weight: 600; }
+        .results-sort {
+            padding: 6px 28px 6px 10px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            background: var(--paper-white);
+            appearance: none;
+            cursor: pointer;
+            color: var(--ink-soft);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M6 8L0 0h12z' fill='%238C7E68'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 10px;
+        }
+        @media (max-width: 480px) {
+            .results-toolbar { flex-direction: column; align-items: stretch; gap: 6px; }
+            .results-sort { width: 100%; }
+            .results-count { text-align: center; }
+        }
+
+        .safari-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            width: 100%;
+        }
+        @media (max-width: 1024px) { .safari-cards { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+        @media (max-width: 600px) { .safari-cards { grid-template-columns: 1fr; gap: 14px; } }
+
+        .safari-card {
+            background: var(--paper-white);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-width: 0;
+            cursor: pointer;
+        }
+        .safari-card {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+        .safari-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12), 0 8px 20px rgba(0, 0, 0, 0.04);
+            border-color: var(--gold-light);
+        }
+        .safari-card-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            background-color: var(--paper-shadow);
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) { .safari-card-image { height: 160px; } }
+        @media (max-width: 480px) { .safari-card-image { height: 140px; } }
+
+        .safari-card-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--gold);
+            color: var(--ink);
+            font-family: var(--font-alt);
+            font-size: 0.45rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+        @media (max-width: 480px) { .safari-card-badge { top: 8px; left: 8px; font-size: 0.4rem; padding: 2px 8px; } }
+
+        .safari-card-body {
+            padding: 14px 16px 16px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        @media (max-width: 480px) { .safari-card-body { padding: 12px 14px 14px; } }
+        .safari-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        @media (max-width: 400px) { .safari-card-header { flex-direction: column; align-items: flex-start; gap: 4px; } }
+        .safari-card-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+        @media (max-width: 480px) { .safari-card-title { font-size: 0.9rem; } }
+        .safari-card-price { text-align: right; flex-shrink: 0; }
+        @media (max-width: 400px) { .safari-card-price { text-align: left; } }
+        .safari-card-price-amount {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+        @media (max-width: 480px) { .safari-card-price-amount { font-size: 0.95rem; } }
+        .safari-card-price-label {
+            font-family: var(--font-alt);
+            font-size: 0.4rem;
+            color: var(--ink-faint);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .safari-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+        .safari-card-tag {
+            padding: 2px 8px;
+            background: rgba(201, 160, 78, 0.08);
+            border-radius: 20px;
+            font-family: var(--font-body);
+            font-size: 0.5rem;
+            font-weight: 400;
+            color: var(--ink-soft);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            border: 1px solid rgba(201, 160, 78, 0.1);
+            letter-spacing: 0.02em;
+        }
+        @media (max-width: 480px) { .safari-card-tag { font-size: 0.45rem; padding: 1px 6px; } }
+        .safari-card-tag i { color: var(--gold); font-size: 0.4rem; }
+
+        .safari-card-description {
+            display: none;
+        }
+
+        .safari-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        @media (max-width: 480px) { .safari-card-footer { flex-direction: column; align-items: stretch; gap: 6px; padding-top: 8px; } }
+        .safari-card-operator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .operator-logo {
+            width: 40px;
+            height: 40px;
+            background: rgba(201, 160, 78, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.7rem;
+            color: var(--gold-dark);
+            border: 2px solid rgba(201, 160, 78, 0.15);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .operator-logo img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
+        @media (max-width: 480px) { .operator-logo { width: 34px; height: 34px; font-size: 0.6rem; } .operator-logo img { padding: 3px; } }
+        .operator-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            min-width: 0;
+        }
+        .operator-label {
+            font-family: var(--font-alt);
+            font-size: 0.4rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            font-weight: 600;
+        }
+        .operator-name {
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.7rem;
+            color: var(--ink);
+            line-height: 1.2;
+            letter-spacing: 0.01em;
+        }
+        @media (max-width: 480px) { .operator-name { font-size: 0.65rem; } }
+        .operator-rating {
+            font-family: var(--font-body);
+            font-size: 0.5rem;
+            color: var(--ink-faint);
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+        .operator-rating i { color: var(--gold); font-size: 0.4rem; }
+        .tripadvisor-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 0.4rem;
+            font-weight: 600;
+            color: var(--tripadvisor-green);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: 1px 5px;
+            border-radius: 3px;
+            background: rgba(0, 170, 108, 0.06);
+            margin-top: 1px;
+            letter-spacing: 0.02em;
+        }
+        .tripadvisor-link:hover { background: rgba(0, 170, 108, 0.15); text-decoration: underline; }
+        .tripadvisor-link i { font-size: 0.4rem; }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        @media (max-width: 480px) { .pagination { gap: 3px; margin-top: 16px; } }
+        .page-link {
+            min-width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            background: var(--paper-white);
+            color: var(--ink);
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.7rem;
+            transition: all 0.2s ease;
+            border-radius: 6px;
+        }
+        @media (max-width: 480px) { .page-link { min-width: 28px; height: 28px; font-size: 0.6rem; } }
+        .page-link.active { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+        .page-link.disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
+        .page-link:hover:not(.disabled):not(.active) { border-color: var(--gold-light); }
+
+        .view-all-btn {
+            padding: 6px 16px;
+            border: 1px solid var(--gold);
+            border-radius: 40px;
+            background: transparent;
+            color: var(--gold-dark);
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.6rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            margin-left: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .view-all-btn:hover { background: var(--gold); color: var(--ink); }
+        @media (max-width: 480px) { .view-all-btn { font-size: 0.5rem; padding: 4px 12px; } }
+
+        /* ===== SKELETON ===== */
+        .skeleton-card {
+            background: var(--paper-white);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            width: 100%;
+            border-radius: 10px;
+        }
+        .skeleton-image {
+            height: 180px;
+            background: var(--paper-shadow);
+            animation: skeleton-pulse 1.8s ease-in-out infinite;
+        }
+        @media (max-width: 768px) { .skeleton-image { height: 160px; } }
+        @media (max-width: 480px) { .skeleton-image { height: 140px; } }
+        .skeleton-line {
+            height: 12px;
+            background: var(--paper-shadow);
+            border-radius: 4px;
+            margin-bottom: 8px;
+            animation: skeleton-pulse 1.8s ease-in-out infinite;
+        }
+        .skeleton-body { padding: 14px 16px 16px; }
+        @keyframes skeleton-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--paper-white);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 8px;
+            width: 100%;
+            grid-column: 1 / -1;
+        }
+        .empty-state i { font-size: 1.8rem; color: var(--ink-faint); margin-bottom: 12px; display: block; }
+        .empty-state h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.02em; }
+        .empty-state p { color: var(--ink-soft); font-weight: 300; font-size: 0.9rem; }
+
+        /* ===== BLOG ===== */
+        .blog-section { padding: 60px 0 40px; }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) { .blog-grid { grid-template-columns: 1fr 1fr; gap: 20px; } }
+        @media (max-width: 480px) { .blog-grid { grid-template-columns: 1fr; gap: 18px; } }
+
+        .blog-card {
+            background: var(--paper-white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.06);
+            border-color: var(--gold-light);
+        }
+        .blog-card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            background-color: var(--paper-shadow);
+        }
+        @media (max-width: 480px) { .blog-card-image { height: 160px; } }
+        .blog-card-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: var(--gold);
+            color: var(--ink);
+            font-family: var(--font-alt);
+            font-size: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 3px 12px;
+            border-radius: 20px;
+        }
+        .blog-card-body {
+            padding: 24px 24px 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        @media (max-width: 480px) { .blog-card-body { padding: 16px 18px 14px; } }
+        .blog-meta {
+            display: flex;
+            gap: 14px;
+            font-size: 0.6rem;
+            font-family: var(--font-alt);
+            color: var(--ink-faint);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .blog-meta i { margin-right: 4px; color: var(--gold); }
+        .blog-card-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 8px;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+        .blog-card-excerpt {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--ink-soft);
+            line-height: 1.6;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            letter-spacing: 0.01em;
+        }
+        .blog-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .blog-read-more {
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gold-dark);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s ease;
+        }
+        .blog-read-more i { transition: transform 0.2s ease; }
+        .blog-read-more:hover { color: var(--gold); }
+        .blog-read-more:hover i { transform: translateX(4px); }
+
+        .blog-view-more-wrapper { text-align: center; margin-top: 40px; }
+        @media (max-width: 480px) { .blog-view-more-wrapper { margin-top: 28px; } }
+        .blog-view-more-btn {
+            display: inline-block;
+            padding: 12px 44px;
+            border: 1.5px solid var(--gold);
+            border-radius: 40px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gold-dark);
+            background: transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .blog-view-more-btn:hover {
+            background: var(--gold);
+            color: var(--ink);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(201, 160, 78, 0.25);
+        }
+        @media (max-width: 480px) { .blog-view-more-btn { padding: 10px 28px; font-size: 0.65rem; width: 100%; max-width: 280px; } }
+
+        /* ===== VERIFIED PARTNERS ===== */
+        .verified-partners {
+            background: var(--paper-white);
+            padding: 60px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+        }
+        .verified-partners .section-sub { margin-left: auto; margin-right: auto; text-align: center; }
+
+        .partner-group { margin-bottom: 48px; }
+        .partner-group:last-child { margin-bottom: 0; }
+        .partner-group-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--ink);
+            text-align: center;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .partner-group-title span { color: var(--gold); }
+        .partner-group-sub {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 24px;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 0.01em;
+        }
+
+        .partner-logos-marquee {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+        }
+        .partner-logos-marquee::before,
+        .partner-logos-marquee::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .partner-logos-marquee::before { left: 0; background: linear-gradient(to right, var(--paper-white) 0%, transparent 100%); }
+        .partner-logos-marquee::after { right: 0; background: linear-gradient(to left, var(--paper-white) 0%, transparent 100%); }
+        .partner-logos-track {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            width: max-content;
+            animation: scrollLogos 30s linear infinite;
+            will-change: transform;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .partner-logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-shrink: 0;
+            width: 140px;
+            height: 100px;
+            background: linear-gradient(145deg, #ffffff, #f8f6f0);
+            border-radius: 16px;
+            padding: 14px;
+            border: 1px solid rgba(201, 160, 78, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            cursor: default;
+        }
+        .partner-logo-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(201, 160, 78, 0.08);
+            border-color: var(--gold-light);
+            background: linear-gradient(145deg, #ffffff, #fefcf7);
+        }
+        .partner-logo-item img {
+            width: 100%;
+            max-height: 50px;
+            object-fit: contain;
+            display: block;
+            filter: grayscale(0.2);
+            transition: filter 0.3s ease;
+        }
+        .partner-logo-item:hover img {
+            filter: grayscale(0);
+        }
+        .partner-logo-item span {
+            font-family: var(--font-alt);
+            font-size: 0.55rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            color: var(--ink-faint);
+            text-transform: uppercase;
+            text-align: center;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        .partner-logo-item:hover span {
+            opacity: 1;
+            color: var(--gold-dark);
+        }
+        @keyframes scrollLogos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .partner-logos-marquee:hover .partner-logos-track { animation-play-state: paused; }
+        @media (max-width: 768px) {
+            .partner-logo-item { width: 110px; height: 80px; padding: 10px; gap: 6px; border-radius: 12px; }
+            .partner-logo-item img { max-height: 40px; }
+            .partner-logo-item span { font-size: 0.5rem; }
+            .partner-logos-track { gap: 24px; }
+            .partner-logos-marquee::before, .partner-logos-marquee::after { width: 40px; }
+        }
+        @media (max-width: 480px) {
+            .partner-logo-item { width: 90px; height: 70px; padding: 8px; gap: 4px; border-radius: 10px; }
+            .partner-logo-item img { max-height: 32px; }
+            .partner-logo-item span { font-size: 0.45rem; }
+            .partner-logos-track { gap: 16px; }
+            .partner-logos-marquee::before, .partner-logos-marquee::after { width: 30px; }
+        }
+
+        /* ===== PARTNER SECTION ===== */
+        .partner-section {
+            background: rgba(255, 251, 250, 0.6);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            padding: 60px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        @media (max-width: 768px) { .partner-section { padding: 40px 0; } }
+        @media (max-width: 480px) { .partner-section { padding: 30px 0; } }
+        .partner-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        @media (max-width: 768px) { .partner-grid { grid-template-columns: 1fr; gap: 30px; } }
+
+        .partner-benefits {
+            list-style: none;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        @media (max-width: 480px) { .partner-benefits { gap: 8px; margin-top: 12px; } }
+        .partner-benefits li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--ink-soft);
+            letter-spacing: 0.01em;
+        }
+        @media (max-width: 480px) { .partner-benefits li { font-size: 0.8rem; gap: 8px; } .partner-benefits li i { font-size: 0.85rem; } }
+        .partner-benefits li i { color: var(--gold); font-size: 1rem; }
+
+        .partner-contact-card {
+            background: var(--ink);
+            border-radius: 16px;
+            padding: 36px 32px;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+        }
+        @media (max-width: 480px) { .partner-contact-card { padding: 24px 20px; border-radius: 12px; } }
+        .partner-contact-title {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+        .partner-contact-title span { color: var(--gold); }
+        @media (max-width: 480px) { .partner-contact-title { font-size: 1.3rem; margin-bottom: 10px; } }
+        .partner-contact-card .sub-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 24px;
+            letter-spacing: 0.01em;
+            line-height: 1.6;
+        }
+        .partner-contact-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #fff;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            font-family: var(--font-body);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        @media (max-width: 480px) { .partner-contact-link { padding: 12px 14px; border-radius: 10px; font-size: 0.85rem; margin-bottom: 8px; } }
+        .partner-contact-link:hover {
+            background: rgba(201, 160, 78, 0.12);
+            border-color: var(--gold);
+            transform: translateX(4px);
+        }
+        .partner-contact-link i {
+            color: var(--gold);
+            font-size: 1.3rem;
+            width: 28px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        @media (max-width: 480px) { .partner-contact-link i { font-size: 1.1rem; width: 24px; } }
+        .partner-contact-link .link-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        .partner-contact-link .link-content .link-label {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+        .partner-contact-link .link-content .link-detail {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.75rem;
+            font-weight: 300;
+        }
+        .partner-contact-link:hover .link-content .link-label { color: var(--gold-light); }
+        @media (max-width: 480px) { .partner-contact-link .link-content .link-label { font-size: 0.8rem; } .partner-contact-link .link-content .link-detail { font-size: 0.65rem; } }
+
+        /* ===== FAQ ===== */
+        .faq { padding: 60px 0; background: var(--paper); }
+        @media (max-width: 480px) { .faq { padding: 40px 0; } }
+        .faq-wrapper {
+            background-color: var(--paper-white);
+            border-radius: 24px;
+            padding: 2.8rem 2.5rem 2.5rem;
+            box-shadow: 0 12px 40px rgba(26, 20, 16, 0.04);
+            border: 1px solid rgba(201, 160, 78, 0.10);
+            transition: all 0.2s ease;
+        }
+        .faq-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .faq-title span { color: var(--gold); }
+        .faq-sub {
+            font-family: var(--font-alt);
+            font-weight: 300;
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+            margin-bottom: 2rem;
+            letter-spacing: 0.06em;
+            border-left: 3px solid var(--gold);
+            padding-left: 1rem;
+            text-transform: uppercase;
+        }
+        .faq-list { display: flex; flex-direction: column; gap: 0.75rem; }
+        .faq-item {
+            background: rgba(255, 251, 250, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 18px;
+            border: 1px solid rgba(201, 160, 78, 0.12);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+        }
+        .faq-item:hover { border-color: rgba(201, 160, 78, 0.25); box-shadow: 0 8px 24px rgba(201, 160, 78, 0.06); }
+        .faq-item summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.2rem 1.8rem;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--ink);
+            cursor: pointer;
+            list-style: none;
+            transition: background 0.2s;
+            border-radius: 18px;
+            user-select: none;
+            position: relative;
+            letter-spacing: -0.01em;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary .icon-wrap {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(201, 160, 78, 0.08);
+            color: var(--gold);
+            font-size: 1rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        .faq-item[open] summary .icon-wrap { background: var(--gold); color: var(--ink); transform: rotate(180deg); }
+        .faq-item summary .question-text { flex: 1; }
+        .faq-item .answer {
+            padding: 0.2rem 1.8rem 1.8rem 1.8rem;
+            font-family: var(--font-body);
+            font-weight: 300;
+            color: var(--ink-soft);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(201, 160, 78, 0.08);
+            margin-top: 0.2rem;
+            animation: fadeSlide 0.25s ease;
+            letter-spacing: 0.01em;
+        }
+        .faq-item .answer p { max-width: 90%; }
+        @keyframes fadeSlide { 0% { opacity: 0; transform: translateY(-6px); } 100% { opacity: 1; transform: translateY(0); } }
+        .faq-decor {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 2rem;
+            font-family: var(--font-alt);
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            border-top: 1px solid rgba(201, 160, 78, 0.10);
+            padding-top: 1.5rem;
+        }
+        .faq-decor i { margin-right: 6px; color: var(--gold); }
+        .faq-decor a { color: var(--gold); font-weight: 500; margin-left: 6px; text-decoration: none; border-bottom: 1px dotted rgba(201, 160, 78, 0.3); }
+        @media (max-width: 640px) {
+            .faq-wrapper { padding: 1.8rem 1.2rem; border-radius: 20px; }
+            .faq-title { font-size: 2.2rem; }
+            .faq-sub { font-size: 0.8rem; padding-left: 0.75rem; }
+            .faq-item summary { font-size: 0.95rem; padding: 1rem 1.2rem; }
+            .faq-item .answer { padding: 0 1.2rem 1.4rem 1.2rem; font-size: 0.88rem; }
+            .faq-item .answer p { max-width: 100%; }
+            .faq-item summary .icon-wrap { width: 28px; height: 28px; font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) {
+            .faq-wrapper { padding: 1.2rem 0.8rem; border-radius: 16px; }
+            .faq-title { font-size: 1.8rem; }
+            .faq-sub { font-size: 0.7rem; }
+            .faq-item summary { font-size: 0.85rem; padding: 0.9rem 1rem; }
+            .faq-item .answer { font-size: 0.8rem; padding: 0 1rem 1.2rem 1rem; }
+            .faq-decor { font-size: 0.55rem; flex-wrap: wrap; justify-content: center; gap: 4px; }
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-section {
+            padding: 60px 0 80px;
+            background: transparent;
+            overflow: hidden;
+        }
+        @media (max-width: 768px) { .testimonials-section { padding: 40px 0 50px; } }
+        @media (max-width: 480px) { .testimonials-section { padding: 30px 0 40px; } }
+
+        .testimonials-carousel-wrapper {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .testimonials-carousel {
+            overflow: hidden;
+            position: relative;
+            border-radius: 20px;
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        .testimonial-slide {
+            flex: 0 0 100%;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .testimonial-card {
+            background: var(--paper-white);
+            border-radius: 20px;
+            padding: 36px 32px 32px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 24px;
+            font-family: var(--font-display);
+            font-size: 5rem;
+            color: rgba(201, 160, 78, 0.08);
+            line-height: 1;
+        }
+
+        .testimonial-card .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-card .testimonial-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 3px solid var(--gold-light);
+        }
+        .testimonial-card .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-card .testimonial-info {
+            flex: 1;
+        }
+        .testimonial-card .testimonial-info h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 2px;
+            letter-spacing: -0.02em;
+        }
+        .testimonial-card .testimonial-info .location {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            color: var(--ink-faint);
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+        .testimonial-card .testimonial-stars {
+            color: var(--gold);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .testimonial-card .testimonial-text {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--ink-soft);
+            font-style: italic;
+            margin-bottom: 16px;
+            letter-spacing: 0.01em;
+        }
+        .testimonial-card .testimonial-trip {
+            font-family: var(--font-alt);
+            font-size: 0.55rem;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-slide { padding: 15px 20px; }
+            .testimonial-card { padding: 28px 24px 24px; }
+            .testimonial-card .testimonial-avatar { width: 52px; height: 52px; }
+            .testimonial-card .testimonial-text { font-size: 0.9rem; }
+        }
+        @media (max-width: 480px) {
+            .testimonial-slide { padding: 10px 12px; }
+            .testimonial-card { padding: 20px 16px 18px; border-radius: 16px; }
+            .testimonial-card .testimonial-avatar { width: 44px; height: 44px; border-width: 2px; }
+            .testimonial-card .testimonial-info h4 { font-size: 0.9rem; }
+            .testimonial-card .testimonial-text { font-size: 0.8rem; }
+            .testimonial-card::before { font-size: 3.5rem; top: 5px; left: 14px; }
+        }
+
+        .testimonials-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .testimonial-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(0, 0, 0, 0.08);
+            background: var(--paper-white);
+            color: var(--ink);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+        .testimonial-btn:hover {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 160, 78, 0.15);
+        }
+        .testimonial-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .testimonial-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+        .testimonial-dot.active {
+            background: var(--gold);
+            transform: scale(1.3);
+            box-shadow: 0 0 20px rgba(201, 160, 78, 0.15);
+        }
+        .testimonial-dot:hover:not(.active) {
+            background: rgba(201, 160, 78, 0.3);
+        }
+
+        @media (max-width: 480px) {
+            .testimonial-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+            .testimonials-controls { gap: 12px; margin-top: 24px; }
+            .testimonial-dot { width: 8px; height: 8px; }
+        }
+
+        /* ===== CTA BANNER ===== */
+        .cta-banner {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 40px 0 20px;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 20, 16, 0.55);
+            z-index: 1;
+        }
+        .cta-banner .cta-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+        .cta-banner .cta-content {
+            position: relative;
+            z-index: 2;
+            padding: 50px 40px;
+            max-width: 700px;
+        }
+        .cta-banner h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .cta-banner h2 span { color: var(--gold-light); }
+        .cta-banner p {
+            font-family: var(--font-alt);
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 500px;
+            margin: 0 auto 24px;
+            font-size: 0.95rem;
+            font-weight: 300;
+            letter-spacing: 0.04em;
+        }
+        .cta-banner .btn-primary { background: var(--gold); color: var(--ink); }
+        .cta-banner .btn-primary:hover { background: var(--gold-light); }
+        @media (max-width: 768px) {
+            .cta-banner { min-height: 260px; border-radius: 16px; margin: 30px 0 16px; }
+            .cta-banner .cta-content { padding: 36px 28px; }
+            .cta-banner h2 { font-size: 2.4rem; }
+            .cta-banner p { font-size: 0.85rem; margin-bottom: 18px; }
+        }
+        @media (max-width: 480px) {
+            .cta-banner { min-height: 220px; border-radius: 12px; margin: 20px 0 12px; }
+            .cta-banner .cta-content { padding: 28px 20px; }
+            .cta-banner h2 { font-size: 1.8rem; }
+            .cta-banner p { font-size: 0.75rem; margin-bottom: 14px; }
+            .cta-banner .btn-primary { width: 100%; max-width: 260px; padding: 10px 20px; font-size: 0.7rem; }
+        }
+
+        /* ===== FOOTER ===== */
+        footer.site-footer {
+            background: #121012;
+            color: rgba(255, 255, 255, 0.92);
+            padding: 64px 0 32px;
+            margin-top: 0;
+            width: 100%;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 32px;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .footer-brand p { max-width: 420px; color: rgba(255, 255, 255, 0.7); line-height: 1.85; letter-spacing: 0.01em; }
+        .footer-socials { display: flex; gap: 12px; }
+        .footer-socials a {
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            transition: background 0.2s ease;
+        }
+        .footer-socials a:hover { background: rgba(201, 160, 78, 0.24); }
+        .footer-links, .footer-newsletter { display: flex; flex-direction: column; gap: 12px; }
+        .footer-links h3, .footer-newsletter h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+        .footer-links a { color: rgba(255, 255, 255, 0.74); transition: color 0.2s ease; font-size: 0.9rem; letter-spacing: 0.01em; }
+        .footer-links a:hover { color: #fff; }
+        .footer-newsletter p {
+            color: rgba(255, 255, 255, 0.72);
+            margin-bottom: 18px;
+            max-width: 320px;
+            line-height: 1.8;
+            letter-spacing: 0.01em;
+        }
+        .footer-newsletter-form {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .footer-newsletter-form input {
+            flex: 1;
+            min-width: 180px;
+            padding: 14px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            font-family: var(--font-body);
+            letter-spacing: 0.01em;
+        }
+        .footer-newsletter-form input::placeholder { color: rgba(255, 255, 255, 0.55); }
+        .footer-newsletter-form button {
+            padding: 14px 28px;
+            border-radius: 999px;
+            border: none;
+            background: var(--gold);
+            color: var(--ink);
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .footer-newsletter-form button:hover { background: var(--gold-light); }
+        .footer-newsletter-form .newsletter-message {
+            width: 100%;
+            font-size: 0.75rem;
+            color: var(--gold-light);
+            text-align: center;
+            padding: 4px 0;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 36px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.65);
+            letter-spacing: 0.02em;
+        }
+        .footer-bottom a { color: rgba(255, 255, 255, 0.75); }
+        @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 640px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+            .footer-newsletter-form { flex-direction: column; align-items: stretch; }
+            .footer-newsletter-form input, .footer-newsletter-form button { width: 100%; }
+            .footer-bottom { justify-content: center; text-align: center; }
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-up-delay-1 { transition-delay: 0.1s; }
+        .fade-up-delay-2 { transition-delay: 0.2s; }
+        .fade-up-delay-3 { transition-delay: 0.3s; }
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .timeline-item {
+            opacity: 0;
+            transform: translateY(60px) scale(0.95);
+            transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .timeline-item:nth-child(1) { transition-delay: 0.05s; }
+        .timeline-item:nth-child(2) { transition-delay: 0.15s; }
+        .timeline-item:nth-child(3) { transition-delay: 0.25s; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container nav">
+            <a href="#" class="logo">
+                <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653310/DiscoverAfrica_cqgsvh.svg" alt="Discover Africa Safaris" />
+                Discover<span>Africa</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Safaris</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="stays.html">Stays</a></li>
+                <li><a href="tour-operators.html">Operators</a></li>
+                <li><a href="all-articles.html">Journal</a></li>
+            </ul>
+            <div class="header-actions" style="display:flex;align-items:center;gap:12px;">
+                <a href="tailor.html" class="btn-primary header-cta">Tailor</a>
+                <button class="mobile-menu-btn" aria-label="Menu" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE SIDEBAR NAV -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav-sidebar" id="mobileNavSidebar">
+        <div class="mobile-nav-header">
+            <a href="#" class="logo">
+                <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653310/DiscoverAfrica_cqgsvh.svg" alt="Discover Africa Safaris" />
+                Discover<span>Africa</span>
+            </a>
+            <button class="mobile-nav-close" id="mobileNavClose"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="#" class="active">Safaris</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="stays.html">Stays</a></li>
+            <li><a href="tour-operators.html">Operators</a></li>
+            <li><a href="all-articles.html">Journal</a></li>
+        </ul>
+        <div class="mobile-nav-footer">
+            <a href="tailor.html" class="btn-primary">Tailor Your Safari</a>
+        </div>
+    </nav>
+
+    <!-- HERO (DARK) -->
+    <section class="hero" id="heroSection">
+        <div class="hero-slides" id="heroSlides">
+            <div class="hero-slide active" style="background-image:url('https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653267/beast_rvuuug.jpg');"></div>
+            <div class="hero-slide" style="background-image:url('https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653485/maasaimara_esdq5y.jpg');"></div>
+            <div class="hero-slide" style="background-image:url('https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653367/trekking_htdpfe.jpg');"></div>
+            <div class="hero-slide" style="background-image:url('https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653461/victoria_falls_eptbmi.jpg');"></div>
+            <div class="hero-slide" style="background-image:url('https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653389/capetown_kn9kq2.jpg');"></div>
+        </div>
+
+        <div class="hero-content container">
+            <h1>Africa, <span>exquisitely</span> arranged.</h1>
+            <p>Private guides, candlelit dinners under open sky, and camps where every detail has been considered. Reserve the safari that meets your standard.</p>
+
+            <div class="btn-group">
+                <a href="#" class="btn-primary" onclick="document.getElementById('safariSection').scrollIntoView({behavior:'smooth'})">Explore Safaris</a>
+            </div>
+        </div>
+
+        <div class="hero-nav" id="heroNav">
+            <button class="hero-nav-btn active" data-slide="0"></button>
+            <button class="hero-nav-btn" data-slide="1"></button>
+            <button class="hero-nav-btn" data-slide="2"></button>
+            <button class="hero-nav-btn" data-slide="3"></button>
+            <button class="hero-nav-btn" data-slide="4"></button>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         LIGHT BAND — contains everything between hero and footer.
+         Bookended by two long fade zones (75vh mobile / 85vh desktop),
+         matching the Kilimanjaro page's slow gradient system.
+    ============================================================ -->
+    <section class="relative bg-[#F5F2EB] text-[#1A1410]" style="position: relative; background: var(--paper); color: var(--ink);">
+
+        <!-- LONG, SLOW fade: dark hero → light content -->
+        <div class="fade-zone-dark-to-light" style="position: absolute; top: 0; left: 0; right: 0; height: 75vh; pointer-events: none; z-index: 10;" aria-hidden="true"></div>
+        <style>@media (min-width: 1024px) { .fade-zone-dark-to-light { height: 85vh !important; } }</style>
+
+        <div style="position: relative; z-index: 20; padding-top: 60vh;" class="light-band-content">
+            <style>
+                @media (min-width: 640px) { .light-band-content { padding-top: 72vh; } }
+                @media (min-width: 1024px) { .light-band-content { padding-top: 96vh; } }
+            </style>
+
+            <!-- SEARCH SECTION -->
+            <section class="search-section-below fade-up">
+                <div class="container">
+                    <div class="search-bar-wrapper">
+                        <div class="search-field">
+                            <label for="heroDestination">Destination</label>
+                            <input type="text" class="search-input" id="heroDestination" placeholder="Where to go?">
+                        </div>
+                        <div class="search-field">
+                            <label for="heroDuration">Duration</label>
+                            <select class="search-input" id="heroDuration">
+                                <option value="all">Any Duration</option>
+                            </select>
+                        </div>
+                        <div class="search-field">
+                            <label for="heroAdults">Travelers</label>
+                            <select class="search-input" id="heroAdults">
+                                <option>2 Adults</option>
+                                <option>1 Adult</option>
+                                <option>3 Adults</option>
+                                <option>4+ Adults</option>
+                            </select>
+                        </div>
+                        <div class="search-field">
+                            <label for="heroBudget">Budget</label>
+                            <select class="search-input" id="heroBudget">
+                                <option value="all">Any Budget</option>
+                                <option value="0-2000">Up to $2,000</option>
+                                <option value="2000-5000">$2,000 - $5,000</option>
+                                <option value="5000-10000">$5,000 - $10,000</option>
+                                <option value="10000">$10,000+</option>
+                            </select>
+                        </div>
+                        <button class="btn-search" id="heroSearchBtn"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STATS SECTION -->
+            <section class="stats-section fade-up">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" id="totalPackagesCount">—</div>
+                            <div class="stat-label">Safari Packages</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4.9</div>
+                            <div class="stat-label">Average Rating</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="totalOperatorsCount">—</div>
+                            <div class="stat-label">Trusted Operators</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TRUST STRIP -->
+            <div class="container fade-up fade-up-delay-1">
+                <div class="trust-strip">
+                    <div class="trust-strip-inner">
+                        <span class="trust-item"><i class="fas fa-shield-alt"></i> Best Price Guarantee</span>
+                        <span class="trust-item"><i class="fas fa-headset"></i> 24/7 Concierge</span>
+                        <span class="trust-item"><i class="fas fa-credit-card"></i> Secure Payments</span>
+                        <span class="trust-item"><i class="fas fa-award"></i> ATTA Verified</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OVERVIEW - IMMERSIVE TIMELINE -->
+            <section class="overview">
+                <div class="container">
+                    <div class="overview-header fade-up">
+                        <h2 class="section-title">How It <span>Works.</span></h2>
+                        <p class="section-sub" style="margin-left: auto; margin-right: auto; text-align: center;">Three simple steps to your dream African safari — curated, personalized, and unforgettable.</p>
+                    </div>
+
+                    <div class="timeline-container">
+                        <div class="timeline-item" id="timeline1">
+                            <div class="timeline-dot">01</div>
+                            <div class="timeline-content">
+                                <div class="card-glow"></div>
+                                <span class="step-number"><span class="step-icon">✦</span> Step 01</span>
+                                <h3>Curated safaris, <span class="highlight">not a directory.</span></h3>
+                                <p>Every safari is handpicked for quality, wildlife density, and exclusive access. We don't just list tours — we curate experiences that meet our exacting standards.</p>
+                                <div class="card-icon"><i class="fas fa-star"></i></div>
+                                <div class="pattern-dots">
+                                    <span></span><span></span><span></span>
+                                    <span></span><span></span><span></span>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item" id="timeline2">
+                            <div class="timeline-dot">02</div>
+                            <div class="timeline-content">
+                                <div class="card-glow"></div>
+                                <span class="step-number"><span class="step-icon">✦</span> Step 02</span>
+                                <h3>Fast guidance for <span class="highlight">any occasion.</span></h3>
+                                <p>Honeymoons, family trips, or solo adventures — we move at your pace. Our experts understand that every traveler is unique and deserves personalized attention.</p>
+                                <div class="card-icon"><i class="fas fa-heart"></i></div>
+                                <div class="pattern-dots">
+                                    <span></span><span></span><span></span>
+                                    <span></span><span></span><span></span>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item" id="timeline3">
+                            <div class="timeline-dot">03</div>
+                            <div class="timeline-content">
+                                <div class="card-glow"></div>
+                                <span class="step-number"><span class="step-icon">✦</span> Step 03</span>
+                                <h3>Intimate, local, and <span class="highlight">premium.</span></h3>
+                                <p>Service that feels personal, not packaged. We tailor every detail to your group, from private guides to bespoke itineraries that reflect your travel style.</p>
+                                <div class="card-icon"><i class="fas fa-gem"></i></div>
+                                <div class="pattern-dots">
+                                    <span></span><span></span><span></span>
+                                    <span></span><span></span><span></span>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DESTINATION SHOWCASE -->
+            <section class="destination-showcase fade-up">
+                <div class="container">
+                    <h2 class="section-title">Popular <span>Destinations.</span></h2>
+                    <p class="section-sub">From the Serengeti plains to the Okavango Delta, discover Africa's most iconic wildlife destinations.</p>
+                </div>
+                <div class="container" style="max-width:1400px; padding-left:20px; padding-right:20px;">
+                    <div class="showcase-card scale-in" id="showcaseCard">
+                        <div class="showcase-slides" id="showcaseSlides"></div>
+                        <div class="showcase-nav" id="showcaseNav"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEARCH SECTION (hidden) -->
+            <section class="search-section" id="searchSection"></section>
+
+            <!-- FEATURED SAFARI PACKAGES -->
+            <section class="section" id="safariSection" style="padding-top:0;">
+                <div class="container">
+                    <h2 class="section-title fade-up">Featured <span>Packages.</span></h2>
+                    <p class="section-sub fade-up fade-up-delay-1">Hand-selected experiences from Africa's finest operators.</p>
+
+                    <div class="safari-layout">
+                        <aside class="sidebar fade-up fade-up-delay-2">
+                            <div class="sidebar-section">
+                                <div class="sidebar-title">Comfort Level</div>
+                                <label class="sidebar-option"><input type="checkbox" class="filter-checkbox" data-filter="comfort_level" value="Luxury"> Luxury <span class="count" id="luxuryCount">(—)</span></label>
+                                <label class="sidebar-option"><input type="checkbox" class="filter-checkbox" data-filter="comfort_level" value="Mid-range"> Mid-range <span class="count" id="midrangeCount">(—)</span></label>
+                                <label class="sidebar-option"><input type="checkbox" class="filter-checkbox" data-filter="comfort_level" value="Budget"> Budget <span class="count" id="budgetCount">(—)</span></label>
+                            </div>
+                            <div class="sidebar-section">
+                                <div class="sidebar-title">Tour Type</div>
+                                <label class="sidebar-option"><input type="checkbox" class="filter-checkbox" data-filter="tour_type" value="Private tour"> Private <span class="count" id="privateCount">(—)</span></label>
+                                <label class="sidebar-option"><input type="checkbox" class="filter-checkbox" data-filter="tour_type" value="Shared tour"> Shared <span class="count" id="sharedCount">(—)</span></label>
+                            </div>
+                            <div class="sidebar-section">
+                                <div class="sidebar-title">Country</div>
+                                <label class="sidebar-option"><input type="checkbox" class="filter-checkbox" data-filter="country" value="Tanzania"> Tanzania <span class="count" id="tanzaniaCount">(—)</span></label>
+                                <label class="sidebar-option"><input type="checkbox" class="filter-checkbox" data-filter="country" value="Kenya"> Kenya <span class="count" id="kenyaCount">(—)</span></label>
+                                <label class="sidebar-option"><input type="checkbox" class="filter-checkbox" data-filter="country" value="South Africa"> South Africa <span class="count" id="saCount">(—)</span></label>
+                            </div>
+                        </aside>
+
+                        <div>
+                            <div class="results-toolbar fade-up fade-up-delay-3">
+                                <div class="results-count">Showing <strong><span id="displayedCount">—</span></strong> of <strong><span id="totalCount">—</span></strong> packages</div>
+                                <select class="results-sort" id="sortSelect">
+                                    <option value="recommended">Sort: Recommended</option>
+                                    <option value="price_asc">Price: Low to High</option>
+                                    <option value="price_desc">Price: High to Low</option>
+                                    <option value="rating">Highest Rated</option>
+                                </select>
+                            </div>
+
+                            <div class="safari-cards" id="safariList">
+                                <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-body"><div class="skeleton-line" style="width:70%;"></div><div class="skeleton-line" style="width:50%;"></div><div class="skeleton-line" style="width:80%;"></div></div></div>
+                                <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-body"><div class="skeleton-line" style="width:70%;"></div><div class="skeleton-line" style="width:50%;"></div><div class="skeleton-line" style="width:80%;"></div></div></div>
+                                <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-body"><div class="skeleton-line" style="width:70%;"></div><div class="skeleton-line" style="width:50%;"></div><div class="skeleton-line" style="width:80%;"></div></div></div>
+                            </div>
+
+                            <div class="pagination" id="pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BLOG SECTION -->
+            <section class="blog-section container fade-up">
+                <h2 class="section-title">From the <span>Journal.</span></h2>
+                <p class="section-sub">Stories, tips, and dispatches from the heart of Africa.</p>
+                <div class="blog-grid" id="blogGrid"></div>
+                <div class="blog-view-more-wrapper">
+                    <a href="all-articles.html" class="blog-view-more-btn">View More Stories →</a>
+                </div>
+            </section>
+
+            <!-- VERIFIED PARTNERS -->
+            <section class="verified-partners fade-up">
+                <div class="container">
+                    <h2 class="section-title" style="text-align:center;">Verified <span>Partners.</span></h2>
+                    <p class="section-sub" style="text-align:center;margin:0 auto 8px;">Our tour operators are verified members and partners with the industry's leading organizations.</p>
+
+                    <div class="partner-group">
+                        <h3 class="partner-group-title">Organizations We Are <span>Members Of</span></h3>
+                        <p class="partner-group-sub">Proudly affiliated with these esteemed organizations that uphold the highest standards in travel and tourism.</p>
+                        <div class="partner-logos-marquee">
+                            <div class="partner-logos-track">
+                                <div class="partner-logo-item"><img src="/partners/ATTA.webp" alt="ATTA" /><span>ATTA</span></div>
+                                <div class="partner-logo-item"><img src="/partners/TATO.webp" alt="TATO" /><span>TATO</span></div>
+                                <div class="partner-logo-item"><img src="/partners/Trip.webp" alt="TripAdvisor" /><span>TripAdvisor</span></div>
+                                <div class="partner-logo-item"><img src="/partners/Safarigo.webp" alt="Safarigo" /><span>Safarigo</span></div>
+                                <div class="partner-logo-item"><img src="/partners/ASTA.webp" alt="ASTA" /><span>ASTA</span></div>
+                                <div class="partner-logo-item"><img src="/partners/ATTA.webp" alt="ATTA" /><span>ATTA</span></div>
+                                <div class="partner-logo-item"><img src="/partners/TATO.webp" alt="TATO" /><span>TATO</span></div>
+                                <div class="partner-logo-item"><img src="/partners/Trip.webp" alt="TripAdvisor" /><span>TripAdvisor</span></div>
+                                <div class="partner-logo-item"><img src="/partners/Safarigo.webp" alt="Safarigo" /><span>Safarigo</span></div>
+                                <div class="partner-logo-item"><img src="/partners/ASTA.webp" alt="ASTA" /><span>ASTA</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="partner-group">
+                        <h3 class="partner-group-title">Our <span>Partners</span></h3>
+                        <p class="partner-group-sub">We are grateful to our most supportive partners. These companies invest their time and resources to support our mission.</p>
+                        <div class="partner-logos-marquee">
+                            <div class="partner-logos-track">
+                                <div class="partner-logo-item"><img src="/partners/air tanzania.webp" alt="Air Tanzania" /><span>Air Tanzania</span></div>
+                                <div class="partner-logo-item"><img src="/partners/klm.webp" alt="KLM" /><span>KLM</span></div>
+                                <div class="partner-logo-item"><img src="/partners/asilia.webp" alt="Asilia" /><span>Asilia</span></div>
+                                <div class="partner-logo-item"><img src="/partners/singita.webp" alt="Singita" /><span>Singita</span></div>
+                                <div class="partner-logo-item"><img src="/partners/beyond.webp" alt="&Beyond" /><span>&Beyond</span></div>
+                                <div class="partner-logo-item"><img src="/partners/air tanzania.webp" alt="Air Tanzania" /><span>Air Tanzania</span></div>
+                                <div class="partner-logo-item"><img src="/partners/klm.webp" alt="KLM" /><span>KLM</span></div>
+                                <div class="partner-logo-item"><img src="/partners/asilia.webp" alt="Asilia" /><span>Asilia</span></div>
+                                <div class="partner-logo-item"><img src="/partners/singita.webp" alt="Singita" /><span>Singita</span></div>
+                                <div class="partner-logo-item"><img src="/partners/beyond.webp" alt="&Beyond" /><span>&Beyond</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PARTNER SECTION - DARK THEME GET IN TOUCH -->
+            <section class="partner-section fade-up">
+                <div class="container">
+                    <div class="partner-grid">
+                        <div>
+                            <h2 class="section-title" style="font-size:1.8rem;">List Your <span>Packages.</span></h2>
+                            <p style="color:var(--ink-soft);font-size:1rem;max-width:500px;font-weight:300;letter-spacing:0.01em;">Join Africa's fastest-growing safari marketplace. Get your packages in front of thousands of travelers.</p>
+                            <ul class="partner-benefits">
+                                <li><i class="fas fa-check-circle"></i> Reach qualified travelers</li>
+                                <li><i class="fas fa-check-circle"></i> Zero listing fees</li>
+                                <li><i class="fas fa-check-circle"></i> Dedicated operator dashboard</li>
+                                <li><i class="fas fa-check-circle"></i> Real-time analytics</li>
+                            </ul>
+                        </div>
+                        <div class="partner-contact-card">
+                            <h3 class="partner-contact-title">Get in <span>Touch</span></h3>
+                            <p class="sub-text">Our partnerships team will get back to you within 24 hours.</p>
+                            <a href="mailto:partners@discoverafricasafaris.com" class="partner-contact-link">
+                                <i class="fas fa-envelope"></i>
+                                <div class="link-content">
+                                    <span class="link-label">Email Us</span>
+                                    <span class="link-detail">partners@discoverafricasafaris.com</span>
+                                </div>
+                            </a>
+                            <a href="#" class="partner-contact-link">
+                                <i class="fab fa-whatsapp"></i>
+                                <div class="link-content">
+                                    <span class="link-label">WhatsApp</span>
+                                    <span class="link-detail">+255 759 638-883</span>
+                                </div>
+                            </a>
+                            <a href="tel:+255759638883" class="partner-contact-link">
+                                <i class="fas fa-phone"></i>
+                                <div class="link-content">
+                                    <span class="link-label">Call Us</span>
+                                    <span class="link-detail">+255 759 638-883</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="faq container fade-up">
+                <div class="faq-wrapper">
+                    <div class="faq-title"><span>Common</span> Questions. <span style="font-size:0.6em;margin-left:auto;opacity:0.4;font-family:var(--font-body);font-weight:300;">✦</span></div>
+                    <div class="faq-sub"><i class="fas fa-compass" style="margin-right:8px;color:var(--gold);"></i> Everything you need to know before your safari</div>
+                    <div class="faq-list">
+                        <details class="faq-item" open>
+                            <summary><span class="icon-wrap"><i class="fas fa-chevron-down"></i></span><span class="question-text">How early should I book a safari?</span></summary>
+                            <div class="answer"><p><i class="fas fa-calendar-check" style="color:var(--gold);margin-right:8px;"></i> The earlier the better, especially during high season (June–October). We also help with short-notice bookings whenever availability exists.</p></div>
+                        </details>
+                        <details class="faq-item">
+                            <summary><span class="icon-wrap"><i class="fas fa-chevron-down"></i></span><span class="question-text">Can I customize a safari package?</span></summary>
+                            <div class="answer"><p><i class="fas fa-pencil-alt" style="color:var(--gold);margin-right:8px;"></i> Yes. Every safari can be tailored to your preferences — duration, accommodations, activities, and more.</p></div>
+                        </details>
+                        <details class="faq-item">
+                            <summary><span class="icon-wrap"><i class="fas fa-chevron-down"></i></span><span class="question-text">Are there family-friendly safaris?</span></summary>
+                            <div class="answer"><p><i class="fas fa-child" style="color:var(--gold);margin-right:8px;"></i> Absolutely. We have a wide selection of family-friendly safaris with child-friendly accommodations and activities.</p></div>
+                        </details>
+                        <details class="faq-item">
+                            <summary><span class="icon-wrap"><i class="fas fa-chevron-down"></i></span><span class="question-text">What if I don't see a package I like?</span></summary>
+                            <div class="answer"><p><i class="fas fa-search" style="color:var(--gold);margin-right:8px;"></i> You can still send a request via our Tailor form. We'll match you with the perfect safari based on your preferences.</p></div>
+                        </details>
+                        <details class="faq-item">
+                            <summary><span class="icon-wrap"><i class="fas fa-chevron-down"></i></span><span class="question-text">What is the best time to visit Africa for a safari?</span></summary>
+                            <div class="answer"><p><i class="fas fa-sun" style="color:var(--gold);margin-right:8px;"></i> It depends on the region. East Africa is spectacular during the Great Migration from July–October. Southern Africa offers excellent wildlife viewing year-round.</p></div>
+                        </details>
+                    </div>
+                    <div class="faq-decor"><i class="fas fa-feather-alt"></i> still have questions? <a href="#">contact us</a></div>
+                </div>
+            </section>
+
+            <!-- TESTIMONIALS -->
+            <section class="testimonials-section fade-up">
+                <div class="container">
+                    <h2 class="section-title" style="text-align:center;">What Our <span>Travelers Say.</span></h2>
+                    <p class="section-sub" style="text-align:center;margin:0 auto 10px;">Real stories from adventurers who experienced Africa with us.</p>
+                </div>
+
+                <div class="testimonials-carousel-wrapper">
+                    <div class="testimonials-carousel">
+                        <div class="testimonials-track" id="testimonialsTrack">
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">
+                                            <img src="https://i.pravatar.cc/150?img=44" alt="Sarah Mitchell" loading="lazy" />
+                                        </div>
+                                        <div class="testimonial-info">
+                                            <h4>Sarah Mitchell</h4>
+                                            <div class="location">London, UK</div>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">"An absolutely life-changing experience. Our guide's knowledge of the Serengeti was remarkable. Every detail was perfectly arranged."</p>
+                                    <div class="testimonial-trip">Tanzania • March 2026</div>
+                                </div>
+                            </div>
+
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">
+                                            <img src="https://i.pravatar.cc/150?img=32" alt="Michael Chen" loading="lazy" />
+                                        </div>
+                                        <div class="testimonial-info">
+                                            <h4>Michael & Lisa Chen</h4>
+                                            <div class="location">Sydney, Australia</div>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">"Our honeymoon safari exceeded every expectation. The private dinners under the stars were pure magic. We'll treasure these memories forever."</p>
+                                    <div class="testimonial-trip">Kenya • February 2026</div>
+                                </div>
+                            </div>
+
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">
+                                            <img src="https://i.pravatar.cc/150?img=63" alt="Emma Roberts" loading="lazy" />
+                                        </div>
+                                        <div class="testimonial-info">
+                                            <h4>Emma Roberts</h4>
+                                            <div class="location">Toronto, Canada</div>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">"Traveling solo, I felt completely safe and welcomed. The Okavango Delta is paradise on earth — I've already recommended it to all my friends."</p>
+                                    <div class="testimonial-trip">Botswana • January 2026</div>
+                                </div>
+                            </div>
+
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">
+                                            <img src="https://i.pravatar.cc/150?img=55" alt="David Okonkwo" loading="lazy" />
+                                        </div>
+                                        <div class="testimonial-info">
+                                            <h4>David Okonkwo</h4>
+                                            <div class="location">Lagos, Nigeria</div>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">"The gorilla trekking in Rwanda was the most profound wildlife experience I've ever had. Our guide's expertise made it truly unforgettable."</p>
+                                    <div class="testimonial-trip">Rwanda • December 2025</div>
+                                </div>
+                            </div>
+
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">
+                                            <img src="https://i.pravatar.cc/150?img=47" alt="James Anderson" loading="lazy" />
+                                        </div>
+                                        <div class="testimonial-info">
+                                            <h4>James Anderson</h4>
+                                            <div class="location">New York, USA</div>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">"Victoria Falls and the Zambezi cruise was spectacular. I've never felt so well looked after. The attention to detail was extraordinary."</p>
+                                    <div class="testimonial-trip">Zimbabwe • October 2025</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonials-controls">
+                        <button class="testimonial-btn" id="testimonialPrev" aria-label="Previous">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="testimonial-dots" id="testimonialDots">
+                            <button class="testimonial-dot active" data-index="0"></button>
+                            <button class="testimonial-dot" data-index="1"></button>
+                            <button class="testimonial-dot" data-index="2"></button>
+                            <button class="testimonial-dot" data-index="3"></button>
+                            <button class="testimonial-dot" data-index="4"></button>
+                        </div>
+                        <button class="testimonial-btn" id="testimonialNext" aria-label="Next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA BANNER -->
+            <div class="container fade-up">
+                <div class="cta-banner">
+                    <div class="cta-bg" style="background-image:url('https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653267/beast_rvuuug.jpg');"></div>
+                    <div class="cta-content">
+                        <h2>Ready to <span>experience</span> Africa?</h2>
+                        <p>Tell us your dream safari and we'll craft the perfect itinerary. Start planning today.</p>
+                        <a href="tailor.html" class="btn-primary">Plan Your Safari</a>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.light-band-content -->
+
+        <!-- LONG, SLOW fade: light content → dark footer -->
+        <div class="fade-zone-light-to-dark" style="position: absolute; bottom: 0; left: 0; right: 0; height: 75vh; pointer-events: none; z-index: 10;" aria-hidden="true"></div>
+        <style>@media (min-width: 1024px) { .fade-zone-light-to-dark { height: 85vh !important; } }</style>
+
+    </section><!-- /.light band -->
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-grid container">
+            <div class="footer-brand">
+                <a href="#" class="logo"><img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653310/DiscoverAfrica_cqgsvh.svg" alt="Discover Africa Safaris" />Discover<span>Africa</span></a>
+                <p>Curated luxury safari journeys designed for discerning travelers who want the most exceptional experiences across Africa.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Explore</h3>
+                <a href="#">Safaris</a>
+                <a href="destinations.html">Destinations</a>
+                <a href="stays.html">Stays</a>
+                <a href="tour-operators.html">Operators</a>
+                <a href="all-articles.html">Journal</a>
+            </div>
+            <div class="footer-links">
+                <h3>Company</h3>
+                <a href="#">About Us</a>
+                <a href="#">Tailor Your Safari</a>
+                <a href="#">FAQ</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Stay Inspired</h3>
+                <p>Join our newsletter for exclusive safari ideas, destination releases, and travel tips from the heart of Africa.</p>
+                <form class="footer-newsletter-form" id="newsletterForm">
+                    <input type="email" id="newsletterEmail" placeholder="Enter your email" aria-label="Email address" required />
+                    <button type="submit">Subscribe</button>
+                    <div class="newsletter-message" id="newsletterMessage"></div>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <span>&copy; 2026 Discover Africa Safaris. All rights reserved.</span>
+            <span><a href="mailto:info@discoverafricasafaris.com"><i class="fas fa-envelope" style="margin-right:6px;"></i>info@discoverafricasafaris.com</a></span>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // ===== SCROLL ANIMATIONS =====
+            const animElements = document.querySelectorAll('.fade-up, .scale-in, .timeline-item');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            animElements.forEach(el => observer.observe(el));
+
+            // ===== MOBILE SIDEBAR NAV =====
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const mobileSidebar = document.getElementById('mobileNavSidebar');
+            const mobileOverlay = document.getElementById('mobileNavOverlay');
+            const mobileClose = document.getElementById('mobileNavClose');
+
+            function openMobileNav() {
+                mobileSidebar.classList.add('open');
+                mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMobileNav() {
+                mobileSidebar.classList.remove('open');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            if (mobileBtn) mobileBtn.addEventListener('click', openMobileNav);
+            if (mobileClose) mobileClose.addEventListener('click', closeMobileNav);
+            if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileNav);
+
+            document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+                link.addEventListener('click', closeMobileNav);
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileSidebar.classList.contains('open')) closeMobileNav();
+            });
+
+            // ===== HERO SLIDESHOW =====
+            const slides = document.querySelectorAll('.hero-slide');
+            const heroDots = document.querySelectorAll('.hero-nav-btn');
+            let currentSlide = 0;
+            let slideInterval;
+
+            function goToSlide(index) {
+                if (!slides.length) return;
+                slides.forEach(s => s.classList.remove('active'));
+                heroDots.forEach(d => d.classList.remove('active'));
+                slides[index].classList.add('active');
+                if (heroDots[index]) heroDots[index].classList.add('active');
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                const next = (currentSlide + 1) % slides.length;
+                goToSlide(next);
+            }
+
+            heroDots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    clearInterval(slideInterval);
+                    goToSlide(index);
+                    slideInterval = setInterval(nextSlide, 3000);
+                });
+            });
+
+            if (slides.length > 0) {
+                slideInterval = setInterval(nextSlide, 3000);
+                const hero = document.getElementById('heroSection');
+                if (hero) {
+                    hero.addEventListener('mouseenter', () => clearInterval(slideInterval));
+                    hero.addEventListener('mouseleave', () => { slideInterval = setInterval(nextSlide, 3000); });
+                }
+            }
+
+            // ===== DESTINATION SHOWCASE =====
+            const showcaseData = [
+                { country: 'Tanzania', name: 'Serengeti & Zanzibar', image: 'https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653267/beast_rvuuug.jpg', count: 24, description: 'Witness the Great Migration and relax on pristine beaches.' },
+                { country: 'Kenya', name: 'Masai Mara', image: 'https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653452/maasai_ysfhgg.jpg', count: 18, description: 'Home to the Big Five and the dramatic river crossings.' },
+                { country: 'Rwanda', name: 'Gorilla Trekking', image: 'https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653367/trekking_htdpfe.jpg', count: 12, description: 'Encounter mountain gorillas in the misty Volcanoes National Park.' },
+                { country: 'Zimbabwe', name: 'Victoria Falls', image: 'https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653461/victoria_falls_eptbmi.jpg', count: 15, description: 'The majestic smoke that thunders, with thrilling adventures.' },
+                { country: 'South Africa', name: 'Kruger & Cape Town', image: 'https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653389/capetown_kn9kq2.jpg', count: 20, description: 'Combine world-class safari with vibrant city life.' }
+            ];
+
+            const slidesContainer = document.getElementById('showcaseSlides');
+            const navContainer = document.getElementById('showcaseNav');
+            let showcaseIndex = 0;
+            let showcaseInterval = null;
+            let isShowcaseHover = false;
+
+            function renderShowcase() {
+                if (!slidesContainer) return;
+                slidesContainer.innerHTML = showcaseData.map((d, i) => `
+                    <div class="showcase-slide" style="background-image:url('${d.image}');">
+                        <div class="showcase-content">
+                            <span class="country-tag">${d.country}</span>
+                            <h3>${d.name}</h3>
+                            <p>${d.description}</p>
+                            <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+                                <span class="packages-count"><i class="fas fa-safari" style="margin-right:4px;"></i> ${d.count} packages</span>
+                                <span class="btn-outline-light" onclick="document.getElementById('safariSection').scrollIntoView({behavior:'smooth'})">
+                                    Explore Safaris <i class="fas fa-arrow-right" style="margin-left:6px;"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                navContainer.innerHTML = showcaseData.map((_, i) => `
+                    <button class="showcase-dot ${i === showcaseIndex ? 'active' : ''}" data-index="${i}"></button>
+                `).join('');
+
+                slidesContainer.style.transform = `translateX(-${showcaseIndex * 100}%)`;
+
+                document.querySelectorAll('.showcase-dot').forEach(dot => {
+                    dot.addEventListener('click', function() {
+                        const idx = parseInt(this.dataset.index);
+                        clearShowcaseInterval();
+                        goToShowcase(idx);
+                        startShowcaseInterval();
+                    });
+                });
+            }
+
+            function goToShowcase(index) {
+                showcaseIndex = (index + showcaseData.length) % showcaseData.length;
+                slidesContainer.style.transform = `translateX(-${showcaseIndex * 100}%)`;
+                document.querySelectorAll('.showcase-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === showcaseIndex);
+                });
+            }
+
+            function nextShowcase() { goToShowcase(showcaseIndex + 1); }
+
+            function startShowcaseInterval() {
+                if (showcaseInterval) clearInterval(showcaseInterval);
+                if (!isShowcaseHover) showcaseInterval = setInterval(nextShowcase, 4000);
+            }
+
+            function clearShowcaseInterval() {
+                if (showcaseInterval) { clearInterval(showcaseInterval); showcaseInterval = null; }
+            }
+
+            const card = document.getElementById('showcaseCard');
+            if (card) {
+                card.addEventListener('mouseenter', function() { isShowcaseHover = true; clearShowcaseInterval(); });
+                card.addEventListener('mouseleave', function() { isShowcaseHover = false; startShowcaseInterval(); });
+                card.addEventListener('touchstart', function() { isShowcaseHover = true; clearShowcaseInterval(); });
+                card.addEventListener('touchend', function() { isShowcaseHover = false; startShowcaseInterval(); });
+            }
+
+            renderShowcase();
+            startShowcaseInterval();
+
+            // ===== TESTIMONIALS CAROUSEL =====
+            const track = document.getElementById('testimonialsTrack');
+            const testimonialDots = document.querySelectorAll('.testimonial-dot');
+            const prevBtn = document.getElementById('testimonialPrev');
+            const nextBtn = document.getElementById('testimonialNext');
+            let currentTestimonial = 0;
+            const totalSlides = document.querySelectorAll('.testimonial-slide').length;
+            let testimonialInterval = null;
+            let isTestimonialHover = false;
+
+            function goToTestimonial(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                currentTestimonial = index;
+                track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+                testimonialDots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentTestimonial);
+                });
+                updateTestimonialButtons();
+            }
+
+            function updateTestimonialButtons() {
+                if (prevBtn) prevBtn.disabled = false;
+                if (nextBtn) nextBtn.disabled = false;
+                if (totalSlides <= 1) {
+                    if (prevBtn) prevBtn.disabled = true;
+                    if (nextBtn) nextBtn.disabled = true;
+                }
+            }
+
+            function nextTestimonial() {
+                goToTestimonial(currentTestimonial + 1);
+            }
+
+            function startTestimonialInterval() {
+                if (testimonialInterval) clearInterval(testimonialInterval);
+                if (!isTestimonialHover && totalSlides > 1) {
+                    testimonialInterval = setInterval(nextTestimonial, 5000);
+                }
+            }
+
+            function stopTestimonialInterval() {
+                if (testimonialInterval) {
+                    clearInterval(testimonialInterval);
+                    testimonialInterval = null;
+                }
+            }
+
+            testimonialDots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    stopTestimonialInterval();
+                    goToTestimonial(index);
+                    startTestimonialInterval();
+                });
+            });
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function() {
+                    stopTestimonialInterval();
+                    goToTestimonial(currentTestimonial - 1);
+                    startTestimonialInterval();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    stopTestimonialInterval();
+                    goToTestimonial(currentTestimonial + 1);
+                    startTestimonialInterval();
+                });
+            }
+
+            const carousel = document.querySelector('.testimonials-carousel');
+            if (carousel) {
+                carousel.addEventListener('mouseenter', function() {
+                    isTestimonialHover = true;
+                    stopTestimonialInterval();
+                });
+                carousel.addEventListener('mouseleave', function() {
+                    isTestimonialHover = false;
+                    startTestimonialInterval();
+                });
+                carousel.addEventListener('touchstart', function() {
+                    isTestimonialHover = true;
+                    stopTestimonialInterval();
+                });
+                carousel.addEventListener('touchend', function() {
+                    isTestimonialHover = false;
+                    startTestimonialInterval();
+                });
+            }
+
+            goToTestimonial(0);
+            startTestimonialInterval();
+
+            // ===== SEARCH =====
+            const heroSearchBtn = document.getElementById('heroSearchBtn');
+            const heroDestination = document.getElementById('heroDestination');
+            const heroDuration = document.getElementById('heroDuration');
+            const heroBudget = document.getElementById('heroBudget');
+
+            function performSearch() {
+                const params = new URLSearchParams();
+                const dest = heroDestination.value.trim();
+                if (dest) params.set('destination', dest);
+                const dur = heroDuration.value;
+                if (dur && dur !== 'all') params.set('duration', dur);
+                const budget = heroBudget.value;
+                if (budget && budget !== 'all') params.set('budget', budget);
+                window.location.href = 'all-packages.html?' + params.toString();
+            }
+
+            if (heroSearchBtn) {
+                heroSearchBtn.addEventListener('click', performSearch);
+            }
+            if (heroDestination) {
+                heroDestination.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') performSearch();
+                });
+            }
+
+            // ============================================================
+            // SUPABASE INTEGRATION
+            // ============================================================
+
+            const SUPABASE_URL = 'https://gzszrejttefjmysqasbv.supabase.co';
+            const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd6c3pyZWp0dGVmam15c3Fhc2J2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0MjU1NTcsImV4cCI6MjA5MDAwMTU1N30.yQ9y5E08G5nQLlHHUkHmPzJ08k-jE_RJCRPjB9KZpOo';
+
+            let supabaseClient = null;
+
+            if (typeof supabase !== 'undefined') {
+                supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+                fetchPackages(supabaseClient);
+                fetchBlogs(supabaseClient);
+            } else {
+                console.warn('Supabase not loaded, using mock data');
+                useMockData();
+            }
+
+            // ===== NEWSLETTER =====
+            const newsletterForm = document.getElementById('newsletterForm');
+            const newsletterEmail = document.getElementById('newsletterEmail');
+            const newsletterMessage = document.getElementById('newsletterMessage');
+
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const email = newsletterEmail.value.trim();
+
+                    if (!email || !isValidEmail(email)) {
+                        newsletterMessage.textContent = 'Please enter a valid email address.';
+                        newsletterMessage.style.color = '#ff6b6b';
+                        return;
+                    }
+
+                    if (!supabaseClient) {
+                        newsletterMessage.textContent = 'Supabase not available. Please try again later.';
+                        newsletterMessage.style.color = '#ff6b6b';
+                        return;
+                    }
+
+                    newsletterMessage.textContent = 'Subscribing...';
+                    newsletterMessage.style.color = 'var(--gold-light)';
+
+                    try {
+                        const { data, error } = await supabaseClient
+                            .from('newsletter')
+                            .insert([{ email: email, subscribed_at: new Date().toISOString() }]);
+
+                        if (error) {
+                            if (error.code === '23505') {
+                                newsletterMessage.textContent = 'You are already subscribed!';
+                                newsletterMessage.style.color = 'var(--gold-light)';
+                            } else {
+                                newsletterMessage.textContent = 'Error: ' + error.message;
+                                newsletterMessage.style.color = '#ff6b6b';
+                            }
+                            return;
+                        }
+
+                        newsletterMessage.textContent = 'Thank you for subscribing!';
+                        newsletterMessage.style.color = 'var(--gold-light)';
+                        newsletterEmail.value = '';
+
+                        setTimeout(() => {
+                            newsletterMessage.textContent = '';
+                        }, 5000);
+
+                    } catch (err) {
+                        newsletterMessage.textContent = 'Error subscribing. Please try again.';
+                        newsletterMessage.style.color = '#ff6b6b';
+                        console.error('Newsletter error:', err);
+                    }
+                });
+            }
+
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+
+            let allPackages = [];
+            let filteredPackages = [];
+            let currentPageNum = 1;
+            let pageSize = 6;
+            let operatorsMap = {};
+
+            function getTripAdvisorUrl(operatorName) {
+                return operatorName ? 'https://www.tripadvisor.com/Search?q=' + encodeURIComponent(operatorName) : 'https://www.tripadvisor.com/';
+            }
+
+            function populateHeroDurationDropdown() {
+                const select = document.getElementById('heroDuration');
+                if (!select) return;
+                select.innerHTML = '<option value="all">Any Duration</option>';
+                for (let i = 1; i <= 20; i++) {
+                    select.innerHTML += '<option value="' + i + '">' + i + ' Day' + (i > 1 ? 's' : '') + '</option>';
+                }
+                select.innerHTML += '<option value="21">20+ Days</option>';
+            }
+            populateHeroDurationDropdown();
+
+            async function fetchOperators(operatorIds) {
+                const ids = operatorIds.filter(Boolean).map(id => String(id));
+                if (!ids.length) return;
+                try {
+                    const { data, error } = await supabaseClient
+                        .from('tour_operators')
+                        .select('id, operator_name, logo_url, rating')
+                        .in('id', ids);
+                    if (error) throw error;
+                    data?.forEach(op => operatorsMap[String(op.id)] = op);
+                } catch (e) { console.warn('Error fetching operators:', e); }
+            }
+
+            async function fetchPackages(client) {
+                try {
+                    const { data, error } = await client
+                        .from('safari_packages')
+                        .select(`
+                            id, package_name, subtitle, slug, country, tour_type, comfort_level,
+                            duration_days, group_size, age_range, overview, child_discount,
+                            destinations, tags, cover_image, gallery_images, status, badge,
+                            is_featured, operator_id, prices, created_at, updated_at, published_at,
+                            tour_operators!safari_packages_operator_id_fkey(id, operator_name, logo_url, rating)
+                        `)
+                        .in('status', ['published', 'featured'])
+                        .order('created_at', { ascending: false })
+                        .limit(200);
+
+                    if (error) throw error;
+                    allPackages = data || [];
+
+                    if (allPackages.length) {
+                        allPackages.forEach(pkg => {
+                            if (pkg.tour_operators) {
+                                const op = pkg.tour_operators;
+                                if (Array.isArray(op) && op.length > 0) operatorsMap[String(pkg.operator_id)] = op[0];
+                                else if (op && typeof op === 'object') operatorsMap[String(pkg.operator_id)] = op;
+                            }
+                        });
+                        const opIds = [...new Set(allPackages.map(p => p.operator_id).filter(Boolean).map(String))];
+                        const existingOpIds = Object.keys(operatorsMap);
+                        const missingOpIds = opIds.filter(id => !existingOpIds.includes(id));
+                        if (missingOpIds.length) await fetchOperators(missingOpIds);
+                    }
+
+                    allPackages.forEach(pkg => {
+                        if (pkg.prices && typeof pkg.prices === 'object') {
+                            const priceValues = Object.values(pkg.prices);
+                            if (priceValues.length > 0) {
+                                const sortedPrices = priceValues.filter(v => typeof v === 'number' && v > 0);
+                                if (sortedPrices.length > 0) pkg.price_from = Math.min(...sortedPrices);
+                            }
+                        }
+                        if (!pkg.price_from) pkg.price_from = 0;
+                    });
+
+                    updateStats();
+                    updateFilterCounts();
+                    applyFilters();
+
+                } catch (e) {
+                    console.warn('Supabase error, using mock data:', e);
+                    useMockData();
+                }
+            }
+
+            function useMockData() {
+                allPackages = [
+                    { id: 1, package_name: 'Serengeti Luxury Migration Safari', country: 'Tanzania', duration_days: 7, comfort_level: 'Luxury', tour_type: 'Private tour', price_from: 4850, status: 'featured', is_featured: true, cover_image: 'https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653267/beast_rvuuug.jpg', operator_id: 1, overview: 'Witness the Great Migration in style with private guides and luxury camps.', prices: { '2_pax': 4850, '4_pax': 4250, '6_pax': 3850 } },
+                    { id: 2, package_name: 'Masai Mara Family Adventure', country: 'Kenya', duration_days: 5, comfort_level: 'Mid-range', tour_type: 'Shared tour', price_from: 2750, status: 'published', is_featured: false, cover_image: 'https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653452/maasai_ysfhgg.jpg', operator_id: 2, overview: 'Perfect for families with child-friendly activities and game drives.', prices: { '2_pax': 2750, '4_pax': 2350 } },
+                    { id: 3, package_name: 'Gorilla Trekking Rwanda', country: 'Rwanda', duration_days: 4, comfort_level: 'Luxury', tour_type: 'Private tour', price_from: 6200, status: 'featured', is_featured: true, cover_image: 'https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653367/trekking_htdpfe.jpg', operator_id: 3, overview: 'Track mountain gorillas in Volcanoes National Park with expert guides.', prices: { '2_pax': 6200, '4_pax': 5400 } },
+                    { id: 4, package_name: 'Victoria Falls & Zambezi Cruise', country: 'Zimbabwe', duration_days: 4, comfort_level: 'Luxury', tour_type: 'Private tour', price_from: 3800, status: 'published', is_featured: false, cover_image: 'https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653461/victoria_falls_eptbmi.jpg', operator_id: 4, overview: 'Experience the mighty Victoria Falls and sunset cruises on the Zambezi.', prices: { '2_pax': 3800, '4_pax': 3200 } },
+                    { id: 5, package_name: 'Cape Town & Kruger Safari', country: 'South Africa', duration_days: 8, comfort_level: 'Mid-range', tour_type: 'Shared tour', price_from: 3200, status: 'published', is_featured: false, cover_image: 'https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653389/capetown_kn9kq2.jpg', operator_id: 5, overview: 'Combine city life with Big Five sightings in Kruger National Park.', prices: { '2_pax': 3200, '4_pax': 2800 } },
+                    { id: 6, package_name: 'Okavango Delta Discovery', country: 'Botswana', duration_days: 6, comfort_level: 'Luxury', tour_type: 'Private tour', price_from: 5600, status: 'featured', is_featured: true, cover_image: 'https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653267/beast_rvuuug.jpg', operator_id: 1, overview: 'Explore the pristine waterways of the Okavango Delta in style.', prices: { '2_pax': 5600, '4_pax': 4900 } }
+                ];
+
+                operatorsMap = {
+                    1: { operator_name: 'Wilderness Safaris', rating: 4.9, logo_url: '' },
+                    2: { operator_name: 'African Travel Co', rating: 4.7, logo_url: '' },
+                    3: { operator_name: 'Gorilla Expeditions', rating: 4.8, logo_url: '' },
+                    4: { operator_name: 'Zambezi Tours', rating: 4.6, logo_url: '' },
+                    5: { operator_name: 'South Africa Safaris', rating: 4.5, logo_url: '' }
+                };
+
+                updateStats();
+                updateFilterCounts();
+                applyFilters();
+
+                const blogGrid = document.getElementById('blogGrid');
+                if (blogGrid) {
+                    blogGrid.innerHTML = `
+                        <article class="blog-card"><div class="blog-card-image" style="background-image:url('https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653267/beast_rvuuug.jpg');"><span class="blog-card-badge">Wildlife</span></div>
+                        <div class="blog-card-body"><div class="blog-meta"><span><i class="far fa-calendar-alt"></i> May 12, 2026</span><span><i class="far fa-clock"></i> 5 min read</span></div>
+                        <h3 class="blog-card-title">The Great Migration: Where to Be and When</h3><p class="blog-card-excerpt">Timing your Serengeti safari to witness river crossings, calving, and the dramatic pursuit of predators.</p>
+                        <div class="blog-card-footer"><span class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></span></div></div></article>
+                        <article class="blog-card"><div class="blog-card-image" style="background-image:url('https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653452/maasai_ysfhgg.jpg');"><span class="blog-card-badge">Culture</span></div>
+                        <div class="blog-card-body"><div class="blog-meta"><span><i class="far fa-calendar-alt"></i> April 28, 2026</span><span><i class="far fa-clock"></i> 4 min read</span></div>
+                        <h3 class="blog-card-title">Meeting the Maasai: Beyond the Safari</h3><p class="blog-card-excerpt">A deeper look into Maasai traditions, from their warrior ceremonies to sustainable co-existence with wildlife.</p>
+                        <div class="blog-card-footer"><span class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></span></div></div></article>
+                        <article class="blog-card"><div class="blog-card-image" style="background-image:url('https://res.cloudinary.com/dp7piqlbe/image/upload/v1782653367/trekking_htdpfe.jpg');"><span class="blog-card-badge">Adventure</span></div>
+                        <div class="blog-card-body"><div class="blog-meta"><span><i class="far fa-calendar-alt"></i> April 10, 2026</span><span><i class="far fa-clock"></i> 6 min read</span></div>
+                        <h3 class="blog-card-title">Gorilla Trekking: What Nobody Tells You</h3><p class="blog-card-excerpt">From the steep rainforest trails to the emotional moment you lock eyes with a silverback.</p>
+                        <div class="blog-card-footer"><span class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></span></div></div></article>
+                    `;
+                }
+            }
+
+            async function fetchBlogs(client) {
+                try {
+                    const { data, error } = await client.from('blog_posts').select('*').eq('status', 'published').order('published_at', { ascending: false }).limit(3);
+                    if (error) throw error;
+                    const grid = document.getElementById('blogGrid');
+                    if (!grid) return;
+                    if (!data || !data.length) {
+                        grid.innerHTML = '<div class="empty-state"><i class="fas fa-journal-text"></i><h3>Stories Coming Soon</h3><p style="color:var(--ink-soft);">Check back for inspiring safari stories and tips.</p></div>';
+                        return;
+                    }
+                    grid.innerHTML = data.map(post => {
+                        const img = post.featured_image || 'https://images.pexels.com/photos/4132085/pexels-photo-4132085.jpeg';
+                        const date = new Date(post.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                        const excerpt = (post.excerpt || '').substring(0, 100);
+                        return `
+                            <article class="blog-card" onclick="window.location.href='blog-post.html?slug=${post.slug}'">
+                                <div class="blog-card-image" style="background-image:url('${img}');"><span class="blog-card-badge">${post.category || 'Safari'}</span></div>
+                                <div class="blog-card-body">
+                                    <div class="blog-meta"><span><i class="far fa-calendar-alt"></i> ${date}</span><span><i class="far fa-clock"></i> ${post.read_time_minutes || 5} min read</span></div>
+                                    <h3 class="blog-card-title">${post.title || 'Untitled Story'}</h3>
+                                    <p class="blog-card-excerpt">${excerpt}...</p>
+                                    <div class="blog-card-footer"><span class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></span></div>
+                                </div>
+                            </article>
+                        `;
+                    }).join('');
+                } catch (e) { console.warn('Blog fetch error:', e); }
+            }
+
+            function updateStats() {
+                const packageCount = allPackages.length || 0;
+                const operatorCount = Object.keys(operatorsMap).length || 0;
+                document.getElementById('totalPackagesCount').textContent = packageCount > 0 ? packageCount + '+' : '—';
+                document.getElementById('totalOperatorsCount').textContent = operatorCount > 0 ? operatorCount + '+' : '—';
+            }
+
+            function updateFilterCounts() {
+                const comfort = { 'Luxury': 0, 'Mid-range': 0, 'Budget': 0 };
+                const tourType = { 'Private tour': 0, 'Shared tour': 0 };
+                const countries = { 'Tanzania': 0, 'Kenya': 0, 'South Africa': 0 };
+                allPackages.forEach(p => {
+                    if (p.comfort_level && comfort[p.comfort_level] !== undefined) comfort[p.comfort_level]++;
+                    if (p.tour_type && tourType[p.tour_type] !== undefined) tourType[p.tour_type]++;
+                    if (p.country && countries[p.country] !== undefined) countries[p.country]++;
+                });
+                document.getElementById('luxuryCount').textContent = '(' + comfort['Luxury'] + ')';
+                document.getElementById('midrangeCount').textContent = '(' + comfort['Mid-range'] + ')';
+                document.getElementById('budgetCount').textContent = '(' + comfort['Budget'] + ')';
+                document.getElementById('privateCount').textContent = '(' + tourType['Private tour'] + ')';
+                document.getElementById('sharedCount').textContent = '(' + tourType['Shared tour'] + ')';
+                document.getElementById('tanzaniaCount').textContent = '(' + countries['Tanzania'] + ')';
+                document.getElementById('kenyaCount').textContent = '(' + countries['Kenya'] + ')';
+                document.getElementById('saCount').textContent = '(' + countries['South Africa'] + ')';
+            }
+
+            function applyFilters() {
+                let filtered = [...allPackages];
+
+                const filterGroups = {};
+                document.querySelectorAll('.filter-checkbox:checked').forEach(cb => {
+                    const type = cb.dataset.filter;
+                    if (!filterGroups[type]) filterGroups[type] = [];
+                    filterGroups[type].push(cb.value);
+                });
+
+                Object.keys(filterGroups).forEach(type => {
+                    const values = filterGroups[type];
+                    filtered = filtered.filter(p => values.includes(p[type]));
+                });
+
+                filteredPackages = filtered;
+                sortPackages();
+                currentPageNum = 1;
+                renderPackages();
+            }
+
+            function sortPackages() {
+                const sort = document.getElementById('sortSelect').value;
+                if (sort === 'price_asc') filteredPackages.sort((a, b) => (a.price_from || 0) - (b.price_from || 0));
+                else if (sort === 'price_desc') filteredPackages.sort((a, b) => (b.price_from || 0) - (a.price_from || 0));
+                else if (sort === 'rating') {
+                    filteredPackages.sort((a, b) => {
+                        const opA = operatorsMap[a.operator_id] || {};
+                        const opB = operatorsMap[b.operator_id] || {};
+                        return (opB.rating || 0) - (opA.rating || 0);
+                    });
+                } else {
+                    filteredPackages.sort((a, b) => {
+                        if (a.is_featured && !b.is_featured) return -1;
+                        if (b.is_featured && !a.is_featured) return 1;
+                        if (a.status === 'featured' && b.status !== 'featured') return -1;
+                        if (b.status === 'featured' && a.status !== 'featured') return 1;
+                        return 0;
+                    });
+                }
+            }
+
+            function renderPackages() {
+                const container = document.getElementById('safariList');
+                if (!container) return;
+
+                if (!filteredPackages.length) {
+                    container.innerHTML =
+                        '<div class="empty-state"><i class="fas fa-compass"></i><h3>No Safaris Found</h3><p style="color:var(--ink-soft);">Try adjusting your filters.</p></div>';
+                    document.getElementById('pagination').innerHTML = '';
+                    document.getElementById('displayedCount').textContent = '0';
+                    document.getElementById('totalCount').textContent = '0';
+                    return;
+                }
+
+                const start = (currentPageNum - 1) * pageSize;
+                const page = filteredPackages.slice(start, start + pageSize);
+
+                container.innerHTML = page.map(pkg => {
+                    const op = operatorsMap[pkg.operator_id] || {};
+                    const img = pkg.cover_image || 'https://images.pexels.com/photos/4132085/pexels-photo-4132085.jpeg';
+                    const operatorName = (op.operator_name || pkg.operator_name || 'Discover Africa').trim();
+                    const operatorLogo = (op.logo_url || '').trim();
+                    const initials = operatorName ? operatorName.substring(0, 2).toUpperCase() : 'DA';
+                    const rating = op.rating || 0;
+                    const isFeatured = pkg.is_featured || pkg.status === 'featured';
+
+                    let logoHtml = operatorLogo ?
+                        '<div class="operator-logo"><img src="' + operatorLogo + '" alt="' + operatorName + '" loading="lazy" onerror="this.parentElement.innerHTML=\'' + initials + '\'"></div>' :
+                        '<div class="operator-logo">' + initials + '</div>';
+
+                    let price = pkg.price_from;
+                    if (!price || price === 0) {
+                        if (pkg.prices && typeof pkg.prices === 'object') {
+                            const values = Object.values(pkg.prices).filter(v => typeof v === 'number' && v > 0);
+                            if (values.length > 0) price = Math.min(...values);
+                        }
+                    }
+
+                    return `
+                        <article class="safari-card" onclick="window.location.href='experience-details.html?id=${pkg.id}'">
+                            <div class="safari-card-image" style="background-image:url('${img}');">${isFeatured ? '<span class="safari-card-badge">Featured</span>' : ''}</div>
+                            <div class="safari-card-body">
+                                <div class="safari-card-header">
+                                    <h3 class="safari-card-title">${pkg.package_name || 'Untitled Package'}</h3>
+                                    <div class="safari-card-price"><div class="safari-card-price-amount">${price ? '$' + price.toLocaleString() : 'Contact us'}</div><div class="safari-card-price-label">per person</div></div>
+                                </div>
+                                <div class="safari-card-tags">
+                                    <span class="safari-card-tag"><i class="fas fa-map-marker-alt"></i> ${pkg.country || 'Africa'}</span>
+                                    <span class="safari-card-tag"><i class="fas fa-clock"></i> ${pkg.duration_days || '?'} days</span>
+                                    <span class="safari-card-tag"><i class="fas fa-star"></i> ${pkg.comfort_level || 'Mid-range'}</span>
+                                    <span class="safari-card-tag"><i class="fas fa-users"></i> ${pkg.tour_type || 'Private'}</span>
+                                </div>
+                                <div class="safari-card-footer">
+                                    <div class="safari-card-operator">
+                                        ${logoHtml}
+                                        <div class="operator-info">
+                                            <div class="operator-label">Operator</div>
+                                            <div class="operator-name">${operatorName}</div>
+                                            ${rating > 0 ? '<div class="operator-rating"><i class="fas fa-star"></i> ' + rating.toFixed(1) + '</div>' : ''}
+                                            <a href="${getTripAdvisorUrl(operatorName)}" target="_blank" rel="noopener noreferrer" class="tripadvisor-link" onclick="event.stopPropagation();"><i class="fas fa-box-arrow-up-right"></i> View on TripAdvisor</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    `;
+                }).join('');
+
+                const startCount = filteredPackages.length > 0 ? start + 1 : 0;
+                const endCount = Math.min(start + pageSize, filteredPackages.length);
+                document.getElementById('displayedCount').textContent = filteredPackages.length > 0 ? startCount + '-' + endCount : '0';
+                document.getElementById('totalCount').textContent = filteredPackages.length;
+                renderPagination();
+            }
+
+            function renderPagination() {
+                const pag = document.getElementById('pagination');
+                if (!pag) return;
+                const totalPages = Math.ceil(filteredPackages.length / pageSize);
+                if (totalPages <= 1 && filteredPackages.length <= pageSize) {
+                    pag.innerHTML = filteredPackages.length > pageSize ? '<a href="all-packages.html" class="view-all-btn">View All →</a>' : '';
+                    return;
+                }
+                let html =
+                    '<span class="page-link ' + (currentPageNum === 1 ? 'disabled' : '') + '" onclick="goToPage(' + (currentPageNum - 1) + ')"><i class="fas fa-chevron-left"></i></span>';
+                const maxVisible = 5;
+                let startPage = Math.max(1, currentPageNum - Math.floor(maxVisible / 2));
+                let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+                if (endPage - startPage < maxVisible - 1) startPage = Math.max(1, endPage - maxVisible + 1);
+                for (let i = startPage; i <= endPage; i++) {
+                    html += '<span class="page-link ' + (i === currentPageNum ? 'active' : '') + '" onclick="goToPage(' + i + ')">' + i + '</span>';
+                }
+                if (endPage < totalPages) {
+                    html += '<span class="page-link" style="border:none;pointer-events:none;">…</span>';
+                    html += '<span class="page-link" onclick="goToPage(' + totalPages + ')">' + totalPages + '</span>';
+                }
+                html +=
+                    '<span class="page-link ' + (currentPageNum === totalPages ? 'disabled' : '') + '" onclick="goToPage(' + (currentPageNum + 1) + ')"><i class="fas fa-chevron-right"></i></span>';
+                if (filteredPackages.length > pageSize) html += '<a href="all-packages.html" class="view-all-btn">View All →</a>';
+                pag.innerHTML = html;
+            }
+
+            window.goToPage = function(page) {
+                const totalPages = Math.ceil(filteredPackages.length / pageSize);
+                currentPageNum = Math.max(1, Math.min(page, totalPages || 1));
+                renderPackages();
+                document.querySelector('.safari-layout')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
+
+            document.querySelectorAll('.filter-checkbox').forEach(cb => {
+                cb.addEventListener('change', applyFilters);
+            });
+            document.getElementById('sortSelect')?.addEventListener('change', function() {
+                sortPackages();
+                renderPackages();
+            });
+            document.getElementById('searchSection').style.display = 'none';
+
+            console.log('Safari page loaded with Kilimanjaro-style slow fade zones:');
+            console.log('  - 16-stop dark→light fade (75vh mobile / 85vh desktop)');
+            console.log('  - 16-stop light→dark fade (75vh mobile / 85vh desktop)');
+            console.log('  - Single light band containing all content between hero and footer');
+        });
+    </script>
+
+</body>
+</html>

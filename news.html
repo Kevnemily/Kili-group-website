@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>News & Updates · Kilimanjaro Group</title>
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+      colors: {
+        brand: {
+          dark: '#0B131F',
+          cardBg: '#121C2B',
+          lightBg: '#F8FAFC',
+          lime: '#B8EC34',
+          limeHover: '#a3d928',
+          accent: '#10B981',
+          muted: '#94A3B8'
+        }
+      },
+      boxShadow: {
+        'glow': '0 0 25px rgba(184, 236, 52, 0.25)',
+        'card-glow': '0 10px 30px -10px rgba(0, 0, 0, 0.3)',
+        'glow-lg': '0 0 60px rgba(184, 236, 52, 0.15)'
+      }
+    }
+  }
+}
+</script>
+
+<style>
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0B131F; color: #F8FAFC; }
+
+  .glass-pill { background: rgba(255,255,255,.08); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.12); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: #0B131F; }
+  ::-webkit-scrollbar-thumb { background: #24303f; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #B8EC34; }
+
+  .search-input:focus { border-color: #B8EC34; box-shadow: 0 0 0 3px rgba(184,236,52,0.15); }
+
+  /* News card hidden state */
+  .news-card.hidden { display: none; }
+
+  /* Article modal */
+  #article-modal.open { display: flex; }
+
+  /* FAB */
+  #fab-actions { transform-origin: bottom right; }
+
+  /* =========================================================
+     LONG SMOOTH GRADIENT FADE ZONES
+  ========================================================= */
+  .fade-zone-dark-to-light {
+    background: linear-gradient(
+      to bottom,
+      #0B131F 0%,
+      #0B131F 8%,
+      rgba(11, 19, 31, 0.92) 22%,
+      rgba(11, 19, 31, 0.75) 38%,
+      rgba(11, 19, 31, 0.5) 54%,
+      rgba(11, 19, 31, 0.28) 70%,
+      rgba(11, 19, 31, 0.12) 84%,
+      rgba(11, 19, 31, 0.04) 94%,
+      rgba(11, 19, 31, 0) 100%
+    );
+  }
+  .fade-zone-light-to-dark {
+    background: linear-gradient(
+      to bottom,
+      rgba(11, 19, 31, 0) 0%,
+      rgba(11, 19, 31, 0.04) 6%,
+      rgba(11, 19, 31, 0.12) 16%,
+      rgba(11, 19, 31, 0.28) 30%,
+      rgba(11, 19, 31, 0.5) 46%,
+      rgba(11, 19, 31, 0.75) 62%,
+      rgba(11, 19, 31, 0.92) 78%,
+      #0B131F 92%,
+      #0B131F 100%
+    );
+  }
+</style>
+</head>
+
+<body class="overflow-x-hidden antialiased selection:bg-brand-lime selection:text-brand-dark">
+
+<!-- ================= HEADER / NAVBAR ================= -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group" class="h-14 w-auto group-hover:scale-105 transition-transform" />
+      </a>
+
+      <nav class="hidden lg:flex items-center space-x-1 bg-white/5 px-6 py-2 rounded-full border border-white/10">
+        <a href="index.html#overview" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">About</a>
+        <a href="products.html" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Products</a>
+        <a href="index.html#services" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Services</a>
+        <a href="index.html#divisions" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Divisions</a>
+        <a href="news.html" class="px-4 py-2 text-sm font-semibold text-brand-lime transition-colors">News</a>
+        <a href="index.html#partners" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Partners</a>
+      </nav>
+
+      <div class="hidden sm:flex items-center gap-6">
+        <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">
+          Staff Login
+        </a>
+        <a href="contact.html" class="px-6 py-3 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all duration-300 flex items-center gap-2 shadow-glow">
+          Get in Touch <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white text-2xl focus:outline-none" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden bg-brand-cardBg border-b border-white/10 px-6 py-6">
+    <nav class="flex flex-col gap-4">
+      <a href="index.html#overview" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">About</a>
+      <a href="products.html" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Products</a>
+      <a href="index.html#services" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Services</a>
+      <a href="index.html#divisions" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Divisions</a>
+      <a href="news.html" class="text-brand-lime font-medium text-lg mobile-link">News</a>
+      <a href="index.html#partners" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Partners</a>
+
+      <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="mt-2 w-full text-center py-3 text-brand-lime font-bold rounded-xl border border-brand-lime/30 flex items-center justify-center mobile-link">
+        Staff Login
+      </a>
+      <a href="contact.html" class="mt-2 w-full text-center py-3 bg-brand-lime text-brand-dark font-bold rounded-xl shadow-glow mobile-link">
+        Get in Touch
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= PAGE BANNER (DARK) ================= -->
+<section class="relative pt-40 pb-64 lg:pt-52 lg:pb-80 bg-brand-dark overflow-hidden">
+
+  <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=1600" alt="News & Updates" class="absolute inset-0 w-full h-full object-cover" />
+
+  <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(
+    to bottom,
+    rgba(11, 19, 31, 0.55) 0%,
+    rgba(11, 19, 31, 0.80) 40%,
+    rgba(11, 19, 31, 0.95) 70%,
+    #0B131F 100%
+  );"></div>
+
+  <div class="absolute top-1/4 right-10 w-96 h-96 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute top-1/3 left-10 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <div class="inline-flex flex-wrap items-center gap-3 px-4 py-2 rounded-full glass-pill border border-white/15 text-xs font-semibold text-gray-300 mb-6">
+      <a href="index.html" class="hover:text-brand-lime transition-colors">Home</a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-gray-500"></i>
+      <span class="text-brand-lime">News &amp; Updates</span>
+    </div>
+
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.05] max-w-4xl">
+      News &amp;
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-gray-400">Updates</span>
+    </h1>
+
+    <p class="text-gray-300 text-base sm:text-lg max-w-2xl leading-relaxed mt-6">
+      Stay informed about our latest projects, industry insights, safety milestones, and announcements from across Kilimanjaro Group.
+    </p>
+
+  </div>
+</section>
+
+<!-- ================= LIGHT CONTENT WRAPPER ================= -->
+<section class="relative bg-[#F8FAFC] text-slate-900">
+
+  <!-- LONG smooth fade: dark → light (spans ~60vh) -->
+  <div class="absolute top-0 left-0 right-0 h-[50vh] lg:h-[60vh] pointer-events-none z-10 fade-zone-dark-to-light"></div>
+
+  <div class="relative z-20 pt-32 sm:pt-40 lg:pt-48 pb-24 lg:pb-32">
+
+    <!-- ================= FEATURED ARTICLE ================= -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <article class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-[0_20px_60px_-20px_rgba(10,30,70,0.15)] grid lg:grid-cols-2">
+
+        <!-- Image -->
+        <div class="relative h-72 sm:h-96 lg:h-full lg:min-h-[500px] overflow-hidden">
+          <img
+            src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786880904/electric_mltrqf.png"
+            alt="New Advanced Blasting Technology"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-white/40"></div>
+          <span class="absolute top-5 left-5 px-4 py-2 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-widest shadow-lg">
+            <i class="fa-solid fa-star text-[9px] mr-1"></i> Featured
+          </span>
+        </div>
+
+        <!-- Content -->
+        <div class="p-8 sm:p-10 lg:p-12 flex flex-col justify-center space-y-5">
+
+          <div class="flex items-center gap-3 text-xs text-slate-500 font-semibold">
+            <span class="px-3 py-1 rounded-full bg-brand-lime/20 border border-brand-lime/40 text-brand-dark font-extrabold uppercase tracking-wider text-[10px]">
+              Technology
+            </span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-calendar text-[10px]"></i> 18 Sep 2026</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-[10px]"></i> 4 min read</span>
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight group-hover:text-brand-dark transition-colors">
+            New Advanced Blasting Technology Deployed Across All Major Sites
+          </h2>
+
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            We've rolled out next-generation emulsion systems across all major sites, delivering superior fragmentation, improved safety margins, and significant cost reductions per blast. This technology is now fully operational across our Geita, Kahama, and Musoma operations.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a
+              href="news-details.html"
+              class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-brand-dark hover:bg-brand-lime hover:text-brand-dark text-white font-extrabold text-sm transition-all duration-300 shadow-lg"
+            >
+              Read Full Story <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <span class="text-xs text-slate-500 font-semibold">By Kilimanjaro Group Editorial</span>
+          </div>
+
+        </div>
+      </article>
+    </div>
+
+    <!-- ================= FILTERS + SEARCH ================= -->
+    <div class="pt-16 sm:pt-20 pb-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-[0_20px_60px_-20px_rgba(10,30,70,0.15)]">
+
+        <div class="relative mb-6 max-w-2xl mx-auto">
+          <i class="fa-solid fa-search absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search news, topics, or keywords..."
+            autocomplete="off"
+            class="search-input w-full pl-14 pr-14 py-4 rounded-full bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 outline-none transition-all"
+          />
+          <button id="clearSearch" aria-label="Clear search" class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-slate-100 hover:bg-brand-lime hover:text-brand-dark text-slate-500 flex items-center justify-center transition-colors">
+            <i class="fa-solid fa-times text-xs"></i>
+          </button>
+        </div>
+
+        <div class="flex flex-wrap gap-2 justify-center" id="filterBar">
+          <button class="filter-btn active px-5 py-3 rounded-full bg-brand-dark text-brand-lime font-extrabold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-md" data-filter="all">
+            <i class="fa-solid fa-th-large"></i> All
+          </button>
+          <button class="filter-btn px-5 py-3 rounded-full bg-slate-100 border border-slate-200 text-slate-600 hover:border-brand-lime hover:text-brand-dark font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2" data-filter="technology">
+            <i class="fa-solid fa-microchip"></i> Technology
+          </button>
+          <button class="filter-btn px-5 py-3 rounded-full bg-slate-100 border border-slate-200 text-slate-600 hover:border-brand-lime hover:text-brand-dark font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2" data-filter="company">
+            <i class="fa-solid fa-building"></i> Company
+          </button>
+          <button class="filter-btn px-5 py-3 rounded-full bg-slate-100 border border-slate-200 text-slate-600 hover:border-brand-lime hover:text-brand-dark font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2" data-filter="safety">
+            <i class="fa-solid fa-shield-halved"></i> Safety
+          </button>
+          <button class="filter-btn px-5 py-3 rounded-full bg-slate-100 border border-slate-200 text-slate-600 hover:border-brand-lime hover:text-brand-dark font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2" data-filter="csr">
+            <i class="fa-solid fa-hand-holding-heart"></i> CSR
+          </button>
+          <button class="filter-btn px-5 py-3 rounded-full bg-slate-100 border border-slate-200 text-slate-600 hover:border-brand-lime hover:text-brand-dark font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2" data-filter="logistics">
+            <i class="fa-solid fa-truck"></i> Logistics
+          </button>
+        </div>
+
+        <div class="text-center mt-6 text-xs font-semibold text-slate-500" id="resultsCount">
+          Showing <strong class="text-brand-dark font-extrabold">12</strong> articles
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= NEWS GRID (LIGHT) ================= -->
+    <div class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="newsGrid">
+
+        <!-- Article 1 -->
+        <article class="news-card group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-20px_rgba(10,30,70,0.25)] flex flex-col" data-category="technology" data-search="advanced blasting technology emulsion dyno nobel fragmentation">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786880904/electric_mltrqf.png" alt="Blasting technology" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider news-category">Technology</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-semibold mb-3">
+              <span><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 18 Sep 2026</span>
+              <span>·</span>
+              <span>4 min read</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-brand-dark transition-colors leading-snug">New Advanced Blasting Technology Deployed</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4 flex-1">We've rolled out next-gen emulsion systems across all major sites.</p>
+            <button
+              class="read-more-btn self-start text-xs font-bold text-brand-dark inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform"
+              data-title="New Advanced Blasting Technology Deployed"
+              data-category="Technology"
+              data-date="18 Sep 2026"
+              data-read="4 min read"
+              data-image="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786880904/electric_mltrqf.png"
+              data-body="We've rolled out next-generation emulsion systems across all major sites, delivering superior fragmentation, improved safety margins, and significant cost reductions per blast.|Engineered in partnership with Dyno Nobel, the new formulation offers higher velocity of detonation, superior water resistance, and more consistent energy release across varying rock conditions.|The rollout was executed with zero safety incidents across all three sites."
+            >
+              Read More <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="news-card group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-20px_rgba(10,30,70,0.25)] flex flex-col" data-category="company" data-search="consulting team expansion experts join kilimanjaro">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786956392/KPL19727_pc8qkp.jpg" alt="Team expansion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider news-category">Company</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-semibold mb-3">
+              <span><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 12 Sep 2026</span>
+              <span>·</span>
+              <span>3 min read</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-brand-dark transition-colors leading-snug">Expanding Our Consulting Team</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4 flex-1">Five new blasting experts join to serve growing demand across East Africa.</p>
+            <button
+              class="read-more-btn self-start text-xs font-bold text-brand-dark inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform"
+              data-title="Expanding Our Consulting Team"
+              data-category="Company"
+              data-date="12 Sep 2026"
+              data-read="3 min read"
+              data-image="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786956392/KPL19727_pc8qkp.jpg"
+              data-body="We're excited to welcome five new blasting experts to the Kilimanjaro Group consulting team.|Our expanded team brings specialized expertise in underground blasting, vibration control, and fragmentation analysis — areas where demand has grown significantly over the past year.|The new team members will be based across our Kahama, Geita, and Dar es Salaam offices, providing on-site support to clients in Tanzania and neighboring markets.|This investment reflects our commitment to delivering world-class technical consultancy alongside our core product and logistics offerings."
+            >
+              Read More <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="news-card group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-20px_rgba(10,30,70,0.25)] flex flex-col" data-category="csr" data-search="csr schools community donation mining regions education">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800" alt="CSR schools" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider news-category">CSR</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-semibold mb-3">
+              <span><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 08 Sep 2026</span>
+              <span>·</span>
+              <span>2 min read</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-brand-dark transition-colors leading-snug">Supporting Local Schools In Mining Regions</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4 flex-1">We've donated educational resources to twelve schools across Tanzania.</p>
+            <button
+              class="read-more-btn self-start text-xs font-bold text-brand-dark inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform"
+              data-title="Supporting Local Schools In Mining Regions"
+              data-category="CSR"
+              data-date="08 Sep 2026"
+              data-read="2 min read"
+              data-image="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800"
+              data-body="As part of our ongoing community investment program, Kilimanjaro Group has donated educational resources to twelve schools across Tanzania's key mining regions.|The initiative includes textbooks, laboratory equipment, computers, and scholarships for 60 students pursuing STEM subjects.|Schools in Geita, Kahama, and Nzega were among the primary recipients, with additional support provided in Musoma and Dodoma.|This is part of a long-term commitment to ensure the communities where we operate benefit directly from our presence."
+            >
+              Read More <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="news-card group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-20px_rgba(10,30,70,0.25)] flex flex-col" data-category="logistics" data-search="logistics network expansion routes dodoma nzega musoma delivery">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800" alt="Logistics expansion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider news-category">Logistics</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-semibold mb-3">
+              <span><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 02 Sep 2026</span>
+              <span>·</span>
+              <span>3 min read</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-brand-dark transition-colors leading-snug">Logistics Network Expansion</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4 flex-1">New routes now cover Dodoma, Nzega, and Musoma with faster delivery times.</p>
+            <button
+              class="read-more-btn self-start text-xs font-bold text-brand-dark inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform"
+              data-title="Logistics Network Expansion"
+              data-category="Logistics"
+              data-date="02 Sep 2026"
+              data-read="3 min read"
+              data-image="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800"
+              data-body="OLTRECK Transporters, our dedicated logistics division, has significantly expanded its nationwide delivery network with three new primary routes.|The new routes serve Dodoma, Nzega, and Musoma, reducing average delivery time by 40% to these regions.|Combined with our existing Kahama–Geita and Dar es Salaam port corridors, this expansion positions us to serve mining operations across virtually all of Tanzania's mineral-rich zones.|Customers will benefit from faster response times, more reliable scheduling, and the same safety and compliance standards we maintain across all our routes."
+            >
+              Read More <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Article 5 -->
+        <article class="news-card group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-20px_rgba(10,30,70,0.25)] flex flex-col" data-category="safety" data-search="safety training program certification explosives handling staff">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800" alt="Safety training" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider news-category">Safety</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-semibold mb-3">
+              <span><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 27 Aug 2026</span>
+              <span>·</span>
+              <span>4 min read</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-brand-dark transition-colors leading-snug">Safety First: New Training Program</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4 flex-1">All staff have completed advanced certification for explosives handling.</p>
+            <button
+              class="read-more-btn self-start text-xs font-bold text-brand-dark inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform"
+              data-title="Safety First: New Training Program"
+              data-category="Safety"
+              data-date="27 Aug 2026"
+              data-read="4 min read"
+              data-image="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800"
+              data-body="Every member of our operational and logistics staff has now completed the new Advanced Explosives Handling Certification (AEHC) — a comprehensive program developed in partnership with international safety experts.|The program covers the full lifecycle of explosives handling, from magazine storage and transport to on-site delivery and disposal.|Combined with our existing ISO-aligned safety protocols, this represents one of the most rigorous training programs in East African mining logistics.|Since implementation began, we've achieved a 60% reduction in reportable safety incidents across all sites."
+            >
+              Read More <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Article 6 -->
+        <article class="news-card group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-20px_rgba(10,30,70,0.25)] flex flex-col" data-category="technology" data-search="dyno nobel partnership explosives innovation global">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786870176/dynopartner.webp" alt="Dyno Nobel partnership" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider news-category">Technology</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-semibold mb-3">
+              <span><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 20 Aug 2026</span>
+              <span>·</span>
+              <span>5 min read</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-brand-dark transition-colors leading-snug">Strengthening Our Dyno Nobel Partnership</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4 flex-1">Expanded collaboration brings new technology and training to Tanzania.</p>
+            <button
+              class="read-more-btn self-start text-xs font-bold text-brand-dark inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform"
+              data-title="Strengthening Our Dyno Nobel Partnership"
+              data-category="Technology"
+              data-date="20 Aug 2026"
+              data-read="5 min read"
+              data-image="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786870176/dynopartner.webp"
+              data-body="Our strategic partnership with Dyno Nobel — a global leader in commercial explosives — has been expanded to include new technology transfer initiatives.|The expanded agreement includes access to Dyno Nobel's latest generation of initiating systems, on-site technical support, and joint training programs for our staff.|We've also secured priority access to new product lines as they become available, ensuring our Tanzanian customers benefit from global innovation as it happens.|This partnership represents a long-term commitment to delivering world-class explosives solutions locally, backed by genuine technical depth."
+            >
+              Read More <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Article 7 -->
+        <article class="news-card group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-20px_rgba(10,30,70,0.25)] flex flex-col" data-category="company" data-search="head office kahama expansion operations facility">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786956391/KPL10382_vvuxyt.jpg" alt="Head office" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider news-category">Company</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-semibold mb-3">
+              <span><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 14 Aug 2026</span>
+              <span>·</span>
+              <span>2 min read</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-brand-dark transition-colors leading-snug">Head Office Operations Expanded</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4 flex-1">New facilities in Kahama support growing demand across Tanzania.</p>
+            <button
+              class="read-more-btn self-start text-xs font-bold text-brand-dark inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform"
+              data-title="Head Office Operations Expanded"
+              data-category="Company"
+              data-date="14 Aug 2026"
+              data-read="2 min read"
+              data-image="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786956391/KPL10382_vvuxyt.jpg"
+              data-body="Our Kahama head office has been significantly expanded to accommodate growing demand for our products and services.|The new facilities include additional storage capacity, dedicated technical support workspaces, and an expanded customer service center.|This investment reflects our strong growth over the past year and positions us to serve a growing customer base across all of Tanzania's mining regions.|The expansion was completed on schedule and without disruption to ongoing operations."
+            >
+              Read More <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Article 8 -->
+        <article class="news-card group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-20px_rgba(10,30,70,0.25)] flex flex-col" data-category="safety" data-search="certification iso compliance quality assurance mining">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800" alt="ISO certification" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider news-category">Safety</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-semibold mb-3">
+              <span><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 05 Aug 2026</span>
+              <span>·</span>
+              <span>3 min read</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-brand-dark transition-colors leading-snug">Renewed ISO Certification Achieved</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4 flex-1">Our quality and safety systems have been recertified under international standards.</p>
+            <button
+              class="read-more-btn self-start text-xs font-bold text-brand-dark inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform"
+              data-title="Renewed ISO Certification Achieved"
+              data-category="Safety"
+              data-date="05 Aug 2026"
+              data-read="3 min read"
+              data-image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800"
+              data-body="We've successfully renewed our ISO 9001 and ISO 45001 certifications after a comprehensive audit of our operations, safety protocols, and quality management systems.|The audit, conducted over three weeks, examined everything from magazine storage and transport procedures to customer complaint handling and staff training records.|Zero major non-conformities were identified, and the auditors specifically noted the strength of our ongoing training and safety programs.|This recertification reaffirms our commitment to maintaining the highest international standards across every aspect of our business."
+            >
+              Read More <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Article 9 -->
+        <article class="news-card group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-20px_rgba(10,30,70,0.25)] flex flex-col" data-category="logistics" data-search="fleet expansion trucks trailers heavy equipment mining">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800" alt="Fleet expansion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider news-category">Logistics</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-semibold mb-3">
+              <span><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 28 Jul 2026</span>
+              <span>·</span>
+              <span>2 min read</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-brand-dark transition-colors leading-snug">Fleet Expansion For Heavy Haulage</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4 flex-1">New trucks, trailers, and excavators have joined OLTRECK Transporters.</p>
+            <button
+              class="read-more-btn self-start text-xs font-bold text-brand-dark inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform"
+              data-title="Fleet Expansion For Heavy Haulage"
+              data-category="Logistics"
+              data-date="28 Jul 2026"
+              data-read="2 min read"
+              data-image="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800"
+              data-body="OLTRECK Transporters has significantly expanded its fleet with the addition of new heavy-duty trucks, low-bed trailers, and excavators.|The new vehicles are specifically configured for the demanding conditions of Tanzania's mining regions, with reinforced chassis, advanced safety systems, and GPS tracking.|This expansion increases our overall capacity by 40% and reduces average delivery times across all routes.|The fleet expansion is part of our ongoing investment in logistics infrastructure to support Tanzania's growing mining industry."
+            >
+              Read More <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Article 10 -->
+        <article class="news-card group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-20px_rgba(10,30,70,0.25)] flex flex-col" data-category="technology" data-search="chemicals division flotation reagents mining processing launch">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" alt="Chemicals division" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider news-category">Technology</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-semibold mb-3">
+              <span><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 22 Jul 2026</span>
+              <span>·</span>
+              <span>4 min read</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-brand-dark transition-colors leading-snug">Kilimanjaro Chemicals Expands Product Line</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4 flex-1">New flotation reagents and leaching agents now available for Tanzanian mines.</p>
+            <button
+              class="read-more-btn self-start text-xs font-bold text-brand-dark inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform"
+              data-title="Kilimanjaro Chemicals Expands Product Line"
+              data-category="Technology"
+              data-date="22 Jul 2026"
+              data-read="4 min read"
+              data-image="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800"
+              data-body="Our Kilimanjaro Chemicals division has expanded its product line with new flotation reagents, leaching agents, and activated carbon products.|All new products are sourced from globally respected manufacturers and are now available from our Kahama and Geita branches.|The expanded range covers the complete mineral processing value chain, from ore flotation to final gold recovery.|Local technical support is available for all new products, including on-site trials and dosage optimization."
+            >
+              Read More <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Article 11 -->
+        <article class="news-card group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-20px_rgba(10,30,70,0.25)] flex flex-col" data-category="csr" data-search="community water project sustainable mining local development">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&q=80&w=800" alt="Community water project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider news-category">CSR</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-semibold mb-3">
+              <span><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 15 Jul 2026</span>
+              <span>·</span>
+              <span>3 min read</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-brand-dark transition-colors leading-snug">Clean Water Project For Mining Communities</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4 flex-1">We've funded new water infrastructure for three communities in the Lake Zone.</p>
+            <button
+              class="read-more-btn self-start text-xs font-bold text-brand-dark inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform"
+              data-title="Clean Water Project For Mining Communities"
+              data-category="CSR"
+              data-date="15 Jul 2026"
+              data-read="3 min read"
+              data-image="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&q=80&w=800"
+              data-body="As part of our ongoing community development program, we've funded new water infrastructure for three communities near our operations in the Lake Zone.|The project includes boreholes, storage tanks, and distribution systems that now provide reliable clean water to over 5,000 residents.|Local contractors were used throughout the project, creating employment opportunities while ensuring sustainability through community ownership.|This initiative reflects our belief that mining operations should create lasting positive impact in the communities where we work."
+            >
+              Read More <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Article 12 -->
+        <article class="news-card group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-20px_rgba(10,30,70,0.25)] flex flex-col" data-category="company" data-search="strategic growth milestones year review tanzania mining">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Growth milestones" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider news-category">Company</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-semibold mb-3">
+              <span><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 10 Jul 2026</span>
+              <span>·</span>
+              <span>5 min read</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-brand-dark transition-colors leading-snug">A Year Of Strategic Growth</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4 flex-1">Reflecting on key milestones across all divisions over the past year.</p>
+            <button
+              class="read-more-btn self-start text-xs font-bold text-brand-dark inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform"
+              data-title="A Year Of Strategic Growth"
+              data-category="Company"
+              data-date="10 Jul 2026"
+              data-read="5 min read"
+              data-image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
+              data-body="As we celebrate another year of operations, we're reflecting on the key milestones that have shaped Kilimanjaro Group over the past twelve months.|Highlights include the expansion of our consulting team, deployment of next-generation blasting technology, the opening of new logistics routes, and significant growth across all four of our business divisions.|We also achieved ISO recertification, completed a major head office expansion, and completed over 10,000 successful projects across Tanzania.|None of this would be possible without our dedicated team, our loyal customers, and the communities that have supported our growth. We look forward to the year ahead."
+            >
+              Read More <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- No results -->
+      <div class="hidden text-center py-20" id="noResults">
+        <div class="inline-flex w-20 h-20 rounded-2xl bg-brand-lime/20 border border-brand-lime/40 items-center justify-center text-brand-dark text-3xl mb-6">
+          <i class="fa-solid fa-newspaper"></i>
+        </div>
+        <h3 class="text-2xl font-extrabold text-slate-900 mb-2">No articles found</h3>
+        <p class="text-sm text-slate-500">Try a different keyword or category.</p>
+      </div>
+
+      <!-- Load More -->
+      <div class="text-center mt-14" id="loadMoreWrap">
+        <button id="loadMoreBtn" class="px-8 py-4 rounded-full bg-brand-dark hover:bg-brand-lime hover:text-brand-dark text-white font-extrabold text-sm transition-all duration-300 inline-flex items-center gap-3 shadow-lg">
+          Load More Articles <i class="fa-solid fa-arrow-down"></i>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- LONG smooth fade: light → dark (spans ~60vh) -->
+  <div class="absolute bottom-0 left-0 right-0 h-[50vh] lg:h-[60vh] pointer-events-none z-10 fade-zone-light-to-dark"></div>
+
+</section>
+
+<!-- ================= NEWSLETTER CTA (DARK) ================= -->
+<section class="relative pt-56 sm:pt-72 lg:pt-80 pb-20 bg-slate-900 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-brand-cardBg via-brand-dark to-slate-900 border border-white/10 p-8 sm:p-14 text-center">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 space-y-5 max-w-2xl mx-auto">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill border border-brand-lime/20 text-brand-lime font-bold text-xs uppercase tracking-widest">
+          <i class="fa-solid fa-envelope text-[10px]"></i> Newsletter
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Never Miss An Update</h2>
+        <p class="text-gray-400 text-sm leading-relaxed">Subscribe to receive our latest news, project updates, and industry insights directly in your inbox.</p>
+
+        <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-3" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+          <input type="email" placeholder="Your email address" required class="flex-1 px-5 py-3.5 rounded-full bg-white/5 border border-white/10 text-sm text-white placeholder-gray-500 outline-none focus:border-brand-lime transition-all" />
+          <button type="submit" class="px-7 py-3.5 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all duration-300 shadow-glow inline-flex items-center justify-center gap-3">
+            Subscribe <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+
+        <p class="text-[11px] text-gray-500 pt-1">
+          <i class="fa-solid fa-shield-halved text-brand-lime mr-1"></i>
+          We respect your privacy. Unsubscribe anytime.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-brand-dark text-gray-400 py-16 border-t border-white/5 text-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-12 gap-10">
+
+      <div class="md:col-span-4 space-y-4">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group" class="h-16 w-auto" />
+        <p class="text-gray-400 leading-relaxed">
+          Head Office: P.O. Box 533, Mhongoro Street, Mbulu Msalabani, Kahama, Mwanza.
+        </p>
+        <div class="flex gap-3 text-base">
+          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="md:col-span-2">
+        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Branches</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Geita</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Mwanza</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Musoma (MMG)</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Dar es Salaam</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Tanga · Dodoma · Nzega</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-brand-lime transition-colors">Home</a></li>
+          <li><a href="products.html" class="hover:text-brand-lime transition-colors">Products</a></li>
+          <li><a href="chemicals.html" class="hover:text-brand-lime transition-colors">Chemicals</a></li>
+          <li><a href="logistics.html" class="hover:text-brand-lime transition-colors">Logistics</a></li>
+          <li><a href="supplies.html" class="hover:text-brand-lime transition-colors">Supplies</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-4">
+        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Stay Connected</h4>
+        <p class="mb-4">Get updates on our solutions and news.</p>
+        <form class="flex gap-2 bg-white/5 border border-white/10 rounded-full p-1" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+          <input type="email" placeholder="Your email" required class="flex-1 bg-transparent px-4 py-2 text-xs text-white outline-none" />
+          <button type="submit" class="px-5 py-2 rounded-full bg-brand-lime text-brand-dark font-extrabold text-xs hover:bg-brand-limeHover transition-colors">Join</button>
+        </form>
+        <p class="mt-4 text-xs"><i class="fa-solid fa-phone text-brand-lime"></i> +255 679 746 702 · +27 76 896 8767</p>
+      </div>
+
+    </div>
+
+    <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+      <span>© 2026 Kilimanjaro Group. All rights reserved.</span>
+      <span class="flex gap-4">
+        <a href="#" class="hover:text-brand-lime transition-colors">Privacy</a>
+        <a href="#" class="hover:text-brand-lime transition-colors">Terms</a>
+        <a href="#" class="hover:text-brand-lime transition-colors">CSR</a>
+        <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="hover:text-brand-lime transition-colors">Staff Login</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= FLOATING ACTION BUTTON (CALL / WHATSAPP) ================= -->
+<div id="fab-container" class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+
+  <!-- Action buttons (hidden by default) -->
+  <div id="fab-actions" class="flex flex-col items-end gap-3 opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/255677800002?text=Hello%20Kilimanjaro%20Group%2C%20I%27d%20like%20to%20inquire%20about%20your%20latest%20news%20and%20updates."
+       target="_blank" rel="noopener"
+       class="group flex items-center gap-3">
+      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">
+        WhatsApp Us
+      </span>
+      <span class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+        <i class="fa-brands fa-whatsapp text-xl"></i>
+      </span>
+    </a>
+
+    <!-- Call -->
+    <a href="tel:+255677800002" class="group flex items-center gap-3">
+      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">
+        Call Us
+      </span>
+      <span class="w-12 h-12 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+        <i class="fa-solid fa-phone text-lg"></i>
+      </span>
+    </a>
+
+  </div>
+
+  <!-- Main FAB toggle -->
+  <button id="fab-toggle"
+          aria-label="Contact options"
+          aria-expanded="false"
+          class="w-14 h-14 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-glow hover:scale-110 transition-transform relative">
+    <i id="fab-icon" class="fa-solid fa-headset text-xl transition-transform duration-300"></i>
+  </button>
+</div>
+
+<!-- ================= ARTICLE MODAL ================= -->
+<div id="article-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6">
+  <div class="relative w-full max-w-3xl max-h-[90vh] bg-brand-cardBg border border-white/20 rounded-3xl overflow-hidden shadow-2xl flex flex-col">
+
+    <button id="close-article" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-brand-lime hover:text-brand-dark text-white flex items-center justify-center transition-colors" aria-label="Close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="overflow-y-auto">
+      <div class="relative h-56 sm:h-72 overflow-hidden">
+        <img id="modal-image" src="" alt="" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-brand-cardBg/40 to-transparent"></div>
+        <span id="modal-category" class="absolute top-5 left-5 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider">Category</span>
+      </div>
+
+      <div class="p-6 sm:p-10 space-y-5">
+        <div class="flex flex-wrap items-center gap-3 text-xs text-gray-400 font-semibold">
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-calendar text-[10px]"></i> <span id="modal-date">Date</span></span>
+          <span>·</span>
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-[10px]"></i> <span id="modal-read">Read time</span></span>
+        </div>
+
+        <h2 id="modal-title" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">Article Title</h2>
+
+        <div id="modal-body" class="space-y-4 text-sm sm:text-base text-gray-300 leading-relaxed"></div>
+
+        <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-full bg-brand-lime flex items-center justify-center text-brand-dark font-extrabold">KG</div>
+            <div>
+              <div class="text-sm font-extrabold text-white">Kilimanjaro Group</div>
+              <div class="text-xs text-gray-500">Editorial Team</div>
+            </div>
+          </div>
+          <a href="news-details.html" class="px-6 py-3 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all inline-flex items-center gap-2">
+            Read Full Story <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ---------- Mobile Menu ---------- */
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+  mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  /* ---------- Floating Action Button (Call / WhatsApp) ---------- */
+  const fabToggle = document.getElementById('fab-toggle');
+  const fabActions = document.getElementById('fab-actions');
+  const fabIcon = document.getElementById('fab-icon');
+  const fabContainer = document.getElementById('fab-container');
+  let fabOpen = false;
+
+  function setFab(open) {
+    fabOpen = open;
+    fabToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      fabActions.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+      fabActions.classList.add('opacity-100', 'translate-y-0');
+      fabIcon.classList.add('rotate-45');
+    } else {
+      fabActions.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+      fabActions.classList.remove('opacity-100', 'translate-y-0');
+      fabIcon.classList.remove('rotate-45');
+    }
+  }
+
+  fabToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setFab(!fabOpen);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (fabOpen && !fabContainer.contains(e.target)) {
+      setFab(false);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && fabOpen) setFab(false);
+  });
+
+  /* ---------- Article Modal ---------- */
+  const modal = document.getElementById('article-modal');
+  const modalImage = document.getElementById('modal-image');
+  const modalCategory = document.getElementById('modal-category');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDate = document.getElementById('modal-date');
+  const modalRead = document.getElementById('modal-read');
+  const modalBody = document.getElementById('modal-body');
+  const closeBtn = document.getElementById('close-article');
+
+  function openArticle(btn) {
+    const { title, category, date, read, image, body } = btn.dataset;
+    modalImage.src = image;
+    modalImage.alt = title;
+    modalCategory.textContent = category;
+    modalTitle.textContent = title;
+    modalDate.textContent = date;
+    modalRead.textContent = read;
+    modalBody.innerHTML = body.split('|').map(p => `<p>${p}</p>`).join('');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeArticle() {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.read-more-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openArticle(btn);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeArticle);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeArticle(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeArticle(); });
+
+  /* ---------- Search + Filter + Load More ---------- */
+  (function() {
+    const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearSearch');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = Array.from(document.querySelectorAll('.news-card'));
+    const noResults = document.getElementById('noResults');
+    const resultsCount = document.getElementById('resultsCount');
+    const loadMoreWrap = document.getElementById('loadMoreWrap');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+    const totalCards = cards.length;
+    const INITIAL_VISIBLE = 6;
+    let visibleLimit = INITIAL_VISIBLE;
+    let activeFilter = 'all';
+    let searchTerm = '';
+
+    const activeClasses = ['bg-brand-dark','text-brand-lime','shadow-md'];
+    const inactiveClasses = ['bg-slate-100','border','border-slate-200','text-slate-600'];
+
+    function setFilterActive(btn, isActive) {
+      if (isActive) {
+        btn.classList.remove(...inactiveClasses);
+        btn.classList.add(...activeClasses);
+      } else {
+        btn.classList.remove(...activeClasses);
+        btn.classList.add(...inactiveClasses);
+      }
+    }
+
+    function apply() {
+      const term = searchTerm.toLowerCase().trim();
+      let matches = [];
+
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const searchData = card.getAttribute('data-search') || '';
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const description = card.querySelector('p').textContent.toLowerCase();
+        const label = card.querySelector('.news-category').textContent.toLowerCase();
+        const searchable = (searchData + ' ' + title + ' ' + description + ' ' + label).toLowerCase();
+
+        const matchesCategory = activeFilter === 'all' || category === activeFilter;
+        const matchesSearch = term === '' || searchable.includes(term);
+
+        if (matchesCategory && matchesSearch) matches.push(card);
+      });
+
+      cards.forEach(c => c.classList.add('hidden'));
+      matches.slice(0, visibleLimit).forEach(c => c.classList.remove('hidden'));
+
+      if (matches.length === 0) {
+        noResults.classList.remove('hidden');
+        loadMoreWrap.classList.add('hidden');
+        resultsCount.innerHTML = 'Showing <strong class="text-brand-dark font-extrabold">0</strong> of ' + totalCards + ' articles';
+      } else {
+        noResults.classList.add('hidden');
+        resultsCount.innerHTML = 'Showing <strong class="text-brand-dark font-extrabold">' + Math.min(visibleLimit, matches.length) + '</strong> of ' + matches.length + ' matching articles';
+
+        if (matches.length > visibleLimit) {
+          loadMoreWrap.classList.remove('hidden');
+        } else {
+          loadMoreWrap.classList.add('hidden');
+        }
+      }
+
+      if (searchTerm.length > 0) {
+        clearBtn.classList.remove('hidden');
+        clearBtn.classList.add('flex');
+      } else {
+        clearBtn.classList.add('hidden');
+        clearBtn.classList.remove('flex');
+      }
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(b => setFilterActive(b, false));
+        setFilterActive(this, true);
+        activeFilter = this.getAttribute('data-filter');
+        visibleLimit = INITIAL_VISIBLE;
+        apply();
+      });
+    });
+
+    let searchTimeout;
+    searchInput.addEventListener('input', function() {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        searchTerm = this.value;
+        visibleLimit = INITIAL_VISIBLE;
+        apply();
+      }, 200);
+    });
+
+    clearBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      searchTerm = '';
+      visibleLimit = INITIAL_VISIBLE;
+      apply();
+      searchInput.focus();
+    });
+
+    loadMoreBtn.addEventListener('click', () => {
+      visibleLimit += 3;
+      apply();
+    });
+
+    apply();
+  })();
+
+});
+</script>
+
+</body>
+</html>

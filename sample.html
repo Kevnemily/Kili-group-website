@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kilimanjaro Group · Mining Solutions</title>
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+      colors: {
+        brand: {
+          dark: '#0B131F',
+          cardBg: '#121C2B',
+          lightBg: '#F8FAFC',
+          lime: '#B8EC34',
+          limeHover: '#a3d928',
+          accent: '#10B981',
+          muted: '#94A3B8'
+        }
+      },
+      boxShadow: {
+        'glow': '0 0 25px rgba(184, 236, 52, 0.25)',
+        'card-glow': '0 10px 30px -10px rgba(0, 0, 0, 0.3)',
+        'glow-lg': '0 0 60px rgba(184, 236, 52, 0.15)'
+      }
+    }
+  }
+}
+</script>
+
+<style>
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0B131F; color: #F8FAFC; }
+
+  @keyframes float-slow { 0%,100%{transform:translateY(0) rotate(12deg)} 50%{transform:translateY(-12px) rotate(10deg)} }
+  @keyframes float-fast { 0%,100%{transform:translateY(0) rotate(-6deg)} 50%{transform:translateY(-16px) rotate(-8deg)} }
+  .phone-mockup-1 { animation: float-slow 7s ease-in-out infinite; }
+  .phone-mockup-2 { animation: float-fast 6s ease-in-out infinite; }
+
+  .glass-card { background: rgba(18,28,43,.85); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.08); }
+  .glass-pill { background: rgba(255,255,255,.08); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.12); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: #0B131F; }
+  ::-webkit-scrollbar-thumb { background: #24303f; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #B8EC34; }
+
+  /* Values slideshow */
+  .values-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .8s ease-in-out; }
+  .values-slide.active { opacity: 1; }
+
+  /* Timeline */
+  .timeline-line::before {
+    content:''; position:absolute; left:50%; top:0; bottom:0; width:2px;
+    background: linear-gradient(to bottom, transparent, #B8EC34 10%, #B8EC34 90%, transparent);
+    transform: translateX(-50%); opacity:.35;
+  }
+  @media (max-width: 767px) {
+    .timeline-line::before { left: 20px; transform: none; }
+  }
+
+  /* News carousel */
+  .news-item { transition: flex-basis .8s cubic-bezier(.25,.46,.45,.94), min-width .8s cubic-bezier(.25,.46,.45,.94), max-width .8s cubic-bezier(.25,.46,.45,.94), box-shadow .5s ease, opacity .5s ease; }
+
+  /* FAQ */
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s ease; }
+  .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 16px; }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+  /* Marquee for partners */
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .marquee-track { animation: marquee 40s linear infinite; }
+  .marquee-track:hover { animation-play-state: paused; }
+
+  /* Number badge decorative */
+  .ring-char { position:absolute; top:50%; left:50%; font-size:10px; font-weight:800; letter-spacing:1px; }
+</style>
+</head>
+
+<body class="overflow-x-hidden antialiased selection:bg-brand-lime selection:text-brand-dark">
+
+<!-- ================= HEADER / NAVBAR ================= -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group" class="h-14 w-auto group-hover:scale-105 transition-transform" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center space-x-1 bg-white/5 px-6 py-2 rounded-full border border-white/10">
+        <a href="#overview" class="px-4 py-2 text-sm font-semibold text-brand-lime hover:text-white transition-colors">About</a>
+        <a href="#products" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Products</a>
+        <a href="#services" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Services</a>
+        <a href="#divisions" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Divisions</a>
+        <a href="#news" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">News</a>
+        <a href="#partners" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Partners</a>
+        <a href="#faq" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">FAQ</a>
+      </nav>
+
+      <!-- CTA -->
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="#contact" class="px-6 py-3 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all duration-300 flex items-center gap-2 shadow-glow">
+          Get in Touch <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white text-2xl focus:outline-none" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-brand-cardBg border-b border-white/10 px-6 py-6">
+    <nav class="flex flex-col gap-4">
+      <a href="#overview" class="text-brand-lime font-medium text-lg mobile-link">About</a>
+      <a href="#products" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Products</a>
+      <a href="#services" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Services</a>
+      <a href="#divisions" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Divisions</a>
+      <a href="#news" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">News</a>
+      <a href="#partners" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Partners</a>
+      <a href="#faq" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">FAQ</a>
+      <a href="#contact" class="mt-2 w-full text-center py-3 bg-brand-lime text-brand-dark font-bold rounded-xl shadow-glow mobile-link">
+        Get in Touch
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-brand-dark overflow-hidden">
+
+  <!-- Video background: clear at top, fades to dark at bottom -->
+  <video
+    class="absolute inset-0 w-full h-full object-cover"
+    autoplay muted loop playsinline
+    style="opacity: 1;"
+  >
+    <source src="https://res.cloudinary.com/dp7piqlbe/video/upload/v1786841510/blasting_online.mp4" type="video/mp4">
+  </video>
+
+  <!-- Gradient fade: transparent top → solid dark bottom -->
+  <div class="absolute inset-0 pointer-events-none"
+       style="background: linear-gradient(
+         to bottom,
+         rgba(11, 19, 31, 0.25) 0%,
+         rgba(11, 19, 31, 0.45) 30%,
+         rgba(11, 19, 31, 0.75) 55%,
+         rgba(11, 19, 31, 0.95) 75%,
+         #0B131F 100%
+       );">
+  </div>
+
+  <!-- Radial glows on top -->
+  <div class="absolute top-1/4 left-10 w-96 h-96 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute top-1/3 right-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+      <!-- Left -->
+      <div class="lg:col-span-7 space-y-8">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-pill border border-brand-lime/30 text-xs sm:text-sm font-semibold text-gray-200">
+          <span class="w-2 h-2 rounded-full bg-brand-lime animate-ping"></span>
+          Trusted Partner in Tanzania
+          <i class="fa-solid fa-circle-check text-brand-lime ml-2"></i>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.05]">
+          Powering Mining Success With
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-gray-400"> Complete</span>
+          <span class="text-brand-lime">Solutions</span>
+        </h1>
+
+        <p class="text-gray-300 text-base sm:text-lg max-w-xl leading-relaxed">
+          From explosives and chemicals to logistics and consultancy — we deliver safety, efficiency, and innovation for every operation.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#services" class="px-8 py-4 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-base shadow-glow transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-3">
+            Explore Services <i class="fa-solid fa-arrow-right text-sm"></i>
+          </a>
+
+          <button id="open-video-btn" class="w-14 h-14 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white text-lg transition-transform hover:scale-110 shadow-lg">
+            <i class="fa-solid fa-play ml-1 text-brand-lime"></i>
+          </button>
+        </div>
+
+        <!-- Social proof -->
+        <div class="pt-6 border-t border-white/10 grid sm:grid-cols-2 gap-6 items-center">
+          <div class="flex items-center gap-3">
+            <div class="text-3xl font-black text-white">4.9</div>
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-gray-400 font-medium mt-1">(4.9/5) Trusted by mining operations</p>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-xs text-gray-400 font-semibold mb-2">Our Reach:</p>
+            <div class="flex items-center -space-x-3">
+              <div class="w-10 h-10 rounded-full bg-brand-lime/20 border-2 border-brand-dark flex items-center justify-center text-brand-lime text-xs font-bold">GT</div>
+              <div class="w-10 h-10 rounded-full bg-brand-lime/20 border-2 border-brand-dark flex items-center justify-center text-brand-lime text-xs font-bold">DS</div>
+              <div class="w-10 h-10 rounded-full bg-brand-lime/20 border-2 border-brand-dark flex items-center justify-center text-brand-lime text-xs font-bold">MW</div>
+              <div class="w-10 h-10 rounded-full bg-brand-lime text-brand-dark font-bold text-lg flex items-center justify-center border-2 border-brand-dark hover:scale-105 transition-transform cursor-pointer">
+                +
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Visual - floating cards -->
+      <div class="lg:col-span-5 relative flex justify-center items-center py-12 lg:py-0">
+        <div class="relative w-full max-w-md h-[480px] sm:h-[540px]">
+
+          <!-- Back card: Blast stats -->
+          <div class="phone-mockup-1 absolute top-0 right-4 w-64 sm:w-72 bg-gradient-to-b from-slate-800 to-slate-900 rounded-[40px] p-4 border-4 border-slate-700/50 shadow-2xl z-10">
+            <div class="w-full bg-slate-950 rounded-[28px] p-4 space-y-4 text-white text-xs">
+              <div class="flex justify-between items-center text-gray-400 border-b border-gray-800 pb-2">
+                <span>Blast Metrics</span>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </div>
+              <div class="bg-brand-lime text-brand-dark p-4 rounded-2xl shadow-lg">
+                <div class="text-[10px] font-bold uppercase tracking-wider opacity-80">Fragmentation</div>
+                <div class="text-2xl font-black mt-1">Optimal</div>
+              </div>
+              <div class="space-y-2">
+                <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="w-3/4 h-full bg-brand-lime"></div>
+                </div>
+                <div class="flex justify-between text-[10px] text-gray-400">
+                  <span>Efficiency</span><span>75%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Front card: Dashboard -->
+          <div class="phone-mockup-2 absolute bottom-6 left-2 sm:left-6 w-64 sm:w-72 bg-gradient-to-b from-slate-900 to-black rounded-[40px] p-4 border-4 border-slate-700/80 shadow-2xl z-20">
+            <div class="w-full bg-slate-950 rounded-[28px] p-4 space-y-4 text-white text-xs">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-lime">
+                    <i class="fa-solid fa-bomb"></i>
+                  </div>
+                  <span class="font-bold">Site Dashboard</span>
+                </div>
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              </div>
+              <div class="p-3 bg-slate-900 rounded-xl border border-white/5">
+                <div class="text-gray-400 text-[10px]">Active Sites</div>
+                <div class="text-xl font-extrabold text-white">7 Branches</div>
+              </div>
+              <div class="flex justify-around py-2 border-t border-gray-800">
+                <div class="text-center">
+                  <i class="fa-solid fa-arrow-trend-up text-brand-lime text-base"></i>
+                  <p class="text-[9px] text-gray-400 mt-1">Growth</p>
+                </div>
+                <div class="text-center">
+                  <i class="fa-solid fa-shield-halved text-brand-lime text-base"></i>
+                  <p class="text-[9px] text-gray-400 mt-1">Safety</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating badge -->
+          <div class="absolute -bottom-2 right-0 sm:right-4 z-30 bg-brand-lime text-brand-dark p-5 rounded-3xl shadow-xl flex items-center gap-3 border-2 border-white/20 transform hover:scale-105 transition-transform">
+            <div class="text-3xl sm:text-4xl font-extrabold leading-none">10K+</div>
+            <div class="text-xs font-bold leading-tight uppercase tracking-wide">Projects<br/>Delivered</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURE CARDS BANNER ================= -->
+<section class="relative z-20 -mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="grid md:grid-cols-12 gap-6">
+
+    <!-- Left: About quick -->
+    <div class="md:col-span-5 relative group rounded-3xl overflow-hidden min-h-[220px] shadow-card-glow border border-white/10">
+      <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786956391/KPL10382_vvuxyt.jpg" alt="Our team" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent p-6 flex flex-col justify-end">
+        <h3 class="text-xl font-bold text-white mb-2">Who We Are</h3>
+        <a href="#overview" class="text-brand-lime text-xs font-bold flex items-center gap-2 hover:underline">
+          Learn More <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-brand-lime/90 text-brand-dark flex items-center justify-center cursor-pointer shadow-lg">
+        <i class="fa-solid fa-play text-xs"></i>
+      </div>
+    </div>
+
+    <!-- Right: 3 quick service cards -->
+    <div class="md:col-span-7 bg-brand-cardBg rounded-3xl p-6 sm:p-8 border border-white/10 grid sm:grid-cols-3 gap-6 shadow-card-glow">
+      <div class="space-y-3 p-2 rounded-2xl hover:bg-white/5 transition-colors">
+        <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl">
+          <i class="fa-solid fa-bomb"></i>
+        </div>
+        <h4 class="text-base font-bold text-white">Explosives</h4>
+        <p class="text-xs text-gray-400 leading-relaxed">Bulk emulsions, packaged explosives & initiating systems.</p>
+      </div>
+      <div class="space-y-3 p-2 rounded-2xl hover:bg-white/5 transition-colors">
+        <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl">
+          <i class="fa-solid fa-flask"></i>
+        </div>
+        <h4 class="text-base font-bold text-white">Chemicals</h4>
+        <p class="text-xs text-gray-400 leading-relaxed">Flotation reagents, frothers & mineral processing aids.</p>
+      </div>
+      <div class="space-y-3 p-2 rounded-2xl hover:bg-white/5 transition-colors">
+        <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl">
+          <i class="fa-solid fa-truck"></i>
+        </div>
+        <h4 class="text-base font-bold text-white">Logistics</h4>
+        <p class="text-xs text-gray-400 leading-relaxed">Safe transport of equipment, explosives & chemicals.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= OVERVIEW / ABOUT ================= -->
+<section id="overview" class="py-24 bg-white text-brand-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+      <!-- Left image collage -->
+      <div class="lg:col-span-6 relative">
+        <div class="grid grid-cols-2 gap-4">
+          <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786956391/KPL10382_vvuxyt.jpg" alt="Team" class="col-span-2 w-full h-64 object-cover rounded-3xl shadow-xl border-4 border-slate-100" />
+          <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786956389/KPL19852_r4lbzl.jpg" alt="Meeting" class="w-full h-44 object-cover rounded-3xl shadow-xl border-4 border-slate-100" />
+          <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786956401/KPL19728_p1uuex.jpg" alt="Consulting" class="w-full h-44 object-cover rounded-3xl shadow-xl border-4 border-slate-100" />
+        </div>
+
+        <div class="absolute -bottom-6 -right-6 bg-brand-dark text-white p-6 rounded-2xl shadow-xl max-w-xs hidden sm:block border border-white/10">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center font-bold">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div>
+              <div class="text-sm font-bold">Trusted in Tanzania</div>
+              <div class="text-xs text-gray-400">Head office in Kahama</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right content -->
+      <div class="lg:col-span-6 space-y-6">
+        <span class="px-4 py-1.5 rounded-full bg-brand-lime/20 text-brand-dark font-bold text-xs uppercase tracking-wider">
+          Who We Are
+        </span>
+
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          Trusted Name In Tanzania's Mining Industry
+        </h2>
+
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Kilimanjaro Group provides complete solutions that drive efficiency, safety, and productivity. Our expertise spans Mining Explosives, Blasting & Consultancy, Drilling, Chemicals, Equipment, Supplies, and Logistics.
+        </p>
+
+        <!-- Interactive Tabs (Mission / Vision) -->
+        <div class="space-y-4 pt-2">
+          <div class="flex gap-4 border-b border-gray-200 pb-2">
+            <button id="tab-mission-btn" onclick="switchAboutTab('mission')" class="pb-2 font-bold text-base text-brand-dark border-b-2 border-brand-dark transition-all flex items-center gap-2">
+              <i class="fa-solid fa-bullseye"></i> Our Mission
+            </button>
+            <button id="tab-vision-btn" onclick="switchAboutTab('vision')" class="pb-2 font-bold text-base text-gray-400 hover:text-brand-dark border-b-2 border-transparent transition-all flex items-center gap-2">
+              <i class="fa-solid fa-eye"></i> Our Vision
+            </button>
+          </div>
+
+          <div id="tab-mission" class="space-y-3">
+            <p class="text-gray-600 text-sm leading-relaxed">
+              To deliver complete mining solutions that maximize safety, efficiency, and productivity — while empowering local communities and upholding the highest standards of integrity across Tanzania.
+            </p>
+          </div>
+          <div id="tab-vision" class="hidden space-y-3">
+            <p class="text-gray-600 text-sm leading-relaxed">
+              To be East Africa's most trusted mining solutions partner, recognized for innovation, reliability, and a relentless commitment to safety and excellence.
+            </p>
+          </div>
+        </div>
+
+        <!-- Branches pill list -->
+        <div class="flex flex-wrap gap-2 pt-2">
+          <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-semibold text-xs">Kahama (HQ)</span>
+          <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-semibold text-xs">Geita</span>
+          <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-semibold text-xs">Dar es Salaam</span>
+          <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-semibold text-xs">Tanga</span>
+          <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-semibold text-xs">Dodoma</span>
+          <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-semibold text-xs">Nzega</span>
+          <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-semibold text-xs">Musoma</span>
+        </div>
+
+        <div class="bg-brand-dark text-white p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 mt-6">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shrink-0 mt-1">
+              <i class="fa-solid fa-check text-xs"></i>
+            </div>
+            <p class="text-xs text-gray-300 leading-relaxed">
+              Partner with us to unlock safety, efficiency, and reliable mining solutions across Tanzania.
+            </p>
+          </div>
+          <a href="#contact" class="px-5 py-2.5 rounded-full bg-brand-lime text-brand-dark font-bold text-xs hover:bg-brand-limeHover whitespace-nowrap transition-colors flex items-center gap-2">
+            Learn More <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS COUNTERS ================= -->
+<section id="stats" class="py-16 bg-slate-50 border-y border-slate-200 text-slate-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+      <div class="space-y-2 border-l-2 border-brand-lime pl-6">
+        <div class="text-4xl sm:text-5xl font-extrabold tracking-tight flex items-center gap-1">
+          <span class="counter" data-target="10">0</span><span class="text-brand-lime">K+</span>
+        </div>
+        <p class="text-xs text-gray-600 font-medium leading-relaxed">Projects delivered across Tanzania.</p>
+      </div>
+      <div class="space-y-2 border-l-2 border-brand-lime pl-6">
+        <div class="text-4xl sm:text-5xl font-extrabold tracking-tight flex items-center gap-1">
+          <span class="counter" data-target="7">0</span><span class="text-brand-lime"></span>
+        </div>
+        <p class="text-xs text-gray-600 font-medium leading-relaxed">Branches serving the nation.</p>
+      </div>
+      <div class="space-y-2 border-l-2 border-brand-lime pl-6">
+        <div class="text-4xl sm:text-5xl font-extrabold tracking-tight flex items-center gap-1">
+          <span class="counter" data-target="98">0</span><span class="text-brand-lime">%</span>
+        </div>
+        <p class="text-xs text-gray-600 font-medium leading-relaxed">Customer satisfaction rating.</p>
+      </div>
+      <div class="space-y-2 border-l-2 border-brand-lime pl-6">
+        <div class="text-4xl sm:text-5xl font-extrabold tracking-tight flex items-center gap-1">
+          <span class="counter" data-target="15">0</span><span class="text-brand-lime">+</span>
+        </div>
+        <p class="text-xs text-gray-600 font-medium leading-relaxed">Years of mining expertise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CORE VALUES SLIDESHOW ================= -->
+<section class="py-24 bg-brand-dark text-white relative overflow-hidden">
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-lime/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="text-center max-w-2xl mx-auto mb-12 space-y-4">
+      <span class="px-4 py-1.5 rounded-full glass-pill text-brand-lime font-bold text-xs uppercase tracking-wider border border-brand-lime/20">
+        Our Core Values
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">What Drives Kilimanjaro Group</h2>
+    </div>
+
+    <div id="valuesSlideshow" class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 h-[380px] sm:h-[440px] lg:h-[500px]">
+
+      <!-- Slide 1 -->
+      <div class="values-slide active" data-index="0">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786875619/reliability_gp9bwa.png" alt="Impact" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-tr from-brand-dark/95 via-brand-dark/70 to-brand-dark/30"></div>
+        <div class="relative h-full flex items-center p-8 sm:p-14 lg:p-20">
+          <div class="max-w-lg space-y-3">
+            <i class="fa-solid fa-bolt text-brand-lime text-4xl"></i>
+            <h3 class="text-2xl sm:text-4xl font-extrabold">Impact</h3>
+            <p class="text-gray-300 text-sm sm:text-base">Passion for exceptional results as we succeed together with our clients.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="values-slide" data-index="1">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1200" alt="Excellence" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-tr from-brand-dark/95 via-brand-dark/70 to-brand-dark/30"></div>
+        <div class="relative h-full flex items-center p-8 sm:p-14 lg:p-20">
+          <div class="max-w-lg space-y-3">
+            <i class="fa-solid fa-star text-brand-lime text-4xl"></i>
+            <h3 class="text-2xl sm:text-4xl font-extrabold">Excellence</h3>
+            <p class="text-gray-300 text-sm sm:text-base">Continuous development to offer the best expertise and quality.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="values-slide" data-index="2">
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1200" alt="Respect" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-tr from-brand-dark/95 via-brand-dark/70 to-brand-dark/30"></div>
+        <div class="relative h-full flex items-center p-8 sm:p-14 lg:p-20">
+          <div class="max-w-lg space-y-3">
+            <i class="fa-solid fa-handshake text-brand-lime text-4xl"></i>
+            <h3 class="text-2xl sm:text-4xl font-extrabold">Respect</h3>
+            <p class="text-gray-300 text-sm sm:text-base">Treating everyone equally with respect and equality.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="values-slide" data-index="3">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200" alt="Dedication" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-tr from-brand-dark/95 via-brand-dark/70 to-brand-dark/30"></div>
+        <div class="relative h-full flex items-center p-8 sm:p-14 lg:p-20">
+          <div class="max-w-lg space-y-3">
+            <i class="fa-solid fa-check-circle text-brand-lime text-4xl"></i>
+            <h3 class="text-2xl sm:text-4xl font-extrabold">Dedication &amp; Accountability</h3>
+            <p class="text-gray-300 text-sm sm:text-base">Exceeding expectations and taking responsibility for decisions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="values-slide" data-index="4">
+        <img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&q=80&w=1200" alt="Flexibility" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-tr from-brand-dark/95 via-brand-dark/70 to-brand-dark/30"></div>
+        <div class="relative h-full flex items-center p-8 sm:p-14 lg:p-20">
+          <div class="max-w-lg space-y-3">
+            <i class="fa-solid fa-arrows-spin text-brand-lime text-4xl"></i>
+            <h3 class="text-2xl sm:text-4xl font-extrabold">Flexibility</h3>
+            <p class="text-gray-300 text-sm sm:text-base">Creative, open environment that embraces new ideas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="values-slide" data-index="5">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200" alt="Integrity" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-tr from-brand-dark/95 via-brand-dark/70 to-brand-dark/30"></div>
+        <div class="relative h-full flex items-center p-8 sm:p-14 lg:p-20">
+          <div class="max-w-lg space-y-3">
+            <i class="fa-solid fa-gem text-brand-lime text-4xl"></i>
+            <h3 class="text-2xl sm:text-4xl font-extrabold">Integrity</h3>
+            <p class="text-gray-300 text-sm sm:text-base">Honesty and reliability in every action, earning trust and respect.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="absolute bottom-6 right-6 z-10 flex gap-2" id="valuesDots">
+        <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-brand-lime border-2 border-white cursor-pointer transition-all active" data-index="0"></span>
+        <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-white/30 border-2 border-transparent cursor-pointer transition-all" data-index="1"></span>
+        <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-white/30 border-2 border-transparent cursor-pointer transition-all" data-index="2"></span>
+        <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-white/30 border-2 border-transparent cursor-pointer transition-all" data-index="3"></span>
+        <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-white/30 border-2 border-transparent cursor-pointer transition-all" data-index="4"></span>
+        <span class="dot-indicator w-2.5 h-2.5 rounded-full bg-white/30 border-2 border-transparent cursor-pointer transition-all" data-index="5"></span>
+      </div>
+
+      <div class="absolute bottom-6 left-6 z-10 text-xs font-bold text-white/50 tracking-widest">
+        <span id="currentSlideNum">01</span> / <span id="totalSlidesNum">06</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section id="products" class="py-24 bg-white text-brand-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+      <span class="px-4 py-1.5 rounded-full bg-brand-lime/20 text-brand-dark font-bold text-xs uppercase tracking-wider">
+        Our Products
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">Quality Products For Mining Excellence</h2>
+      <p class="text-gray-600 text-sm">We supply a comprehensive range of high-quality products trusted by mining operations across Tanzania.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Product 1 -->
+      <a href="product-details.html" class="group bg-brand-dark rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Bulk Emulsions" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Explosives</span>
+        </div>
+        <div class="p-6 relative">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-bomb"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Bulk Emulsions</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">High-performance bulk emulsion explosives designed for efficient rock breaking in surface and underground operations.</p>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </a>
+
+      <!-- Product 2 -->
+      <a href="product-details.html" class="group bg-brand-dark rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Packaged Explosives" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Explosives</span>
+        </div>
+        <div class="p-6 relative">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-fire"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Packaged Explosives</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">Reliable packaged explosives for precise blasting applications, available in various sizes and strengths.</p>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </a>
+
+      <!-- Product 3 -->
+      <a href="product-details.html" class="group bg-brand-dark rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Initiating Systems" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Initiation</span>
+        </div>
+        <div class="p-6 relative">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Initiating Systems</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">Advanced electronic and non-electric initiation systems for precise timing and reliable detonation.</p>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </a>
+
+      <!-- Product 4 -->
+      <a href="product-details.html" class="group bg-brand-dark rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" alt="Flotation Reagents" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Chemicals</span>
+        </div>
+        <div class="p-6 relative">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-flask"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Flotation Reagents</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">High-quality flotation reagents including collectors, frothers, and depressants for mineral processing.</p>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </a>
+
+      <!-- Product 5 -->
+      <a href="product-details.html" class="group bg-brand-dark rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786873595/supplieslink.webp" alt="PPE & Safety Gear" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Safety</span>
+        </div>
+        <div class="p-6 relative">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-helmet-safety"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">PPE &amp; Safety Gear</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">Complete range of personal protective equipment including helmets, gloves, boots, and high-visibility clothing.</p>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </a>
+
+      <!-- Product 6 -->
+      <a href="product-details.html" class="group bg-brand-dark rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Drilling Equipment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Equipment</span>
+        </div>
+        <div class="p-6 relative">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+            <i class="fa-solid fa-tools"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Drilling Equipment</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">Professional drilling equipment and accessories for efficient blast hole drilling in all mining conditions.</p>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="products.html" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-brand-dark hover:bg-brand-lime hover:text-brand-dark text-white font-extrabold text-sm transition-all duration-300 shadow-glow">
+        View More Products <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= SERVICES TIMELINE ================= -->
+<section id="services" class="py-24 bg-slate-50 text-brand-dark relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+      <span class="px-4 py-1.5 rounded-full bg-brand-lime/20 text-brand-dark font-bold text-xs uppercase tracking-wider">
+        Our Services
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">Complete Mining Solutions</h2>
+      <p class="text-gray-600 text-sm">End-to-end services delivered with precision and expertise.</p>
+    </div>
+
+    <div class="relative timeline-line">
+      <div class="space-y-8 md:space-y-12">
+
+        <!-- Item 1 -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-8 items-center">
+          <div class="md:text-right md:pr-12 pl-12 md:pl-0">
+            <div class="relative rounded-3xl overflow-hidden h-72 group shadow-xl border border-white/10">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200" alt="Explosives Supply" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent"></div>
+              <span class="absolute top-4 right-4 w-10 h-10 rounded-full bg-brand-lime text-brand-dark text-xs font-extrabold flex items-center justify-center">01</span>
+              <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-white/95 text-brand-dark flex items-center justify-center text-lg"><i class="fa-solid fa-bomb"></i></div>
+              <div class="absolute bottom-0 inset-x-0 p-6 text-white">
+                <h3 class="text-xl font-extrabold mb-1">Explosives Supply</h3>
+                <p class="text-xs text-gray-300">Bulk emulsions, packaged explosives, initiating systems, surface &amp; underground electronics.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block"></div>
+          <span class="absolute top-1/2 left-4 md:left-1/2 w-4 h-4 rounded-full bg-brand-lime border-4 border-white shadow-glow -translate-y-1/2 md:-translate-x-1/2"></span>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-8 items-center">
+          <div class="hidden md:block"></div>
+          <div class="md:pl-12 pl-12">
+            <div class="relative rounded-3xl overflow-hidden h-72 group shadow-xl border border-white/10">
+              <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1200" alt="Rock on Ground" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent"></div>
+              <span class="absolute top-4 right-4 w-10 h-10 rounded-full bg-brand-lime text-brand-dark text-xs font-extrabold flex items-center justify-center">02</span>
+              <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-white/95 text-brand-dark flex items-center justify-center text-lg"><i class="fa-solid fa-mountain"></i></div>
+              <div class="absolute bottom-0 inset-x-0 p-6 text-white">
+                <h3 class="text-xl font-extrabold mb-1">Rock on Ground</h3>
+                <p class="text-xs text-gray-300">Full blast design to rock fragmentation — equipment, materials, and skilled staff.</p>
+              </div>
+            </div>
+          </div>
+          <span class="absolute top-1/2 left-4 md:left-1/2 w-4 h-4 rounded-full bg-brand-lime border-4 border-white shadow-glow -translate-y-1/2 md:-translate-x-1/2"></span>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-8 items-center">
+          <div class="md:text-right md:pr-12 pl-12 md:pl-0">
+            <div class="relative rounded-3xl overflow-hidden h-72 group shadow-xl border border-white/10">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200" alt="Blast Audits" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent"></div>
+              <span class="absolute top-4 right-4 w-10 h-10 rounded-full bg-brand-lime text-brand-dark text-xs font-extrabold flex items-center justify-center">03</span>
+              <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-white/95 text-brand-dark flex items-center justify-center text-lg"><i class="fa-solid fa-chart-line"></i></div>
+              <div class="absolute bottom-0 inset-x-0 p-6 text-white">
+                <h3 class="text-xl font-extrabold mb-1">Blast Audits &amp; Optimisation</h3>
+                <p class="text-xs text-gray-300">Assess blast design, fragmentation, productivity, and ore loss/dilution.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block"></div>
+          <span class="absolute top-1/2 left-4 md:left-1/2 w-4 h-4 rounded-full bg-brand-lime border-4 border-white shadow-glow -translate-y-1/2 md:-translate-x-1/2"></span>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-8 items-center">
+          <div class="hidden md:block"></div>
+          <div class="md:pl-12 pl-12">
+            <div class="relative rounded-3xl overflow-hidden h-72 group shadow-xl border border-white/10">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200" alt="Blast Damage Control" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent"></div>
+              <span class="absolute top-4 right-4 w-10 h-10 rounded-full bg-brand-lime text-brand-dark text-xs font-extrabold flex items-center justify-center">04</span>
+              <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-white/95 text-brand-dark flex items-center justify-center text-lg"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="absolute bottom-0 inset-x-0 p-6 text-white">
+                <h3 class="text-xl font-extrabold mb-1">Blast Damage Control</h3>
+                <p class="text-xs text-gray-300">Minimize damage to highwalls and improve safety with innovative designs.</p>
+              </div>
+            </div>
+          </div>
+          <span class="absolute top-1/2 left-4 md:left-1/2 w-4 h-4 rounded-full bg-brand-lime border-4 border-white shadow-glow -translate-y-1/2 md:-translate-x-1/2"></span>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-8 items-center">
+          <div class="md:text-right md:pr-12 pl-12 md:pl-0">
+            <div class="relative rounded-3xl overflow-hidden h-72 group shadow-xl border border-white/10">
+              <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&q=80&w=1200" alt="Ore Loss Dilution" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent"></div>
+              <span class="absolute top-4 right-4 w-10 h-10 rounded-full bg-brand-lime text-brand-dark text-xs font-extrabold flex items-center justify-center">05</span>
+              <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-white/95 text-brand-dark flex items-center justify-center text-lg"><i class="fa-solid fa-weight-scale"></i></div>
+              <div class="absolute bottom-0 inset-x-0 p-6 text-white">
+                <h3 class="text-xl font-extrabold mb-1">Ore Loss &amp; Dilution</h3>
+                <p class="text-xs text-gray-300">Manage ore movement, reduce loss, and improve excavation efficiency.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block"></div>
+          <span class="absolute top-1/2 left-4 md:left-1/2 w-4 h-4 rounded-full bg-brand-lime border-4 border-white shadow-glow -translate-y-1/2 md:-translate-x-1/2"></span>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-8 items-center">
+          <div class="hidden md:block"></div>
+          <div class="md:pl-12 pl-12">
+            <div class="relative rounded-3xl overflow-hidden h-72 group shadow-xl border border-white/10">
+              <img src="https://images.unsplash.com/photo-1581093458791-9f302e6d6f3f?auto=format&fit=crop&q=80&w=1200" alt="Fragmentation Measurement" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent"></div>
+              <span class="absolute top-4 right-4 w-10 h-10 rounded-full bg-brand-lime text-brand-dark text-xs font-extrabold flex items-center justify-center">06</span>
+              <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-white/95 text-brand-dark flex items-center justify-center text-lg"><i class="fa-solid fa-ruler-combined"></i></div>
+              <div class="absolute bottom-0 inset-x-0 p-6 text-white">
+                <h3 class="text-xl font-extrabold mb-1">Fragmentation Measurement</h3>
+                <p class="text-xs text-gray-300">Models and measurement systems to optimize ROM size and plant throughput.</p>
+              </div>
+            </div>
+          </div>
+          <span class="absolute top-1/2 left-4 md:left-1/2 w-4 h-4 rounded-full bg-brand-lime border-4 border-white shadow-glow -translate-y-1/2 md:-translate-x-1/2"></span>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-8 items-center">
+          <div class="md:text-right md:pr-12 pl-12 md:pl-0">
+            <div class="relative rounded-3xl overflow-hidden h-72 group shadow-xl border border-white/10">
+              <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1200" alt="Underground Advance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent"></div>
+              <span class="absolute top-4 right-4 w-10 h-10 rounded-full bg-brand-lime text-brand-dark text-xs font-extrabold flex items-center justify-center">07</span>
+              <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-white/95 text-brand-dark flex items-center justify-center text-lg"><i class="fa-solid fa-arrow-trend-up"></i></div>
+              <div class="absolute bottom-0 inset-x-0 p-6 text-white">
+                <h3 class="text-xl font-extrabold mb-1">Underground Advance</h3>
+                <p class="text-xs text-gray-300">Increase advance rate, finer fragmentation, and reduced total cost.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block"></div>
+          <span class="absolute top-1/2 left-4 md:left-1/2 w-4 h-4 rounded-full bg-brand-lime border-4 border-white shadow-glow -translate-y-1/2 md:-translate-x-1/2"></span>
+        </div>
+
+        <!-- Item 8 -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-8 items-center">
+          <div class="hidden md:block"></div>
+          <div class="md:pl-12 pl-12">
+            <div class="relative rounded-3xl overflow-hidden h-72 group shadow-xl border border-white/10">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200" alt="Vibration Control" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent"></div>
+              <span class="absolute top-4 right-4 w-10 h-10 rounded-full bg-brand-lime text-brand-dark text-xs font-extrabold flex items-center justify-center">08</span>
+              <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-white/95 text-brand-dark flex items-center justify-center text-lg"><i class="fa-solid fa-wave-square"></i></div>
+              <div class="absolute bottom-0 inset-x-0 p-6 text-white">
+                <h3 class="text-xl font-extrabold mb-1">Vibration &amp; Airblast Control</h3>
+                <p class="text-xs text-gray-300">Measurement, analysis, and control of ground vibration and airblast.</p>
+              </div>
+            </div>
+          </div>
+          <span class="absolute top-1/2 left-4 md:left-1/2 w-4 h-4 rounded-full bg-brand-lime border-4 border-white shadow-glow -translate-y-1/2 md:-translate-x-1/2"></span>
+        </div>
+
+        <!-- Item 9 -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-8 items-center">
+          <div class="md:text-right md:pr-12 pl-12 md:pl-0">
+            <div class="relative rounded-3xl overflow-hidden h-72 group shadow-xl border border-white/10">
+              <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1200" alt="Blasting Consultancy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent"></div>
+              <span class="absolute top-4 right-4 w-10 h-10 rounded-full bg-brand-lime text-brand-dark text-xs font-extrabold flex items-center justify-center">09</span>
+              <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-white/95 text-brand-dark flex items-center justify-center text-lg"><i class="fa-solid fa-helmet-safety"></i></div>
+              <div class="absolute bottom-0 inset-x-0 p-6 text-white">
+                <h3 class="text-xl font-extrabold mb-1">Blasting Consultancy</h3>
+                <p class="text-xs text-gray-300">Expert technical team with years of experience for cost-efficient solutions.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block"></div>
+          <span class="absolute top-1/2 left-4 md:left-1/2 w-4 h-4 rounded-full bg-brand-lime border-4 border-white shadow-glow -translate-y-1/2 md:-translate-x-1/2"></span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DIVISIONS ================= -->
+<section id="divisions" class="py-24 bg-white text-brand-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+      <span class="px-4 py-1.5 rounded-full bg-brand-lime/20 text-brand-dark font-bold text-xs uppercase tracking-wider">
+        Our Divisions
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">Specialized Divisions Serving The Mining Industry</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+
+      <!-- Division 1 -->
+      <a href="https://kilimanjaroexplosives.co.tz/" target="_blank" rel="noopener noreferrer" class="group relative rounded-3xl overflow-hidden h-72 shadow-xl border border-white/10">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786977658/blasts_pdt8zc.webp" alt="Kilimanjaro Explosives" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent group-hover:from-brand-dark/95 group-hover:via-brand-dark/50 transition-all"></div>
+        <div class="relative h-full flex flex-col justify-end p-8 text-white">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime text-brand-dark flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-bomb"></i>
+          </div>
+          <h3 class="text-2xl font-extrabold mb-2 group-hover:text-brand-lime transition-colors">Kilimanjaro Explosives</h3>
+          <p class="text-xs text-gray-300 mb-3">Leading supplier of commercial explosives, blasting accessories, and initiating systems.</p>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            Learn More <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
+
+      <!-- Division 2 -->
+      <a href="chemicals.html" class="group relative rounded-3xl overflow-hidden h-72 shadow-xl border border-white/10">
+        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1200" alt="Kilimanjaro Chemicals" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent group-hover:from-brand-dark/95 group-hover:via-brand-dark/50 transition-all"></div>
+        <div class="relative h-full flex flex-col justify-end p-8 text-white">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime text-brand-dark flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-flask"></i>
+          </div>
+          <h3 class="text-2xl font-extrabold mb-2 group-hover:text-brand-lime transition-colors">Kilimanjaro Chemicals</h3>
+          <p class="text-xs text-gray-300 mb-3">Specialized supplier of high-quality mining chemicals including flotation reagents and frothers.</p>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            Learn More <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
+
+      <!-- Division 3 -->
+      <a href="logistics.html" class="group relative rounded-3xl overflow-hidden h-72 shadow-xl border border-white/10">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1789043943/PHOTO-2026-09-10-12-55-24_16.jpg_enimzy.jpg" alt="OLTRECK Transporters" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent group-hover:from-brand-dark/95 group-hover:via-brand-dark/50 transition-all"></div>
+        <div class="relative h-full flex flex-col justify-end p-8 text-white">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime text-brand-dark flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-truck"></i>
+          </div>
+          <h3 class="text-2xl font-extrabold mb-2 group-hover:text-brand-lime transition-colors">OLTRECK Transporters</h3>
+          <p class="text-xs text-gray-300 mb-3">Comprehensive transportation and logistics for mining equipment, explosives, and chemicals.</p>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            Learn More <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
+
+      <!-- Division 4 -->
+      <a href="supplies.html" class="group relative rounded-3xl overflow-hidden h-72 shadow-xl border border-white/10">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786873603/safetyequip_va3eet.webp" alt="General Supplies" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent group-hover:from-brand-dark/95 group-hover:via-brand-dark/50 transition-all"></div>
+        <div class="relative h-full flex flex-col justify-end p-8 text-white">
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime text-brand-dark flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-tools"></i>
+          </div>
+          <h3 class="text-2xl font-extrabold mb-2 group-hover:text-brand-lime transition-colors">General Supplies</h3>
+          <p class="text-xs text-gray-300 mb-3">Complete supply of mining equipment, safety gear, PPE, and essential industrial consumables.</p>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            Learn More <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWS ================= -->
+<section id="news" class="py-24 bg-brand-dark text-white relative overflow-hidden">
+  <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-brand-lime/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div class="space-y-4 max-w-2xl">
+        <span class="px-4 py-1.5 rounded-full glass-pill text-brand-lime font-bold text-xs uppercase tracking-wider border border-brand-lime/20">
+          What's Happening
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">See The Latest From Kilimanjaro Group</h2>
+      </div>
+      <div class="flex gap-2">
+        <button id="news-prev" class="w-11 h-11 rounded-xl bg-white/5 hover:bg-brand-lime hover:text-brand-dark border border-white/10 text-white flex items-center justify-center transition-colors disabled:opacity-40 disabled:cursor-not-allowed" aria-label="Previous">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button id="news-next" class="w-11 h-11 rounded-xl bg-brand-lime text-brand-dark hover:bg-brand-limeHover flex items-center justify-center transition-colors disabled:opacity-40 disabled:cursor-not-allowed" aria-label="Next">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="newsCarousel" class="flex gap-4 h-[420px] sm:h-[500px] overflow-hidden">
+      <!-- News items injected via JS reorder, but static DOM below -->
+      <div class="news-item active flex-shrink-0 rounded-3xl overflow-hidden relative cursor-pointer opacity-100" data-index="0" style="flex: 0 0 700px; max-width: 700px;">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786880904/electric_mltrqf.png" alt="New blasting technology" class="w-full h-full object-cover" />
+        <div class="absolute bottom-0 inset-x-0 p-8 sm:p-12 bg-gradient-to-t from-brand-dark/95 to-transparent">
+          <h4 class="text-2xl font-extrabold mb-2">New Advanced Blasting Technology</h4>
+          <p class="text-sm text-gray-300">We've deployed next-gen emulsion systems across all major sites.</p>
+        </div>
+      </div>
+      <div class="news-item flex-shrink-0 rounded-3xl overflow-hidden relative cursor-pointer opacity-70" data-index="1" style="flex: 0 0 160px; max-width: 160px;">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786956392/KPL19727_pc8qkp.jpg" alt="Team expansion" class="w-full h-full object-cover" />
+        <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-brand-dark/95 to-transparent">
+          <h4 class="text-sm font-bold">Expanding Our Consulting Team</h4>
+        </div>
+      </div>
+      <div class="news-item flex-shrink-0 rounded-3xl overflow-hidden relative cursor-pointer opacity-70" data-index="2" style="flex: 0 0 160px; max-width: 160px;">
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1200" alt="CSR initiative" class="w-full h-full object-cover" />
+        <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-brand-dark/95 to-transparent">
+          <h4 class="text-sm font-bold">CSR: Supporting Local Schools</h4>
+        </div>
+      </div>
+      <div class="news-item flex-shrink-0 rounded-3xl overflow-hidden relative cursor-pointer opacity-70" data-index="3" style="flex: 0 0 160px; max-width: 160px;">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1200" alt="Logistics expansion" class="w-full h-full object-cover" />
+        <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-brand-dark/95 to-transparent">
+          <h4 class="text-sm font-bold">Logistics Network Expansion</h4>
+        </div>
+      </div>
+      <div class="news-item flex-shrink-0 rounded-3xl overflow-hidden relative cursor-pointer opacity-70" data-index="4" style="flex: 0 0 160px; max-width: 160px;">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200" alt="Safety training" class="w-full h-full object-cover" />
+        <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-brand-dark/95 to-transparent">
+          <h4 class="text-sm font-bold">Safety First: New Training Program</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress -->
+    <div class="mt-8 h-1 w-full bg-white/10 rounded-full overflow-hidden">
+      <div id="progressBar" class="h-full bg-brand-lime rounded-full transition-all duration-500" style="width: 20%;"></div>
+    </div>
+
+    <!-- Featured -->
+    <div class="mt-8 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 border-t border-white/10 pt-6">
+      <div>
+        <h4 id="featuredTitle" class="text-lg font-bold text-white">New Advanced Blasting Technology</h4>
+        <p id="featuredDesc" class="text-sm text-gray-400 mt-1">We've deployed next-gen emulsion systems across all major sites.</p>
+      </div>
+      <a href="#" id="featuredLink" class="text-brand-lime font-bold text-sm inline-flex items-center gap-2 hover:underline">
+        Read more <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= PARTNERS ================= -->
+<section id="partners" class="py-24 bg-slate-50 text-brand-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Strategic Partnership -->
+    <div class="mb-20">
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+        <span class="px-4 py-1.5 rounded-full bg-brand-lime/20 text-brand-dark font-bold text-xs uppercase tracking-wider">
+          Strategic Partnership
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+          Our strategic partnership with <span class="text-brand-lime">Dyno Nobel</span>
+        </h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="relative rounded-3xl overflow-hidden h-96 shadow-2xl border-4 border-white">
+          <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786870176/dynopartner.webp" alt="Dyno Nobel Partnership" class="w-full h-full object-cover" />
+          <div class="absolute top-5 left-5 px-4 py-2 rounded-full bg-white/95 backdrop-blur flex items-center gap-2 shadow-lg">
+            <i class="fa-solid fa-handshake text-brand-dark"></i>
+            <span class="text-xs font-extrabold text-brand-dark uppercase tracking-wide">Dyno Nobel</span>
+          </div>
+        </div>
+
+        <div class="space-y-5">
+          <div class="flex items-center gap-3">
+            <span class="w-7 h-0.5 bg-brand-dark"></span>
+            <span class="text-xs font-extrabold uppercase tracking-widest text-brand-dark">Global Leader in Explosives</span>
+          </div>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Powering Tanzania's mining industry together
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Dyno Nobel is a global leader in commercial explosives and blasting solutions, and our strategic partnership brings world-class technology, expertise, and safety standards directly to Tanzania's mining operations.
+          </p>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Together, we deliver industry-leading bulk emulsions, initiating systems, and technical consultancy — backed by Dyno Nobel's decades of innovation and our deep local knowledge.
+          </p>
+
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 inline-flex items-center gap-2">
+              <i class="fa-solid fa-check text-brand-lime"></i> Global Expertise
+            </span>
+            <span class="px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 inline-flex items-center gap-2">
+              <i class="fa-solid fa-check text-brand-lime"></i> Industry Innovation
+            </span>
+            <span class="px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 inline-flex items-center gap-2">
+              <i class="fa-solid fa-check text-brand-lime"></i> Certified Safety
+            </span>
+            <span class="px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 inline-flex items-center gap-2">
+              <i class="fa-solid fa-check text-brand-lime"></i> Technical Support
+            </span>
+          </div>
+
+          <a href="https://www.dynonobel.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-brand-dark hover:bg-brand-lime hover:text-brand-dark text-white font-extrabold text-sm transition-all duration-300 shadow-glow">
+            Visit Dyno Nobel Website <i class="fa-solid fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trusted by -->
+    <div class="text-center max-w-2xl mx-auto mb-12 space-y-4">
+      <span class="px-4 py-1.5 rounded-full bg-brand-lime/20 text-brand-dark font-bold text-xs uppercase tracking-wider">
+        Our Partners
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">Trusted By Industry Leaders</h2>
+      <p class="text-gray-600 text-sm">We partner with the world's most respected mining and industrial companies.</p>
+    </div>
+
+    <!-- Marquee -->
+    <div class="overflow-hidden relative">
+      <div class="marquee-track flex gap-6 w-max">
+        <!-- Set 1 -->
+        <div class="flex gap-6">
+          <div class="w-60 bg-white rounded-2xl p-6 border border-slate-200 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-dark text-xl mb-3"><i class="fa-solid fa-gem"></i></div>
+            <div class="font-bold text-slate-800">Dyno Nobel</div>
+            <div class="text-xs text-gray-500 mt-1">Explosives &amp; Blasting</div>
+          </div>
+          <div class="w-60 bg-white rounded-2xl p-6 border border-slate-200 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-dark text-xl mb-3"><i class="fa-solid fa-mountain"></i></div>
+            <div class="font-bold text-slate-800">Barrick</div>
+            <div class="text-xs text-gray-500 mt-1">Gold Mining</div>
+          </div>
+          <div class="w-60 bg-white rounded-2xl p-6 border border-slate-200 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-dark text-xl mb-3"><i class="fa-solid fa-industry"></i></div>
+            <div class="font-bold text-slate-800">AngloGold</div>
+            <div class="text-xs text-gray-500 mt-1">Mining &amp; Exploration</div>
+          </div>
+          <div class="w-60 bg-white rounded-2xl p-6 border border-slate-200 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-dark text-xl mb-3"><i class="fa-solid fa-gold"></i></div>
+            <div class="font-bold text-slate-800">Geita Gold</div>
+            <div class="text-xs text-gray-500 mt-1">Mining Operations</div>
+          </div>
+          <div class="w-60 bg-white rounded-2xl p-6 border border-slate-200 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-dark text-xl mb-3"><i class="fa-solid fa-cubes"></i></div>
+            <div class="font-bold text-slate-800">MMG</div>
+            <div class="text-xs text-gray-500 mt-1">Mining &amp; Metals</div>
+          </div>
+          <div class="w-60 bg-white rounded-2xl p-6 border border-slate-200 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-dark text-xl mb-3"><i class="fa-solid fa-truck-fast"></i></div>
+            <div class="font-bold text-slate-800">Mwanza Gold</div>
+            <div class="text-xs text-gray-500 mt-1">Gold Mining &amp; Logistics</div>
+          </div>
+        </div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="flex gap-6">
+          <div class="w-60 bg-white rounded-2xl p-6 border border-slate-200 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-dark text-xl mb-3"><i class="fa-solid fa-gem"></i></div>
+            <div class="font-bold text-slate-800">Dyno Nobel</div>
+            <div class="text-xs text-gray-500 mt-1">Explosives &amp; Blasting</div>
+          </div>
+          <div class="w-60 bg-white rounded-2xl p-6 border border-slate-200 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-dark text-xl mb-3"><i class="fa-solid fa-mountain"></i></div>
+            <div class="font-bold text-slate-800">Barrick</div>
+            <div class="text-xs text-gray-500 mt-1">Gold Mining</div>
+          </div>
+          <div class="w-60 bg-white rounded-2xl p-6 border border-slate-200 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-dark text-xl mb-3"><i class="fa-solid fa-industry"></i></div>
+            <div class="font-bold text-slate-800">AngloGold</div>
+            <div class="text-xs text-gray-500 mt-1">Mining &amp; Exploration</div>
+          </div>
+          <div class="w-60 bg-white rounded-2xl p-6 border border-slate-200 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-dark text-xl mb-3"><i class="fa-solid fa-gold"></i></div>
+            <div class="font-bold text-slate-800">Geita Gold</div>
+            <div class="text-xs text-gray-500 mt-1">Mining Operations</div>
+          </div>
+          <div class="w-60 bg-white rounded-2xl p-6 border border-slate-200 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-dark text-xl mb-3"><i class="fa-solid fa-cubes"></i></div>
+            <div class="font-bold text-slate-800">MMG</div>
+            <div class="text-xs text-gray-500 mt-1">Mining &amp; Metals</div>
+          </div>
+          <div class="w-60 bg-white rounded-2xl p-6 border border-slate-200 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-brand-lime/20 flex items-center justify-center text-brand-dark text-xl mb-3"><i class="fa-solid fa-truck-fast"></i></div>
+            <div class="font-bold text-slate-800">Mwanza Gold</div>
+            <div class="text-xs text-gray-500 mt-1">Gold Mining &amp; Logistics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" class="py-24 bg-white text-brand-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="flex flex-col lg:flex-row items-start justify-between gap-12 mb-12">
+      <div class="max-w-xl space-y-4">
+        <span class="px-4 py-1.5 rounded-full bg-brand-lime/20 text-brand-dark font-bold text-xs uppercase tracking-wider">
+          FAQ
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">Trusted By Businesses Across Tanzania</h2>
+        <p class="text-gray-600 text-sm">From small merchants to growing enterprises, Kilimanjaro Group is helping mining operations scale with reliable explosives, chemicals, logistics, and consultancy.</p>
+      </div>
+      <a href="#contact" class="px-7 py-3.5 rounded-full bg-brand-dark hover:bg-brand-lime hover:text-brand-dark text-white font-extrabold text-sm transition-all duration-300 shadow-glow inline-flex items-center gap-3 whitespace-nowrap">
+        Get Started <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-8">
+
+      <!-- Visual -->
+      <div class="lg:col-span-5">
+        <div class="relative h-96 rounded-3xl overflow-hidden bg-gradient-to-br from-brand-lime/20 via-slate-100 to-slate-200">
+          <div class="absolute inset-0 opacity-30" style="background-image:radial-gradient(circle, rgba(184,236,52,0.5) 1px, transparent 1px);background-size:24px 24px;"></div>
+          <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786956395/KPL19659_dgaxyh.jpg" alt="Mining professional" class="absolute inset-x-8 bottom-0 max-h-[85%] object-contain object-bottom rounded-2xl shadow-2xl" />
+        </div>
+      </div>
+
+      <!-- Accordion -->
+      <div class="lg:col-span-7 space-y-3">
+
+        <div class="faq-item open bg-slate-50 border border-slate-200 rounded-2xl px-5 transition-all hover:border-brand-lime">
+          <button class="w-full flex items-center justify-between py-4 text-left font-bold text-sm sm:text-base text-slate-800" onclick="toggleFaq(this)">
+            How fast do I get my supplies delivered?
+            <span class="faq-chevron transition-transform text-slate-400"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer text-sm text-gray-600">We deliver within 24-48 hours across all major mining regions in Tanzania.</div>
+        </div>
+
+        <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl px-5 transition-all hover:border-brand-lime">
+          <button class="w-full flex items-center justify-between py-4 text-left font-bold text-sm sm:text-base text-slate-800" onclick="toggleFaq(this)">
+            What types of explosives do you supply?
+            <span class="faq-chevron transition-transform text-slate-400"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer text-sm text-gray-600">We supply bulk emulsions, packaged explosives, initiating systems, surface electronics, and underground electronics.</div>
+        </div>
+
+        <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl px-5 transition-all hover:border-brand-lime">
+          <button class="w-full flex items-center justify-between py-4 text-left font-bold text-sm sm:text-base text-slate-800" onclick="toggleFaq(this)">
+            Do you offer blasting consultancy?
+            <span class="faq-chevron transition-transform text-slate-400"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer text-sm text-gray-600">Yes. Our team provides blast design, vibration control, fragmentation measurement, and full optimisation services.</div>
+        </div>
+
+        <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl px-5 transition-all hover:border-brand-lime">
+          <button class="w-full flex items-center justify-between py-4 text-left font-bold text-sm sm:text-base text-slate-800" onclick="toggleFaq(this)">
+            What mining chemicals do you provide?
+            <span class="faq-chevron transition-transform text-slate-400"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer text-sm text-gray-600">We supply flotation reagents, leaching agents, frothers, depressants, and other specialised chemicals.</div>
+        </div>
+
+        <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl px-5 transition-all hover:border-brand-lime">
+          <button class="w-full flex items-center justify-between py-4 text-left font-bold text-sm sm:text-base text-slate-800" onclick="toggleFaq(this)">
+            Do you handle logistics and transportation?
+            <span class="faq-chevron transition-transform text-slate-400"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer text-sm text-gray-600">Yes, through OLTRECK Transporters we offer comprehensive logistics services with strict safety compliance.</div>
+        </div>
+
+        <div class="faq-item bg-slate-50 border border-slate-200 rounded-2xl px-5 transition-all hover:border-brand-lime">
+          <button class="w-full flex items-center justify-between py-4 text-left font-bold text-sm sm:text-base text-slate-800" onclick="toggleFaq(this)">
+            How do I start working with you?
+            <span class="faq-chevron transition-transform text-slate-400"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer text-sm text-gray-600">Simply contact us via phone or email. Our team will assess your needs and provide a tailored solution.</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="py-20 bg-slate-900 border-t border-white/10 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-gradient-to-r from-brand-cardBg to-slate-800 rounded-3xl p-8 sm:p-12 border border-white/10 grid lg:grid-cols-2 gap-10 items-center">
+
+      <div class="space-y-4">
+        <h3 class="text-3xl font-extrabold">Ready to power your mining operation?</h3>
+        <p class="text-gray-400 text-sm">Schedule a complimentary consultation with our senior mining solutions advisors today.</p>
+        <div class="flex flex-wrap items-center gap-4 text-xs text-gray-300 pt-2">
+          <div class="flex items-center gap-2"><i class="fa-solid fa-phone text-brand-lime"></i> +255 679 746 702</div>
+          <div class="flex items-center gap-2"><i class="fa-solid fa-envelope text-brand-lime"></i> info@kilimanjaroexplosives.co.tz</div>
+        </div>
+      </div>
+
+      <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+        <div class="grid grid-cols-2 gap-4">
+          <input type="text" required placeholder="Full Name" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-lime" />
+          <input type="email" required placeholder="Email Address" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-lime" />
+        </div>
+        <textarea rows="3" required placeholder="How can we help you?" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-lime"></textarea>
+        <button type="submit" class="w-full py-3 bg-brand-lime text-brand-dark font-extrabold text-xs rounded-xl hover:bg-brand-limeHover transition-colors shadow-glow">
+          Send Message
+        </button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-brand-dark text-gray-400 py-16 border-t border-white/5 text-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-12 gap-10">
+
+      <div class="md:col-span-4 space-y-4">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group" class="h-16 w-auto" />
+        <p class="text-gray-400 leading-relaxed">
+          Head Office: P.O. Box 533, Mhongoro Street, Mbulu Msalabani, Kahama, Mwanza.
+        </p>
+        <div class="flex gap-3 text-base">
+          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="md:col-span-2">
+        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Branches</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Geita</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Mwanza</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Musoma (MMG)</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Dar es Salaam</a></li>
+          <li><a href="#" class="hover:text-brand-lime transition-colors">Tanga · Dodoma · Nzega</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Services</h4>
+        <ul class="space-y-2">
+          <li><a href="#services" class="hover:text-brand-lime transition-colors">Explosives</a></li>
+          <li><a href="#services" class="hover:text-brand-lime transition-colors">Blasting Consultancy</a></li>
+          <li><a href="#services" class="hover:text-brand-lime transition-colors">Mining Chemicals</a></li>
+          <li><a href="#services" class="hover:text-brand-lime transition-colors">Equipment &amp; Supplies</a></li>
+          <li><a href="#services" class="hover:text-brand-lime transition-colors">Logistics &amp; Transport</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-4">
+        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Stay Connected</h4>
+        <p class="mb-4">Get updates on our solutions and news.</p>
+        <form class="flex gap-2 bg-white/5 border border-white/10 rounded-full p-1" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+          <input type="email" placeholder="Your email" required class="flex-1 bg-transparent px-4 py-2 text-xs text-white outline-none" />
+          <button type="submit" class="px-5 py-2 rounded-full bg-brand-lime text-brand-dark font-extrabold text-xs hover:bg-brand-limeHover transition-colors">Join</button>
+        </form>
+        <p class="mt-4 text-xs"><i class="fa-solid fa-phone text-brand-lime"></i> +255 679 746 702 · +27 76 896 8767</p>
+      </div>
+
+    </div>
+
+    <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+      <span>© 2026 Kilimanjaro Group. All rights reserved.</span>
+      <span class="flex gap-4">
+        <a href="#" class="hover:text-brand-lime transition-colors">Privacy</a>
+        <a href="#" class="hover:text-brand-lime transition-colors">Terms</a>
+        <a href="#" class="hover:text-brand-lime transition-colors">CSR</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating chat button -->
+<button id="floating-chat" class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-glow hover:scale-110 transition-transform">
+  <i class="fa-solid fa-message text-lg"></i>
+</button>
+
+<!-- VIDEO MODAL -->
+<div id="video-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+  <div class="relative w-full max-w-3xl bg-brand-cardBg border border-white/20 rounded-3xl overflow-hidden shadow-2xl">
+    <button id="close-video-btn" class="absolute top-4 right-4 text-white text-xl hover:text-brand-lime z-10 w-10 h-10 rounded-full bg-black/50 flex items-center justify-center">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="aspect-video w-full bg-black">
+      <video class="w-full h-full" controls autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dp7piqlbe/video/upload/v1786841510/blasting_online.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ---------- Mobile Menu ---------- */
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+  mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  /* ---------- Video Modal ---------- */
+  const videoModal = document.getElementById('video-modal');
+  const openVideoBtn = document.getElementById('open-video-btn');
+  const closeVideoBtn = document.getElementById('close-video-btn');
+  if (openVideoBtn && videoModal && closeVideoBtn) {
+    openVideoBtn.addEventListener('click', () => { videoModal.classList.remove('hidden'); videoModal.classList.add('flex'); });
+    const close = () => { videoModal.classList.add('hidden'); videoModal.classList.remove('flex'); };
+    closeVideoBtn.addEventListener('click', close);
+    videoModal.addEventListener('click', e => { if (e.target === videoModal) close(); });
+  }
+
+  /* ---------- Floating Chat ---------- */
+  document.getElementById('floating-chat').addEventListener('click', () => {
+    alert('Contact us: info@kilimanjaroexplosives.co.tz');
+  });
+
+  /* ---------- Counters ---------- */
+  const counters = document.querySelectorAll('.counter');
+  let animated = false;
+  const runCounters = () => {
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      let count = 0;
+      const speed = Math.max(target / 50, 0.5);
+      const updateCount = () => {
+        count += speed;
+        if (count < target) { counter.innerText = Math.ceil(count); setTimeout(updateCount, 30); }
+        else counter.innerText = target;
+      };
+      updateCount();
+    });
+  };
+  const statsSection = document.getElementById('stats');
+  if (statsSection) {
+    new IntersectionObserver((entries, obs) => {
+      if (entries[0].isIntersecting && !animated) { animated = true; runCounters(); obs.disconnect(); }
+    }, { threshold: 0.3 }).observe(statsSection);
+  }
+
+  /* ---------- Values Slideshow ---------- */
+  const slides = document.querySelectorAll('#valuesSlideshow .values-slide');
+  const dots = document.querySelectorAll('#valuesDots .dot-indicator');
+  const currentNum = document.getElementById('currentSlideNum');
+  const totalSlides = slides.length;
+  document.getElementById('totalSlidesNum').textContent = String(totalSlides).padStart(2, '0');
+  let currentIndex = 0, interval;
+  const goToSlide = idx => {
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => { d.classList.remove('active','bg-brand-lime','border-white'); d.classList.add('bg-white/30','border-transparent'); });
+    slides[idx].classList.add('active');
+    dots[idx].classList.add('active','bg-brand-lime','border-white');
+    dots[idx].classList.remove('bg-white/30','border-transparent');
+    currentNum.textContent = String(idx + 1).padStart(2, '0');
+    currentIndex = idx;
+  };
+  const nextSlide = () => goToSlide((currentIndex + 1) % totalSlides);
+  const startAutoPlay = () => { if (interval) clearInterval(interval); interval = setInterval(nextSlide, 5000); };
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { goToSlide(i); startAutoPlay(); }));
+  const slideshowCard = document.getElementById('valuesSlideshow');
+  slideshowCard.addEventListener('mouseenter', () => clearInterval(interval));
+  slideshowCard.addEventListener('mouseleave', startAutoPlay);
+  goToSlide(0); startAutoPlay();
+
+  /* ---------- FAQ ---------- */
+  window.toggleFaq = button => {
+    const item = button.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  };
+
+  /* ---------- Tabs ---------- */
+  window.switchAboutTab = tab => {
+    const missionBtn = document.getElementById('tab-mission-btn');
+    const visionBtn = document.getElementById('tab-vision-btn');
+    const missionTab = document.getElementById('tab-mission');
+    const visionTab = document.getElementById('tab-vision');
+    if (tab === 'mission') {
+      missionTab.classList.remove('hidden'); visionTab.classList.add('hidden');
+      missionBtn.className = "pb-2 font-bold text-base text-brand-dark border-b-2 border-brand-dark transition-all flex items-center gap-2";
+      visionBtn.className = "pb-2 font-bold text-base text-gray-400 hover:text-brand-dark border-b-2 border-transparent transition-all flex items-center gap-2";
+    } else {
+      visionTab.classList.remove('hidden'); missionTab.classList.add('hidden');
+      visionBtn.className = "pb-2 font-bold text-base text-brand-dark border-b-2 border-brand-dark transition-all flex items-center gap-2";
+      missionBtn.className = "pb-2 font-bold text-base text-gray-400 hover:text-brand-dark border-b-2 border-transparent transition-all flex items-center gap-2";
+    }
+  };
+
+  /* ---------- Contact Form ---------- */
+  window.handleFormSubmit = e => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i> Sending...`;
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = `<i class="fa-solid fa-check"></i> Thank you! Message sent.`;
+      btn.classList.remove('bg-brand-lime'); btn.classList.add('bg-emerald-500','text-white');
+      e.target.reset();
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('bg-emerald-500','text-white'); btn.classList.add('bg-brand-lime');
+        btn.disabled = false;
+      }, 3000);
+    }, 1000);
+  };
+
+  /* ---------- News Carousel ---------- */
+  (function() {
+    const carousel = document.getElementById('newsCarousel');
+    const items = Array.from(carousel.querySelectorAll('.news-item'));
+    const total = items.length;
+    const prevBtn = document.getElementById('news-prev');
+    const nextBtn = document.getElementById('news-next');
+    const progressBar = document.getElementById('progressBar');
+    const featuredTitle = document.getElementById('featuredTitle');
+    const featuredDesc = document.getElementById('featuredDesc');
+
+    const newsData = [
+      { title: 'New Advanced Blasting Technology', desc: "We've deployed next-gen emulsion systems across all major sites." },
+      { title: 'Expanding Our Consulting Team', desc: '5 new blasting experts join Kilimanjaro Group to serve growing demand.' },
+      { title: 'CSR: Supporting Local Schools', desc: "We've donated educational resources to 12 schools in mining regions." },
+      { title: 'Logistics Network Expansion', desc: 'New routes now cover Dodoma, Nzega, and Musoma with faster delivery.' },
+      { title: 'Safety First: New Training Program', desc: 'All staff completed advanced safety certification for explosives handling.' }
+    ];
+
+    let idx = 0;
+
+    function isMobile() { return window.innerWidth < 768; }
+
+    function render() {
+      items.forEach((item, i) => {
+        const isActive = i === idx;
+        item.classList.toggle('active', isActive);
+        item.style.opacity = isActive ? '1' : '0.7';
+        item.style.flex = isActive
+          ? (isMobile() ? '0 0 85vw' : '0 0 700px')
+          : (isMobile() ? '0 0 70px' : '0 0 160px');
+        item.style.maxWidth = isActive
+          ? (isMobile() ? '85vw' : '700px')
+          : (isMobile() ? '70px' : '160px');
+        // big overlay padding
+        const overlay = item.querySelector('div');
+        if (overlay) {
+          overlay.classList.toggle('p-8', isActive);
+          overlay.classList.toggle('p-4', !isActive);
+          overlay.classList.toggle('sm:p-12', isActive);
+        }
+        // heading size
+        const h4 = item.querySelector('h4');
+        if (h4) {
+          h4.classList.toggle('text-2xl', isActive);
+          h4.classList.toggle('text-sm', !isActive);
+          h4.classList.toggle('mb-2', isActive);
+          h4.classList.toggle('mb-0', !isActive);
+        }
+        // body text
+        const p = item.querySelector('p');
+        if (p) {
+          p.classList.toggle('hidden', !isActive);
+        }
+      });
+      progressBar.style.width = (((idx + 1) / total) * 100) + '%';
+      featuredTitle.textContent = newsData[idx].title;
+      featuredDesc.textContent = newsData[idx].desc;
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === total - 1;
+    }
+
+    prevBtn.addEventListener('click', () => { if (idx > 0) { idx--; render(); } });
+    nextBtn.addEventListener('click', () => { if (idx < total - 1) { idx++; render(); } });
+    items.forEach((item, i) => item.addEventListener('click', () => { if (i !== idx) { idx = i; render(); } }));
+
+    let auto;
+    const startAuto = () => { clearInterval(auto); auto = setInterval(() => { idx = idx < total - 1 ? idx + 1 : 0; render(); }, 5000); };
+    const stopAuto = () => clearInterval(auto);
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+    window.addEventListener('resize', render);
+
+    render();
+    startAuto();
+  })();
+
+});
+</script>
+
+</body>
+</html>
