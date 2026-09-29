@@ -5,14 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Our Products · Kilimanjaro Group</title>
 
-<!-- Tailwind CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 tailwind.config = {
@@ -45,20 +43,20 @@ tailwind.config = {
 
   .glass-pill { background: rgba(255,255,255,.08); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.12); }
 
-  /* Scrollbar */
   ::-webkit-scrollbar { width: 8px; height: 8px; }
   ::-webkit-scrollbar-track { background: #0B131F; }
   ::-webkit-scrollbar-thumb { background: #24303f; border-radius: 4px; }
   ::-webkit-scrollbar-thumb:hover { background: #B8EC34; }
 
-  /* Search input */
   .search-input:focus { border-color: #B8EC34; box-shadow: 0 0 0 3px rgba(184,236,52,0.15); }
 
-  /* Product hidden state */
   .product-item.hidden { display: none; }
+  .product-item { cursor: pointer; }
 
-  /* FAB */
   #fab-actions { transform-origin: bottom right; }
+
+  .skeleton { background: linear-gradient(90deg, #1a2636 25%, #24303f 50%, #1a2636 75%); background-size: 200% 100%; animation: sk 1.4s ease-in-out infinite; border-radius: 12px; }
+  @keyframes sk { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
 </style>
 </head>
 
@@ -68,12 +66,10 @@ tailwind.config = {
 <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
-      <!-- Logo -->
       <a href="index.html" class="flex items-center gap-3 group">
         <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group" class="h-14 w-auto group-hover:scale-105 transition-transform" />
       </a>
 
-      <!-- Desktop Nav -->
       <nav class="hidden lg:flex items-center space-x-1 bg-white/5 px-6 py-2 rounded-full border border-white/10">
         <a href="index.html#overview" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">About</a>
         <a href="products.html" class="px-4 py-2 text-sm font-semibold text-brand-lime transition-colors">Products</a>
@@ -83,7 +79,6 @@ tailwind.config = {
         <a href="index.html#faq" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">FAQ</a>
       </nav>
 
-      <!-- CTA + Staff Login -->
       <div class="hidden sm:flex items-center gap-6">
         <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">
           Staff Login
@@ -93,14 +88,12 @@ tailwind.config = {
         </a>
       </div>
 
-      <!-- Mobile toggle -->
       <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white text-2xl focus:outline-none" aria-label="Toggle Menu">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
   </div>
 
-  <!-- Mobile Drawer -->
   <div id="mobile-menu" class="hidden lg:hidden bg-brand-cardBg border-b border-white/10 px-6 py-6">
     <nav class="flex flex-col gap-4">
       <a href="index.html#overview" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">About</a>
@@ -122,11 +115,7 @@ tailwind.config = {
 
 <!-- ================= PAGE BANNER ================= -->
 <section class="relative pt-40 pb-24 lg:pt-48 lg:pb-32 bg-brand-dark overflow-hidden">
-
-  <!-- Background image -->
   <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600" alt="Products" class="absolute inset-0 w-full h-full object-cover" />
-
-  <!-- Gradient fade -->
   <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(
     to bottom,
     rgba(11, 19, 31, 0.55) 0%,
@@ -134,12 +123,9 @@ tailwind.config = {
     rgba(11, 19, 31, 0.95) 70%,
     #0B131F 100%
   );"></div>
-
-  <!-- Radial glow -->
   <div class="absolute top-1/4 right-10 w-96 h-96 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <!-- Breadcrumb -->
     <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-pill border border-white/15 text-xs font-semibold text-gray-300 mb-6">
       <a href="index.html" class="hover:text-brand-lime transition-colors">Home</a>
       <i class="fa-solid fa-chevron-right text-[9px] text-gray-500"></i>
@@ -162,7 +148,6 @@ tailwind.config = {
 <section class="relative z-20 -mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="bg-brand-cardBg rounded-3xl p-6 sm:p-8 border border-white/10 shadow-card-glow">
 
-    <!-- Search -->
     <div class="relative max-w-2xl mx-auto mb-6">
       <i class="fa-solid fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 text-sm pointer-events-none"></i>
       <input
@@ -177,25 +162,15 @@ tailwind.config = {
       </button>
     </div>
 
-    <!-- Filter buttons -->
     <div class="flex flex-wrap gap-2 justify-center" id="filterBar">
       <button class="filter-btn active px-5 py-3 rounded-full bg-brand-lime text-brand-dark font-extrabold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-glow" data-filter="all">
         <i class="fa-solid fa-th-large"></i> All Products
       </button>
-      <button class="filter-btn px-5 py-3 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:border-brand-lime/50 hover:text-brand-lime font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2" data-filter="explosives">
-        <i class="fa-solid fa-bomb"></i> Explosives
-      </button>
-      <button class="filter-btn px-5 py-3 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:border-brand-lime/50 hover:text-brand-lime font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2" data-filter="chemicals">
-        <i class="fa-solid fa-flask"></i> Chemicals
-      </button>
-      <button class="filter-btn px-5 py-3 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:border-brand-lime/50 hover:text-brand-lime font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2" data-filter="supplies">
-        <i class="fa-solid fa-tools"></i> General Supplies
-      </button>
+      <!-- dynamic category buttons injected here -->
     </div>
 
-    <!-- Results count -->
     <div class="text-center mt-6 text-xs font-semibold text-gray-400" id="resultsCount">
-      Showing <strong class="text-brand-lime font-extrabold">12</strong> products
+      Loading products…
     </div>
 
   </div>
@@ -205,277 +180,12 @@ tailwind.config = {
 <section class="py-20 bg-brand-dark">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="productsGrid">
-
-      <!-- ============ EXPLOSIVES ============ -->
-      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="explosives" data-search="bulk emulsions explosives blasting surface underground rock breaking">
-        <div class="h-52 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Bulk Emulsions" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Explosives</span>
-        </div>
-        <div class="p-6">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-            <i class="fa-solid fa-bomb"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Bulk Emulsions</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">High-performance bulk emulsion explosives designed for efficient rock breaking in surface and underground mining operations.</p>
-          <div class="flex flex-wrap gap-2 mb-4 product-features">
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Surface</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Underground</span>
-          </div>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="explosives" data-search="packaged explosives precise blasting sizes strengths detonation">
-        <div class="h-52 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Packaged Explosives" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Explosives</span>
-        </div>
-        <div class="p-6">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-            <i class="fa-solid fa-fire"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Packaged Explosives</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">Reliable packaged explosives for precise blasting applications, available in various sizes and strengths to suit every need.</p>
-          <div class="flex flex-wrap gap-2 mb-4 product-features">
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Various Sizes</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Precise</span>
-          </div>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="explosives" data-search="initiating systems electronic non-electric timing detonation blasting">
-        <div class="h-52 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Initiating Systems" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Initiation</span>
-        </div>
-        <div class="p-6">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-            <i class="fa-solid fa-bolt"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Initiating Systems</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">Advanced electronic and non-electric initiation systems for precise timing and reliable detonation in all conditions.</p>
-          <div class="flex flex-wrap gap-2 mb-4 product-features">
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Electronic</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Non-Electric</span>
-          </div>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="explosives" data-search="blasting accessories wires connectors detonators detonation">
-        <div class="h-52 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Blasting Accessories" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Accessories</span>
-        </div>
-        <div class="p-6">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-            <i class="fa-solid fa-plug"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Blasting Accessories</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">Comprehensive range of blasting accessories including wires, connectors, and detonators for reliable blasting.</p>
-          <div class="flex flex-wrap gap-2 mb-4 product-features">
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Wires</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Connectors</span>
-          </div>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </div>
-
-      <!-- ============ CHEMICALS ============ -->
-      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="chemicals" data-search="flotation reagents collectors frothers depressants mineral processing">
-        <div class="h-52 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" alt="Flotation Reagents" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Chemicals</span>
-        </div>
-        <div class="p-6">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-            <i class="fa-solid fa-flask"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Flotation Reagents</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">High-quality flotation reagents including collectors, frothers, and depressants for efficient mineral processing.</p>
-          <div class="flex flex-wrap gap-2 mb-4 product-features">
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Collectors</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Frothers</span>
-          </div>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="chemicals" data-search="leaching agents gold copper extraction heap tank leaching">
-        <div class="h-52 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" alt="Leaching Agents" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Chemicals</span>
-        </div>
-        <div class="p-6">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-            <i class="fa-solid fa-vial"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Leaching Agents</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">Specialised leaching agents for efficient gold and copper extraction in heap and tank leaching operations.</p>
-          <div class="flex flex-wrap gap-2 mb-4 product-features">
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Gold</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Copper</span>
-          </div>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="chemicals" data-search="frothers depressants mineral separation recovery flotation circuits">
-        <div class="h-52 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" alt="Frothers & Depressants" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Chemicals</span>
-        </div>
-        <div class="p-6">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-            <i class="fa-solid fa-droplet"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Frothers &amp; Depressants</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">Premium frothers and depressants for optimal mineral separation and recovery in flotation circuits.</p>
-          <div class="flex flex-wrap gap-2 mb-4 product-features">
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">High Recovery</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Efficient</span>
-          </div>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="chemicals" data-search="activated carbon gold recovery carbon-in-pulp carbon-in-leach cip cil">
-        <div class="h-52 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" alt="Activated Carbon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Chemicals</span>
-        </div>
-        <div class="p-6">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-            <i class="fa-solid fa-cube"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Activated Carbon</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">High-grade activated carbon for efficient gold recovery in carbon-in-pulp and carbon-in-leach processes.</p>
-          <div class="flex flex-wrap gap-2 mb-4 product-features">
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">CIP</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">CIL</span>
-          </div>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </div>
-
-      <!-- ============ GENERAL SUPPLIES ============ -->
-      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="supplies" data-search="drilling equipment blast hole drilling accessories heavy duty">
-        <div class="h-52 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Drilling Equipment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Equipment</span>
-        </div>
-        <div class="p-6">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-            <i class="fa-solid fa-tools"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Drilling Equipment</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">Professional drilling equipment and accessories for efficient blast hole drilling in all mining conditions.</p>
-          <div class="flex flex-wrap gap-2 mb-4 product-features">
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Heavy Duty</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Reliable</span>
-          </div>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="supplies" data-search="ppe safety gear helmets gloves boots high-visibility clothing protective equipment">
-        <div class="h-52 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" alt="PPE & Safety Gear" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Safety</span>
-        </div>
-        <div class="p-6">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-            <i class="fa-solid fa-helmet-safety"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">PPE &amp; Safety Gear</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">Complete range of personal protective equipment including helmets, gloves, boots, and high-visibility clothing.</p>
-          <div class="flex flex-wrap gap-2 mb-4 product-features">
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Certified</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Comfortable</span>
-          </div>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="supplies" data-search="mining tools accessories durable professional hand tools">
-        <div class="h-52 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" alt="Mining Tools" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Tools</span>
-        </div>
-        <div class="p-6">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-            <i class="fa-solid fa-screwdriver-wrench"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Mining Tools</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">Complete range of essential mining tools and accessories for efficient and safe mining operations.</p>
-          <div class="flex flex-wrap gap-2 mb-4 product-features">
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Durable</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Professional</span>
-          </div>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl" data-category="supplies" data-search="safety equipment gas detectors harnesses emergency response gear">
-        <div class="h-52 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" alt="Safety Equipment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Safety</span>
-        </div>
-        <div class="p-6">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-            <i class="fa-solid fa-shield-halved"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">Safety Equipment</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">Advanced safety equipment including gas detectors, harnesses, and emergency response gear for mining sites.</p>
-          <div class="flex flex-wrap gap-2 mb-4 product-features">
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Detectors</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">Harnesses</span>
-          </div>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </div>
-
+      <!-- Skeleton loaders -->
+      <div class="skeleton h-[420px]"></div>
+      <div class="skeleton h-[420px]"></div>
+      <div class="skeleton h-[420px]"></div>
     </div>
 
-    <!-- No Results -->
     <div class="hidden text-center py-20" id="noResults">
       <div class="inline-flex w-20 h-20 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 items-center justify-center text-brand-lime text-3xl mb-6">
         <i class="fa-solid fa-search"></i>
@@ -484,6 +194,17 @@ tailwind.config = {
       <p class="text-sm text-gray-400 mb-6">We couldn't find any products matching your search. Try a different keyword or category.</p>
       <button id="resetFilters" class="px-7 py-3.5 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-colors shadow-glow">
         Reset Filters
+      </button>
+    </div>
+
+    <div class="hidden text-center py-20" id="errorState">
+      <div class="inline-flex w-20 h-20 rounded-2xl bg-red-500/10 border border-red-500/20 items-center justify-center text-red-400 text-3xl mb-6">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <h3 class="text-2xl font-extrabold text-white mb-2">Failed to load products</h3>
+      <p class="text-sm text-gray-400 mb-6">Please check your connection and try again.</p>
+      <button onclick="window.location.reload()" class="px-7 py-3.5 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-colors shadow-glow">
+        Retry
       </button>
     </div>
 
@@ -568,49 +289,32 @@ tailwind.config = {
     <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
       <span>© 2026 Kilimanjaro Group. All rights reserved.</span>
       <span class="flex gap-4">
-        <a href="#" class="hover:text-brand-lime transition-colors">Privacy</a>
-        <a href="#" class="hover:text-brand-lime transition-colors">Terms</a>
-        <a href="#" class="hover:text-brand-lime transition-colors">CSR</a>
+        <a href="privacy.html" class="hover:text-brand-lime transition-colors">Privacy</a>
+        <a href="terms.html" class="hover:text-brand-lime transition-colors">Terms</a>
+        
         <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="hover:text-brand-lime transition-colors">Staff Login</a>
       </span>
     </div>
   </div>
 </footer>
 
-<!-- ================= FLOATING ACTION BUTTON (CALL / WHATSAPP) ================= -->
+<!-- ================= FLOATING ACTION BUTTON ================= -->
 <div id="fab-container" class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
-
-  <!-- Action buttons (hidden by default) -->
   <div id="fab-actions" class="flex flex-col items-end gap-3 opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/255677800002?text=Hello%20Kilimanjaro%20Group%2C%20I%27d%20like%20to%20inquire%20about%20your%20products."
-       target="_blank" rel="noopener"
-       class="group flex items-center gap-3">
-      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">
-        WhatsApp Us
-      </span>
+    <a href="https://wa.me/255677800002?text=Hello%20Kilimanjaro%20Group%2C%20I%27d%20like%20to%20inquire%20about%20your%20products." target="_blank" rel="noopener" class="group flex items-center gap-3">
+      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">WhatsApp Us</span>
       <span class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
         <i class="fa-brands fa-whatsapp text-xl"></i>
       </span>
     </a>
-
-    <!-- Call -->
     <a href="tel:+255677800002" class="group flex items-center gap-3">
-      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">
-        Call Us
-      </span>
+      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">Call Us</span>
       <span class="w-12 h-12 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
         <i class="fa-solid fa-phone text-lg"></i>
       </span>
     </a>
-
   </div>
-
-  <!-- Main FAB toggle -->
-  <button id="fab-toggle"
-          aria-label="Contact options"
-          aria-expanded="false"
+  <button id="fab-toggle" aria-label="Contact options" aria-expanded="false"
           class="w-14 h-14 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-glow hover:scale-110 transition-transform relative">
     <i id="fab-icon" class="fa-solid fa-headset text-xl transition-transform duration-300"></i>
   </button>
@@ -618,169 +322,325 @@ tailwind.config = {
 
 <!-- ================= JAVASCRIPT ================= -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+const SUPABASE_URL = 'https://bufqcwcicvwknpyrofhc.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ1ZnFjd2NpY3Z3a25weXJvZmhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg3MDk3MDQsImV4cCI6MjA3NDI4NTcwNH0.sxChRQ9w3aQPDWFCxANxpIHxvAmVBSyzUbGknZmKb_0';
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  /* ---------- Mobile Menu ---------- */
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
-  mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+const FALLBACK_IMG = 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800';
 
-  /* ---------- Floating Action Button (Call / WhatsApp) ---------- */
-  const fabToggle = document.getElementById('fab-toggle');
-  const fabActions = document.getElementById('fab-actions');
-  const fabIcon = document.getElementById('fab-icon');
-  const fabContainer = document.getElementById('fab-container');
-  let fabOpen = false;
+let allProducts = [];
+let allCategories = [];
+let currentCat = 'all';
+let searchTerm = '';
 
-  function setFab(open) {
-    fabOpen = open;
-    fabToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (open) {
-      fabActions.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-      fabActions.classList.add('opacity-100', 'translate-y-0');
-      fabIcon.classList.add('rotate-45');
-    } else {
-      fabActions.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-      fabActions.classList.remove('opacity-100', 'translate-y-0');
-      fabIcon.classList.remove('rotate-45');
+/* ---------- Mobile Menu ---------- */
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+/* ---------- Floating Action Button ---------- */
+const fabToggle = document.getElementById('fab-toggle');
+const fabActions = document.getElementById('fab-actions');
+const fabIcon = document.getElementById('fab-icon');
+const fabContainer = document.getElementById('fab-container');
+let fabOpen = false;
+function setFab(open) {
+  fabOpen = open;
+  fabToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if (open) {
+    fabActions.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+    fabActions.classList.add('opacity-100', 'translate-y-0');
+    fabIcon.classList.add('rotate-45');
+  } else {
+    fabActions.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+    fabActions.classList.remove('opacity-100', 'translate-y-0');
+    fabIcon.classList.remove('rotate-45');
+  }
+}
+fabToggle.addEventListener('click', (e) => { e.stopPropagation(); setFab(!fabOpen); });
+document.addEventListener('click', (e) => { if (fabOpen && !fabContainer.contains(e.target)) setFab(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && fabOpen) setFab(false); });
+
+/* ---------- Helpers ---------- */
+function escapeHtml(str) {
+  return String(str ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' })[c]);
+}
+function escapeAttr(str) { return escapeHtml(str).replace(/`/g, '&#96;'); }
+
+function categoryIcon(slug) {
+  const s = (slug || '').toLowerCase();
+  if (s.includes('explosive')) return 'fa-bomb';
+  if (s.includes('chemical')) return 'fa-flask';
+  if (s.includes('supplies') || s.includes('supply')) return 'fa-tools';
+  if (s.includes('equipment')) return 'fa-tools';
+  if (s.includes('safety')) return 'fa-shield-halved';
+  return 'fa-box';
+}
+
+/* ---------- Load categories ---------- */
+async function loadCategories() {
+  const { data, error } = await db
+    .from('product_categories')
+    .select('id, slug, name, icon, display_order')
+    .eq('is_active', true)
+    .order('display_order', { ascending: true });
+
+  if (error) {
+    console.error('loadCategories:', error);
+    return;
+  }
+
+  allCategories = data || [];
+
+  const filterBar = document.getElementById('filterBar');
+  // Remove previous dynamic buttons
+  filterBar.querySelectorAll('.filter-btn:not([data-filter="all"])').forEach(el => el.remove());
+
+  allCategories.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn px-5 py-3 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:border-brand-lime/50 hover:text-brand-lime font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2';
+    btn.setAttribute('data-filter', cat.slug);
+    btn.innerHTML = `<i class="fa-solid ${escapeAttr(cat.icon || categoryIcon(cat.slug))}"></i> ${escapeHtml(cat.name)}`;
+    filterBar.appendChild(btn);
+  });
+
+  bindFilterButtons();
+}
+
+/* ---------- Load products ---------- */
+async function loadProducts() {
+  const grid = document.getElementById('productsGrid');
+  const errorState = document.getElementById('errorState');
+
+  const { data, error } = await db
+    .from('catalog_products')
+    .select(`
+      id, slug, name, short_description, featured_image_url, gallery_images,
+      price_text, availability, delivery_time, certification, tags,
+      is_featured, published_at, created_at, updated_at,
+      category:product_categories!inner (id, slug, name, icon)
+    `)
+    .eq('status', 'published')
+    .eq('is_visible', true)
+    .order('is_featured', { ascending: false })
+    .order('published_at', { ascending: false, nullsFirst: false });
+
+  if (error) {
+    console.error('loadProducts:', error);
+    grid.innerHTML = '';
+    errorState.classList.remove('hidden');
+    document.getElementById('resultsCount').innerHTML = 'Failed to load products';
+    return;
+  }
+
+  allProducts = data || [];
+
+  // Fetch features for all products in one query
+  const productIds = allProducts.map(p => p.id);
+  let featuresByProduct = {};
+  if (productIds.length > 0) {
+    const { data: feats, error: featErr } = await db
+      .from('catalog_product_features')
+      .select('product_id, feature_text, display_order')
+      .in('product_id', productIds)
+      .order('display_order', { ascending: true });
+
+    if (!featErr && feats) {
+      feats.forEach(f => {
+        if (!featuresByProduct[f.product_id]) featuresByProduct[f.product_id] = [];
+        featuresByProduct[f.product_id].push(f.feature_text);
+      });
     }
   }
 
-  fabToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    setFab(!fabOpen);
+  // Attach features to each product
+  allProducts.forEach(p => {
+    p._features = (featuresByProduct[p.id] || []).slice(0, 3);
   });
 
-  document.addEventListener('click', (e) => {
-    if (fabOpen && !fabContainer.contains(e.target)) {
-      setFab(false);
+  renderProducts();
+}
+
+/* ---------- Render products ---------- */
+function renderProducts() {
+  const grid = document.getElementById('productsGrid');
+  const noResults = document.getElementById('noResults');
+  const resultsCount = document.getElementById('resultsCount');
+  const errorState = document.getElementById('errorState');
+
+  errorState.classList.add('hidden');
+
+  const term = searchTerm.toLowerCase().trim();
+  const visible = allProducts.filter(p => {
+    const catSlug = p.category?.slug || '';
+    const matchCat = currentCat === 'all' || catSlug === currentCat;
+    const searchable = [
+      p.name,
+      p.short_description,
+      p.category?.name,
+      (p.tags || []).join(' '),
+      (p._features || []).join(' ')
+    ].join(' ').toLowerCase();
+    const matchSearch = term === '' || searchable.includes(term);
+    return matchCat && matchSearch;
+  });
+
+  grid.innerHTML = '';
+
+  if (visible.length === 0) {
+    noResults.classList.remove('hidden');
+    resultsCount.innerHTML = `Showing <strong class="text-brand-lime font-extrabold">0</strong> of ${allProducts.length} products`;
+    return;
+  }
+
+  noResults.classList.add('hidden');
+  resultsCount.innerHTML = `Showing <strong class="text-brand-lime font-extrabold">${visible.length}</strong> of ${allProducts.length} products`;
+
+  visible.forEach(p => grid.appendChild(renderCard(p)));
+  bindCardClicks();
+}
+
+function renderCard(p) {
+  const card = document.createElement('div');
+  card.className = 'product-item group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl';
+  card.setAttribute('data-category', p.category?.slug || '');
+  card.setAttribute('data-product-id', p.id);
+
+  const img = p.featured_image_url || FALLBACK_IMG;
+  const catName = p.category?.name || 'Product';
+  const catIcon = p.category?.icon || categoryIcon(p.category?.slug);
+  const desc = p.short_description || '';
+
+  const featurePills = (p._features || []).map(f =>
+    `<span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300">${escapeHtml(f)}</span>`
+  ).join('');
+
+  const featuredBadge = p.is_featured
+    ? `<span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-amber-400/90 text-amber-950 text-[10px] font-extrabold uppercase tracking-wide">Featured</span>`
+    : '';
+
+  card.innerHTML = `
+    <div class="h-52 overflow-hidden relative">
+      <img src="${escapeAttr(img)}" alt="${escapeAttr(p.name)}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='${FALLBACK_IMG}'" />
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+      <span class="product-category absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">${escapeHtml(catName)}</span>
+      ${featuredBadge}
+    </div>
+    <div class="p-6">
+      <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime text-xl mb-4 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+        <i class="fa-solid ${escapeAttr(catIcon)}"></i>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-lime transition-colors">${escapeHtml(p.name)}</h3>
+      <p class="text-xs text-gray-400 leading-relaxed mb-4">${escapeHtml(desc)}</p>
+      ${featurePills ? `<div class="flex flex-wrap gap-2 mb-4 product-features">${featurePills}</div>` : '<div class="mb-4"></div>'}
+      <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+        View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+      </span>
+    </div>
+  `;
+  return card;
+}
+
+/* ---------- Filters ---------- */
+function bindFilterButtons() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const activeClasses = ['bg-brand-lime','text-brand-dark','shadow-glow'];
+  const inactiveClasses = ['bg-white/5','border','border-white/10','text-gray-300'];
+
+  function setActive(btn, isActive) {
+    if (isActive) {
+      btn.classList.remove(...inactiveClasses);
+      btn.classList.add(...activeClasses);
+    } else {
+      btn.classList.remove(...activeClasses);
+      btn.classList.add(...inactiveClasses);
     }
-  });
+  }
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && fabOpen) setFab(false);
+  filterBtns.forEach(btn => {
+    btn.onclick = () => {
+      filterBtns.forEach(b => setActive(b, false));
+      setActive(btn, true);
+      currentCat = btn.getAttribute('data-filter');
+      renderProducts();
+    };
   });
+}
 
-  /* ---------- Search + Filter ---------- */
-  (function() {
-    const searchInput = document.getElementById('searchInput');
+/* ---------- Search ---------- */
+let searchTimeout;
+document.getElementById('searchInput').addEventListener('input', function() {
+  clearTimeout(searchTimeout);
+  const val = this.value;
+  searchTimeout = setTimeout(() => {
+    searchTerm = val;
+    renderProducts();
     const clearBtn = document.getElementById('clearSearch');
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const products = document.querySelectorAll('.product-item');
-    const noResults = document.getElementById('noResults');
-    const resultsCount = document.getElementById('resultsCount');
-    const resetBtn = document.getElementById('resetFilters');
-    const totalProducts = products.length;
-
-    let activeFilter = 'all';
-    let searchTerm = '';
-
-    const activeClasses = ['bg-brand-lime','text-brand-dark','shadow-glow'];
-    const inactiveClasses = ['bg-white/5','border','border-white/10','text-gray-300'];
-
-    function setFilterActive(btn, isActive) {
-      if (isActive) {
-        btn.classList.remove(...inactiveClasses);
-        btn.classList.add(...activeClasses);
-      } else {
-        btn.classList.remove(...activeClasses);
-        btn.classList.add(...inactiveClasses);
-      }
+    if (val.length > 0) {
+      clearBtn.classList.remove('hidden'); clearBtn.classList.add('flex');
+    } else {
+      clearBtn.classList.add('hidden'); clearBtn.classList.remove('flex');
     }
-
-    function applyFilters() {
-      let visibleCount = 0;
-      const term = searchTerm.toLowerCase().trim();
-
-      products.forEach(product => {
-        const category = product.getAttribute('data-category');
-        const searchData = product.getAttribute('data-search') || '';
-        const title = product.querySelector('h3').textContent.toLowerCase();
-        const description = product.querySelector('p').textContent.toLowerCase();
-        const categoryLabel = product.querySelector('.product-category')?.textContent.toLowerCase() || '';
-        const features = Array.from(product.querySelectorAll('.product-features span'))
-          .map(s => s.textContent.toLowerCase()).join(' ');
-
-        const searchableText = (searchData + ' ' + title + ' ' + description + ' ' + categoryLabel + ' ' + features).toLowerCase();
-
-        const matchesCategory = activeFilter === 'all' || category === activeFilter;
-        const matchesSearch = term === '' || searchableText.includes(term);
-
-        if (matchesCategory && matchesSearch) {
-          product.classList.remove('hidden');
-          visibleCount++;
-        } else {
-          product.classList.add('hidden');
-        }
-      });
-
-      if (visibleCount === 0) {
-        noResults.classList.remove('hidden');
-        resultsCount.innerHTML = 'Showing <strong class="text-brand-lime font-extrabold">0</strong> of ' + totalProducts + ' products';
-      } else {
-        noResults.classList.add('hidden');
-        resultsCount.innerHTML = 'Showing <strong class="text-brand-lime font-extrabold">' + visibleCount + '</strong> of ' + totalProducts + ' products';
-      }
-
-      if (searchTerm.length > 0) {
-        clearBtn.classList.remove('hidden');
-        clearBtn.classList.add('flex');
-      } else {
-        clearBtn.classList.add('hidden');
-        clearBtn.classList.remove('flex');
-      }
-    }
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        filterBtns.forEach(b => setFilterActive(b, false));
-        setFilterActive(this, true);
-        activeFilter = this.getAttribute('data-filter');
-        applyFilters();
-      });
-    });
-
-    let searchTimeout;
-    searchInput.addEventListener('input', function() {
-      clearTimeout(searchTimeout);
-      searchTimeout = setTimeout(() => {
-        searchTerm = this.value;
-        applyFilters();
-      }, 200);
-    });
-
-    clearBtn.addEventListener('click', function() {
-      searchInput.value = '';
-      searchTerm = '';
-      applyFilters();
-      searchInput.focus();
-    });
-
-    resetBtn.addEventListener('click', function() {
-      searchInput.value = '';
-      searchTerm = '';
-      activeFilter = 'all';
-      filterBtns.forEach(b => setFilterActive(b, false));
-      setFilterActive(document.querySelector('.filter-btn[data-filter="all"]'), true);
-      applyFilters();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === '/' && document.activeElement !== searchInput) {
-        e.preventDefault();
-        searchInput.focus();
-      }
-      if (e.key === 'Escape' && document.activeElement === searchInput) {
-        searchInput.blur();
-      }
-    });
-
-    applyFilters();
-  })();
-
+  }, 200);
 });
+
+document.getElementById('clearSearch').addEventListener('click', function() {
+  const input = document.getElementById('searchInput');
+  input.value = '';
+  searchTerm = '';
+  renderProducts();
+  this.classList.add('hidden'); this.classList.remove('flex');
+  input.focus();
+});
+
+document.getElementById('resetFilters').addEventListener('click', function() {
+  const input = document.getElementById('searchInput');
+  input.value = '';
+  searchTerm = '';
+  currentCat = 'all';
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const activeClasses = ['bg-brand-lime','text-brand-dark','shadow-glow'];
+  const inactiveClasses = ['bg-white/5','border','border-white/10','text-gray-300'];
+  filterBtns.forEach(b => { b.classList.remove(...activeClasses); b.classList.add(...inactiveClasses); });
+  const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+  if (allBtn) { allBtn.classList.remove(...inactiveClasses); allBtn.classList.add(...activeClasses); }
+  document.getElementById('clearSearch').classList.add('hidden');
+  renderProducts();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+document.addEventListener('keydown', function(e) {
+  const input = document.getElementById('searchInput');
+  if (e.key === '/' && document.activeElement !== input) { e.preventDefault(); input.focus(); }
+  if (e.key === 'Escape' && document.activeElement === input) input.blur();
+});
+
+/* ---------- Card click → product-details ---------- */
+function bindCardClicks() {
+  document.querySelectorAll('.product-item').forEach(card => {
+    card.onclick = (e) => {
+      if (e.target.closest('a')) return;
+      const productId = card.getAttribute('data-product-id');
+      if (productId) {
+        window.location.href = `product-details.html?id=${encodeURIComponent(productId)}`;
+      }
+    };
+  });
+}
+
+/* ---------- Boot ---------- */
+(async () => {
+  try {
+    await loadCategories();
+    await loadProducts();
+  } catch (err) {
+    console.error('Boot error:', err);
+    document.getElementById('productsGrid').innerHTML = '';
+    document.getElementById('errorState').classList.remove('hidden');
+    document.getElementById('resultsCount').innerHTML = 'Failed to load products';
+  }
+})();
 </script>
 
 </body>

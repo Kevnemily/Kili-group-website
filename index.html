@@ -151,10 +151,12 @@ tailwind.config = {
   .who-dot { transition: all .4s ease; }
   .who-dot.active { width: 24px; background: #B8EC34; }
 
-  /* Skeletons */
   .skel { background: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.05) 100%); background-size: 200% 100%; animation: skel-load 1.4s ease-in-out infinite; border-radius: 8px; }
   @keyframes skel-load { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
   .product-skel { background: linear-gradient(90deg, #f1f5f9 0%, #e2e8f0 50%, #f1f5f9 100%); background-size: 200% 100%; animation: skel-load 1.4s ease-in-out infinite; border-radius: 8px; }
+
+  .stat-card { transition: transform .35s ease, box-shadow .35s ease; }
+  .stat-card:hover { transform: translateY(-4px); }
 </style>
 
 <!-- ==================== STRUCTURED DATA ==================== -->
@@ -514,22 +516,22 @@ tailwind.config = {
     <!-- STATS -->
     <div id="stats" class="py-16 border-y border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left" id="stats-grid">
           <div class="space-y-2 border-l-2 border-brand-lime pl-6">
-            <div class="text-4xl sm:text-5xl font-extrabold tracking-tight flex items-center gap-1 text-slate-900"><span class="counter" data-target="10">0</span><span class="text-brand-lime">K+</span></div>
-            <p class="text-xs text-gray-600 font-medium leading-relaxed">Projects delivered across Tanzania.</p>
+            <div class="h-12 w-24 bg-slate-200 rounded animate-pulse"></div>
+            <div class="h-3 w-32 bg-slate-100 rounded animate-pulse"></div>
           </div>
           <div class="space-y-2 border-l-2 border-brand-lime pl-6">
-            <div class="text-4xl sm:text-5xl font-extrabold tracking-tight flex items-center gap-1 text-slate-900"><span class="counter" data-target="7">0</span><span class="text-brand-lime"></span></div>
-            <p class="text-xs text-gray-600 font-medium leading-relaxed">Branches serving the nation.</p>
+            <div class="h-12 w-20 bg-slate-200 rounded animate-pulse"></div>
+            <div class="h-3 w-28 bg-slate-100 rounded animate-pulse"></div>
           </div>
           <div class="space-y-2 border-l-2 border-brand-lime pl-6">
-            <div class="text-4xl sm:text-5xl font-extrabold tracking-tight flex items-center gap-1 text-slate-900"><span class="counter" data-target="98">0</span><span class="text-brand-lime">%</span></div>
-            <p class="text-xs text-gray-600 font-medium leading-relaxed">Customer satisfaction rating.</p>
+            <div class="h-12 w-20 bg-slate-200 rounded animate-pulse"></div>
+            <div class="h-3 w-32 bg-slate-100 rounded animate-pulse"></div>
           </div>
           <div class="space-y-2 border-l-2 border-brand-lime pl-6">
-            <div class="text-4xl sm:text-5xl font-extrabold tracking-tight flex items-center gap-1 text-slate-900"><span class="counter" data-target="15">0</span><span class="text-brand-lime">+</span></div>
-            <p class="text-xs text-gray-600 font-medium leading-relaxed">Years of mining expertise.</p>
+            <div class="h-12 w-20 bg-slate-200 rounded animate-pulse"></div>
+            <div class="h-3 w-32 bg-slate-100 rounded animate-pulse"></div>
           </div>
         </div>
       </div>
@@ -557,7 +559,7 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- DIVISIONS — all 4 dynamic -->
+    <!-- DIVISIONS -->
     <div id="divisions" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200">
       <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
         <span class="px-4 py-1.5 rounded-full bg-brand-lime/20 text-brand-dark font-bold text-xs uppercase tracking-wider">Our Divisions</span>
@@ -611,7 +613,6 @@ tailwind.config = {
     <!-- PARTNERS -->
     <div id="partners" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200">
 
-      <!-- DYNO NOBEL -->
       <div id="dyno-partner-block" class="mb-20">
         <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
           <span class="px-4 py-1.5 rounded-full bg-brand-lime/20 text-brand-dark font-bold text-xs uppercase tracking-wider">Strategic Partnership</span>
@@ -659,7 +660,6 @@ tailwind.config = {
         </div>
       </div>
 
-      <!-- WST -->
       <div id="wst-partner-block" class="mb-20">
         <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
           <span class="px-4 py-1.5 rounded-full bg-brand-lime/20 text-brand-dark font-bold text-xs uppercase tracking-wider">Strategic Partnership</span>
@@ -716,7 +716,6 @@ tailwind.config = {
         </div>
       </div>
 
-      <!-- PARTNERS MARQUEE -->
       <div class="text-center max-w-2xl mx-auto mb-12 space-y-4">
         <span class="px-4 py-1.5 rounded-full bg-brand-lime/20 text-brand-dark font-bold text-xs uppercase tracking-wider">Our Partners</span>
         <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">Trusted By Industry Leaders</h2>
@@ -800,7 +799,7 @@ tailwind.config = {
 <section class="relative bg-brand-dark text-white">
   <div class="relative z-20 pt-56 sm:pt-72 lg:pt-80">
 
-    <!-- CORE VALUES — dynamic images -->
+    <!-- CORE VALUES -->
     <div class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-lime/5 rounded-full blur-3xl pointer-events-none"></div>
       <div class="text-center max-w-2xl mx-auto mb-12 space-y-4">
@@ -851,7 +850,7 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- SERVICES — dynamic images -->
+    <!-- SERVICES -->
     <div id="services" class="py-24 border-t border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
@@ -932,6 +931,53 @@ tailwind.config = {
         </div>
       </div>
     </div>
+
+    <!-- ================= COMPANY PROFILE DOWNLOAD ================= -->
+    <div id="company-profile" class="py-16 bg-brand-dark border-t border-white/5 relative overflow-hidden">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-lime/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-brand-cardBg via-brand-dark to-slate-900 border border-white/10 p-8 sm:p-12">
+          <div class="absolute top-0 right-0 w-96 h-96 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="grid lg:grid-cols-12 gap-10 items-center relative z-10">
+            <div class="lg:col-span-8 space-y-4">
+              <span class="px-4 py-1.5 rounded-full glass-pill text-brand-lime font-bold text-xs uppercase tracking-wider border border-brand-lime/20 inline-flex items-center gap-2">
+                <i class="fa-solid fa-file-pdf"></i> Company Profile
+              </span>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                Download Our Company Profile
+              </h2>
+              <p class="text-gray-400 text-sm leading-relaxed max-w-2xl">
+                Get a complete overview of Kilimanjaro Group — our divisions, services, branches, capabilities, partnerships, and certifications — in a single PDF document.
+              </p>
+              <div class="flex flex-wrap gap-4 pt-2 text-xs text-gray-400">
+                <span class="inline-flex items-center gap-2"><i class="fa-solid fa-file-pdf text-brand-lime"></i> PDF format</span>
+                <span class="inline-flex items-center gap-2"><i class="fa-solid fa-weight-hanging text-brand-lime"></i> Compact file</span>
+                <span class="inline-flex items-center gap-2"><i class="fa-solid fa-clock-rotate-left text-brand-lime"></i> Updated 2026</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 flex flex-col gap-3">
+              <a id="download-company-profile"
+                 href="https://bufqcwcicvwknpyrofhc.supabase.co/storage/v1/object/public/documents/company%20profile/kilimanjaro%20CPv2.pdf-compressed.pdf"
+                 download="Kilimanjaro-Group-Company-Profile.pdf"
+                 target="_blank"
+                 rel="noopener"
+                 class="group w-full px-7 py-4 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all duration-300 shadow-glow inline-flex items-center justify-center gap-3">
+                <i class="fa-solid fa-download group-hover:translate-y-0.5 transition-transform"></i>
+                Download PDF
+              </a>
+              <a href="contact.html"
+                 class="w-full px-7 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white font-bold text-sm transition-all inline-flex items-center justify-center gap-3">
+                <i class="fa-solid fa-envelope"></i> Request by Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -977,18 +1023,28 @@ tailwind.config = {
           <button type="submit" class="px-5 py-2 rounded-full bg-brand-lime text-brand-dark font-extrabold text-xs hover:bg-brand-limeHover">Join</button>
         </form>
         <p class="mt-4 text-xs">
+          <i class="fa-solid fa-envelope text-brand-lime"></i>
+          <a href="mailto:info@kilimanjarogroupltd.co.tz" class="hover:text-brand-lime">info@kilimanjarogroupltd.co.tz</a>
+        </p>
+      
+        <p class="mt-4 text-xs">
           <i class="fa-solid fa-phone text-brand-lime"></i>
           <a id="footer-primary-phone" href="tel:+255679746702" class="hover:text-brand-lime">+255 679 746 702</a> ·
-          <a id="footer-secondary-phone" href="tel:+27768968767" class="hover:text-brand-lime">+27 76 896 8767</a>
+          <a id="footer-secondary-phone" href="tel:+27768968767" class="hover:text-brand-lime">+27 76 896 8767</a> <br>
         </p>
+        <a href="https://bufqcwcicvwknpyrofhc.supabase.co/storage/v1/object/public/documents/company%20profile/kilimanjaro%20CPv2.pdf-compressed.pdf"
+           download="Kilimanjaro-Group-Company-Profile.pdf"
+           target="_blank" rel="noopener"
+           class="mt-3 inline-flex items-center gap-2 text-brand-lime font-bold hover:underline">
+          <i class="fa-solid fa-file-pdf text-[10px]"></i> Download Company Profile
+        </a>
       </div>
     </div>
     <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
       <span>© 2026 Kilimanjaro Group. All rights reserved.</span>
       <span class="flex gap-4">
-        <a href="#" class="hover:text-brand-lime">Privacy</a>
-        <a href="#" class="hover:text-brand-lime">Terms</a>
-        <a href="#" class="hover:text-brand-lime">CSR</a>
+        <a href="privacy.html" class="hover:text-brand-lime">Privacy</a>
+        <a href="terms.html" class="hover:text-brand-lime">Terms</a>
         <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="hover:text-brand-lime">Staff Login</a>
       </span>
     </div>
@@ -1057,7 +1113,50 @@ function setHref(id, val) { const el = document.getElementById(id); if (el && va
 function setAttr(id, attr, val) { const el = document.getElementById(id); if (el && val) el.setAttribute(attr, val); }
 
 /* ============================================================
-   LOADERS — all fire in parallel via bootSupabase()
+   STAT HELPERS — single source of truth
+   ============================================================ */
+function findStatByLabel(rows, keywords) {
+  if (!rows || !rows.length) return null;
+  return rows.find(r => {
+    const label = (r.label || '').toLowerCase();
+    return keywords.some(k => label.includes(k.toLowerCase()));
+  }) || null;
+}
+
+function formatStatNumber(value, suffix) {
+  const raw = String(value ?? '').trim();
+  if (!raw) return { num: '0', suffix: suffix || '' };
+  if (/[A-Za-z]/.test(raw)) return { num: raw, suffix: suffix || '' };
+  const n = parseFloat(raw);
+  if (isNaN(n)) return { num: raw, suffix: suffix || '' };
+  if (Math.abs(n) >= 1_000_000) {
+    const v = (n / 1_000_000).toFixed(n % 1_000_000 === 0 ? 0 : 1);
+    return { num: v, suffix: 'M' + (suffix || '') };
+  }
+  if (Math.abs(n) >= 10_000) {
+    const v = (n / 1000).toFixed(n % 1000 === 0 ? 0 : 1);
+    return { num: v, suffix: 'K' + (suffix || '') };
+  }
+  return { num: raw, suffix: suffix || '' };
+}
+
+function renderStatCard(stat, index) {
+  const { num, suffix } = formatStatNumber(stat.value, stat.suffix);
+  const label = stat.label || '';
+  const icon = stat.icon || '';
+  const iconHtml = icon ? `<i class="${escapeHtml(icon)} text-brand-lime text-xs"></i> ` : '';
+  return `
+    <div class="stat-card space-y-2 border-l-2 border-brand-lime pl-6" data-stat-index="${index}">
+      <div class="text-4xl sm:text-5xl font-extrabold tracking-tight flex items-center gap-1 text-slate-900">
+        <span class="counter" data-target="${escapeHtml(String(stat.value))}">0</span>
+        <span class="text-brand-lime">${escapeHtml(suffix)}</span>
+      </div>
+      <p class="text-xs text-gray-600 font-medium leading-relaxed">${iconHtml}${escapeHtml(label)}</p>
+    </div>`;
+}
+
+/* ============================================================
+   LOADERS
    ============================================================ */
 
 async function loadSiteSettings() {
@@ -1065,7 +1164,6 @@ async function loadSiteSettings() {
   if (!rows || !rows.length) return;
   const s = rows[0];
 
-  /* Company logo — update header, footer, favicon */
   if (s.company_logo_url) {
     setAttr('header-logo', 'src', s.company_logo_url);
     setAttr('footer-logo', 'src', s.company_logo_url);
@@ -1073,7 +1171,6 @@ async function loadSiteSettings() {
     setAttr('apple-touch-link', 'href', s.company_logo_url);
   }
 
-  /* Hero video */
   if (s.hero_video_url) {
     const src = document.getElementById('hero-video-source');
     const vid = document.getElementById('hero-video');
@@ -1089,7 +1186,6 @@ async function loadSiteSettings() {
     if (vid) vid.poster = s.hero_video_poster_url;
   }
 
-  /* Hero overlay opacity */
   if (s.hero_overlay_opacity != null) {
     const overlay = document.getElementById('hero-overlay');
     if (overlay) {
@@ -1098,14 +1194,12 @@ async function loadSiteSettings() {
     }
   }
 
-  /* Hero text */
   setText('hero-headline-main', s.hero_headline);
   setText('hero-subheadline', s.hero_subheadline);
   setText('hero-badge-text', s.hero_badge_text);
   setText('hero-cta-label', s.hero_cta_label);
   if (s.hero_cta_link) { const cta = document.getElementById('hero-cta'); if (cta) cta.setAttribute('href', s.hero_cta_link); }
 
-  /* Contact info */
   if (s.primary_phone) {
     setText('footer-primary-phone', s.primary_phone);
     setText('contact-primary-phone', s.primary_phone);
@@ -1126,7 +1220,6 @@ async function loadSiteSettings() {
   }
   if (s.head_office_address) setText('footer-address', s.head_office_address);
 
-  /* Social links */
   ['facebook','twitter','linkedin','instagram'].forEach(key => {
     const url = s[`${key}_url`];
     const enabled = s[`${key}_enabled`];
@@ -1142,66 +1235,47 @@ async function loadStats() {
     filters: [{ col: 'is_active', val: true }],
     order: { col: 'display_order', asc: true }
   });
-  if (!rows || !rows.length) return;
 
-  /* 1. Section counters */
-  const statsSection = document.getElementById('stats');
-  if (statsSection) {
-    const grid = statsSection.querySelector('.grid');
-    if (grid) {
-      grid.innerHTML = rows.map(r => {
-        const num = r.value ?? '';
-        const suffix = r.suffix ?? '';
-        const label = r.label ?? '';
-        return `
-          <div class="space-y-2 border-l-2 border-brand-lime pl-6">
-            <div class="text-4xl sm:text-5xl font-extrabold tracking-tight flex items-center gap-1 text-slate-900">
-              <span class="counter" data-target="${escapeHtml(num)}">0</span>
-              <span class="text-brand-lime">${escapeHtml(suffix)}</span>
-            </div>
-            <p class="text-xs text-gray-600 font-medium leading-relaxed">${escapeHtml(label)}</p>
-          </div>`;
-      }).join('');
-      if (typeof window.__rerunCounters === 'function') window.__rerunCounters();
-    }
+  if (!rows || !rows.length) {
+    console.info('[Stats] No site_stats rows found — keeping fallback markup.');
+    return;
   }
 
-  /* 2. Hero mini-stats — match by label keywords */
-  const findByLabel = (keywords) => {
-    const row = rows.find(r => {
-      const l = (r.label || '').toLowerCase();
-      return keywords.some(k => l.includes(k));
-    });
-    return row;
-  };
+  const grid = document.getElementById('stats-grid');
+  if (grid) {
+    grid.innerHTML = rows.map((r, i) => renderStatCard(r, i)).join('');
+  }
 
-  const projectsRow = findByLabel(['projects', 'delivered']);
+  const projectsRow = findStatByLabel(rows, ['projects', 'delivered']);
   if (projectsRow) {
-    const suffix = projectsRow.suffix || '';
-    const num = projectsRow.value || '';
+    const { num, suffix } = formatStatNumber(projectsRow.value, projectsRow.suffix);
     setText('hero-projects-count', `${num}${suffix}`);
   }
 
-  const branchesRow = findByLabel(['branches', 'serving']);
+  const branchesRow = findStatByLabel(rows, ['branches', 'serving']);
   if (branchesRow) {
     setText('hero-active-sites', `${branchesRow.value || ''} ${branchesRow.suffix || ''} Branches`.trim());
   }
 
-  /* Rating — look for label containing 'satisfaction' or 'rating' */
-  const ratingRow = findByLabel(['satisfaction', 'rating']);
+  const ratingRow = findStatByLabel(rows, ['satisfaction', 'rating']);
   if (ratingRow) {
     const r = ratingRow.value || '4.9';
     setText('hero-rating-value', r);
     setText('hero-rating-label', `(${r}/5) Trusted by mining operations`);
   }
 
-  /* Efficiency — hardcoded 75% fallback, but if there's a stat labelled 'efficiency' use it */
-  const effRow = findByLabel(['efficiency']);
+  const effRow = findStatByLabel(rows, ['efficiency']);
   if (effRow) {
     const v = parseInt(effRow.value, 10) || 75;
     setText('hero-efficiency-label', `${v}%`);
     const bar = document.getElementById('hero-efficiency-bar');
     if (bar) bar.style.width = `${Math.min(100, v)}%`;
+  }
+
+  if (typeof window.__rerunCounters === 'function') {
+    window.__rerunCounters();
+    const statsSection = document.getElementById('stats');
+    if (statsSection) statsSection.dataset.statsReady = '1';
   }
 }
 
@@ -1216,39 +1290,28 @@ async function loadContentSlots() {
   const setImg = (id, key) => { const el = document.getElementById(id); if (el && getVal(key)) el.src = getVal(key); };
   const setTxt = (id, key) => { const el = document.getElementById(id); if (el && getLong(key)) el.textContent = getLong(key); };
 
-  /* About */
   setImg('about-hero-image', 'about.hero_image');
   setImg('about-meeting-image', 'about.meeting_image');
   setImg('about-consulting-image', 'about.consulting_image');
   setImg('faq-image', 'about.faq_image');
 
-  /* Who We Are slides */
   setImg('who-slide-1', 'about.hero_image');
   setImg('who-slide-2', 'about.meeting_image');
   setImg('who-slide-3', 'about.consulting_image');
   setImg('who-slide-4', 'about.team_expansion');
 
-  /* About text */
   setTxt('about-heading', 'about.heading');
   setTxt('about-body', 'about.body');
   setTxt('about-mission', 'about.mission');
   setTxt('about-vision', 'about.vision');
 
-  /* Divisions — all 4 */
   setImg('division-explosives-img', 'divisions.explosives_image');
   setImg('division-chemicals-img', 'divisions.chemicals_image');
   setImg('division-logistics-img', 'divisions.logistics_image');
   setImg('division-supplies-img', 'divisions.supplies_image');
 
-  /* Values slideshow — 6 images */
-  for (let i = 0; i < 6; i++) {
-    setImg(`value-img-${i}`, `values.slide_${i + 1}_image`);
-  }
-
-  /* Services timeline — 9 images */
-  for (let i = 1; i <= 9; i++) {
-    setImg(`service-img-${i}`, `services.card_${i}_image`);
-  }
+  for (let i = 0; i < 6; i++) setImg(`value-img-${i}`, `values.slide_${i + 1}_image`);
+  for (let i = 1; i <= 9; i++) setImg(`service-img-${i}`, `services.card_${i}_image`);
 }
 
 function productCardHTML(p) {
@@ -1455,7 +1518,7 @@ async function loadPageBanner(pageSlug) {
 }
 
 /* ============================================================
-   BOOT — parallel
+   BOOT
    ============================================================ */
 async function bootSupabase() {
   if (!supabaseClient) { console.info('[Supabase] Not configured.'); return; }
@@ -1555,7 +1618,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let countersAnimated = false;
   const runCounters = () => {
     document.querySelectorAll('.counter').forEach(counter => {
-      const target = parseFloat(counter.getAttribute('data-target'));
+      const targetRaw = counter.getAttribute('data-target');
+      const target = parseFloat(String(targetRaw).replace(/[^\d.-]/g, ''));
       if (isNaN(target)) return;
       const isInt = Number.isInteger(target);
       let count = 0;

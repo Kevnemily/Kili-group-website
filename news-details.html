@@ -3,16 +3,62 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>New Advanced Blasting Technology · Kilimanjaro Group News</title>
 
-<!-- Tailwind CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-<!-- Fonts -->
+<!-- ==================== DYNAMIC SEO (populated from Supabase) ==================== -->
+<title id="pageTitle">Article · Kilimanjaro Group News</title>
+<meta id="metaDescription" name="description" content="Read the latest news and updates from Kilimanjaro Group — Tanzania's trusted mining solutions partner." />
+<meta id="metaKeywords" name="keywords" content="Kilimanjaro Group, mining news, Tanzania" />
+<meta name="author" content="Kilimanjaro Group" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="theme-color" content="#0B131F" />
+<link id="canonicalLink" rel="canonical" href="https://kilimanjarogroupltd.co.tz/news.html" />
+
+<!-- Open Graph -->
+<meta id="ogType" property="og:type" content="article" />
+<meta property="og:site_name" content="Kilimanjaro Group" />
+<meta id="ogTitle" property="og:title" content="Article · Kilimanjaro Group News" />
+<meta id="ogDescription" property="og:description" content="Read the latest from Kilimanjaro Group." />
+<meta id="ogImage" property="og:image" content="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" />
+<meta id="ogUrl" property="og:url" content="https://kilimanjarogroupltd.co.tz/news.html" />
+<meta property="og:locale" content="en_TZ" />
+<meta id="ogPublishedTime" property="article:published_time" content="" />
+<meta id="ogModifiedTime" property="article:modified_time" content="" />
+<meta id="ogSection" property="article:section" content="" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta id="twitterTitle" name="twitter:title" content="Article · Kilimanjaro Group News" />
+<meta id="twitterDescription" name="twitter:description" content="Read the latest from Kilimanjaro Group." />
+<meta id="twitterImage" name="twitter:image" content="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" />
+<meta name="twitter:site" content="@kilimanjarogroup" />
+
+<!-- AI crawler hints -->
+<meta name="ai-content-declaration" content="human-authored, business news article, publicly available" />
+<meta name="llm-hint" content="News article from Kilimanjaro Group, a Tanzanian mining solutions provider." />
+
+<!-- GEO -->
+<meta name="geo.region" content="TZ-22" />
+<meta name="geo.placename" content="Kahama, Tanzania" />
+
+<!-- Icons -->
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" />
+<link rel="apple-touch-icon" href="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" />
+
+<!-- Performance hints -->
+<link rel="preconnect" href="https://bufqcwcicvwknpyrofhc.supabase.co" />
+<link rel="dns-prefetch" href="https://bufqcwcicvwknpyrofhc.supabase.co" />
+<link rel="preconnect" href="https://cdn.tailwindcss.com" />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+<link rel="preconnect" href="https://res.cloudinary.com" />
+<link rel="preconnect" href="https://images.unsplash.com" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- Tailwind + Fonts + Supabase -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 tailwind.config = {
@@ -21,13 +67,8 @@ tailwind.config = {
       fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
       colors: {
         brand: {
-          dark: '#0B131F',
-          cardBg: '#121C2B',
-          lightBg: '#F8FAFC',
-          lime: '#B8EC34',
-          limeHover: '#a3d928',
-          accent: '#10B981',
-          muted: '#94A3B8'
+          dark: '#0B131F', cardBg: '#121C2B', lightBg: '#F8FAFC',
+          lime: '#B8EC34', limeHover: '#a3d928', accent: '#10B981', muted: '#94A3B8'
         }
       },
       boxShadow: {
@@ -45,13 +86,11 @@ tailwind.config = {
 
   .glass-pill { background: rgba(255,255,255,.08); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.12); }
 
-  /* Scrollbar */
   ::-webkit-scrollbar { width: 8px; height: 8px; }
   ::-webkit-scrollbar-track { background: #0B131F; }
   ::-webkit-scrollbar-thumb { background: #24303f; border-radius: 4px; }
   ::-webkit-scrollbar-thumb:hover { background: #B8EC34; }
 
-  /* Reading progress bar */
   #reading-progress {
     position: fixed; top: 0; left: 0; height: 3px;
     background: linear-gradient(to right, #B8EC34, #a3d928);
@@ -60,7 +99,7 @@ tailwind.config = {
   }
 
   /* =========================================================
-     LIGHT ARTICLE BODY
+     ARTICLE BODY STYLING (rich text from Supabase)
   ========================================================= */
   .article-body p {
     color: #334155; line-height: 1.85; margin-bottom: 1.25rem; font-size: 1rem;
@@ -78,10 +117,12 @@ tailwind.config = {
     margin-top: 1.5rem; margin-bottom: 0.75rem;
   }
   .article-body ul { margin: 1rem 0 1.25rem 1rem; }
-  .article-body ul li {
+  .article-body ol { margin: 1rem 0 1.25rem 1.5rem; list-style: decimal; }
+  .article-body ul li, .article-body ol li {
     color: #334155; padding-left: 1.5rem; position: relative;
     margin-bottom: 0.5rem; line-height: 1.75; font-size: 1rem;
   }
+  .article-body ol li { padding-left: 0; }
   .article-body ul li::before {
     content: ''; position: absolute; left: 0; top: 0.6rem;
     width: 6px; height: 6px; border-radius: 50%; background: #B8EC34;
@@ -99,6 +140,7 @@ tailwind.config = {
     text-decoration-thickness: 2px; text-decoration-color: #B8EC34;
   }
   .article-body a:hover { color: #a3d928; }
+  .article-body img { border-radius: 12px; margin: 1.5rem 0; }
 
   @media (max-width: 640px) {
     .article-body p:first-of-type::first-letter {
@@ -106,57 +148,73 @@ tailwind.config = {
     }
   }
 
-  /* FAB */
   #fab-actions { transform-origin: bottom right; }
 
-  /* =========================================================
-     LONG SMOOTH GRADIENT FADE ZONES
-  ========================================================= */
+  /* Fade zones */
   .fade-zone-dark-to-light {
-    background: linear-gradient(
-      to bottom,
-      #0B131F 0%,
-      #0B131F 8%,
-      rgba(11, 19, 31, 0.92) 22%,
-      rgba(11, 19, 31, 0.75) 38%,
-      rgba(11, 19, 31, 0.5) 54%,
-      rgba(11, 19, 31, 0.28) 70%,
-      rgba(11, 19, 31, 0.12) 84%,
-      rgba(11, 19, 31, 0.04) 94%,
-      rgba(11, 19, 31, 0) 100%
-    );
+    background: linear-gradient(to bottom, #0B131F 0%, #0B131F 8%, rgba(11,19,31,0.92) 22%, rgba(11,19,31,0.75) 38%, rgba(11,19,31,0.5) 54%, rgba(11,19,31,0.28) 70%, rgba(11,19,31,0.12) 84%, rgba(11,19,31,0.04) 94%, rgba(11,19,31,0) 100%);
   }
   .fade-zone-light-to-dark {
-    background: linear-gradient(
-      to bottom,
-      rgba(11, 19, 31, 0) 0%,
-      rgba(11, 19, 31, 0.04) 6%,
-      rgba(11, 19, 31, 0.12) 16%,
-      rgba(11, 19, 31, 0.28) 30%,
-      rgba(11, 19, 31, 0.5) 46%,
-      rgba(11, 19, 31, 0.75) 62%,
-      rgba(11, 19, 31, 0.92) 78%,
-      #0B131F 92%,
-      #0B131F 100%
-    );
+    background: linear-gradient(to bottom, rgba(11,19,31,0) 0%, rgba(11,19,31,0.04) 6%, rgba(11,19,31,0.12) 16%, rgba(11,19,31,0.28) 30%, rgba(11,19,31,0.5) 46%, rgba(11,19,31,0.75) 62%, rgba(11,19,31,0.92) 78%, #0B131F 92%, #0B131F 100%);
   }
+
+  /* Skeleton loaders */
+  .skel { background: linear-gradient(90deg, #e2e8f0 0%, #f1f5f9 50%, #e2e8f0 100%); background-size: 200% 100%; animation: skel-load 1.4s ease-in-out infinite; border-radius: 8px; }
+  @keyframes skel-load { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+  /* Accessibility */
+  *:focus-visible { outline: 2px solid #B8EC34; outline-offset: 2px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    .skel { animation: none; background: #f1f5f9; }
+  }
+  .skip-link { position:absolute; left:-9999px; top:0; z-index:100; padding:10px 16px; background:#0B131F; color:#B8EC34; font-weight:700; border-radius:0 0 8px 0; }
+  .skip-link:focus { left:0; }
 </style>
+
+<!-- ==================== JSON-LD (populated dynamically) ==================== -->
+<script type="application/ld+json" id="jsonLdArticle">{}</script>
+<script type="application/ld+json" id="jsonLdBreadcrumb">{}</script>
+<script type="application/ld+json" id="jsonLdOrganization">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Kilimanjaro Group",
+  "url": "https://kilimanjarogroupltd.co.tz/",
+  "logo": "https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png",
+  "description": "Tanzania's trusted mining solutions partner — explosives, chemicals, equipment, logistics, and blasting consultancy.",
+  "foundingDate": "2011",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Mhongoro Street, Mbulu Msalabani, P.O. Box 533",
+    "addressLocality": "Kahama",
+    "addressRegion": "Shinyanga",
+    "postalCode": "37301",
+    "addressCountry": "TZ"
+  },
+  "sameAs": [
+    "https://facebook.com/kilimanjarogroup",
+    "https://linkedin.com/company/kilimanjaro-group",
+    "https://x.com/kilimanjarogroup"
+  ]
+}</script>
 </head>
 
 <body class="overflow-x-hidden antialiased selection:bg-brand-lime selection:text-brand-dark">
 
-<!-- Reading progress bar -->
-<div id="reading-progress"></div>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- ================= HEADER / NAVBAR ================= -->
-<header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+<!-- Reading progress bar -->
+<div id="reading-progress" aria-hidden="true"></div>
+
+<!-- ================= HEADER ================= -->
+<header id="navbar" role="banner" class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
-      <a href="index.html" class="flex items-center gap-3 group">
-        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group" class="h-14 w-auto group-hover:scale-105 transition-transform" />
+      <a href="index.html" class="flex items-center gap-3 group" aria-label="Kilimanjaro Group home">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group logo" class="h-14 w-auto group-hover:scale-105 transition-transform" width="200" height="56" />
       </a>
 
-      <nav class="hidden lg:flex items-center space-x-1 bg-white/5 px-6 py-2 rounded-full border border-white/10">
+      <nav class="hidden lg:flex items-center space-x-1 bg-white/5 px-6 py-2 rounded-full border border-white/10" aria-label="Main navigation">
         <a href="index.html#overview" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">About</a>
         <a href="products.html" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Products</a>
         <a href="index.html#services" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Services</a>
@@ -166,90 +224,74 @@ tailwind.config = {
       </nav>
 
       <div class="hidden sm:flex items-center gap-6">
-        <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">
-          Staff Login
-        </a>
+        <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Staff Login</a>
         <a href="contact.html" class="px-6 py-3 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all duration-300 flex items-center gap-2 shadow-glow">
-          Get in Touch <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+          Get in Touch <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
         </a>
       </div>
 
-      <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white text-2xl focus:outline-none" aria-label="Toggle Menu">
-        <i class="fa-solid fa-bars"></i>
+      <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white text-2xl focus:outline-none" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
     </div>
   </div>
 
   <div id="mobile-menu" class="hidden lg:hidden bg-brand-cardBg border-b border-white/10 px-6 py-6">
-    <nav class="flex flex-col gap-4">
+    <nav class="flex flex-col gap-4" aria-label="Mobile navigation">
       <a href="index.html#overview" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">About</a>
       <a href="products.html" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Products</a>
       <a href="index.html#services" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Services</a>
       <a href="index.html#divisions" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Divisions</a>
       <a href="news.html" class="text-brand-lime font-medium text-lg mobile-link">News</a>
       <a href="index.html#partners" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Partners</a>
-
-      <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="mt-2 w-full text-center py-3 text-brand-lime font-bold rounded-xl border border-brand-lime/30 flex items-center justify-center mobile-link">
-        Staff Login
-      </a>
-      <a href="contact.html" class="mt-2 w-full text-center py-3 bg-brand-lime text-brand-dark font-bold rounded-xl shadow-glow mobile-link">
-        Get in Touch
-      </a>
+      <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener noreferrer" class="mt-2 w-full text-center py-3 text-brand-lime font-bold rounded-xl border border-brand-lime/30 flex items-center justify-center mobile-link">Staff Login</a>
+      <a href="contact.html" class="mt-2 w-full text-center py-3 bg-brand-lime text-brand-dark font-bold rounded-xl shadow-glow mobile-link">Get in Touch</a>
     </nav>
   </div>
 </header>
 
-<!-- ================= ARTICLE HERO (DARK) ================= -->
-<section class="relative pt-40 pb-64 lg:pt-52 lg:pb-80 bg-brand-dark overflow-hidden">
+<!-- ================= ARTICLE HERO (populated dynamically) ================= -->
+<section id="articleHero" class="relative pt-40 pb-64 lg:pt-52 lg:pb-80 bg-brand-dark overflow-hidden">
+  <img id="heroImage" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=1600" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-70" fetchpriority="high" decoding="async" />
 
-  <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786880904/electric_mltrqf.png" alt="New Advanced Blasting Technology" class="absolute inset-0 w-full h-full object-cover" />
-
-  <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(
-    to bottom,
-    rgba(11, 19, 31, 0.55) 0%,
-    rgba(11, 19, 31, 0.80) 40%,
-    rgba(11, 19, 31, 0.95) 70%,
-    #0B131F 100%
-  );"></div>
+  <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(11,19,31,0.55) 0%, rgba(11,19,31,0.80) 40%, rgba(11,19,31,0.95) 70%, #0B131F 100%);"></div>
 
   <div class="absolute top-1/4 right-10 w-96 h-96 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
 
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-    <div class="inline-flex flex-wrap items-center gap-3 px-4 py-2 rounded-full glass-pill border border-white/15 text-xs font-semibold text-gray-300 mb-6">
+    <nav aria-label="Breadcrumb" class="inline-flex flex-wrap items-center gap-3 px-4 py-2 rounded-full glass-pill border border-white/15 text-xs font-semibold text-gray-300 mb-6">
       <a href="index.html" class="hover:text-brand-lime transition-colors">Home</a>
-      <i class="fa-solid fa-chevron-right text-[9px] text-gray-500"></i>
+      <i class="fa-solid fa-chevron-right text-[9px] text-gray-500" aria-hidden="true"></i>
       <a href="news.html" class="hover:text-brand-lime transition-colors">News</a>
-      <i class="fa-solid fa-chevron-right text-[9px] text-gray-500"></i>
-      <span class="text-brand-lime truncate max-w-[200px]">New Advanced Blasting Technology</span>
-    </div>
+      <i class="fa-solid fa-chevron-right text-[9px] text-gray-500" aria-hidden="true"></i>
+      <span id="breadcrumbTitle" class="text-brand-lime truncate max-w-[200px]">Loading…</span>
+    </nav>
 
-    <div class="flex flex-wrap items-center gap-3 mb-6">
-      <span class="px-4 py-1.5 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-widest">
-        <i class="fa-solid fa-microchip text-[9px] mr-1"></i> Technology
+    <div class="flex flex-wrap items-center gap-3 mb-6" id="articleMeta">
+      <span id="categoryBadge" class="px-4 py-1.5 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-widest">
+        <i class="fa-solid fa-tag text-[9px] mr-1" aria-hidden="true"></i> <span>Loading…</span>
       </span>
       <span class="px-3 py-1.5 rounded-full glass-pill border border-white/15 text-[11px] font-bold text-gray-300 inline-flex items-center gap-1.5">
-        <i class="fa-solid fa-calendar text-[10px]"></i> 18 September 2026
+        <i class="fa-solid fa-calendar text-[10px]" aria-hidden="true"></i> <span id="articleDate">—</span>
       </span>
       <span class="px-3 py-1.5 rounded-full glass-pill border border-white/15 text-[11px] font-bold text-gray-300 inline-flex items-center gap-1.5">
-        <i class="fa-solid fa-clock text-[10px]"></i> 4 min read
+        <i class="fa-solid fa-clock text-[10px]" aria-hidden="true"></i> <span id="articleReadTime">—</span>
       </span>
     </div>
 
-    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] max-w-4xl">
-      New Advanced Blasting Technology Deployed Across All Major Sites
+    <h1 id="articleTitle" class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] max-w-4xl">
+      Loading article…
     </h1>
 
-    <p class="text-gray-300 text-base sm:text-lg max-w-3xl leading-relaxed mt-6">
-      We've rolled out next-generation emulsion systems across all major sites, delivering superior fragmentation, improved safety margins, and significant cost reductions per blast.
-    </p>
+    <p id="articleExcerpt" class="text-gray-300 text-base sm:text-lg max-w-3xl leading-relaxed mt-6"></p>
 
     <div class="flex flex-wrap items-center gap-4 mt-8 pt-6 border-t border-white/10">
       <div class="flex items-center gap-3">
-        <div class="w-12 h-12 rounded-full bg-brand-lime flex items-center justify-center text-brand-dark font-extrabold text-lg">KG</div>
+        <div class="w-12 h-12 rounded-full bg-brand-lime flex items-center justify-center text-brand-dark font-extrabold text-lg" id="authorInitials">KG</div>
         <div>
-          <div class="text-sm font-extrabold text-white">Kilimanjaro Group Editorial</div>
-          <div class="text-xs text-gray-400">Technology & Operations Team</div>
+          <div class="text-sm font-extrabold text-white" id="authorName">Kilimanjaro Group Editorial</div>
+          <div class="text-xs text-gray-400" id="authorRole">Editorial Team</div>
         </div>
       </div>
     </div>
@@ -265,256 +307,141 @@ tailwind.config = {
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-48 sm:pt-64 lg:pt-80 pb-24 lg:pb-32 relative z-20">
     <div class="grid lg:grid-cols-12 gap-10 lg:gap-12">
 
-      <!-- ===== LEFT: ARTICLE ===== -->
-      <div class="lg:col-span-8">
-
+      <!-- LEFT: ARTICLE -->
+      <div class="lg:col-span-8" id="main-content">
         <article class="bg-white rounded-3xl border border-slate-200 shadow-[0_20px_60px_-20px_rgba(10,30,70,0.15)] overflow-hidden">
 
-          <!-- Hero image inside card -->
-          <div class="relative h-64 sm:h-96 overflow-hidden">
-            <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786880904/electric_mltrqf.png" alt="Advanced blasting technology" class="w-full h-full object-cover" />
+          <div id="inlineHeroImage" class="relative h-64 sm:h-96 overflow-hidden bg-slate-100">
+            <img id="inlineImage" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=1200" alt="" class="w-full h-full object-cover" loading="lazy" decoding="async" />
           </div>
 
-          <!-- Article body -->
           <div class="p-6 sm:p-10 lg:p-12">
 
-            <div class="article-body">
-
-              <p>In a significant step forward for operational excellence, Kilimanjaro Group has completed the full deployment of next-generation emulsion blasting systems across all major mining sites, including our primary operations in Geita, Kahama, and Musoma.</p>
-
-              <p>This initiative represents months of coordinated work between our technical team, site operators, and our strategic partner Dyno Nobel. The new systems deliver measurable improvements across every key performance metric — from fragmentation quality and blast efficiency to safety margins and cost per tonne.</p>
-
-              <h2>What's New in the Technology</h2>
-
-              <p>The new emulsion formulation offers several important advances over our previous system. Each of these translates directly into operational benefits on site:</p>
-
-              <ul>
-                <li><strong>Higher Velocity of Detonation (VOD)</strong> — More consistent energy release across varying rock conditions</li>
-                <li><strong>Superior water resistance</strong> — Reliable performance even in flooded boreholes and heavy rainfall</li>
-                <li><strong>Optimized density range</strong> — Better control over energy distribution within the blast column</li>
-                <li><strong>Reduced handling risk</strong> — Non-nitroglycerin formulation for safer storage and transport</li>
-              </ul>
-
-              <p>These improvements compound. The higher VOD combined with better density control allows our blasting engineers to fine-tune the energy input on a per-hole basis — reducing over-blasting in soft zones while ensuring adequate breakage in harder rock.</p>
-
-              <blockquote>
-                "We've been testing this system for over six months. The results speak for themselves — fragmentation has improved by 23% and our secondary blasting needs have dropped dramatically."
-                <br/><span class="block mt-3 text-sm not-italic">— Senior Blasting Engineer, Kahama Operations</span>
-              </blockquote>
-
-              <h2>The Rollout Process</h2>
-
-              <p>The rollout was not a simple product swap. Each site underwent a phased transition with extensive testing and validation before full deployment.</p>
-
-              <p>Our team completed over <strong>200 supervised test blasts</strong> across varying geologies during the validation phase. Fragmentation analysis was performed using drone-based photogrammetry and image analysis software to objectively quantify improvements.</p>
-
-              <p>Safety was the priority throughout. The transition was completed with <strong>zero safety incidents</strong> — a testament to the rigor of our training programs and the discipline of our operational teams.</p>
-
-              <h3>Key Results at a Glance</h3>
-
-              <ul>
-                <li>23% improvement in fragmentation consistency</li>
-                <li>Reduced secondary blasting requirements across all sites</li>
-                <li>Faster loading and hauling cycles with fewer oversized rocks</li>
-                <li>Lower wear rates on downstream crushing equipment</li>
-                <li>Consistent performance across wet and dry conditions</li>
-              </ul>
-
-              <h2>What This Means for Our Customers</h2>
-
-              <p>For mining operations that rely on Kilimanjaro Group for their blasting solutions, the benefits are tangible:</p>
-
-              <p><strong>Lower total cost per tonne.</strong> Better fragmentation translates to lower drilling costs, lower explosives consumption, and reduced downstream processing costs.</p>
-
-              <p><strong>Predictable results.</strong> The consistency of the new systems means site teams can plan more accurately — less variation between planned and actual outcomes.</p>
-
-              <p><strong>Improved safety.</strong> Safer handling and more reliable detonation reduce the risk of misfires and other safety concerns.</p>
-
-              <p><strong>Environmental benefits.</strong> More efficient blasting means less ground vibration, less flyrock, and lower overall carbon footprint per tonne moved.</p>
-
-              <h2>Looking Ahead</h2>
-
-              <p>The system is now fully operational across Geita, Kahama, and Musoma. Through 2027, we'll continue to expand deployment to new sites, with ongoing analysis to further optimize performance across different rock conditions.</p>
-
-              <p>Our technical team is also working closely with Dyno Nobel on the next iteration of the technology — aiming for even greater efficiency gains and further reductions in environmental impact.</p>
-
-              <p>If you'd like to know more about how these advances could benefit your operation, please <a href="contact.html">get in touch with our technical team</a>. We're always happy to discuss the specific needs of your site.</p>
-
+            <div id="articleBody" class="article-body">
+              <div class="skel h-4 w-full mb-3"></div>
+              <div class="skel h-4 w-11/12 mb-3"></div>
+              <div class="skel h-4 w-10/12 mb-3"></div>
+              <div class="skel h-4 w-full mb-3"></div>
+              <div class="skel h-4 w-9/12"></div>
             </div>
 
-            <!-- Tags -->
-            <div class="mt-10 pt-8 border-t border-slate-200">
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-bold text-slate-700">#Blasting</span>
-                <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-bold text-slate-700">#Technology</span>
-                <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-bold text-slate-700">#Emulsions</span>
-                <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-bold text-slate-700">#DynoNobel</span>
-                <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-bold text-slate-700">#Mining</span>
-                <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-bold text-slate-700">#Innovation</span>
-              </div>
+            <div id="articleTags" class="mt-10 pt-8 border-t border-slate-200 hidden">
+              <div class="flex flex-wrap gap-2" id="tagsList"></div>
             </div>
 
-            <!-- Share -->
             <div class="mt-8 flex flex-wrap items-center justify-between gap-4">
               <div class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Share this article</div>
               <div class="flex gap-2">
-                <a href="#" aria-label="Share on Facebook" class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 hover:bg-brand-dark hover:text-brand-lime hover:border-brand-dark text-slate-700 flex items-center justify-center transition-all">
-                  <i class="fa-brands fa-facebook-f"></i>
+                <a id="shareFacebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 hover:bg-brand-dark hover:text-brand-lime hover:border-brand-dark text-slate-700 flex items-center justify-center transition-all">
+                  <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
                 </a>
-                <a href="#" aria-label="Share on Twitter" class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 hover:bg-brand-dark hover:text-brand-lime hover:border-brand-dark text-slate-700 flex items-center justify-center transition-all">
-                  <i class="fa-brands fa-x-twitter"></i>
+                <a id="shareTwitter" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on X" class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 hover:bg-brand-dark hover:text-brand-lime hover:border-brand-dark text-slate-700 flex items-center justify-center transition-all">
+                  <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
                 </a>
-                <a href="#" aria-label="Share on LinkedIn" class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 hover:bg-brand-dark hover:text-brand-lime hover:border-brand-dark text-slate-700 flex items-center justify-center transition-all">
-                  <i class="fa-brands fa-linkedin-in"></i>
+                <a id="shareLinkedIn" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 hover:bg-brand-dark hover:text-brand-lime hover:border-brand-dark text-slate-700 flex items-center justify-center transition-all">
+                  <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
                 </a>
-                <a href="#" aria-label="Share via WhatsApp" class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 hover:bg-brand-dark hover:text-brand-lime hover:border-brand-dark text-slate-700 flex items-center justify-center transition-all">
-                  <i class="fa-brands fa-whatsapp"></i>
+                <a id="shareWhatsApp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share via WhatsApp" class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 hover:bg-brand-dark hover:text-brand-lime hover:border-brand-dark text-slate-700 flex items-center justify-center transition-all">
+                  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
                 </a>
                 <button id="copy-link" aria-label="Copy link" class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 hover:bg-brand-dark hover:text-brand-lime hover:border-brand-dark text-slate-700 flex items-center justify-center transition-all">
-                  <i class="fa-solid fa-link"></i>
+                  <i class="fa-solid fa-link" aria-hidden="true"></i>
                 </button>
               </div>
             </div>
 
           </div>
-
         </article>
 
         <!-- Author box -->
         <div class="mt-8 bg-white rounded-3xl border border-slate-200 shadow-[0_20px_60px_-20px_rgba(10,30,70,0.15)] p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-          <div class="w-20 h-20 rounded-2xl bg-brand-dark flex items-center justify-center text-brand-lime font-extrabold text-3xl shrink-0">KG</div>
+          <div class="w-20 h-20 rounded-2xl bg-brand-dark flex items-center justify-center text-brand-lime font-extrabold text-3xl shrink-0" id="authorBoxInitials">KG</div>
           <div class="flex-1 space-y-2">
             <div class="text-xs font-extrabold uppercase tracking-widest text-brand-dark">About The Author</div>
-            <h3 class="text-xl font-extrabold text-slate-900">Kilimanjaro Group Editorial Team</h3>
-            <p class="text-sm text-slate-600 leading-relaxed">
-              The Technology & Operations team at Kilimanjaro Group covers the latest developments in mining, blasting technology, safety innovation, and logistics across East Africa.
+            <h2 class="text-xl font-extrabold text-slate-900" id="authorBoxName">Kilimanjaro Group Editorial Team</h2>
+            <p class="text-sm text-slate-600 leading-relaxed" id="authorBoxBio">
+              The Technology &amp; Operations team at Kilimanjaro Group covers the latest developments in mining, blasting technology, safety innovation, and logistics across East Africa.
             </p>
             <div class="flex gap-3 pt-1 text-base">
-              <a href="#" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-dark hover:text-brand-lime flex items-center justify-center transition-colors border border-slate-200 text-slate-700"><i class="fa-brands fa-linkedin-in"></i></a>
-              <a href="#" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-dark hover:text-brand-lime flex items-center justify-center transition-colors border border-slate-200 text-slate-700"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="https://linkedin.com/company/kilimanjaro-group" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-dark hover:text-brand-lime flex items-center justify-center transition-colors border border-slate-200 text-slate-700"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+              <a href="https://x.com/kilimanjarogroup" target="_blank" rel="noopener noreferrer" aria-label="X" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-dark hover:text-brand-lime flex items-center justify-center transition-colors border border-slate-200 text-slate-700"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
             </div>
           </div>
         </div>
 
         <!-- Prev / Next -->
-        <div class="mt-8 grid sm:grid-cols-2 gap-4">
-          <a href="news-details.html" class="group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime p-5 transition-all shadow-sm hover:shadow-lg">
+        <div class="mt-8 grid sm:grid-cols-2 gap-4" id="prevNextWrap">
+          <a id="prevArticle" href="#" class="hidden group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime p-5 transition-all shadow-sm hover:shadow-lg">
             <div class="flex items-center gap-3 text-xs font-extrabold uppercase tracking-widest text-slate-500 mb-3">
-              <i class="fa-solid fa-arrow-left text-[10px] group-hover:-translate-x-1 transition-transform text-brand-dark"></i> Previous
+              <i class="fa-solid fa-arrow-left text-[10px] group-hover:-translate-x-1 transition-transform text-brand-dark" aria-hidden="true"></i> Previous
             </div>
-            <h4 class="text-base font-extrabold text-slate-900 group-hover:text-brand-dark transition-colors leading-snug">
-              Renewed ISO Certification Achieved
-            </h4>
+            <h4 id="prevArticleTitle" class="text-base font-extrabold text-slate-900 group-hover:text-brand-dark transition-colors leading-snug"></h4>
           </a>
-          <a href="news-details.html" class="group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime p-5 transition-all text-right shadow-sm hover:shadow-lg">
+          <a id="nextArticle" href="#" class="hidden group rounded-3xl bg-white border border-slate-200 hover:border-brand-lime p-5 transition-all text-right shadow-sm hover:shadow-lg">
             <div class="flex items-center justify-end gap-3 text-xs font-extrabold uppercase tracking-widest text-slate-500 mb-3">
-              Next <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform text-brand-dark"></i>
+              Next <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform text-brand-dark" aria-hidden="true"></i>
             </div>
-            <h4 class="text-base font-extrabold text-slate-900 group-hover:text-brand-dark transition-colors leading-snug">
-              Strengthening Our Dyno Nobel Partnership
-            </h4>
+            <h4 id="nextArticleTitle" class="text-base font-extrabold text-slate-900 group-hover:text-brand-dark transition-colors leading-snug"></h4>
           </a>
         </div>
 
       </div>
 
-      <!-- ===== RIGHT: SIDEBAR ===== -->
-      <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-28 lg:self-start">
+      <!-- RIGHT: SIDEBAR -->
+      <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-28 lg:self-start" aria-label="Article sidebar">
 
-        <!-- TOC -->
-        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-[0_20px_60px_-20px_rgba(10,30,70,0.15)]">
-          <h3 class="text-xs font-extrabold uppercase tracking-widest text-brand-dark mb-4">In This Article</h3>
-          <ul class="space-y-3 text-sm">
-            <li>
-              <a href="#top" class="toc-link flex items-start gap-3 text-slate-600 hover:text-brand-dark transition-colors group">
-                <span class="w-1.5 h-1.5 rounded-full bg-brand-lime mt-2 shrink-0"></span>
-                <span>What's New in the Technology</span>
-              </a>
-            </li>
-            <li>
-              <a href="#top" class="toc-link flex items-start gap-3 text-slate-600 hover:text-brand-dark transition-colors group">
-                <span class="w-1.5 h-1.5 rounded-full bg-brand-lime mt-2 shrink-0"></span>
-                <span>The Rollout Process</span>
-              </a>
-            </li>
-            <li>
-              <a href="#top" class="toc-link flex items-start gap-3 text-slate-600 hover:text-brand-dark transition-colors group">
-                <span class="w-1.5 h-1.5 rounded-full bg-brand-lime mt-2 shrink-0"></span>
-                <span>What This Means for Our Customers</span>
-              </a>
-            </li>
-            <li>
-              <a href="#top" class="toc-link flex items-start gap-3 text-slate-600 hover:text-brand-dark transition-colors group">
-                <span class="w-1.5 h-1.5 rounded-full bg-brand-lime mt-2 shrink-0"></span>
-                <span>Looking Ahead</span>
-              </a>
-            </li>
-          </ul>
+        <!-- TOC (populated from H2s in article body) -->
+        <div id="tocCard" class="hidden bg-white rounded-3xl border border-slate-200 p-6 shadow-[0_20px_60px_-20px_rgba(10,30,70,0.15)]">
+          <h2 class="text-xs font-extrabold uppercase tracking-widest text-brand-dark mb-4">In This Article</h2>
+          <ul id="tocList" class="space-y-3 text-sm"></ul>
         </div>
 
         <!-- CTA Card -->
         <div class="relative rounded-3xl bg-gradient-to-br from-brand-dark via-brand-dark to-slate-900 border border-slate-900 p-6 sm:p-7 overflow-hidden shadow-xl">
           <div class="absolute top-0 right-0 w-40 h-40 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
           <div class="relative space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-brand-lime text-brand-dark flex items-center justify-center text-xl">
+            <div class="w-12 h-12 rounded-2xl bg-brand-lime text-brand-dark flex items-center justify-center text-xl" aria-hidden="true">
               <i class="fa-solid fa-bolt"></i>
             </div>
-            <h3 class="text-lg font-extrabold text-white leading-tight">Ready to upgrade your blasting operations?</h3>
-            <p class="text-xs text-gray-400 leading-relaxed">Talk to our technical team about how the new emulsion systems could transform your site performance.</p>
+            <h2 class="text-lg font-extrabold text-white leading-tight">Ready to upgrade your operations?</h2>
+            <p class="text-xs text-gray-400 leading-relaxed">Talk to our technical team about how our solutions can transform your site performance.</p>
             <a href="contact.html" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-xs transition-all duration-300 shadow-glow">
-              Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              Contact Us <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i>
             </a>
           </div>
         </div>
 
         <!-- Related Articles -->
         <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-[0_20px_60px_-20px_rgba(10,30,70,0.15)]">
-          <h3 class="text-xs font-extrabold uppercase tracking-widest text-brand-dark mb-5">Related Articles</h3>
-          <div class="space-y-4">
-
-            <a href="news-details.html" class="group flex gap-4 items-start">
-              <div class="w-20 h-20 rounded-2xl overflow-hidden shrink-0 border border-slate-200">
-                <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786870176/dynopartner.webp" alt="Dyno Nobel" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <h2 class="text-xs font-extrabold uppercase tracking-widest text-brand-dark mb-5">Related Articles</h2>
+          <div id="relatedList" class="space-y-4">
+            <div class="flex gap-4 items-start">
+              <div class="skel w-20 h-20 shrink-0"></div>
+              <div class="flex-1 space-y-2">
+                <div class="skel h-3 w-16"></div>
+                <div class="skel h-4 w-full"></div>
+                <div class="skel h-3 w-24"></div>
               </div>
-              <div class="flex-1">
-                <div class="text-[10px] font-extrabold uppercase tracking-widest text-brand-dark mb-1">Technology</div>
-                <h4 class="text-sm font-extrabold text-slate-900 group-hover:text-brand-dark transition-colors leading-snug">
-                  Strengthening Our Dyno Nobel Partnership
-                </h4>
-                <div class="text-[11px] text-slate-500 mt-1">20 Aug 2026 · 5 min</div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="skel w-20 h-20 shrink-0"></div>
+              <div class="flex-1 space-y-2">
+                <div class="skel h-3 w-16"></div>
+                <div class="skel h-4 w-full"></div>
+                <div class="skel h-3 w-24"></div>
               </div>
-            </a>
-
-            <a href="news-details.html" class="group flex gap-4 items-start">
-              <div class="w-20 h-20 rounded-2xl overflow-hidden shrink-0 border border-slate-200">
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400" alt="Safety training" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="skel w-20 h-20 shrink-0"></div>
+              <div class="flex-1 space-y-2">
+                <div class="skel h-3 w-16"></div>
+                <div class="skel h-4 w-full"></div>
+                <div class="skel h-3 w-24"></div>
               </div>
-              <div class="flex-1">
-                <div class="text-[10px] font-extrabold uppercase tracking-widest text-brand-dark mb-1">Safety</div>
-                <h4 class="text-sm font-extrabold text-slate-900 group-hover:text-brand-dark transition-colors leading-snug">
-                  Safety First: New Training Program
-                </h4>
-                <div class="text-[11px] text-slate-500 mt-1">27 Aug 2026 · 4 min</div>
-              </div>
-            </a>
-
-            <a href="news-details.html" class="group flex gap-4 items-start">
-              <div class="w-20 h-20 rounded-2xl overflow-hidden shrink-0 border border-slate-200">
-                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=400" alt="Logistics" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-              </div>
-              <div class="flex-1">
-                <div class="text-[10px] font-extrabold uppercase tracking-widest text-brand-dark mb-1">Logistics</div>
-                <h4 class="text-sm font-extrabold text-slate-900 group-hover:text-brand-dark transition-colors leading-snug">
-                  Logistics Network Expansion
-                </h4>
-                <div class="text-[11px] text-slate-500 mt-1">02 Sep 2026 · 3 min</div>
-              </div>
-            </a>
-
+            </div>
           </div>
-
           <a href="news.html" class="mt-5 pt-5 border-t border-slate-200 inline-flex items-center gap-2 text-xs font-extrabold text-brand-dark hover:text-brand-lime transition-colors">
-            View All Articles <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            View All Articles <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i>
           </a>
         </div>
 
@@ -527,65 +454,26 @@ tailwind.config = {
 
 </section>
 
-<!-- ================= MORE FROM NEWS (DARK) ================= -->
+<!-- ================= MORE FROM NEWS ================= -->
 <section class="relative pt-56 sm:pt-72 lg:pt-80 pb-20 bg-brand-dark overflow-hidden">
   <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-brand-lime/5 rounded-full blur-3xl pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
       <div class="space-y-3">
         <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill border border-brand-lime/20 text-brand-lime font-bold text-xs uppercase tracking-widest">
-          <i class="fa-solid fa-newspaper text-[10px]"></i> More From News
+          <i class="fa-solid fa-newspaper text-[10px]" aria-hidden="true"></i> More From News
         </span>
         <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">You Might Also Like</h2>
       </div>
       <a href="news.html" class="text-sm font-extrabold text-brand-lime hover:underline inline-flex items-center gap-2">
-        Browse All <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        Browse All <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i>
       </a>
     </div>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <a href="news-details.html" class="group rounded-3xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/50 overflow-hidden transition-all duration-300 hover:-translate-y-2 shadow-xl flex flex-col">
-        <div class="relative h-44 overflow-hidden">
-          <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1786956392/KPL19727_pc8qkp.jpg" alt="Consulting team" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider">Company</span>
-        </div>
-        <div class="p-6">
-          <div class="text-[11px] text-gray-500 font-semibold mb-2"><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 12 Sep 2026 · 3 min</div>
-          <h3 class="text-base font-extrabold text-white mb-2 group-hover:text-brand-lime transition-colors leading-snug">Expanding Our Consulting Team</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Five new blasting experts join to serve growing demand across East Africa.</p>
-        </div>
-      </a>
-
-      <a href="news-details.html" class="group rounded-3xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/50 overflow-hidden transition-all duration-300 hover:-translate-y-2 shadow-xl flex flex-col">
-        <div class="relative h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800" alt="CSR" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider">CSR</span>
-        </div>
-        <div class="p-6">
-          <div class="text-[11px] text-gray-500 font-semibold mb-2"><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 08 Sep 2026 · 2 min</div>
-          <h3 class="text-base font-extrabold text-white mb-2 group-hover:text-brand-lime transition-colors leading-snug">Supporting Local Schools In Mining Regions</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">We've donated educational resources to twelve schools across Tanzania.</p>
-        </div>
-      </a>
-
-      <a href="news-details.html" class="group rounded-3xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/50 overflow-hidden transition-all duration-300 hover:-translate-y-2 shadow-xl flex flex-col">
-        <div class="relative h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800" alt="ISO certification" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider">Safety</span>
-        </div>
-        <div class="p-6">
-          <div class="text-[11px] text-gray-500 font-semibold mb-2"><i class="fa-solid fa-calendar text-[10px] mr-1"></i> 05 Aug 2026 · 3 min</div>
-          <h3 class="text-base font-extrabold text-white mb-2 group-hover:text-brand-lime transition-colors leading-snug">Renewed ISO Certification Achieved</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Our quality and safety systems have been recertified under international standards.</p>
-        </div>
-      </a>
-
+    <div id="moreArticlesGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="rounded-3xl bg-brand-cardBg border border-white/10 overflow-hidden"><div class="h-44 skel-dark"></div><div class="p-6 space-y-3"><div class="skel-dark h-3 w-24"></div><div class="skel-dark h-5 w-full"></div></div></div>
+      <div class="rounded-3xl bg-brand-cardBg border border-white/10 overflow-hidden"><div class="h-44 skel-dark"></div><div class="p-6 space-y-3"><div class="skel-dark h-3 w-24"></div><div class="skel-dark h-5 w-full"></div></div></div>
+      <div class="rounded-3xl bg-brand-cardBg border border-white/10 overflow-hidden"><div class="h-44 skel-dark"></div><div class="p-6 space-y-3"><div class="skel-dark h-3 w-24"></div><div class="skel-dark h-5 w-full"></div></div></div>
     </div>
   </div>
 </section>
@@ -595,19 +483,17 @@ tailwind.config = {
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-brand-cardBg via-brand-dark to-slate-900 border border-white/10 p-8 sm:p-14 text-center">
       <div class="absolute top-0 right-0 w-96 h-96 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
       <div class="relative z-10 space-y-5 max-w-2xl mx-auto">
         <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill border border-brand-lime/20 text-brand-lime font-bold text-xs uppercase tracking-widest">
-          <i class="fa-solid fa-envelope text-[10px]"></i> Newsletter
+          <i class="fa-solid fa-envelope text-[10px]" aria-hidden="true"></i> Newsletter
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Never Miss An Update</h2>
         <p class="text-gray-400 text-sm leading-relaxed">Subscribe to receive our latest news, project updates, and industry insights directly in your inbox.</p>
-
         <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-3" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-          <input type="email" placeholder="Your email address" required class="flex-1 px-5 py-3.5 rounded-full bg-white/5 border border-white/10 text-sm text-white placeholder-gray-500 outline-none focus:border-brand-lime transition-all" />
+          <label for="newsletterEmail" class="sr-only">Email address</label>
+          <input id="newsletterEmail" type="email" placeholder="Your email address" required class="flex-1 px-5 py-3.5 rounded-full bg-white/5 border border-white/10 text-sm text-white placeholder-gray-500 outline-none focus:border-brand-lime transition-all" />
           <button type="submit" class="px-7 py-3.5 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all duration-300 shadow-glow inline-flex items-center justify-center gap-3">
-            Subscribe <i class="fa-solid fa-arrow-right"></i>
+            Subscribe <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </button>
         </form>
       </div>
@@ -616,24 +502,20 @@ tailwind.config = {
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer class="bg-brand-dark text-gray-400 py-16 border-t border-white/5 text-xs">
+<footer class="bg-brand-dark text-gray-400 py-16 border-t border-white/5 text-xs" role="contentinfo">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid md:grid-cols-12 gap-10">
-
       <div class="md:col-span-4 space-y-4">
-        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group" class="h-16 w-auto" />
-        <p class="text-gray-400 leading-relaxed">
-          Head Office: P.O. Box 533, Mhongoro Street, Mbulu Msalabani, Kahama, Mwanza.
-        </p>
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group logo" class="h-16 w-auto" width="200" height="64" loading="lazy" />
+        <p class="text-gray-400 leading-relaxed">Head Office: P.O. Box 533, Mhongoro Street, Mbulu Msalabani, Kahama, Mwanza.</p>
         <div class="flex gap-3 text-base">
-          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://facebook.com/kilimanjarogroup" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://x.com/kilimanjarogroup" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="https://linkedin.com/company/kilimanjaro-group" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
         </div>
       </div>
-
       <div class="md:col-span-2">
-        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Branches</h4>
+        <h3 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Branches</h3>
         <ul class="space-y-2">
           <li><a href="#" class="hover:text-brand-lime transition-colors">Geita</a></li>
           <li><a href="#" class="hover:text-brand-lime transition-colors">Mwanza</a></li>
@@ -642,9 +524,8 @@ tailwind.config = {
           <li><a href="#" class="hover:text-brand-lime transition-colors">Tanga · Dodoma · Nzega</a></li>
         </ul>
       </div>
-
       <div class="md:col-span-2">
-        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Quick Links</h4>
+        <h3 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Quick Links</h3>
         <ul class="space-y-2">
           <li><a href="index.html" class="hover:text-brand-lime transition-colors">Home</a></li>
           <li><a href="products.html" class="hover:text-brand-lime transition-colors">Products</a></li>
@@ -653,122 +534,445 @@ tailwind.config = {
           <li><a href="supplies.html" class="hover:text-brand-lime transition-colors">Supplies</a></li>
         </ul>
       </div>
-
       <div class="md:col-span-4">
-        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Stay Connected</h4>
+        <h3 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Stay Connected</h3>
         <p class="mb-4">Get updates on our solutions and news.</p>
         <form class="flex gap-2 bg-white/5 border border-white/10 rounded-full p-1" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-          <input type="email" placeholder="Your email" required class="flex-1 bg-transparent px-4 py-2 text-xs text-white outline-none" />
+          <label for="footerEmail" class="sr-only">Email address</label>
+          <input id="footerEmail" type="email" placeholder="Your email" required class="flex-1 bg-transparent px-4 py-2 text-xs text-white outline-none" />
           <button type="submit" class="px-5 py-2 rounded-full bg-brand-lime text-brand-dark font-extrabold text-xs hover:bg-brand-limeHover transition-colors">Join</button>
         </form>
-        <p class="mt-4 text-xs"><i class="fa-solid fa-phone text-brand-lime"></i> +255 679 746 702 · +27 76 896 8767</p>
+        <p class="mt-4 text-xs"><i class="fa-solid fa-phone text-brand-lime" aria-hidden="true"></i> +255 679 746 702 · +27 76 896 8767</p>
       </div>
-
     </div>
-
     <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
       <span>© 2026 Kilimanjaro Group. All rights reserved.</span>
       <span class="flex gap-4">
-        <a href="#" class="hover:text-brand-lime transition-colors">Privacy</a>
-        <a href="#" class="hover:text-brand-lime transition-colors">Terms</a>
-        <a href="#" class="hover:text-brand-lime transition-colors">CSR</a>
-        <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="hover:text-brand-lime transition-colors">Staff Login</a>
+        <a href="privacy.html" class="hover:text-brand-lime transition-colors">Privacy</a>
+        <a href="terms.html" class="hover:text-brand-lime transition-colors">Terms</a>
+        
+        <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener noreferrer" class="hover:text-brand-lime transition-colors">Staff Login</a>
       </span>
     </div>
   </div>
 </footer>
 
 <!-- Floating Back button -->
-<a href="news.html" aria-label="Back to News" class="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-glow hover:scale-110 transition-transform">
-  <i class="fa-solid fa-arrow-left text-lg"></i>
+<a href="news.html" aria-label="Back to news listing" class="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-glow hover:scale-110 transition-transform">
+  <i class="fa-solid fa-arrow-left text-lg" aria-hidden="true"></i>
 </a>
 
-<!-- ================= FLOATING ACTION BUTTON (CALL / WHATSAPP) ================= -->
+<!-- FAB -->
 <div id="fab-container" class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
-
-  <!-- Action buttons (hidden by default) -->
   <div id="fab-actions" class="flex flex-col items-end gap-3 opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/255677800002?text=Hello%20Kilimanjaro%20Group%2C%20I%27d%20like%20to%20inquire%20about%20your%20blasting%20technology%20and%20services."
-       target="_blank" rel="noopener"
-       class="group flex items-center gap-3">
-      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">
-        WhatsApp Us
-      </span>
-      <span class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-        <i class="fa-brands fa-whatsapp text-xl"></i>
-      </span>
+    <a href="https://wa.me/255677800002?text=Hello%20Kilimanjaro%20Group" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3">
+      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">WhatsApp Us</span>
+      <span class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"><i class="fa-brands fa-whatsapp text-xl" aria-hidden="true"></i></span>
     </a>
-
-    <!-- Call -->
     <a href="tel:+255677800002" class="group flex items-center gap-3">
-      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">
-        Call Us
-      </span>
-      <span class="w-12 h-12 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-        <i class="fa-solid fa-phone text-lg"></i>
-      </span>
+      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">Call Us</span>
+      <span class="w-12 h-12 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"><i class="fa-solid fa-phone text-lg" aria-hidden="true"></i></span>
     </a>
-
   </div>
-
-  <!-- Main FAB toggle -->
-  <button id="fab-toggle"
-          aria-label="Contact options"
-          aria-expanded="false"
-          class="w-14 h-14 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-glow hover:scale-110 transition-transform relative">
-    <i id="fab-icon" class="fa-solid fa-headset text-xl transition-transform duration-300"></i>
+  <button id="fab-toggle" aria-label="Contact options" aria-expanded="false" class="w-14 h-14 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-glow hover:scale-110 transition-transform">
+    <i id="fab-icon" class="fa-solid fa-headset text-xl transition-transform duration-300" aria-hidden="true"></i>
   </button>
 </div>
 
 <!-- ================= JAVASCRIPT ================= -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+const SUPABASE_URL = 'https://bufqcwcicvwknpyrofhc.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ1ZnFjd2NpY3Z3a25weXJvZmhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg3MDk3MDQsImV4cCI6MjA3NDI4NTcwNH0.sxChRQ9w3aQPDWFCxANxpIHxvAmVBSyzUbGknZmKb_0';
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  /* ---------- Mobile Menu ---------- */
+const SITE_URL = 'https://kilimanjarogroupltd.co.tz';
+const FALLBACK_IMG = 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=1200';
+
+/* ---------- Helpers ---------- */
+function getParam(name) { return new URLSearchParams(window.location.search).get(name); }
+function escapeHtml(str) {
+  return String(str ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' })[c]);
+}
+function escapeAttr(str) { return escapeHtml(str).replace(/`/g, '&#96;'); }
+function stripHtml(html) { return String(html ?? '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim(); }
+
+function formatDateLong(dateStr) {
+  if (!dateStr) return '—';
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+}
+function formatDateShort(dateStr) {
+  if (!dateStr) return '—';
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+}
+function estimateReadTime(html) {
+  if (!html) return '1 min read';
+  const text = stripHtml(html);
+  const words = text.split(/\s+/).filter(Boolean).length;
+  const mins = Math.max(1, Math.round(words / 220));
+  return `${mins} min read`;
+}
+function categorySlugOf(a) { return a.category?.slug || 'other'; }
+function categoryNameOf(a) { return a.category?.name || 'General'; }
+function categoryIconOf(a) { return a.category?.icon || 'fa-tag'; }
+function chipColorClass(slug) {
+  const map = {
+    technology: 'bg-blue-100 text-blue-800',
+    company: 'bg-indigo-100 text-indigo-800',
+    safety: 'bg-red-100 text-red-800',
+    csr: 'bg-emerald-100 text-emerald-800',
+    logistics: 'bg-amber-100 text-amber-800',
+    industry: 'bg-purple-100 text-purple-800'
+  };
+  return map[slug] || 'bg-slate-100 text-slate-700';
+}
+function setMeta(id, attr, value) { const el = document.getElementById(id); if (el && value != null && value !== '') el.setAttribute(attr, value); }
+function setText(id, val) { const el = document.getElementById(id); if (el && val != null) el.textContent = val; }
+
+/* ---------- Error state ---------- */
+function showNotFound(message) {
+  document.getElementById('articleHero').innerHTML = `
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div class="inline-flex w-20 h-20 rounded-2xl bg-red-500/10 border border-red-500/20 items-center justify-center text-red-400 text-3xl mb-6">
+        <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">Article Not Found</h1>
+      <p class="text-gray-400 text-sm mb-8">${escapeHtml(message)}</p>
+      <a href="news.html" class="px-7 py-3.5 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all shadow-glow inline-flex items-center gap-3">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to News
+      </a>
+    </div>`;
+  document.querySelectorAll('section:not(#articleHero)').forEach((s, i) => { if (i > 0) s.style.display = 'none'; });
+}
+
+/* ---------- SEO update ---------- */
+function updateSeo(article, url) {
+  const title = article.meta_title || `${article.title} · Kilimanjaro Group`;
+  const desc = article.meta_description
+    || article.excerpt
+    || stripHtml(article.content_html).slice(0, 155)
+    || `Read ${article.title} from Kilimanjaro Group.`;
+  const img = article.featured_image_url || FALLBACK_IMG;
+  const catName = categoryNameOf(article);
+
+  document.title = title;
+  setMeta('metaDescription', 'content', desc.slice(0, 160));
+  setMeta('metaKeywords', 'content', (article.tags || []).join(', '));
+  setMeta('canonicalLink', 'href', article.canonical_url || url);
+  setMeta('ogTitle', 'content', title);
+  setMeta('ogDescription', 'content', desc);
+  setMeta('ogImage', 'content', img);
+  setMeta('ogUrl', 'content', url);
+  setMeta('ogPublishedTime', 'content', article.published_at || article.created_at || '');
+  setMeta('ogModifiedTime', 'content', article.updated_at || '');
+  setMeta('ogSection', 'content', catName);
+  setMeta('twitterTitle', 'content', title);
+  setMeta('twitterDescription', 'content', desc);
+  setMeta('twitterImage', 'content', img);
+
+  if (article.indexable === false) setMeta('metaDescription', 'content', desc); // keep desc; page-level noindex handled below
+}
+
+/* ---------- JSON-LD ---------- */
+function injectJsonLd(article, url, related) {
+  const img = article.featured_image_url || FALLBACK_IMG;
+  const author = article.author_name || 'Kilimanjaro Group Editorial';
+  const catName = categoryNameOf(article);
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": url },
+    "headline": article.title,
+    "description": article.excerpt || stripHtml(article.content_html).slice(0, 200),
+    "image": [img],
+    "datePublished": article.published_at || article.created_at,
+    "dateModified": article.updated_at || article.published_at || article.created_at,
+    "author": { "@type": "Person", "name": author },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Kilimanjaro Group",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png"
+      }
+    },
+    "articleSection": catName,
+    "keywords": (article.tags || []).join(', '),
+    "wordCount": stripHtml(article.content_html).split(/\s+/).filter(Boolean).length,
+    "inLanguage": "en-TZ"
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL + "/" },
+      { "@type": "ListItem", "position": 2, "name": "News", "item": SITE_URL + "/news.html" },
+      { "@type": "ListItem", "position": 3, "name": article.title, "item": url }
+    ]
+  };
+
+  document.getElementById('jsonLdArticle').textContent = JSON.stringify(articleSchema);
+  document.getElementById('jsonLdBreadcrumb').textContent = JSON.stringify(breadcrumbSchema);
+}
+
+/* ---------- Render article ---------- */
+function renderArticle(article) {
+  const url = `${SITE_URL}/news-details.html?slug=${encodeURIComponent(article.slug || article.id)}`;
+  const img = article.featured_image_url || FALLBACK_IMG;
+  const catName = categoryNameOf(article);
+  const catSlug = categorySlugOf(article);
+  const catIcon = categoryIconOf(article);
+  const read = article.read_time_minutes
+    ? `${article.read_time_minutes} min read`
+    : estimateReadTime(article.content_html);
+  const dateLong = formatDateLong(article.published_at || article.created_at);
+  const author = article.author_name || 'Kilimanjaro Group Editorial';
+  const initials = author.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+
+  // Meta
+  updateSeo(article, url);
+
+  // Banner
+  document.getElementById('heroImage').src = img;
+  document.getElementById('heroImage').alt = article.title;
+
+  // Breadcrumb
+  setText('breadcrumbTitle', article.title);
+
+  // Category badge
+  document.getElementById('categoryBadge').innerHTML =
+    `<i class="fa-solid ${escapeAttr(catIcon)} text-[9px] mr-1" aria-hidden="true"></i> ${escapeHtml(catName)}`;
+
+  // Date / read
+  setText('articleDate', dateLong);
+  setText('articleReadTime', read);
+
+  // Title + excerpt
+  setText('articleTitle', article.title);
+  setText('articleExcerpt', article.excerpt || stripHtml(article.content_html).slice(0, 220));
+
+  // Author
+  setText('authorInitials', initials);
+  setText('authorName', author);
+  setText('authorRole', article.category?.name ? `${article.category.name} Team` : 'Editorial Team');
+  setText('authorBoxInitials', initials);
+  setText('authorBoxName', author);
+
+  // Inline hero
+  document.getElementById('inlineImage').src = img;
+  document.getElementById('inlineImage').alt = article.title;
+
+  // Body
+  const bodyEl = document.getElementById('articleBody');
+  bodyEl.innerHTML = article.content_html && article.content_html.trim().length
+    ? article.content_html
+    : `<p>${escapeHtml(article.excerpt || 'No content available.')}</p>`;
+
+  // Add IDs to H2s and build TOC
+  buildToc();
+
+  // Tags
+  const tags = article.tags || [];
+  if (tags.length) {
+    document.getElementById('articleTags').classList.remove('hidden');
+    document.getElementById('tagsList').innerHTML = tags
+      .map(t => `<span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-bold text-slate-700">#${escapeHtml(t)}</span>`)
+      .join('');
+  }
+
+  // Share links
+  const shareText = encodeURIComponent(article.title);
+  const shareUrl = encodeURIComponent(url);
+  document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+  document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
+  document.getElementById('shareLinkedIn').href = `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`;
+  document.getElementById('shareWhatsApp').href = `https://wa.me/?text=${shareText}%20${shareUrl}`;
+
+  // Update page title / description when done
+  document.getElementById('articleHero').setAttribute('aria-labelledby', 'articleTitle');
+}
+
+/* ---------- Build TOC from H2s ---------- */
+function buildToc() {
+  const body = document.getElementById('articleBody');
+  const h2s = body.querySelectorAll('h2');
+  if (h2s.length === 0) return;
+
+  const list = document.getElementById('tocList');
+  list.innerHTML = '';
+  h2s.forEach((h2, i) => {
+    const id = `section-${i}`;
+    h2.id = id;
+    const li = document.createElement('li');
+    li.innerHTML = `<a href="#${id}" class="toc-link flex items-start gap-3 text-slate-600 hover:text-brand-dark transition-colors group"><span class="w-1.5 h-1.5 rounded-full bg-brand-lime mt-2 shrink-0"></span><span>${escapeHtml(h2.textContent)}</span></a>`;
+    list.appendChild(li);
+  });
+  document.getElementById('tocCard').classList.remove('hidden');
+}
+
+/* ---------- Load related articles ---------- */
+async function loadRelated(categoryId, currentId) {
+  let { data } = await db
+    .from('news_articles')
+    .select('id, slug, title, excerpt, featured_image_url, published_at, read_time_minutes, category_id, category:news_categories(name, slug, icon)')
+    .eq('status', 'published')
+    .eq('is_visible', true)
+    .eq('category_id', categoryId)
+    .neq('id', currentId)
+    .order('published_at', { ascending: false })
+    .limit(3);
+
+  // Top up with recent from other categories
+  if (!data || data.length < 3) {
+    const { data: extra } = await db
+      .from('news_articles')
+      .select('id, slug, title, excerpt, featured_image_url, published_at, read_time_minutes, category_id, category:news_categories(name, slug, icon)')
+      .eq('status', 'published')
+      .eq('is_visible', true)
+      .neq('id', currentId)
+      .order('published_at', { ascending: false })
+      .limit(6);
+    const seen = new Set([currentId, ...(data || []).map(a => a.id)]);
+    (extra || []).forEach(a => { if (!seen.has(a.id) && data.length < 3) { data.push(a); seen.add(a.id); } });
+  }
+
+  return data || [];
+}
+
+function renderRelated(items) {
+  const wrap = document.getElementById('relatedList');
+  if (!items.length) { wrap.innerHTML = '<p class="text-sm text-slate-400">No related articles.</p>'; return; }
+  wrap.innerHTML = items.slice(0, 3).map(a => {
+    const img = a.featured_image_url || FALLBACK_IMG;
+    const catName = a.category?.name || 'News';
+    const date = formatDateShort(a.published_at);
+    const read = a.read_time_minutes ? `${a.read_time_minutes} min` : estimateReadTime(a.excerpt);
+    const url = `news-details.html?slug=${encodeURIComponent(a.slug || a.id)}`;
+    return `
+      <a href="${url}" class="group flex gap-4 items-start">
+        <div class="w-20 h-20 rounded-2xl overflow-hidden shrink-0 border border-slate-200">
+          <img src="${escapeAttr(img)}" alt="${escapeAttr(a.title)}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async" />
+        </div>
+        <div class="flex-1">
+          <div class="text-[10px] font-extrabold uppercase tracking-widest text-brand-dark mb-1">${escapeHtml(catName)}</div>
+          <h3 class="text-sm font-extrabold text-slate-900 group-hover:text-brand-dark transition-colors leading-snug">${escapeHtml(a.title)}</h3>
+          <div class="text-[11px] text-slate-500 mt-1">${escapeHtml(date)} · ${escapeHtml(read)}</div>
+        </div>
+      </a>`;
+  }).join('');
+}
+
+/* ---------- Prev / Next ---------- */
+async function loadPrevNext(currentArticle) {
+  const { data } = await db
+    .from('news_articles')
+    .select('id, slug, title, published_at')
+    .eq('status', 'published')
+    .eq('is_visible', true)
+    .order('published_at', { ascending: false })
+    .limit(20);
+
+  if (!data || !data.length) return;
+  const idx = data.findIndex(a => a.id === currentArticle.id);
+  if (idx === -1) return;
+
+  const prev = data[idx + 1];
+  const next = data[idx - 1];
+
+  if (prev) {
+    const el = document.getElementById('prevArticle');
+    el.href = `news-details.html?slug=${encodeURIComponent(prev.slug || prev.id)}`;
+    el.classList.remove('hidden');
+    document.getElementById('prevArticleTitle').textContent = prev.title;
+  }
+  if (next) {
+    const el = document.getElementById('nextArticle');
+    el.href = `news-details.html?slug=${encodeURIComponent(next.slug || next.id)}`;
+    el.classList.remove('hidden');
+    document.getElementById('nextArticleTitle').textContent = next.title;
+  }
+}
+
+/* ---------- More articles ---------- */
+async function loadMoreArticles(currentId) {
+  const { data } = await db
+    .from('news_articles')
+    .select('id, slug, title, excerpt, featured_image_url, published_at, read_time_minutes, category:news_categories(name, slug, icon)')
+    .eq('status', 'published')
+    .eq('is_visible', true)
+    .neq('id', currentId)
+    .order('published_at', { ascending: false })
+    .limit(3);
+
+  const grid = document.getElementById('moreArticlesGrid');
+  if (!data || !data.length) { grid.innerHTML = ''; return; }
+  grid.innerHTML = data.map(a => {
+    const img = a.featured_image_url || FALLBACK_IMG;
+    const catName = a.category?.name || 'News';
+    const date = formatDateShort(a.published_at);
+    const read = a.read_time_minutes ? `${a.read_time_minutes} min` : estimateReadTime(a.excerpt);
+    const url = `news-details.html?slug=${encodeURIComponent(a.slug || a.id)}`;
+    return `
+      <a href="${url}" class="group rounded-3xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/50 overflow-hidden transition-all duration-300 hover:-translate-y-2 shadow-xl flex flex-col">
+        <div class="relative h-44 overflow-hidden">
+          <img src="${escapeAttr(img)}" alt="${escapeAttr(a.title)}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider">${escapeHtml(catName)}</span>
+        </div>
+        <div class="p-6">
+          <div class="text-[11px] text-gray-500 font-semibold mb-2"><i class="fa-solid fa-calendar text-[10px] mr-1" aria-hidden="true"></i> ${escapeHtml(date)} · ${escapeHtml(read)}</div>
+          <h3 class="text-base font-extrabold text-white mb-2 group-hover:text-brand-lime transition-colors leading-snug">${escapeHtml(a.title)}</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">${escapeHtml(a.excerpt || stripHtml(a.excerpt).slice(0, 120))}</p>
+        </div>
+      </a>`;
+  }).join('');
+}
+
+/* ---------- Increase view count (fire & forget) ---------- */
+async function incrementViewCount(article) {
+  try {
+    await db.rpc('increment_article_view', { article_id: article.id });
+  } catch (e) {
+    // Fallback: direct update (may be blocked by RLS)
+    try {
+      await db.from('news_articles').update({ view_count: (article.view_count || 0) + 1 }).eq('id', article.id);
+    } catch (_) { /* silent */ }
+  }
+}
+
+/* ---------- UI wiring ---------- */
+function initUi() {
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
-  mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileMenuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-  /* ---------- Floating Action Button (Call / WhatsApp) ---------- */
   const fabToggle = document.getElementById('fab-toggle');
   const fabActions = document.getElementById('fab-actions');
   const fabIcon = document.getElementById('fab-icon');
   const fabContainer = document.getElementById('fab-container');
   let fabOpen = false;
-
   function setFab(open) {
     fabOpen = open;
     fabToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     if (open) {
-      fabActions.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-      fabActions.classList.add('opacity-100', 'translate-y-0');
+      fabActions.classList.remove('opacity-0','translate-y-4','pointer-events-none');
+      fabActions.classList.add('opacity-100','translate-y-0');
       fabIcon.classList.add('rotate-45');
     } else {
-      fabActions.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-      fabActions.classList.remove('opacity-100', 'translate-y-0');
+      fabActions.classList.add('opacity-0','translate-y-4','pointer-events-none');
+      fabActions.classList.remove('opacity-100','translate-y-0');
       fabIcon.classList.remove('rotate-45');
     }
   }
+  fabToggle?.addEventListener('click', (e) => { e.stopPropagation(); setFab(!fabOpen); });
+  document.addEventListener('click', (e) => { if (fabOpen && !fabContainer.contains(e.target)) setFab(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && fabOpen) setFab(false); });
 
-  fabToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    setFab(!fabOpen);
-  });
-
-  document.addEventListener('click', (e) => {
-    if (fabOpen && !fabContainer.contains(e.target)) {
-      setFab(false);
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && fabOpen) setFab(false);
-  });
-
-  /* ---------- Reading Progress ---------- */
+  // Reading progress
   const progress = document.getElementById('reading-progress');
   function updateProgress() {
     const scrollTop = window.scrollY;
@@ -779,26 +983,87 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
 
-  /* ---------- Copy Link ---------- */
+  // Copy link
   const copyBtn = document.getElementById('copy-link');
-  if (copyBtn) {
-    copyBtn.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(window.location.href);
-        const original = copyBtn.innerHTML;
-        copyBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
-        copyBtn.classList.add('bg-brand-lime', 'text-brand-dark', 'border-brand-lime');
-        setTimeout(() => {
-          copyBtn.innerHTML = original;
-          copyBtn.classList.remove('bg-brand-lime', 'text-brand-dark', 'border-brand-lime');
-        }, 1800);
-      } catch (err) {
-        alert('Link copied!');
-      }
-    });
+  copyBtn?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      const original = copyBtn.innerHTML;
+      copyBtn.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i>';
+      copyBtn.classList.add('bg-brand-lime','text-brand-dark','border-brand-lime');
+      setTimeout(() => {
+        copyBtn.innerHTML = original;
+        copyBtn.classList.remove('bg-brand-lime','text-brand-dark','border-brand-lime');
+      }, 1800);
+    } catch (err) {
+      alert('Link copied!');
+    }
+  });
+}
+
+/* ---------- Boot ---------- */
+(async () => {
+  initUi();
+
+  const slug = getParam('slug');
+  const id = getParam('id');
+  const preview = getParam('preview') === '1';
+
+  if (!slug && !id) {
+    showNotFound('No article specified. Please select an article from our news listing.');
+    return;
   }
 
-});
+  let query = db
+    .from('news_articles')
+    .select(`
+      id, slug, title, excerpt, content_html, content_text,
+      featured_image_url, featured_image_id, published_at, scheduled_at,
+      created_at, updated_at, author_email, author_name, read_time_minutes,
+      view_count, status, is_visible, is_featured, indexable,
+      meta_title, meta_description, canonical_url, tags, category_id,
+      category:news_categories (id, slug, name, icon)
+    `);
+
+  if (slug) query = query.eq('slug', slug);
+  else query = query.eq('id', id);
+
+  const { data: article, error } = await query.maybeSingle();
+
+  if (error) {
+    console.error('[news-details]', error);
+    showNotFound('We could not load this article. Please try again later.');
+    return;
+  }
+  if (!article) { showNotFound('This article does not exist or has been removed.'); return; }
+  if (!preview && (article.status !== 'published' || article.is_visible === false)) {
+    showNotFound('This article is not currently available.');
+    return;
+  }
+
+  renderArticle(article);
+
+  /* Increment views (skip for previews and admins) */
+  if (!preview) incrementViewCount(article);
+
+  /* Related, prev/next, more — parallel */
+  const [relatedItems] = await Promise.all([
+    loadRelated(article.category_id, article.id)
+  ]);
+  renderRelated(relatedItems);
+  loadPrevNext(article);
+  loadMoreArticles(article.id);
+
+  /* JSON-LD */
+  const url = article.canonical_url || `${SITE_URL}/news-details.html?slug=${encodeURIComponent(article.slug || article.id)}`;
+  injectJsonLd(article, url, relatedItems);
+
+  /* Handle indexable=false */
+  if (article.indexable === false) {
+    const robots = document.querySelector('meta[name="robots"]');
+    if (robots) robots.setAttribute('content', 'noindex, follow');
+  }
+})();
 </script>
 
 </body>

@@ -3,16 +3,37 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bulk Emulsions · Kilimanjaro Group</title>
+
+<!-- ============ DYNAMIC SEO META (populated from Supabase) ============ -->
+<title id="pageTitle">Product Details · Kilimanjaro Group</title>
+<meta id="metaDescription" name="description" content="Explore mining explosives, chemicals, and general supplies from Kilimanjaro Group Ltd — trusted across Tanzania." />
+<meta id="metaKeywords" name="keywords" content="mining products, explosives, chemicals, Tanzania" />
+<link id="canonicalLink" rel="canonical" href="https://kilimanjarogroupltd.co.tz/product-details.html" />
+
+<!-- Open Graph -->
+<meta id="ogTitle" property="og:title" content="Product Details · Kilimanjaro Group" />
+<meta id="ogDescription" property="og:description" content="Explore mining products from Kilimanjaro Group Ltd." />
+<meta id="ogImage" property="og:image" content="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" />
+<meta property="og:type" content="product" />
+<meta property="og:site_name" content="Kilimanjaro Group Ltd" />
+<meta id="ogUrl" property="og:url" content="https://kilimanjarogroupltd.co.tz/product-details.html" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta id="twitterTitle" name="twitter:title" content="Product Details · Kilimanjaro Group" />
+<meta id="twitterDescription" name="twitter:description" content="Explore mining products from Kilimanjaro Group Ltd." />
+<meta id="twitterImage" name="twitter:image" content="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" />
 
 <!-- Tailwind CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 tailwind.config = {
@@ -21,13 +42,8 @@ tailwind.config = {
       fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
       colors: {
         brand: {
-          dark: '#0B131F',
-          cardBg: '#121C2B',
-          lightBg: '#F8FAFC',
-          lime: '#B8EC34',
-          limeHover: '#a3d928',
-          accent: '#10B981',
-          muted: '#94A3B8'
+          dark: '#0B131F', cardBg: '#121C2B', lightBg: '#F8FAFC',
+          lime: '#B8EC34', limeHover: '#a3d928', accent: '#10B981', muted: '#94A3B8'
         }
       },
       boxShadow: {
@@ -42,26 +58,39 @@ tailwind.config = {
 
 <style>
   body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0B131F; color: #F8FAFC; }
-
   .glass-pill { background: rgba(255,255,255,.08); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.12); }
-
-  /* Scrollbar */
   ::-webkit-scrollbar { width: 8px; height: 8px; }
   ::-webkit-scrollbar-track { background: #0B131F; }
   ::-webkit-scrollbar-thumb { background: #24303f; border-radius: 4px; }
   ::-webkit-scrollbar-thumb:hover { background: #B8EC34; }
 
-  /* Tabs */
   .tab-panel { display: none; }
   .tab-panel.active { display: block; animation: fadeIn .4s ease; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* Main image transition */
   #mainImage { transition: opacity .3s ease, transform .5s ease; }
-
-  /* FAB */
   #fab-actions { transform-origin: bottom right; }
+
+  .skeleton { background: linear-gradient(90deg, #1a2636 25%, #24303f 50%, #1a2636 75%); background-size: 200% 100%; animation: sk 1.5s infinite; border-radius: 12px; }
+  @keyframes sk { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+  /* Rich text (description_html) styling */
+  .rich-text { color: #d1d5db; font-size: 0.9rem; line-height: 1.75; }
+  .rich-text p { margin-bottom: 1rem; }
+  .rich-text h2 { font-size: 1.35rem; font-weight: 800; color: #fff; margin: 1.5rem 0 .75rem; }
+  .rich-text h3 { font-size: 1.15rem; font-weight: 700; color: #fff; margin: 1.25rem 0 .5rem; }
+  .rich-text ul, .rich-text ol { margin: 1rem 0; padding-left: 1.5rem; }
+  .rich-text ul { list-style: disc; }
+  .rich-text ol { list-style: decimal; }
+  .rich-text li { margin-bottom: .4rem; }
+  .rich-text a { color: #B8EC34; text-decoration: underline; }
+  .rich-text strong { color: #fff; font-weight: 700; }
 </style>
+
+<!-- ============ DYNAMIC JSON-LD (populated from Supabase) ============ -->
+<script type="application/ld+json" id="jsonLdProduct">{}</script>
+<script type="application/ld+json" id="jsonLdBreadcrumb">{}</script>
+<script type="application/ld+json" id="jsonLdOrganization">{}</script>
 </head>
 
 <body class="overflow-x-hidden antialiased selection:bg-brand-lime selection:text-brand-dark">
@@ -70,11 +99,11 @@ tailwind.config = {
 <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
-      <a href="index.html" class="flex items-center gap-3 group">
-        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group" class="h-14 w-auto group-hover:scale-105 transition-transform" />
+      <a href="index.html" class="flex items-center gap-3 group" aria-label="Kilimanjaro Group Home">
+        <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group logo" class="h-14 w-auto group-hover:scale-105 transition-transform" />
       </a>
 
-      <nav class="hidden lg:flex items-center space-x-1 bg-white/5 px-6 py-2 rounded-full border border-white/10">
+      <nav class="hidden lg:flex items-center space-x-1 bg-white/5 px-6 py-2 rounded-full border border-white/10" aria-label="Primary navigation">
         <a href="index.html#overview" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">About</a>
         <a href="products.html" class="px-4 py-2 text-sm font-semibold text-brand-lime transition-colors">Products</a>
         <a href="index.html#services" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-brand-lime transition-colors">Services</a>
@@ -99,7 +128,7 @@ tailwind.config = {
   </div>
 
   <div id="mobile-menu" class="hidden lg:hidden bg-brand-cardBg border-b border-white/10 px-6 py-6">
-    <nav class="flex flex-col gap-4">
+    <nav class="flex flex-col gap-4" aria-label="Mobile navigation">
       <a href="index.html#overview" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">About</a>
       <a href="products.html" class="text-brand-lime font-medium text-lg mobile-link">Products</a>
       <a href="index.html#services" class="text-gray-300 hover:text-brand-lime font-medium text-lg mobile-link">Services</a>
@@ -119,112 +148,65 @@ tailwind.config = {
 
 <!-- ================= PAGE BANNER ================= -->
 <section class="relative pt-40 pb-24 lg:pt-48 lg:pb-28 bg-brand-dark overflow-hidden">
-
-  <!-- Background image with subtle blur -->
-  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600" alt="Product" class="absolute inset-0 w-full h-full object-cover blur-[2px] scale-105" />
-
-  <!-- Gradient fade -->
-  <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(
-    to bottom,
-    rgba(11, 19, 31, 0.55) 0%,
-    rgba(11, 19, 31, 0.80) 40%,
-    rgba(11, 19, 31, 0.95) 70%,
-    #0B131F 100%
-  );"></div>
-
+  <img id="bannerImage" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover blur-[2px] scale-105" />
+  <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(11,19,31,.55) 0%, rgba(11,19,31,.80) 40%, rgba(11,19,31,.95) 70%, #0B131F 100%);"></div>
   <div class="absolute top-1/4 right-10 w-96 h-96 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <!-- Breadcrumb -->
-    <div class="inline-flex flex-wrap items-center gap-3 px-4 py-2 rounded-full glass-pill border border-white/15 text-xs font-semibold text-gray-300">
+    <nav aria-label="Breadcrumb" class="inline-flex flex-wrap items-center gap-3 px-4 py-2 rounded-full glass-pill border border-white/15 text-xs font-semibold text-gray-300">
       <a href="index.html" class="hover:text-brand-lime transition-colors">Home</a>
-      <i class="fa-solid fa-chevron-right text-[9px] text-gray-500"></i>
+      <i class="fa-solid fa-chevron-right text-[9px] text-gray-500" aria-hidden="true"></i>
       <a href="products.html" class="hover:text-brand-lime transition-colors">Products</a>
-      <i class="fa-solid fa-chevron-right text-[9px] text-gray-500"></i>
-      <a href="products.html" class="hover:text-brand-lime transition-colors">Explosives</a>
-      <i class="fa-solid fa-chevron-right text-[9px] text-gray-500"></i>
-      <span class="text-brand-lime">Bulk Emulsions</span>
-    </div>
+      <i class="fa-solid fa-chevron-right text-[9px] text-gray-500" aria-hidden="true"></i>
+      <a href="products.html" id="breadcrumbCategory" class="hover:text-brand-lime transition-colors">Category</a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-gray-500" aria-hidden="true"></i>
+      <span class="text-brand-lime" id="breadcrumbProduct">Product</span>
+    </nav>
   </div>
 </section>
 
 <!-- ================= PRODUCT DETAILS ================= -->
-<section class="relative z-20 -mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+<main>
+<section class="relative z-20 -mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20" itemscope itemtype="https://schema.org/Product">
   <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
 
-    <!-- ========== GALLERY ========== -->
+    <!-- GALLERY -->
     <div>
-      <!-- Main image -->
       <div class="relative rounded-3xl overflow-hidden bg-brand-cardBg border border-white/10 shadow-card-glow group">
-        <span class="absolute top-5 left-5 z-10 px-4 py-2 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider shadow-lg">
-          Explosives
-        </span>
-        <div class="aspect-square lg:aspect-[4/5] overflow-hidden">
-          <img id="mainImage" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000" alt="Bulk Emulsions" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <span id="galleryCategoryBadge" class="absolute top-5 left-5 z-10 px-4 py-2 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wider shadow-lg">Category</span>
+        <div class="aspect-square lg:aspect-[4/5] overflow-hidden bg-brand-cardBg">
+          <img id="mainImage" src="" alt="" itemprop="image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
         </div>
       </div>
-
-      <!-- Thumbnails -->
-      <div class="grid grid-cols-4 gap-3 mt-4" id="thumbContainer">
-        <button class="thumb active relative rounded-2xl overflow-hidden border-2 border-brand-lime aspect-square bg-brand-cardBg transition-all" data-src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=300" alt="View 1" class="w-full h-full object-cover" />
-        </button>
-        <button class="thumb relative rounded-2xl overflow-hidden border-2 border-white/10 hover:border-brand-lime/60 aspect-square bg-brand-cardBg transition-all" data-src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1000">
-          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=300" alt="View 2" class="w-full h-full object-cover" />
-        </button>
-        <button class="thumb relative rounded-2xl overflow-hidden border-2 border-white/10 hover:border-brand-lime/60 aspect-square bg-brand-cardBg transition-all" data-src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000">
-          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=300" alt="View 3" class="w-full h-full object-cover" />
-        </button>
-        <button class="thumb relative rounded-2xl overflow-hidden border-2 border-white/10 hover:border-brand-lime/60 aspect-square bg-brand-cardBg transition-all" data-src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1000">
-          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=300" alt="View 4" class="w-full h-full object-cover" />
-        </button>
-      </div>
+      <div class="grid grid-cols-4 gap-3 mt-4" id="thumbContainer"></div>
     </div>
 
-    <!-- ========== PRODUCT INFO ========== -->
+    <!-- INFO -->
     <div class="space-y-6">
-
-      <!-- Category label -->
-      <div class="inline-flex items-center gap-3 text-xs font-extrabold uppercase tracking-widest text-brand-lime">
+      <div id="productCategoryLabel" class="inline-flex items-center gap-3 text-xs font-extrabold uppercase tracking-widest text-brand-lime">
         <span class="w-2 h-2 rounded-full bg-brand-lime"></span>
-        Explosives
+        <span id="categoryLabelText">Category</span>
       </div>
 
-      <!-- Title -->
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.05]">
-        Bulk Emulsions
-      </h1>
+      <h1 id="productTitle" class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.05]" itemprop="name">Product Name</h1>
 
-      <!-- Rating -->
-      <div class="flex items-center gap-3">
-        <div class="flex text-amber-400 text-sm gap-1">
+      <div id="productSkuWrapper" class="hidden text-[11px] font-semibold uppercase tracking-widest text-gray-500">
+        SKU: <span id="productSku" class="font-mono text-gray-300">—</span>
+      </div>
+
+      <div id="ratingWrapper" class="hidden flex items-center gap-3" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+        <div class="flex text-amber-400 text-sm gap-1" aria-label="Product rating">
           <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-alt"></i>
         </div>
-        <span class="text-xs text-gray-400 font-medium">4.8 · 127 reviews</span>
-      </div>
-
-      <!-- Description -->
-      <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-        High-performance bulk emulsion explosives designed for efficient rock breaking in surface and underground mining operations. Our bulk emulsions deliver superior energy, excellent water resistance, and consistent performance across all blasting conditions.
-      </p>
-
-      <!-- Feature pills -->
-      <div class="flex flex-wrap gap-2">
-        <span class="px-4 py-2 rounded-full bg-brand-lime/10 border border-brand-lime/20 text-xs font-bold text-brand-lime inline-flex items-center gap-2">
-          <i class="fa-solid fa-check text-[10px]"></i> Water Resistant
-        </span>
-        <span class="px-4 py-2 rounded-full bg-brand-lime/10 border border-brand-lime/20 text-xs font-bold text-brand-lime inline-flex items-center gap-2">
-          <i class="fa-solid fa-check text-[10px]"></i> High Velocity
-        </span>
-        <span class="px-4 py-2 rounded-full bg-brand-lime/10 border border-brand-lime/20 text-xs font-bold text-brand-lime inline-flex items-center gap-2">
-          <i class="fa-solid fa-check text-[10px]"></i> Excellent Fragmentation
-        </span>
-        <span class="px-4 py-2 rounded-full bg-brand-lime/10 border border-brand-lime/20 text-xs font-bold text-brand-lime inline-flex items-center gap-2">
-          <i class="fa-solid fa-check text-[10px]"></i> Safe Handling
+        <span id="productRating" class="text-xs text-gray-400 font-medium">
+          <span itemprop="ratingValue">4.8</span> · <span itemprop="reviewCount">127</span> reviews
         </span>
       </div>
 
-      <!-- Actions -->
+      <p id="productDescription" class="text-gray-300 text-sm sm:text-base leading-relaxed" itemprop="description">Product description loading...</p>
+
+      <div id="productFeatures" class="flex flex-wrap gap-2" role="list"></div>
+
       <div class="flex flex-wrap gap-3 pt-2 pb-6 border-b border-white/10">
         <a href="contact.html" class="px-7 py-3.5 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all duration-300 shadow-glow inline-flex items-center gap-3">
           Request a Quote <i class="fa-solid fa-arrow-right"></i>
@@ -234,49 +216,36 @@ tailwind.config = {
         </a>
       </div>
 
-      <!-- Meta grid -->
       <div class="grid grid-cols-2 gap-4">
         <div class="flex items-center gap-3">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-base shrink-0">
-            <i class="fa-solid fa-bolt"></i>
-          </div>
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-base shrink-0"><i class="fa-solid fa-bolt"></i></div>
           <div>
             <div class="text-[10px] font-extrabold uppercase tracking-widest text-gray-500">Category</div>
-            <div class="text-sm font-bold text-white">Explosives</div>
+            <div id="metaCategory" class="text-sm font-bold text-white">—</div>
           </div>
         </div>
-
         <div class="flex items-center gap-3">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-base shrink-0">
-            <i class="fa-solid fa-box"></i>
-          </div>
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-base shrink-0"><i class="fa-solid fa-box"></i></div>
           <div>
             <div class="text-[10px] font-extrabold uppercase tracking-widest text-gray-500">Availability</div>
-            <div class="text-sm font-bold text-white">In Stock</div>
+            <div id="metaAvailability" class="text-sm font-bold text-white" itemprop="availability">In Stock</div>
           </div>
         </div>
-
         <div class="flex items-center gap-3">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-base shrink-0">
-            <i class="fa-solid fa-truck"></i>
-          </div>
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-base shrink-0"><i class="fa-solid fa-truck"></i></div>
           <div>
             <div class="text-[10px] font-extrabold uppercase tracking-widest text-gray-500">Delivery</div>
-            <div class="text-sm font-bold text-white">24-48 Hours</div>
+            <div id="metaDelivery" class="text-sm font-bold text-white">—</div>
           </div>
         </div>
-
         <div class="flex items-center gap-3">
-          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-base shrink-0">
-            <i class="fa-solid fa-shield-halved"></i>
-          </div>
+          <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-base shrink-0"><i class="fa-solid fa-shield-halved"></i></div>
           <div>
             <div class="text-[10px] font-extrabold uppercase tracking-widest text-gray-500">Certification</div>
-            <div class="text-sm font-bold text-white">International</div>
+            <div id="metaCertification" class="text-sm font-bold text-white">—</div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -284,265 +253,62 @@ tailwind.config = {
 <!-- ================= TABS ================= -->
 <section class="py-16 bg-brand-dark border-t border-white/5">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <!-- Tabs nav -->
-    <div class="flex gap-1 overflow-x-auto border-b border-white/10 mb-10" style="scrollbar-width:none;">
-      <button class="tab-btn active whitespace-nowrap px-5 sm:px-7 py-4 text-sm font-bold text-brand-lime border-b-2 border-brand-lime transition-all" data-tab="description">Description</button>
-      <button class="tab-btn whitespace-nowrap px-5 sm:px-7 py-4 text-sm font-bold text-gray-400 hover:text-white border-b-2 border-transparent transition-all" data-tab="specs">Specifications</button>
-      <button class="tab-btn whitespace-nowrap px-5 sm:px-7 py-4 text-sm font-bold text-gray-400 hover:text-white border-b-2 border-transparent transition-all" data-tab="features">Features</button>
-      <button class="tab-btn whitespace-nowrap px-5 sm:px-7 py-4 text-sm font-bold text-gray-400 hover:text-white border-b-2 border-transparent transition-all" data-tab="applications">Applications</button>
+    <div class="flex gap-1 overflow-x-auto border-b border-white/10 mb-10" style="scrollbar-width:none;" role="tablist" aria-label="Product information tabs">
+      <button class="tab-btn active whitespace-nowrap px-5 sm:px-7 py-4 text-sm font-bold text-brand-lime border-b-2 border-brand-lime transition-all" data-tab="description" role="tab" aria-selected="true">Description</button>
+      <button class="tab-btn whitespace-nowrap px-5 sm:px-7 py-4 text-sm font-bold text-gray-400 hover:text-white border-b-2 border-transparent transition-all" data-tab="specs" role="tab" aria-selected="false">Specifications</button>
+      <button class="tab-btn whitespace-nowrap px-5 sm:px-7 py-4 text-sm font-bold text-gray-400 hover:text-white border-b-2 border-transparent transition-all" data-tab="features" role="tab" aria-selected="false">Features</button>
+      <button class="tab-btn whitespace-nowrap px-5 sm:px-7 py-4 text-sm font-bold text-gray-400 hover:text-white border-b-2 border-transparent transition-all" data-tab="applications" role="tab" aria-selected="false">Applications</button>
     </div>
 
-    <!-- Description -->
-    <div class="tab-panel active" id="tab-description">
+    <div class="tab-panel active" id="tab-description" role="tabpanel">
       <div class="max-w-3xl space-y-4">
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Product Description</h3>
-        <p class="text-gray-300 text-sm leading-relaxed">Our Bulk Emulsions are premium-quality explosives formulated for maximum performance in mining and construction applications. Engineered with advanced emulsion technology, they provide superior energy output, excellent water resistance, and consistent results in all blasting conditions.</p>
-        <p class="text-gray-300 text-sm leading-relaxed">Manufactured with strict quality control and safety standards, our bulk emulsions are trusted by mining operations across Tanzania for their reliability and efficiency. The product is available in various strengths and formulations to suit specific site conditions and blasting requirements.</p>
-        <p class="text-gray-300 text-sm leading-relaxed">Our technical team provides full support with blast design, on-site delivery, and loading services to ensure optimal results for every operation.</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Product Description</h2>
+        <div id="tabDescriptionContent" class="rich-text"></div>
       </div>
     </div>
 
-    <!-- Specs -->
-    <div class="tab-panel" id="tab-specs">
+    <div class="tab-panel" id="tab-specs" role="tabpanel">
       <div class="max-w-3xl space-y-4">
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-6">Technical Specifications</h3>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-6">Technical Specifications</h2>
         <div class="rounded-3xl bg-brand-cardBg border border-white/10 overflow-hidden">
-          <table class="w-full">
-            <tbody>
-              <tr class="border-b border-white/5">
-                <td class="py-4 px-5 text-xs font-extrabold uppercase tracking-widest text-gray-500 w-2/5">Product Type</td>
-                <td class="py-4 px-5 text-sm text-gray-200">Bulk Emulsion Explosive</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-4 px-5 text-xs font-extrabold uppercase tracking-widest text-gray-500">Density</td>
-                <td class="py-4 px-5 text-sm text-gray-200">1.10 – 1.30 g/cm³ (adjustable)</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-4 px-5 text-xs font-extrabold uppercase tracking-widest text-gray-500">Velocity of Detonation (VOD)</td>
-                <td class="py-4 px-5 text-sm text-gray-200">4,200 – 5,800 m/s</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-4 px-5 text-xs font-extrabold uppercase tracking-widest text-gray-500">Relative Bulk Strength</td>
-                <td class="py-4 px-5 text-sm text-gray-200">100 – 130 (ANFO = 100)</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-4 px-5 text-xs font-extrabold uppercase tracking-widest text-gray-500">Water Resistance</td>
-                <td class="py-4 px-5 text-sm text-gray-200">Excellent (Class 1)</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-4 px-5 text-xs font-extrabold uppercase tracking-widest text-gray-500">Minimum Hole Diameter</td>
-                <td class="py-4 px-5 text-sm text-gray-200">76 mm (larger holes recommended)</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-4 px-5 text-xs font-extrabold uppercase tracking-widest text-gray-500">Shelf Life</td>
-                <td class="py-4 px-5 text-sm text-gray-200">6 months (recommended)</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-4 px-5 text-xs font-extrabold uppercase tracking-widest text-gray-500">Storage Temperature</td>
-                <td class="py-4 px-5 text-sm text-gray-200">5°C – 35°C</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-4 px-5 text-xs font-extrabold uppercase tracking-widest text-gray-500">Packaging</td>
-                <td class="py-4 px-5 text-sm text-gray-200">Bulk delivery by specialized truck</td>
-              </tr>
-              <tr>
-                <td class="py-4 px-5 text-xs font-extrabold uppercase tracking-widest text-gray-500">Certification</td>
-                <td class="py-4 px-5 text-sm text-gray-200">International Standards Compliant</td>
-              </tr>
-            </tbody>
+          <table class="w-full" itemscope itemtype="https://schema.org/PropertyValue">
+            <tbody id="specsTableBody"></tbody>
           </table>
         </div>
       </div>
     </div>
 
-    <!-- Features -->
-    <div class="tab-panel" id="tab-features">
+    <div class="tab-panel" id="tab-features" role="tabpanel">
       <div class="space-y-6">
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Key Features</h3>
-
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div class="group rounded-3xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-6 flex gap-4 transition-all">
-            <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-lg shrink-0 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-              <i class="fa-solid fa-droplet"></i>
-            </div>
-            <div>
-              <h4 class="text-base font-extrabold text-white mb-1">Superior Water Resistance</h4>
-              <p class="text-xs text-gray-400 leading-relaxed">Excellent performance in wet and flooded boreholes without degradation.</p>
-            </div>
-          </div>
-
-          <div class="group rounded-3xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-6 flex gap-4 transition-all">
-            <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-lg shrink-0 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-              <i class="fa-solid fa-bolt"></i>
-            </div>
-            <div>
-              <h4 class="text-base font-extrabold text-white mb-1">High Velocity</h4>
-              <p class="text-xs text-gray-400 leading-relaxed">Strong detonation velocity ensures efficient energy transfer and rock breakage.</p>
-            </div>
-          </div>
-
-          <div class="group rounded-3xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-6 flex gap-4 transition-all">
-            <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-lg shrink-0 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-              <i class="fa-solid fa-mountain"></i>
-            </div>
-            <div>
-              <h4 class="text-base font-extrabold text-white mb-1">Excellent Fragmentation</h4>
-              <p class="text-xs text-gray-400 leading-relaxed">Optimized formulation for uniform and consistent rock fragmentation.</p>
-            </div>
-          </div>
-
-          <div class="group rounded-3xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-6 flex gap-4 transition-all">
-            <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-lg shrink-0 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <div>
-              <h4 class="text-base font-extrabold text-white mb-1">Safe Handling</h4>
-              <p class="text-xs text-gray-400 leading-relaxed">Non-nitroglycerin formulation for safer handling, storage, and transport.</p>
-            </div>
-          </div>
-
-          <div class="group rounded-3xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-6 flex gap-4 transition-all">
-            <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-lg shrink-0 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-              <i class="fa-solid fa-truck-fast"></i>
-            </div>
-            <div>
-              <h4 class="text-base font-extrabold text-white mb-1">On-Site Delivery</h4>
-              <p class="text-xs text-gray-400 leading-relaxed">Specialized MMU trucks deliver and load directly into boreholes efficiently.</p>
-            </div>
-          </div>
-
-          <div class="group rounded-3xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-6 flex gap-4 transition-all">
-            <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-lg shrink-0 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
-              <i class="fa-solid fa-gem"></i>
-            </div>
-            <div>
-              <h4 class="text-base font-extrabold text-white mb-1">Cost Effective</h4>
-              <p class="text-xs text-gray-400 leading-relaxed">Optimized energy-to-cost ratio delivering superior value per blast.</p>
-            </div>
-          </div>
-        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Key Features</h2>
+        <div id="featuresGrid" class="grid sm:grid-cols-2 gap-4"></div>
       </div>
     </div>
 
-    <!-- Applications -->
-    <div class="tab-panel" id="tab-applications">
+    <div class="tab-panel" id="tab-applications" role="tabpanel">
       <div class="max-w-3xl space-y-4">
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Applications</h3>
-        <p class="text-gray-300 text-sm leading-relaxed mb-6">Our Bulk Emulsions are ideal for a wide range of blasting applications in the mining and construction industries, including:</p>
-
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Applications</h2>
+        <p id="applicationsIntro" class="text-gray-300 text-sm leading-relaxed mb-6"></p>
         <div class="rounded-3xl bg-brand-cardBg border border-white/10 overflow-hidden">
           <table class="w-full">
-            <tbody>
-              <tr class="border-b border-white/5">
-                <td class="py-4 px-5 text-sm font-extrabold text-white w-2/5">Open Pit Mining</td>
-                <td class="py-4 px-5 text-sm text-gray-300">Efficient rock breaking in large-scale surface mining operations.</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-4 px-5 text-sm font-extrabold text-white">Underground Mining</td>
-                <td class="py-4 px-5 text-sm text-gray-300">Precise blasting for tunnel development, stoping, and ore extraction.</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-4 px-5 text-sm font-extrabold text-white">Quarry Operations</td>
-                <td class="py-4 px-5 text-sm text-gray-300">Aggregate production with optimized fragmentation for crushing circuits.</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-4 px-5 text-sm font-extrabold text-white">Civil Construction</td>
-                <td class="py-4 px-5 text-sm text-gray-300">Excavation, trenching, and site preparation for infrastructure projects.</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-4 px-5 text-sm font-extrabold text-white">Dam &amp; Tunneling</td>
-                <td class="py-4 px-5 text-sm text-gray-300">Specialized blasting for dam construction and tunnel excavation.</td>
-              </tr>
-              <tr>
-                <td class="py-4 px-5 text-sm font-extrabold text-white">Wet Conditions</td>
-                <td class="py-4 px-5 text-sm text-gray-300">Effective in water-filled boreholes due to excellent water resistance.</td>
-              </tr>
-            </tbody>
+            <tbody id="applicationsTableBody"></tbody>
           </table>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
 <!-- ================= RELATED PRODUCTS ================= -->
 <section class="py-20 bg-brand-dark border-t border-white/5 relative overflow-hidden">
   <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-brand-lime/5 rounded-full blur-3xl pointer-events-none"></div>
-
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div class="text-center max-w-2xl mx-auto mb-14 space-y-4">
-      <span class="px-4 py-1.5 rounded-full glass-pill text-brand-lime font-bold text-xs uppercase tracking-wider border border-brand-lime/20 inline-flex items-center gap-2">
-        Related Products
-      </span>
+      <span class="px-4 py-1.5 rounded-full glass-pill text-brand-lime font-bold text-xs uppercase tracking-wider border border-brand-lime/20 inline-flex items-center gap-2">Related Products</span>
       <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">You May Also Like</h2>
-      <p class="text-gray-400 text-sm">Explore other products from our Explosives category and beyond.</p>
+      <p class="text-gray-400 text-sm">Explore other products from our catalog.</p>
     </div>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-      <a href="product-details.html" class="group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl">
-        <div class="h-44 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Packaged Explosives" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Explosives</span>
-        </div>
-        <div class="p-5">
-          <h3 class="text-base font-extrabold text-white mb-2 group-hover:text-brand-lime transition-colors">Packaged Explosives</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">Reliable packaged explosives for precise blasting applications in various sizes.</p>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </a>
-
-      <a href="product-details.html" class="group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl">
-        <div class="h-44 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Initiating Systems" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Initiation</span>
-        </div>
-        <div class="p-5">
-          <h3 class="text-base font-extrabold text-white mb-2 group-hover:text-brand-lime transition-colors">Initiating Systems</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">Advanced electronic and non-electric initiation systems for precise timing.</p>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </a>
-
-      <a href="product-details.html" class="group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl">
-        <div class="h-44 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Blasting Accessories" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Accessories</span>
-        </div>
-        <div class="p-5">
-          <h3 class="text-base font-extrabold text-white mb-2 group-hover:text-brand-lime transition-colors">Blasting Accessories</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">Comprehensive range of wires, connectors, and detonators for reliable blasting.</p>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </a>
-
-      <a href="product-details.html" class="group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl">
-        <div class="h-44 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Drilling Equipment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
-          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">Equipment</span>
-        </div>
-        <div class="p-5">
-          <h3 class="text-base font-extrabold text-white mb-2 group-hover:text-brand-lime transition-colors">Drilling Equipment</h3>
-          <p class="text-xs text-gray-400 leading-relaxed mb-4">Professional drilling equipment for efficient blast hole drilling.</p>
-          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </span>
-        </div>
-      </a>
-
-    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="relatedProductsGrid"></div>
   </div>
 </section>
 
@@ -552,11 +318,9 @@ tailwind.config = {
     <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-brand-cardBg via-brand-dark to-slate-900 border border-white/10 p-8 sm:p-14 text-center">
       <div class="absolute top-0 right-0 w-96 h-96 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none"></div>
       <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
       <div class="relative z-10 space-y-4 max-w-2xl mx-auto">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Interested In Bulk Emulsions?</h2>
-        <p class="text-gray-400 text-sm leading-relaxed">Contact our team today to discuss your blasting requirements and get a personalized quote for your operation.</p>
-
+        <h2 id="ctaTitle" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Interested In This Product?</h2>
+        <p id="ctaDescription" class="text-gray-400 text-sm leading-relaxed">Contact our team today to discuss your requirements and get a personalized quote for your operation.</p>
         <div class="flex flex-wrap gap-3 justify-center pt-4">
           <a href="contact.html" class="px-7 py-3.5 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all duration-300 shadow-glow inline-flex items-center gap-3">
             Request a Quote <i class="fa-solid fa-arrow-right"></i>
@@ -569,26 +333,23 @@ tailwind.config = {
     </div>
   </div>
 </section>
+</main>
 
 <!-- ================= FOOTER ================= -->
 <footer class="bg-brand-dark text-gray-400 py-16 border-t border-white/5 text-xs">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid md:grid-cols-12 gap-10">
-
       <div class="md:col-span-4 space-y-4">
         <img src="https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png" alt="Kilimanjaro Group" class="h-16 w-auto" />
-        <p class="text-gray-400 leading-relaxed">
-          Head Office: P.O. Box 533, Mhongoro Street, Mbulu Msalabani, Kahama, Mwanza.
-        </p>
+        <p class="text-gray-400 leading-relaxed">Head Office: P.O. Box 533, Mhongoro Street, Mbulu Msalabani, Kahama, Mwanza.</p>
         <div class="flex gap-3 text-base">
-          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="X (Twitter)" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-white/5 hover:bg-brand-lime hover:text-brand-dark flex items-center justify-center transition-colors border border-white/10"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
       </div>
-
       <div class="md:col-span-2">
-        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Branches</h4>
+        <h3 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Branches</h3>
         <ul class="space-y-2">
           <li><a href="#" class="hover:text-brand-lime transition-colors">Geita</a></li>
           <li><a href="#" class="hover:text-brand-lime transition-colors">Mwanza</a></li>
@@ -597,9 +358,8 @@ tailwind.config = {
           <li><a href="#" class="hover:text-brand-lime transition-colors">Tanga · Dodoma · Nzega</a></li>
         </ul>
       </div>
-
       <div class="md:col-span-2">
-        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Quick Links</h4>
+        <h3 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Quick Links</h3>
         <ul class="space-y-2">
           <li><a href="index.html" class="hover:text-brand-lime transition-colors">Home</a></li>
           <li><a href="products.html" class="hover:text-brand-lime transition-colors">Products</a></li>
@@ -608,9 +368,8 @@ tailwind.config = {
           <li><a href="contact.html" class="hover:text-brand-lime transition-colors">Contact</a></li>
         </ul>
       </div>
-
       <div class="md:col-span-4">
-        <h4 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Stay Connected</h4>
+        <h3 class="text-white font-extrabold uppercase text-[11px] tracking-widest mb-4">Stay Connected</h3>
         <p class="mb-4">Get updates on our solutions and news.</p>
         <form class="flex gap-2 bg-white/5 border border-white/10 rounded-full p-1" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
           <input type="email" placeholder="Your email" required class="flex-1 bg-transparent px-4 py-2 text-xs text-white outline-none" />
@@ -618,55 +377,36 @@ tailwind.config = {
         </form>
         <p class="mt-4 text-xs"><i class="fa-solid fa-phone text-brand-lime"></i> +255 679 746 702 · +27 76 896 8767</p>
       </div>
-
     </div>
-
     <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
       <span>© 2026 Kilimanjaro Group. All rights reserved.</span>
       <span class="flex gap-4">
-        <a href="#" class="hover:text-brand-lime transition-colors">Privacy</a>
-        <a href="#" class="hover:text-brand-lime transition-colors">Terms</a>
-        <a href="#" class="hover:text-brand-lime transition-colors">CSR</a>
+        <a href="privacy.html" class="hover:text-brand-lime transition-colors">Privacy</a>
+        <a href="terms.html" class="hover:text-brand-lime transition-colors">Terms</a>
+        
         <a href="https://webmail.kilimanjarogroupltd.co.tz" target="_blank" rel="noopener" class="hover:text-brand-lime transition-colors">Staff Login</a>
       </span>
     </div>
   </div>
 </footer>
 
-<!-- ================= FLOATING ACTION BUTTON (CALL / WHATSAPP) ================= -->
+<!-- ================= FAB ================= -->
 <div id="fab-container" class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
-
-  <!-- Action buttons (hidden by default) -->
   <div id="fab-actions" class="flex flex-col items-end gap-3 opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/255677800002?text=Hello%20Kilimanjaro%20Group%2C%20I%27d%20like%20to%20inquire%20about%20Bulk%20Emulsions."
-       target="_blank" rel="noopener"
-       class="group flex items-center gap-3">
-      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">
-        WhatsApp Us
-      </span>
+    <a id="fabWhatsapp" href="https://wa.me/255677800002" target="_blank" rel="noopener" class="group flex items-center gap-3">
+      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">WhatsApp Us</span>
       <span class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
         <i class="fa-brands fa-whatsapp text-xl"></i>
       </span>
     </a>
-
-    <!-- Call -->
     <a href="tel:+255677800002" class="group flex items-center gap-3">
-      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">
-        Call Us
-      </span>
+      <span class="px-4 py-2 rounded-full bg-white text-slate-800 text-xs font-bold shadow-lg border border-slate-200 whitespace-nowrap">Call Us</span>
       <span class="w-12 h-12 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
         <i class="fa-solid fa-phone text-lg"></i>
       </span>
     </a>
-
   </div>
-
-  <!-- Main FAB toggle -->
-  <button id="fab-toggle"
-          aria-label="Contact options"
-          aria-expanded="false"
+  <button id="fab-toggle" aria-label="Contact options" aria-expanded="false"
           class="w-14 h-14 rounded-full bg-brand-lime text-brand-dark flex items-center justify-center shadow-glow hover:scale-110 transition-transform relative">
     <i id="fab-icon" class="fa-solid fa-headset text-xl transition-transform duration-300"></i>
   </button>
@@ -674,97 +414,485 @@ tailwind.config = {
 
 <!-- ================= JAVASCRIPT ================= -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+const SUPABASE_URL = 'https://bufqcwcicvwknpyrofhc.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ1ZnFjd2NpY3Z3a25weXJvZmhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg3MDk3MDQsImV4cCI6MjA3NDI4NTcwNH0.sxChRQ9w3aQPDWFCxANxpIHxvAmVBSyzUbGknZmKb_0';
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  /* ---------- Mobile Menu ---------- */
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
-  mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+const SITE_URL = 'https://kilimanjarogroupltd.co.tz';
+const FALLBACK_IMG = 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000';
+const FALLBACK_BANNER = 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600';
 
-  /* ---------- Floating Action Button (Call / WhatsApp) ---------- */
-  const fabToggle = document.getElementById('fab-toggle');
-  const fabActions = document.getElementById('fab-actions');
-  const fabIcon = document.getElementById('fab-icon');
-  const fabContainer = document.getElementById('fab-container');
-  let fabOpen = false;
+/* ---------- Helpers ---------- */
+function getParam(name) { return new URLSearchParams(window.location.search).get(name); }
+function escapeHtml(str) {
+  return String(str ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' })[c]);
+}
+function escapeAttr(str) { return escapeHtml(str).replace(/`/g, '&#96;'); }
+function stripTags(html) { return String(html ?? '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim(); }
+function truncate(str, n) { return str.length > n ? str.slice(0, n - 1) + '…' : str; }
 
-  function setFab(open) {
-    fabOpen = open;
-    fabToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (open) {
-      fabActions.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-      fabActions.classList.add('opacity-100', 'translate-y-0');
-      fabIcon.classList.add('rotate-45');
-    } else {
-      fabActions.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-      fabActions.classList.remove('opacity-100', 'translate-y-0');
-      fabIcon.classList.remove('rotate-45');
+function availabilityLabel(a) {
+  if (a === 'in_stock') return 'In Stock';
+  if (a === 'out_of_stock') return 'Out of Stock';
+  if (a === 'on_request') return 'On Request';
+  return 'In Stock';
+}
+function availabilitySchema(a) {
+  if (a === 'in_stock') return 'https://schema.org/InStock';
+  if (a === 'out_of_stock') return 'https://schema.org/OutOfStock';
+  if (a === 'on_request') return 'https://schema.org/PreOrder';
+  return 'https://schema.org/InStock';
+}
+function categoryIcon(slug) {
+  const s = (slug || '').toLowerCase();
+  if (s.includes('explosive')) return 'fa-bomb';
+  if (s.includes('chemical')) return 'fa-flask';
+  if (s.includes('supplies') || s.includes('supply')) return 'fa-tools';
+  if (s.includes('equipment')) return 'fa-tools';
+  if (s.includes('safety')) return 'fa-shield-halved';
+  return 'fa-box';
+}
+
+/* Keyword → icon mapping for feature cards (schema has no icon column) */
+const FEATURE_ICON_MAP = [
+  [/water|resistan|moisture|flood/i, 'fa-droplet'],
+  [/velocity|speed|fast|rapid/i, 'fa-bolt'],
+  [/fragment|rock break|uniform/i, 'fa-mountain'],
+  [/safe|secur|protect/i, 'fa-shield-halved'],
+  [/deliver|logistic|transport|on-?site/i, 'fa-truck-fast'],
+  [/cost|value|economic|efficien/i, 'fa-gem'],
+  [/size|dimension|range|diameter/i, 'fa-ruler'],
+  [/precis|accurate|consistent|quality/i, 'fa-bullseye'],
+  [/pack|handl|ergonomic|load/i, 'fa-box'],
+  [/electronic|program|chip|digital/i, 'fa-microchip'],
+  [/wire|connect|cable|plug/i, 'fa-plug'],
+  [/clock|time|delay|timing/i, 'fa-clock'],
+  [/certif|standard|compliance|iso|ansi/i, 'fa-certificate'],
+  [/comfort|ergonomic|fit/i, 'fa-smile'],
+  [/visib|reflect|high-?vis/i, 'fa-eye'],
+  [/detect|gas|monitor|sensor/i, 'fa-gas-pump'],
+  [/fall|harness|anchor|lifeline/i, 'fa-harness'],
+  [/emergency|first aid|response/i, 'fa-kit-medical'],
+  [/fire|extinguish|flame/i, 'fa-fire'],
+  [/sign|label|barrier|warning/i, 'fa-sign'],
+  [/support|expert|advice|consult/i, 'fa-headset'],
+  [/durable|heavy duty|robust|long life/i, 'fa-shield'],
+  [/perform|high perf/i, 'fa-chart-line'],
+  [/tool|wrench|equipment/i, 'fa-tools'],
+  [/clean|environment|green|eco|sustain/i, 'fa-leaf'],
+  [/recover|yield|extract|adsorb/i, 'fa-chart-line'],
+  [/purity|pure|grade/i, 'fa-flask'],
+  [/hardness|hard|attrition/i, 'fa-cube'],
+  [/selective|select|precise/i, 'fa-shield'],
+  [/range|wide|multiple|various/i, 'fa-layer-group'],
+  [/gold|precious|metal/i, 'fa-gem'],
+  [/copper|zinc|nickel|lead/i, 'fa-copper']
+];
+function iconForFeature(text) {
+  if (!text) return 'fa-check';
+  for (const [re, icon] of FEATURE_ICON_MAP) if (re.test(text)) return icon;
+  return 'fa-check';
+}
+
+/* ---------- Mobile Menu / FAB ---------- */
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+const fabToggle = document.getElementById('fab-toggle');
+const fabActions = document.getElementById('fab-actions');
+const fabIcon = document.getElementById('fab-icon');
+const fabContainer = document.getElementById('fab-container');
+let fabOpen = false;
+function setFab(open) {
+  fabOpen = open;
+  fabToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if (open) {
+    fabActions.classList.remove('opacity-0','translate-y-4','pointer-events-none');
+    fabActions.classList.add('opacity-100','translate-y-0');
+    fabIcon.classList.add('rotate-45');
+  } else {
+    fabActions.classList.add('opacity-0','translate-y-4','pointer-events-none');
+    fabActions.classList.remove('opacity-100','translate-y-0');
+    fabIcon.classList.remove('rotate-45');
+  }
+}
+fabToggle.addEventListener('click', (e) => { e.stopPropagation(); setFab(!fabOpen); });
+document.addEventListener('click', (e) => { if (fabOpen && !fabContainer.contains(e.target)) setFab(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && fabOpen) setFab(false); });
+
+/* ---------- Tabs ---------- */
+function initTabs() {
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const tabId = this.getAttribute('data-tab');
+      tabBtns.forEach(b => { b.classList.remove('text-brand-lime','border-brand-lime'); b.classList.add('text-gray-400','border-transparent'); b.setAttribute('aria-selected','false'); });
+      this.classList.add('text-brand-lime','border-brand-lime');
+      this.classList.remove('text-gray-400','border-transparent');
+      this.setAttribute('aria-selected','true');
+      tabPanels.forEach(panel => panel.classList.remove('active'));
+      document.getElementById('tab-' + tabId).classList.add('active');
+    });
+  });
+}
+
+/* ---------- SEO helpers ---------- */
+function setMeta(id, attr, value) {
+  const el = document.getElementById(id);
+  if (el && value) el.setAttribute(attr, value);
+}
+function setText(id, text) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = text;
+}
+
+function updateSeo(product, productUrl) {
+  const title = `${product.name} · Kilimanjaro Group`;
+  const shortDesc = product.short_description || stripTags(product.description_html).slice(0, 155) || `Explore ${product.name} from Kilimanjaro Group Ltd.`;
+  const desc = truncate(shortDesc, 155);
+  const image = product.featured_image_url || FALLBACK_IMG;
+
+  document.title = title;
+  setMeta('metaDescription', 'content', desc);
+  setMeta('metaKeywords', 'content', [product.name, product.category?.name, 'mining', 'Tanzania', 'Kilimanjaro Group'].filter(Boolean).join(', '));
+  setMeta('canonicalLink', 'href', productUrl);
+  setMeta('ogTitle', 'content', title);
+  setMeta('ogDescription', 'content', desc);
+  setMeta('ogImage', 'content', image);
+  setMeta('ogUrl', 'content', productUrl);
+  setMeta('twitterTitle', 'content', title);
+  setMeta('twitterDescription', 'content', desc);
+  setMeta('twitterImage', 'content', image);
+}
+
+function injectJsonLd(product, productUrl, relatedItems) {
+  const image = product.featured_image_url || FALLBACK_IMG;
+  const gallery = Array.isArray(product.gallery_images) && product.gallery_images.length
+    ? product.gallery_images
+    : [image];
+  const brand = 'Kilimanjaro Group Ltd';
+
+  /* Product schema */
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "description": product.short_description || stripTags(product.description_html).slice(0, 300) || '',
+    "image": gallery,
+    "sku": product.sku || undefined,
+    "category": product.category?.name || undefined,
+    "brand": { "@type": "Brand", "name": brand },
+    "manufacturer": { "@type": "Organization", "name": brand },
+    "offers": {
+      "@type": "Offer",
+      "url": productUrl,
+      "availability": availabilitySchema(product.availability),
+      "priceCurrency": "TZS",
+      "price": product.price_text || undefined,
+      "seller": { "@type": "Organization", "name": brand }
     }
+  };
+  /* Clean undefined */
+  Object.keys(productSchema).forEach(k => productSchema[k] === undefined && delete productSchema[k]);
+
+  /* Breadcrumb */
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL + "/index.html" },
+      { "@type": "ListItem", "position": 2, "name": "Products", "item": SITE_URL + "/products.html" },
+      { "@type": "ListItem", "position": 3, "name": product.category?.name || 'Category', "item": SITE_URL + "/products.html" },
+      { "@type": "ListItem", "position": 4, "name": product.name, "item": productUrl }
+    ]
+  };
+
+  /* Organization */
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": brand,
+    "url": SITE_URL,
+    "logo": "https://res.cloudinary.com/dp7piqlbe/image/upload/v1787124270/kiligrouplogo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Mhongoro Street, Mbulu Msalabani",
+      "addressLocality": "Kahama",
+      "addressRegion": "Mwanza",
+      "addressCountry": "TZ"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+255679746702",
+      "contactType": "sales"
+    }
+  };
+
+  document.getElementById('jsonLdProduct').textContent = JSON.stringify(productSchema);
+  document.getElementById('jsonLdBreadcrumb').textContent = JSON.stringify(breadcrumbSchema);
+  document.getElementById('jsonLdOrganization').textContent = JSON.stringify(orgSchema);
+}
+
+/* ---------- Gallery ---------- */
+function renderGallery(product) {
+  const mainImage = document.getElementById('mainImage');
+  const thumbContainer = document.getElementById('thumbContainer');
+  const gallery = (Array.isArray(product.gallery_images) && product.gallery_images.length)
+    ? product.gallery_images
+    : [product.featured_image_url || FALLBACK_IMG];
+
+  mainImage.src = gallery[0];
+  mainImage.alt = product.name;
+
+  thumbContainer.innerHTML = gallery.map((src, i) => `
+    <button class="thumb ${i === 0 ? 'active border-brand-lime' : 'border-white/10 hover:border-brand-lime/60'} relative rounded-2xl overflow-hidden border-2 aspect-square bg-brand-cardBg transition-all" data-src="${escapeAttr(src)}" aria-label="View image ${i+1}">
+      <img src="${escapeAttr(src)}" alt="${escapeAttr(product.name)} — view ${i+1}" class="w-full h-full object-cover" loading="lazy" />
+    </button>
+  `).join('');
+
+  const thumbs = thumbContainer.querySelectorAll('.thumb');
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', function() {
+      thumbs.forEach(t => { t.classList.remove('border-brand-lime'); t.classList.add('border-white/10'); });
+      this.classList.remove('border-white/10');
+      this.classList.add('border-brand-lime');
+      const newSrc = this.getAttribute('data-src');
+      mainImage.style.opacity = '0';
+      setTimeout(() => { mainImage.src = newSrc; mainImage.style.opacity = '1'; }, 150);
+    });
+  });
+}
+
+/* ---------- Render product ---------- */
+function renderProduct(product) {
+  const catName = product.category?.name || 'Product';
+  const catIcon = product.category?.icon || categoryIcon(product.category?.slug);
+
+  document.getElementById('bannerImage').src = product.featured_image_url || FALLBACK_BANNER;
+
+  setText('breadcrumbCategory', catName);
+  setText('breadcrumbProduct', product.name);
+  setText('galleryCategoryBadge', catName);
+
+  document.getElementById('productCategoryLabel').innerHTML =
+    `<span class="w-2 h-2 rounded-full bg-brand-lime"></span><span>${escapeHtml(catName)}</span>`;
+
+  setText('productTitle', product.name);
+
+  // SKU
+  if (product.sku) {
+    document.getElementById('productSku').textContent = product.sku;
+    document.getElementById('productSkuWrapper').classList.remove('hidden');
   }
 
-  fabToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    setFab(!fabOpen);
-  });
+  // Short description
+  setText('productDescription', product.short_description || '');
 
-  document.addEventListener('click', (e) => {
-    if (fabOpen && !fabContainer.contains(e.target)) {
-      setFab(false);
-    }
-  });
+  // Feature pills (top 4-6 from catalog_product_features)
+  const pills = (product._features || []).slice(0, 6);
+  document.getElementById('productFeatures').innerHTML = pills.map(f =>
+    `<span role="listitem" class="px-4 py-2 rounded-full bg-brand-lime/10 border border-brand-lime/20 text-xs font-bold text-brand-lime inline-flex items-center gap-2">
+      <i class="fa-solid fa-check text-[10px]"></i> ${escapeHtml(f)}
+    </span>`
+  ).join('');
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && fabOpen) setFab(false);
-  });
+  // Meta grid
+  setText('metaCategory', catName);
+  setText('metaAvailability', availabilityLabel(product.availability));
+  setText('metaDelivery', product.delivery_time || 'On request');
+  setText('metaCertification', product.certification || 'International');
 
-  /* ---------- Image Gallery ---------- */
-  (function() {
-    const mainImage = document.getElementById('mainImage');
-    const thumbs = document.querySelectorAll('.thumb');
+  // Description tab (HTML from description_html)
+  const descHtml = product.description_html && product.description_html.trim().length
+    ? product.description_html
+    : `<p>${escapeHtml(product.short_description || '')}</p>`;
+  document.getElementById('tabDescriptionContent').innerHTML = descHtml;
 
-    thumbs.forEach(thumb => {
-      thumb.addEventListener('click', function() {
-        thumbs.forEach(t => {
-          t.classList.remove('border-brand-lime');
-          t.classList.add('border-white/10');
-        });
-        this.classList.remove('border-white/10');
-        this.classList.add('border-brand-lime');
+  // Specs tab
+  const specs = product._specs || [];
+  document.getElementById('specsTableBody').innerHTML = specs.length
+    ? specs.map(s => `
+        <tr class="border-b border-white/5">
+          <td class="py-4 px-5 text-xs font-extrabold uppercase tracking-widest text-gray-500 w-2/5">${escapeHtml(s.spec_name)}</td>
+          <td class="py-4 px-5 text-sm text-gray-200">${escapeHtml(s.spec_value)}</td>
+        </tr>`).join('')
+    : `<tr><td class="py-6 px-5 text-sm text-gray-400 text-center" colspan="2">No specifications available.</td></tr>`;
 
-        const newSrc = this.getAttribute('data-src');
-        mainImage.style.opacity = '0';
-        setTimeout(() => {
-          mainImage.src = newSrc;
-          mainImage.style.opacity = '1';
-        }, 150);
-      });
-    });
-  })();
+  // Features tab (icon cards)
+  const featureItems = product._features || [];
+  document.getElementById('featuresGrid').innerHTML = featureItems.length
+    ? featureItems.map(f => {
+        const icon = iconForFeature(f);
+        return `
+          <div class="group rounded-3xl bg-brand-cardBg border border-white/10 hover:border-brand-lime/40 p-6 flex gap-4 transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-brand-lime/10 border border-brand-lime/20 text-brand-lime flex items-center justify-center text-lg shrink-0 group-hover:bg-brand-lime group-hover:text-brand-dark transition-colors">
+              <i class="fa-solid ${escapeAttr(icon)}"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-extrabold text-white mb-1">${escapeHtml(f)}</h3>
+              <p class="text-xs text-gray-400 leading-relaxed">${escapeHtml(product.name)} — ${escapeHtml(f.toLowerCase())}.</p>
+            </div>
+          </div>`;
+      }).join('')
+    : `<p class="text-sm text-gray-400">No feature details available.</p>`;
 
-  /* ---------- Tabs ---------- */
-  (function() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabPanels = document.querySelectorAll('.tab-panel');
+  // Applications tab
+  const apps = product._applications || [];
+  setText('applicationsIntro',
+    `Our ${product.name} are ideal for a wide range of applications in the mining and construction industries, including:`);
+  document.getElementById('applicationsTableBody').innerHTML = apps.length
+    ? apps.map(a => `
+        <tr class="border-b border-white/5">
+          <td class="py-4 px-5 text-sm font-extrabold text-white w-2/5">${escapeHtml(a.title)}</td>
+          <td class="py-4 px-5 text-sm text-gray-300">${escapeHtml(a.description || '')}</td>
+        </tr>`).join('')
+    : `<tr><td class="py-6 px-5 text-sm text-gray-400 text-center" colspan="2">No applications listed.</td></tr>`;
 
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        const tabId = this.getAttribute('data-tab');
+  // CTA
+  setText('ctaTitle', `Interested In ${product.name}?`);
+  setText('ctaDescription', `Contact our team today to discuss your ${catName.toLowerCase()} requirements and get a personalized quote for your operation.`);
 
-        tabBtns.forEach(b => {
-          b.classList.remove('text-brand-lime','border-brand-lime');
-          b.classList.add('text-gray-400','border-transparent');
-        });
-        this.classList.add('text-brand-lime','border-brand-lime');
-        this.classList.remove('text-gray-400','border-transparent');
+  // FAB WhatsApp
+  document.getElementById('fabWhatsapp').href =
+    `https://wa.me/255677800002?text=${encodeURIComponent(`Hello Kilimanjaro Group, I'd like to inquire about ${product.name}.`)}`;
 
-        tabPanels.forEach(panel => panel.classList.remove('active'));
-        document.getElementById('tab-' + tabId).classList.add('active');
-      });
-    });
-  })();
+  // Tab titles
+  document.querySelector('#tab-specs h2').textContent = `${product.name} Specifications`;
+  document.querySelector('#tab-features h2').textContent = `${product.name} Key Features`;
+  document.querySelector('#tab-applications h2').textContent = `${product.name} Applications`;
+  document.querySelector('#tab-description h2').textContent = `About ${product.name}`;
+}
 
-});
+/* ---------- Related products ---------- */
+function renderRelated(items) {
+  const grid = document.getElementById('relatedProductsGrid');
+  if (!items || items.length === 0) {
+    grid.innerHTML = '';
+    return;
+  }
+  grid.innerHTML = items.map(p => {
+    const img = p.featured_image_url || FALLBACK_IMG;
+    const cat = p.category?.name || 'Product';
+    return `
+      <a href="product-details.html?id=${encodeURIComponent(p.id)}" class="group bg-brand-cardBg rounded-3xl overflow-hidden border border-white/10 hover:border-brand-lime/50 transition-all duration-300 hover:-translate-y-2 shadow-xl">
+        <div class="h-44 overflow-hidden relative">
+          <img src="${escapeAttr(img)}" alt="${escapeAttr(p.name)}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark text-[10px] font-extrabold uppercase tracking-wide">${escapeHtml(cat)}</span>
+        </div>
+        <div class="p-5">
+          <h3 class="text-base font-extrabold text-white mb-2 group-hover:text-brand-lime transition-colors">${escapeHtml(p.name)}</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">${escapeHtml(p.short_description || '')}</p>
+          <span class="text-xs font-bold text-brand-lime inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            View Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </span>
+        </div>
+      </a>
+    `;
+  }).join('');
+}
+
+/* ---------- Error state ---------- */
+function showError(message) {
+  document.querySelector('main').innerHTML = `
+    <section class="pt-40 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex w-20 h-20 rounded-2xl bg-red-500/10 border border-red-500/20 items-center justify-center text-red-400 text-3xl mb-6">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">Product Not Found</h1>
+      <p class="text-gray-400 text-sm mb-8">${escapeHtml(message)}</p>
+      <a href="products.html" class="px-7 py-3.5 rounded-full bg-brand-lime hover:bg-brand-limeHover text-brand-dark font-extrabold text-sm transition-all shadow-glow inline-flex items-center gap-3">
+        <i class="fa-solid fa-arrow-left"></i> Back to Products
+      </a>
+    </section>
+  `;
+}
+
+/* ---------- Boot ---------- */
+(async () => {
+  initTabs();
+
+  const id = getParam('id');
+  const slug = getParam('slug');
+
+  if (!id && !slug) {
+    showError('No product specified. Please select a product from our catalog.');
+    return;
+  }
+
+  let query = db
+    .from('catalog_products')
+    .select(`
+      id, sku, slug, name, short_description, description_html,
+      featured_image_url, gallery_images,
+      price_text, availability, delivery_time, certification, tags,
+      meta_title, meta_description, canonical_url, indexable,
+      is_featured, published_at, created_at, updated_at,
+      status, is_visible,
+      category:product_categories!inner (id, slug, name, icon),
+      subcategory:product_subcategories (id, slug, name)
+    `);
+
+  if (id) query = query.eq('id', id);
+  else query = query.eq('slug', slug);
+
+  const { data: product, error } = await query.maybeSingle();
+
+  if (error) {
+    console.error(error);
+    showError('We could not load this product. Please try again later.');
+    return;
+  }
+  if (!product || product.status !== 'published' || !product.is_visible) {
+    showError('This product is not available or has been removed.');
+    return;
+  }
+
+  /* Fetch specs, features, applications in parallel */
+  const [specsRes, featsRes, appsRes, relatedRes] = await Promise.all([
+    db.from('catalog_product_specs').select('spec_name, spec_value, display_order').eq('product_id', product.id).order('display_order'),
+    db.from('catalog_product_features').select('feature_text, display_order').eq('product_id', product.id).order('display_order'),
+    db.from('catalog_product_applications').select('title, description, display_order').eq('product_id', product.id).order('display_order'),
+    db.from('catalog_products')
+      .select(`id, name, short_description, featured_image_url, category:product_categories!inner (id, slug, name)`)
+      .eq('status', 'published').eq('is_visible', true)
+      .eq('category_id', product.category.id)
+      .neq('id', product.id)
+      .limit(4)
+  ]);
+
+  product._specs = specsRes.data || [];
+  product._features = (featsRes.data || []).map(f => f.feature_text);
+  product._applications = appsRes.data || [];
+
+  let related = relatedRes.data || [];
+
+  /* If fewer than 4 same-category, top up with featured/other */
+  if (related.length < 4) {
+    const { data: extra } = await db
+      .from('catalog_products')
+      .select(`id, name, short_description, featured_image_url, category:product_categories!inner (id, slug, name)`)
+      .eq('status', 'published').eq('is_visible', true)
+      .neq('id', product.id)
+      .limit(8);
+    const seen = new Set([product.id, ...related.map(r => r.id)]);
+    (extra || []).forEach(p => { if (!seen.has(p.id) && related.length < 4) { related.push(p); seen.add(p.id); } });
+  }
+
+  /* SEO URL — prefer slug */
+  const productUrl = product.canonical_url
+    || `${SITE_URL}/product-details.html?slug=${encodeURIComponent(product.slug || product.id)}`;
+
+  /* Apply everything */
+  renderProduct(product);
+  renderGallery(product);
+  renderRelated(related);
+  updateSeo(product, productUrl);
+  injectJsonLd(product, productUrl, related);
+})();
 </script>
 
 </body>

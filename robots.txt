@@ -1,0 +1,12 @@
+# robots.txt for kilimanjarogroupltd.co.tz
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /create-news.html
+Disallow: /create-product.html
+Disallow: /news-details.html?preview=1
+Disallow: /news-details.html?id=*
+
+# Sitemap location
+Sitemap: https://kilimanjarogroupltd.co.tz/sitemap.xml
